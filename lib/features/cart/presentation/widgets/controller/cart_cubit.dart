@@ -4,6 +4,7 @@ import 'package:duaya_app/features/cart/data/model/cartCount.dart';
 import 'package:duaya_app/features/cart/data/model/cartSummary.dart';
 import 'package:duaya_app/features/cart/data/model/checkOutModel.dart';
 import 'package:duaya_app/features/cart/data/repositories/cartRepo.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 import '../../../../../common/common_snak_bar_widget.dart';
 import '../../../../../generated/l10n.dart';
@@ -79,6 +80,7 @@ class CartCubit extends Cubit<CartState> {
       "quantity": quantity,
       "variant": variant ?? ""
     };
+    print(cartBody);
     addCartModel = (await repo.addToCart(cartBody: cartBody))!;
     cartCountModel = await repo.getCartCount();
     numberOfItems = 0;
@@ -101,6 +103,12 @@ class CartCubit extends Cubit<CartState> {
     commonToast(ceckOutModel.message!);
     emit(CheckOutSuccess());
   }
+  ////////////////  navigate to the address screen/////////////
+  // Future<void> checkOut(
+  //     {required String userID, String paymentType = "cash_on_delivery"}) async {
+  //   Navigator.pushNamed(context, '/address_form');
+  //   emit(CheckOutSuccess());
+  // }
 
   void addNum() {
     emit(CartLoading());

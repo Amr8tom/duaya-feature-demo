@@ -63,6 +63,7 @@ class newProductGridView extends StatelessWidget {
             price: price,
             hasDicount: hasDiscount,
             strockedPrice: strokedPrice,
+            productID: ID,
           ),
         );
       },

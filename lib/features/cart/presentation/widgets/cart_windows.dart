@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../../generated/l10n.dart';
 import '../../../../../utils/constants/colors.dart';
 import 'custom_container_minus_and_plus.dart';
@@ -12,20 +11,17 @@ import 'custom_container_minus_and_plus.dart';
 class cartWindows extends StatelessWidget {
   Map? map;
   cartWindows({super.key, this.map});
-
   @override
   Widget build(BuildContext context) {
     final CartCubit cartController = context.read<CartCubit>();
     return BlocConsumer<CartCubit, CartState>(
-      listener: (context, state) {
-        // TODO: implement listener
-      },
+      listener: (context, state) {},
       builder: (context, state) {
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 10.sp),
           child: Container(
             decoration: BoxDecoration(
-                color: ColorRes.primaryBackground,
+                color: ColorRes.lightGreen,
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(width: 1.sp, color: ColorRes.white)),
             child: Row(
@@ -63,7 +59,8 @@ class cartWindows extends StatelessWidget {
                     onTap: () => {
                           cartController.addToCart(
                               id: map!["productID"],
-                              quantity: cartController.numberOfItems.toString())
+                              quantity: cartController.numberOfItems.toString(),
+                              variant: map?["variant"])
                         },
                     height: 40.sp,
                     borderWidth: 2.w),

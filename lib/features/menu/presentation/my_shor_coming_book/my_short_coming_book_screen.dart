@@ -15,22 +15,22 @@ import 'package:lottie/lottie.dart';
 
 import '../../../../generated/l10n.dart';
 
-class MyNoteBookScreen extends StatefulWidget {
-  const MyNoteBookScreen({super.key});
+class ShortComingScreen extends StatefulWidget {
+  const ShortComingScreen({super.key});
 
   @override
-  State<MyNoteBookScreen> createState() => _MyNoteBookScreenState();
+  State<ShortComingScreen> createState() => _ShortComingScreenState();
 }
 
-class _MyNoteBookScreenState extends State<MyNoteBookScreen> {
+class _ShortComingScreenState extends State<ShortComingScreen> {
   XFile? _selectedImage;
   XFile? _selectedImageFromCamera;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  DAppBar(
-        title: Text(S.current.myNoteBook),
+      appBar: DAppBar(
+        title: Text(S.current.ShortComingScreen),
         centerTitle: true,
         showBackArrow: true,
       ),
@@ -49,26 +49,31 @@ class _MyNoteBookScreenState extends State<MyNoteBookScreen> {
                   ),
                   child: _selectedImage != null
                       ? ClipRRect(
-                    borderRadius: BorderRadius.circular(14.r),
-                    child: Image.file(
-                      File(_selectedImage!.path),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  )
+                          borderRadius: BorderRadius.circular(14.r),
+                          child: Image.file(
+                            File(_selectedImage!.path),
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                          ),
+                        )
                       : Center(
-                    child: Column(
-                      children: [
-                        Lottie.asset(AssetRes.uploadImage, height: MediaQuery.of(context).size.height / 5.2),
-                        Text(S.current.uploadFileOrExcelSheet, style: const TextStyle().copyWith(fontSize: 12.8.sp, color: Colors.black),)
-                      ],
-                    ),
-                  ),
+                          child: Column(
+                            children: [
+                              Lottie.asset(AssetRes.uploadImage,
+                                  height:
+                                      MediaQuery.of(context).size.height / 5.2),
+                              Text(
+                                S.current.uploadFileOrExcelSheet,
+                                style: const TextStyle().copyWith(
+                                    fontSize: 12.8.sp, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
                 ),
               ),
               SizedBox(height: AppSizes.spaceBtwInputFields),
-
               InkWell(
                 onTap: _openCamera,
                 child: Container(
@@ -80,30 +85,34 @@ class _MyNoteBookScreenState extends State<MyNoteBookScreen> {
                   ),
                   child: _selectedImageFromCamera != null
                       ? ClipRRect(
-                    borderRadius: BorderRadius.circular(14.r),
-                    child: Image.file(
-                      File(_selectedImageFromCamera!.path),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  )
+                          borderRadius: BorderRadius.circular(14.r),
+                          child: Image.file(
+                            File(_selectedImageFromCamera!.path),
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                          ),
+                        )
                       : Center(
-                    child: Column(
-                      children: [
-                        Lottie.asset(AssetRes.uploadImage, height: MediaQuery.of(context).size.height / 5.2),
-                        Text(S.current.takeCameraPhoto, style: const TextStyle().copyWith(fontSize: 12.8.sp, color: Colors.black),)
-                      ],
-                    ),
-                  ),
+                          child: Column(
+                            children: [
+                              Lottie.asset(AssetRes.uploadImage,
+                                  height:
+                                      MediaQuery.of(context).size.height / 5.2),
+                              Text(
+                                S.current.takeCameraPhoto,
+                                style: const TextStyle().copyWith(
+                                    fontSize: 12.8.sp, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
                 ),
               ),
               SizedBox(height: AppSizes.spaceBtwInputFields),
             ],
-          )
-      ),
+          )),
       // floatingActionButton: const CustomFloatingActionButton(textButton: 'Create Order'),
-
     );
   }
 
@@ -131,5 +140,4 @@ class _MyNoteBookScreenState extends State<MyNoteBookScreen> {
       print('No image selected');
     }
   }
-
 }

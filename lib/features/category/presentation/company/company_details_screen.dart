@@ -11,10 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../../generated/l10n.dart';
 import 'package:duaya_app/utils/connection/checkImageNetwork.dart';
-
-import '../../../../../routing/routes_name.dart';
 import '../../../../../utils/constants/image_strings.dart';
-import '../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
 import 'widget/newProductGridView.dart';
 
 class CompanyDetailsScreen extends StatelessWidget {
@@ -22,7 +19,6 @@ class CompanyDetailsScreen extends StatelessWidget {
   final Map map;
   @override
   Widget build(BuildContext context) {
-    // checkImageNetwork.checkImageStatus();
     final companyDetailsController = context.read<CompaniesByPageCubit>();
     String email = S.current.loading;
     String phone = S.current.loading;
