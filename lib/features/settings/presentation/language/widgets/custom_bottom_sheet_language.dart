@@ -18,7 +18,7 @@ class CustomBottomSheetLanguage extends StatefulWidget {
 class _CustomBottomSheetLanguageState extends State<CustomBottomSheetLanguage> {
   @override
   Widget build(BuildContext context) {
-    final transalationController = context.read<TranslationCubit>();
+    final transalationController = context.read<SettinglationCubit>();
     double height = MediaQuery.of(context).size.height;
     bool isTagle = false;
     return Container(

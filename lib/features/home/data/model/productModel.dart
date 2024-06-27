@@ -119,7 +119,7 @@ class Data {
   String? discount;
   String? strokedPrice;
   String? mainPrice;
-  int? calculablePrice;
+  num? calculablePrice;
   String? currencySymbol;
   int? currentStock;
   String? unit;

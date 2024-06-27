@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  CustomTextFormField({Key? key,required this.hintText,required this.controller}) : super(key: key);
+  CustomTextFormField(
+      {Key? key, required this.hintText, required this.controller})
+      : super(key: key);
   String hintText;
   TextEditingController controller;
   @override
@@ -20,33 +22,42 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         width: width / 1.1,
         child: TextFormField(
           controller: widget.controller,
-          style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorRes.grey3),
+          style: Theme.of(context)
+              .textTheme
+              .titleLarge!
+              .copyWith(color: ColorRes.grey3),
           decoration: InputDecoration(
               filled: true,
               fillColor: ColorRes.lightGrey,
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg * 1.5),
+                borderRadius:
+                    BorderRadius.circular(AppSizes.borderRadiusLg * 1.5),
                 borderSide: const BorderSide(
                   color: ColorRes.borderTextFormField,
                 ),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg *  1.5),
+                borderRadius:
+                    BorderRadius.circular(AppSizes.borderRadiusLg * 1.5),
                 borderSide: const BorderSide(
                   color: ColorRes.borderTextFormField,
                 ),
-
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg *  1.5),
+                borderRadius:
+                    BorderRadius.circular(AppSizes.borderRadiusLg * 1.5),
                 borderSide: const BorderSide(
                   color: ColorRes.borderTextFormField,
                 ),
               ),
               hintText: widget.hintText,
-              hintStyle: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorRes.silver),
-              contentPadding: EdgeInsets.only(left: AppSizes.spaceBtwItems * 1.5, right: AppSizes.spaceBtwItems / 2)
-          ),
+              hintStyle: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: Colors.grey),
+              contentPadding: EdgeInsets.only(
+                  left: AppSizes.spaceBtwItems * 1.5,
+                  right: AppSizes.spaceBtwItems / 2)),
         ),
       ),
     );

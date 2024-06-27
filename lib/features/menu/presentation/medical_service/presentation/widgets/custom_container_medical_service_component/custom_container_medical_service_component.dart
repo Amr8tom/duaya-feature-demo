@@ -1,14 +1,24 @@
+import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 
-import '../../../../../../common/widgets/custom_button/custom_button_with_icon.dart';
+import '../../../../../../cart/presentation/widgets/add_miuns_cart_button.dart';
 
-class CustomContainerMedicalServiceComponent extends StatelessWidget {
-  CustomContainerMedicalServiceComponent({Key? key, required this.productImage, required this.description}) : super(key: key);
-  String productImage,description;
+class MedicalServiceCard extends StatelessWidget {
+  MedicalServiceCard(
+      {Key? key,
+      required this.productImage,
+      required this.strockedPrice,
+      this.discount,
+      required this.id,
+      required this.description,
+      required this.price})
+      : super(key: key);
+  String productImage, description, price, strockedPrice;
+  String? discount;
+  int id;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +28,9 @@ class CustomContainerMedicalServiceComponent extends StatelessWidget {
       elevation: 5,
       child: Container(
         // margin: EdgeInsets.symmetric(horizontal: 5.w),
-        padding: EdgeInsets.symmetric(vertical: AppSizes.spaceBtwTexts * 2, horizontal: AppSizes.spaceBtwTexts),
+        padding: EdgeInsets.symmetric(
+            vertical: AppSizes.spaceBtwTexts * 2,
+            horizontal: AppSizes.spaceBtwTexts),
         decoration: BoxDecoration(
           color: ColorRes.white,
           borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
@@ -29,33 +41,50 @@ class CustomContainerMedicalServiceComponent extends StatelessWidget {
             Row(
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: AppSizes.spaceBtwTexts),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: AppSizes.spaceBtwTexts),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-                      color: ColorRes.error2
-                  ),
-                  child: Center(child: Text("-15%",style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorRes.white),)),
+                      borderRadius:
+                          BorderRadius.circular(AppSizes.borderRadiusLg),
+                      color: ColorRes.black),
+                  child: Center(
+                      child: Text(
+                    discount ?? "0",
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleMedium!
+                        .copyWith(color: ColorRes.white),
+                  )),
                 ),
                 const Spacer(),
-                const Icon(Icons.favorite_border)
+                const Icon(Icons.discount)
               ],
             ),
             SizedBox(height: AppSizes.spaceBtwTexts),
-            Image.asset(productImage),
+            CachedImage(
+              link: productImage,
+              height: 120.sp,
+            ),
             Text(description, style: Theme.of(context).textTheme.titleSmall),
             SizedBox(height: AppSizes.spaceBtwTexts),
-            Text("\$355.00", style: Theme.of(context).textTheme.titleSmall!.copyWith(decoration: TextDecoration.lineThrough)),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("\$235.00", style: Theme.of(context).textTheme.titleLarge!.copyWith(color: ColorRes.error2)),
-                CircleAvatar(
-                  radius: 20.r,
-                  backgroundColor: ColorRes.primary,
-                  child: Icon(Icons.arrow_forward, color: ColorRes.white, size: 21.sp),
-                ),
-              ],
-            ),
+            Text(strockedPrice ?? "0.00",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(decoration: TextDecoration.lineThrough)),
+            Text(price ?? "0.00",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: ColorRes.error2)),
+            AddMinusCartButton(
+              height: AppSizes.appBarHeight,
+              width: double.infinity,
+              color: ColorRes.lightGreen,
+              borderColor: Colors.transparent,
+              textButtonColor: Colors.white,
+              ID: id.toString(),
+            )
           ],
         ),
       ),

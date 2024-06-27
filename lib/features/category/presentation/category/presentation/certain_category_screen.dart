@@ -16,11 +16,8 @@ import 'controller/search_cubit.dart';
 
 class certainCategoryScreen extends StatelessWidget {
   TextEditingController searchTextController = TextEditingController();
-
   Map<String, dynamic> map;
-
   certainCategoryScreen({super.key, required this.map});
-
   @override
   Widget build(BuildContext context) {
     final searchController = context.read<SearchCubit>();
@@ -49,7 +46,7 @@ class certainCategoryScreen extends StatelessWidget {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 22,
-                  color: ColorRes.primary),
+                  color: ColorRes.white),
             ),
           ),
           body: SingleChildScrollView(
@@ -121,6 +118,7 @@ class certainCategoryScreen extends StatelessWidget {
                               price: productprice,
                               hasDicount: hasDicount,
                               strockedPrice: StrokedPrice,
+                              productID: ID,
                             ),
                           );
                         })
@@ -163,6 +161,7 @@ class certainCategoryScreen extends StatelessWidget {
                                   });
                             },
                             child: CustomContainerProduct(
+                              productID: ID,
                               productImage: productimage,
                               productName: productName,
                               companyName: productCompany,

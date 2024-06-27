@@ -16,8 +16,8 @@ class CustomSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     BestSellerCubit bestSellerController = context.read<BestSellerCubit>();
     return Container(
-      height: DDeviceUtils.getScreenHeight(context) * .26,
-      width: DDeviceUtils.getScreenWidth(context),
+      // height: DDeviceUtils.getScreenHeight(context) * .3,
+      // width: DDeviceUtils.getScreenWidth(context),
       alignment: AlignmentDirectional.center,
 
       /// Decoration
@@ -32,12 +32,6 @@ class CustomSlider extends StatelessWidget {
           /// Banner
           CarouselSlider.builder(
             itemBuilder: (BuildContext context, int index, int i) {
-              // return CachedImage(
-              //   link: 'assets/images/banner.png',
-              //   width: 400.w,
-              //   borderRadius: 25.r,
-              //   fit: BoxFit.cover,
-              // );
               String sliderImage =
                   bestSellerController.slidersModel.data![index].photo!;
               return ClipRRect(
@@ -57,7 +51,8 @@ class CustomSlider extends StatelessWidget {
             itemCount: DConstants.bannersList.length,
             options: CarouselOptions(
               autoPlay: true,
-              aspectRatio: 2.1,
+              viewportFraction: 0.85,
+              aspectRatio: 2.2,
               enlargeCenterPage: true,
               // onPageChanged: homeCubit.onPageChangedSlider,
             ),

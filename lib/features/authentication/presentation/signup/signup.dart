@@ -9,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     final dark = DHelperFunctions.isDarkMode(context);
@@ -17,54 +16,44 @@ class SignupScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           S.current.appName,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30.sp),
+          style: Theme.of(context).textTheme.headlineLarge,
         ),
         centerTitle: true,
-        backgroundColor: ColorRes.primary.withOpacity(0.3),
+        backgroundColor: ColorRes.grey.withOpacity(0.2),
       ),
-      body: Stack(children: [
-        Container(
-          height: double.infinity,
-          color: ColorRes.white,
-        ),
-        Container(
-          child: Image.asset(
-            AssetRes.backGroundImage,
-            color: Colors.green,
-          ),
-        ),
-        SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(AppSizes.md),
-            child: Container(
-              decoration: BoxDecoration(
-                  color: ColorRes.primary.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(20)),
-              child: Padding(
-                padding: EdgeInsets.all(
-                  AppSizes.sm,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    /// Title
-                    Text(S.current.letsStart,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(AppSizes.md),
+          child: Container(
+            decoration: BoxDecoration(
+                color: ColorRes.grey.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(20)),
+            child: Padding(
+              padding: EdgeInsets.all(
+                AppSizes.sm,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  /// Title
+                  Center(
+                    child: Text(S.current.letsStart,
                         style: Theme.of(context)
                             .textTheme
                             .headlineMedium!
-                            .copyWith(fontSize: 20.sp)),
-                    SizedBox(height: AppSizes.spaceBtwSections),
+                            .copyWith(fontSize: 28.sp, color: Colors.red)),
+                  ),
+                  SizedBox(height: AppSizes.spaceBtwSections),
 
-                    /// Form
-                    DSignupForm(),
-                    SizedBox(height: AppSizes.spaceBtwSections / 2),
-                  ],
-                ),
+                  /// Form
+                  DSignupForm(),
+                  SizedBox(height: AppSizes.spaceBtwSections / 2),
+                ],
               ),
             ),
           ),
-        )
-      ]),
+        ),
+      ),
     );
   }
 }

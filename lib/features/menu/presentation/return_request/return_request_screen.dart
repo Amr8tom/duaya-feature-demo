@@ -21,21 +21,29 @@ class ReturnRequestScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding:EdgeInsets.all(AppSizes.spaceBtwItems),
+          padding: EdgeInsets.all(AppSizes.spaceBtwItems),
           child: Column(
             children: [
-             /// Text Form Field
-              CustomTextFormField(hintText: "Please enter a service name", controller: controller),
-
+              /// Text Form Field
+              CustomTextFormField(
+                  hintText: "Please enter a service name",
+                  controller: controller),
             ],
           ),
         ),
       ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.all(AppSizes.spaceBtwItems),
-        child: CustomButtonWithIcon(textButton:S.current.send,onTap: (){},color: ColorRes.primary,height: AppSizes.imageSize * 1.2,width: width, borderColor: Colors.transparent, textButtonColor: ColorRes.white, isAddToCart: true),
+        child: CustomButtonWithIcon2(
+            textButton: S.current.send,
+            onTap: () {},
+            color: ColorRes.primary,
+            height: AppSizes.imageSize * 1.2,
+            width: width,
+            borderColor: Colors.transparent,
+            textButtonColor: ColorRes.white,
+            isAddToCart: true),
       ),
-
     );
   }
 }

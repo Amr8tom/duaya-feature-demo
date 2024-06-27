@@ -7,8 +7,12 @@ import '../model/loginModel.dart';
 abstract class rigsterLocalDataSource {
   Future<void> cacheRigsterJson({required String rigsterLogin});
   Future<Map<String, dynamic>?> getRigsterJson();
-  Future<void> cacheCitiesJson({required String cities});
-  Future<Map<String, dynamic>?> getCitiesJson();
+  Future<void> cacheCountryJson({required String countryList});
+  Future<void> cacheCityJson({required String CityList});
+  Future<void> cacheStateJson({required String stateList});
+  Future<Map<String, dynamic>?> getCountryListJson();
+  Future<Map<String, dynamic>?> getCityListJson();
+  Future<Map<String, dynamic>?> getStateListJson();
 }
 
 class rigsterLocalDataSourceImp implements rigsterLocalDataSource {
@@ -25,13 +29,35 @@ class rigsterLocalDataSourceImp implements rigsterLocalDataSource {
   }
 
   @override
-  Future<void> cacheCitiesJson({required String cities}) async {
-    PrefService.putString(key: CacheKeys.cities, value: cities);
+  Future<void> cacheCityJson({required String CityList}) async {
+    PrefService.putString(key: CacheKeys.cityList, value: CityList);
   }
 
   @override
-  Future<Map<String, dynamic>?> getCitiesJson() async {
-    String? cities = PrefService.getString(key: CacheKeys.cities);
-    return jsonDecode(cities!);
+  Future<void> cacheStateJson({required String stateList}) async {
+    PrefService.putString(key: CacheKeys.stateList, value: stateList);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> getCityListJson() async {
+    String? cityList = PrefService.getString(key: CacheKeys.cityList);
+    return jsonDecode(cityList!);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> getStateListJson() async {
+    String? stateList = PrefService.getString(key: CacheKeys.stateList);
+    return jsonDecode(stateList!);
+  }
+
+  @override
+  Future<void> cacheCountryJson({required String countryList}) async {
+    PrefService.putString(key: CacheKeys.countryList, value: countryList);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> getCountryListJson() async {
+    String? stateList = PrefService.getString(key: CacheKeys.countryList);
+    return jsonDecode(stateList!);
   }
 }

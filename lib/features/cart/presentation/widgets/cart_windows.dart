@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
-import '../../../../../generated/l10n.dart';
-import '../../../../../utils/constants/colors.dart';
-import 'custom_container_minus_and_plus.dart';
+import '../../../../generated/l10n.dart';
+import '../../../../utils/constants/colors.dart';
+import '../../../home/presentation/widgets/custom_container_product/custom_container_minus_and_plus.dart';
 
 class cartWindows extends StatelessWidget {
   Map? map;

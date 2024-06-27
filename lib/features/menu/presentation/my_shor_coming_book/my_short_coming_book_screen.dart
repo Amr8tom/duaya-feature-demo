@@ -1,143 +1,156 @@
 import 'dart:io';
-
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/common/widgets/floating_action_button/custom_floating_action_button.dart';
-import 'package:duaya_app/features/home/presentation/widgets/custom_container_product/custom_container_product.dart';
-import 'package:duaya_app/routing/routes_name.dart';
+import 'package:duaya_app/features/menu/presentation/my_shor_coming_book/presentation/controller/short_coming_cubit.dart';
+import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
-import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
-
 import '../../../../generated/l10n.dart';
 
-class ShortComingScreen extends StatefulWidget {
-  const ShortComingScreen({super.key});
-
-  @override
-  State<ShortComingScreen> createState() => _ShortComingScreenState();
-}
-
-class _ShortComingScreenState extends State<ShortComingScreen> {
-  XFile? _selectedImage;
-  XFile? _selectedImageFromCamera;
-
+class ShortComingScreen extends StatelessWidget {
+  ShortComingScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: DAppBar(
-        title: Text(S.current.ShortComingScreen),
-        centerTitle: true,
-        showBackArrow: true,
+    return BlocProvider(
+      create: (context) => ShortComingCubit(),
+      child: BlocConsumer<ShortComingCubit, ShortComingState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          ShortComingCubit shortComingController =
+              context.read<ShortComingCubit>();
+          return Scaffold(
+            appBar: DAppBar(
+              title: Container(
+                padding: EdgeInsets.all(15.sp),
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(15)),
+                child: Text(
+                  S.current.ShortComing,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
+              centerTitle: true,
+              showBackArrow: true,
+            ),
+            body: Padding(
+                padding: EdgeInsets.all(AppSizes.spaceBtwItems),
+                child: Column(
+                  children: [
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+                    InkWell(
+                      onTap: () async {
+                        await shortComingController.openImageGallery(
+                            context: context);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 260.h,
+                        decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Colors.lightGreen, width: 2),
+                          borderRadius: BorderRadius.circular(24.r),
+                        ),
+                        child: shortComingController.selectedImage != null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(14.r),
+                                child: Image.file(
+                                  File(shortComingController
+                                      .selectedImage!.path),
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                ),
+                              )
+                            : Center(
+                                child: Column(
+                                  children: [
+                                    Lottie.asset(AssetRes.shortComingBook2,
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                5.2),
+                                    Spacer(),
+                                    Text(
+                                      S.current.uploadFileOrExcelSheet,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium!
+                                          .copyWith(color: ColorRes.black),
+                                    ),
+                                    SizedBox(
+                                        height: AppSizes.spaceBtwInputFields),
+                                  ],
+                                ),
+                              ),
+                      ),
+                    ),
+                    Spacer(),
+                    InkWell(
+                      onTap: () async {
+                        await shortComingController.openCamera(
+                            context: context);
+                      },
+                      child: Container(
+                        width: double.infinity,
+                        height: 260.h,
+                        decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Colors.lightGreen, width: 2),
+                          borderRadius: BorderRadius.circular(24.r),
+                        ),
+                        child: shortComingController.selectedImageFromCamera !=
+                                null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(14.r),
+                                child: Image.file(
+                                  File(shortComingController
+                                      .selectedImageFromCamera!.path),
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                  height: double.infinity,
+                                ),
+                              )
+                            : Center(
+                                child: Column(
+                                  children: [
+                                    Lottie.asset(AssetRes.shortComingBook,
+                                        height:
+                                            MediaQuery.of(context).size.height /
+                                                5.2),
+                                    Spacer(),
+                                    Text(S.current.takeCameraPhoto,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium!
+                                            .copyWith(color: ColorRes.black)),
+                                    SizedBox(
+                                        height: AppSizes.spaceBtwInputFields),
+                                  ],
+                                ),
+                              ),
+                      ),
+                    ),
+                    Spacer(),
+                    ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          S.current.sendMyShortComingBook,
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 18.sp),
+                        )),
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+                  ],
+                )),
+            // floatingActionButton: const CustomFloatingActionButton(textButton: 'Create Order'),
+          );
+        },
       ),
-      body: Padding(
-          padding: EdgeInsets.all(AppSizes.spaceBtwItems),
-          child: Column(
-            children: [
-              InkWell(
-                onTap: _openImageGallery,
-                child: Container(
-                  width: double.infinity,
-                  height: 200.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(24.r),
-                  ),
-                  child: _selectedImage != null
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(14.r),
-                          child: Image.file(
-                            File(_selectedImage!.path),
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: double.infinity,
-                          ),
-                        )
-                      : Center(
-                          child: Column(
-                            children: [
-                              Lottie.asset(AssetRes.uploadImage,
-                                  height:
-                                      MediaQuery.of(context).size.height / 5.2),
-                              Text(
-                                S.current.uploadFileOrExcelSheet,
-                                style: const TextStyle().copyWith(
-                                    fontSize: 12.8.sp, color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-              InkWell(
-                onTap: _openCamera,
-                child: Container(
-                  width: double.infinity,
-                  height: 200.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(24.r),
-                  ),
-                  child: _selectedImageFromCamera != null
-                      ? ClipRRect(
-                          borderRadius: BorderRadius.circular(14.r),
-                          child: Image.file(
-                            File(_selectedImageFromCamera!.path),
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: double.infinity,
-                          ),
-                        )
-                      : Center(
-                          child: Column(
-                            children: [
-                              Lottie.asset(AssetRes.uploadImage,
-                                  height:
-                                      MediaQuery.of(context).size.height / 5.2),
-                              Text(
-                                S.current.takeCameraPhoto,
-                                style: const TextStyle().copyWith(
-                                    fontSize: 12.8.sp, color: Colors.black),
-                              )
-                            ],
-                          ),
-                        ),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-            ],
-          )),
-      // floatingActionButton: const CustomFloatingActionButton(textButton: 'Create Order'),
     );
-  }
-
-  Future<void> _openImageGallery() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      setState(() {
-        _selectedImage = image;
-      });
-    } else {
-      // User canceled the image picking
-      print('No image selected');
-    }
-  }
-
-  Future<void> _openCamera() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
-    if (image != null) {
-      setState(() {
-        _selectedImageFromCamera = image;
-      });
-    } else {
-      print('No image selected');
-    }
   }
 }

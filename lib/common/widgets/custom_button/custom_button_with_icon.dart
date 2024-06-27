@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utils/constants/sizes.dart';
 
-class CustomButtonWithIcon extends StatelessWidget {
+class CustomButtonWithIcon2 extends StatelessWidget {
   final VoidCallback onTap;
   final String textButton;
   double? width = 300.w;
@@ -13,7 +13,7 @@ class CustomButtonWithIcon extends StatelessWidget {
   final Color borderColor, textButtonColor;
   final bool isAddToCart;
 
-  CustomButtonWithIcon(
+  CustomButtonWithIcon2(
       {Key? key,
       required this.onTap,
       required this.textButton,
@@ -47,12 +47,14 @@ class CustomButtonWithIcon extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: textButtonColor,
                           height: .5.h,
-                          fontSize: 14.sp,
+                          fontSize: 21.sp,
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Poppins',
                           overflow: TextOverflow
                               .ellipsis, // Handle overflow with ellipsis
                         )),
                 // SizedBox(width: AppSizes.spaceBtwTexts),
-                SizedBox(child: widget)
+                // SizedBox(child: widget)
               ],
             ),
           )),

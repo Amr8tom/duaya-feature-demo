@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
@@ -25,43 +26,34 @@ class CustomCategoryInHome extends StatelessWidget {
   Widget build(BuildContext context) {
     CategoriesByPageCubit certainCataController =
         context.read<CategoriesByPageCubit>();
-    return FutureBuilder(
-        future:
-            checkImageNetwork.checkImageStatus(NetworkImageURL: categoryImage),
-        builder: (context, snapshot) {
-          Widget imageWidget;
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            imageWidget = Center(
-              child: Lottie.asset(AssetRes.circleLoading),
-            );
-          } else if (snapshot.hasError || !snapshot.data!) {
-            imageWidget = Lottie.asset(AssetRes.emptyProduct2);
-          } else {
-            imageWidget = Image.network(categoryImage);
-          }
-          return GestureDetector(
-            onTap: () async {
-              await certainCataController.fetchCategoryByID(cataID: categoryID);
-              await context.pushNamed(DRoutesName.certainCategoryRoute,
-                  arguments: {"cataName": categoryName});
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 30.r,
-                  backgroundColor: ColorRes.grey3,
-                  child: imageWidget,
-                ),
-                Text(categoryName,
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        fontSize: 14.sp, fontWeight: FontWeight.w500)),
-                Text(S.current.seeAll,
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: ColorRes.grey2.withOpacity(.5), fontSize: 14.sp))
-              ],
-            ),
-          );
-        });
+    return GestureDetector(
+      onTap: () async {
+        await certainCataController.fetchCategoryByID(cataID: categoryID);
+        await context.pushNamed(DRoutesName.certainCategoryRoute,
+            arguments: {"cataName": categoryName});
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+              radius: 30.r,
+              backgroundColor: ColorRes.grey3,
+              child: CachedImage(
+                link: categoryImage,
+                lottieFileOnError: AssetRes.emptyProduct2,
+              )),
+          Text(categoryName,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                  overflow: TextOverflow.ellipsis)),
+          Text(S.current.seeAll,
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                  color: ColorRes.grey2.withOpacity(.5),
+                  fontSize: 14.sp,
+                  overflow: TextOverflow.ellipsis))
+        ],
+      ),
+    );
   }
 }

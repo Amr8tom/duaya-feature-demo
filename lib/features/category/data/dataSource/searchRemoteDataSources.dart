@@ -7,20 +7,21 @@ class searchRemoteDataSourcesImp {
 
   Future<Map<String, dynamic>> getRemoteDataSources(
       {required String name, required cityID, int? page}) async {
-    print("////////////////////// remote search ////////////////////////////");
+    // print("////////////////////// remote search ////////////////////////////");
     if (page == null) {
       Map<String, dynamic>? response =
           await API.getData(URL: "${URL.search}$name");
       print(response);
       return response!;
     } else {
-      final Map<String, dynamic>? response = await API.getData(
-          URL: "${URL.search}$name&page=$page&brands=$cityID");
-      print("${URL.search}$name&page=$page");
-      print("${URL.search}$name&page=$page");
-      print("${URL.search}$name&page=$page");
-      print("${URL.search}$name&page=$page");
-      print(response);
+      final Map<String, dynamic>? response =
+          await API.getData(URL: "${URL.search}$name&page=$page");
+      // print("The URL ////////////////  URL ////////////////////////////     ");
+      // print("${URL.search}$name&page=$page");
+      // print("${URL.search}$name&page=$page");
+      // print("${URL.search}$name&page=$page");
+      // print("${URL.search}$name&page=$page");
+      // print(response);
       return response!;
     }
   }

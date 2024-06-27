@@ -11,6 +11,9 @@ abstract class bestSellerLocalDataSource {
   Future<void> cacheProductDetails(
       {required String productJson, required String productID});
   Future<Map<String, dynamic>?> getProductJson({required String productID});
+  Future<void> cacheRelatedProduct(
+      {required String relatedProductJson, required String productID});
+  Future<Map<String, dynamic>?> getRelatedProduct({required String productID});
 }
 
 class bestSellerLocalDataSourceImpl implements bestSellerLocalDataSource {
@@ -41,13 +44,32 @@ class bestSellerLocalDataSourceImpl implements bestSellerLocalDataSource {
   @override
   Future<void> cacheProductDetails(
       {required String productJson, required String productID}) async {
-    await PrefService.putStringbyString(key: productID, value: productJson);
+    await PrefService.putStringbyString(
+        key: "${CacheKeys.productDetails}$productID", value: productJson);
   }
 
   @override
   Future<Map<String, dynamic>?> getProductJson(
       {required String productID}) async {
-    String? productJson = await PrefService.getStringByString(key: productID);
+    String? productJson = await PrefService.getStringByString(
+        key: "${CacheKeys.productDetails}$productID");
+    return jsonDecode(productJson!);
+  }
+
+  @override
+  Future<void> cacheRelatedProduct(
+      {required String relatedProductJson, required String productID}) async {
+    await PrefService.putStringbyString(
+        key: "${CacheKeys.relatedProduct}$productID",
+        value: relatedProductJson);
+  }
+
+  @override
+  Future<Map<String, dynamic>?> getRelatedProduct(
+      {required String productID}) async {
+    // TODO: implement getRelatedProduct
+    String? productJson = await PrefService.getStringByString(
+        key: "${CacheKeys.relatedProduct}$productID");
     return jsonDecode(productJson!);
   }
 }

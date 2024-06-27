@@ -1,13 +1,11 @@
 import 'package:duaya_app/features/onboarding/managers/onboarding_cubit/onboarding_state.dart';
 import 'package:duaya_app/routing/routes_name.dart';
-import 'package:duaya_app/utils/constants/exports.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnBoardingCubit extends Cubit<OnBoardingState> {
   OnBoardingCubit() : super(OnBoardingState(0));
-
   final PageController pageController = PageController();
 
   // Functions

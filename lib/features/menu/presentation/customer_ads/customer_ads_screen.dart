@@ -36,11 +36,12 @@ class CustomerAdsScreen extends StatelessWidget {
                   },
                   child: CustomContainerProduct(
                     productImage: AssetRes.product,
-                    productName: "Panadol Extra",
-                    companyName: "gsk company",
+                    productName: "Top",
+                    companyName: "Amr Alaa",
                     rete: 4.5,
                     hasDicount: false,
-                    price: "900",
+                    price: "123",
+                    productID: 'No ID',
                   ));
             },
           ),

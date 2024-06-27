@@ -14,6 +14,7 @@ class DRoutesName {
   static const String noConnectionRoute = 'no-connection-route';
   static const String webViewRoute = 'webView-route';
   static const String CartRoute = 'cartScreen-route';
+  static const String categoriesRoute = 'categories-route';
 
   /// Navigation Bar
   static const String navigationMenuRoute = 'navigation-menu-route';
@@ -42,13 +43,22 @@ class DRoutesName {
   static const String medicalServiceRoute = 'medical-service-route';
   static const String addNewProductOrAdsRoute = 'add-product-route';
 
+  /// payment
+  static const String walletPaymentRoute = 'walletPayment-route';
+  static const String DelayedCashRoute = 'DelayedCash-route';
+  static const String CreditCardPaymentRoute = 'CreditCardPayment-route';
+  static const String CashOnDeliveryRoute = 'CashOnDelivery-route';
+
+  /// address
+  static const String AddressListRoute = 'AddressList-route';
+
   /// Setting
   static const String settingsRoute = 'settings-route';
   static const String profileInfoRoute = 'profile-info-route';
   static const String pharmacyInfoRoute = 'pharmacy-info-route';
   static const String addNewProductRoute = 'add-new-product-route';
   static const String shippingInformationRoute = 'shipping-information-route';
-  static const String addNewAddressRoute = 'add-new-address-route';
+  static const String addressRoute = 'address-route';
   static const String addNewAddressFormRoute = 'add-new-address-form-route';
   static const String paymentRoute = 'payment-route';
   static const String companyDetailsRoute = 'company-route';

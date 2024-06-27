@@ -15,7 +15,9 @@ class CustomContainerOrder extends StatelessWidget {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: AppSizes.spaceBtwTexts),
-      padding: EdgeInsets.symmetric(horizontal: AppSizes.spaceBtwItems, vertical: AppSizes.spaceBtwItems * 1.5),
+      padding: EdgeInsets.symmetric(
+          horizontal: AppSizes.spaceBtwItems,
+          vertical: AppSizes.spaceBtwItems * 1.5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
         color: ColorRes.grey3,
@@ -34,25 +36,56 @@ class CustomContainerOrder extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('On the wat to you', style: Theme.of(context).textTheme.titleMedium!.copyWith( color: ColorRes.primary)),
-              Text('\$235,00', style: Theme.of(context).textTheme.titleLarge!.copyWith( color: ColorRes.error2)),
+              Text('On the wat to you',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(color: ColorRes.primary)),
+              Text('\$235,00',
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(color: ColorRes.error2)),
             ],
           ),
           SizedBox(height: AppSizes.spaceBtwTexts),
-          Text('Bill NO.23455-64327', style: Theme.of(context).textTheme.headlineMedium!.copyWith(fontSize: 20.sp, color: ColorRes.black)),
+          Text('Bill NO.23455-64327',
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium!
+                  .copyWith(fontSize: 20.sp, color: ColorRes.black)),
           SizedBox(height: AppSizes.spaceBtwTexts),
-          Text('ordered 20/11/2023', style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorRes.black)),
+          Text('ordered 20/11/2023',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: ColorRes.black)),
           SizedBox(height: AppSizes.spaceBtwItems * 1.5),
-          Text("${S.current.paymentStatus}: ", style: Theme.of(context).textTheme.titleMedium!.copyWith(color: ColorRes.silver)),
+          Text("${S.current.paymentStatus}: ",
+              style: Theme.of(context)
+                  .textTheme
+                  .titleMedium!
+                  .copyWith(color: ColorRes.silver)),
           SizedBox(height: AppSizes.spaceBtwTexts),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(S.current.paymentwhenReceiving, style: Theme.of(context).textTheme.titleLarge!.copyWith(fontSize: 15.sp, color: ColorRes.black)),
-              CustomButtonWithIcon(onTap: (){}, textButton: S.current.myOrder,color: ColorRes.primary,height: AppSizes.spaceBtwItems * 2.5,width: AppSizes.padding * 6, borderColor: Colors.transparent, textButtonColor: ColorRes.white, isAddToCart: true),
+              Text(S.current.paymentwhenReceiving,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(fontSize: 15.sp, color: ColorRes.black)),
+              CustomButtonWithIcon2(
+                  onTap: () {},
+                  textButton: S.current.myOrder,
+                  color: ColorRes.primary,
+                  height: AppSizes.spaceBtwItems * 2.5,
+                  width: AppSizes.padding * 6,
+                  borderColor: Colors.transparent,
+                  textButtonColor: ColorRes.white,
+                  isAddToCart: true),
             ],
           )
-
         ],
       ),
     );

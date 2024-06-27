@@ -20,7 +20,7 @@ class CustomTextFormFieldSearch extends StatelessWidget {
 
     return Card(
       child: SizedBox(
-        width: width / 1.1,
+        width: width / 1.05,
         child: TextFormField(
           controller: controller,
           style: Theme.of(context)

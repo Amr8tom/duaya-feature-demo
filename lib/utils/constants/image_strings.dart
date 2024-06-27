@@ -1,7 +1,8 @@
 class AssetRes {
   /// -- App Logos
   static const String appLogo = 'assets/images/pngs/app-logo.png';
-  static const String appIcon = 'assets/images/pngs/appIcon.png';
+  static const String appIcon = 'assets/images/pngs/app-logo.png';
+  static const String animationLogo = 'assets/animations/logoAnimation.gif';
   static const String profileLogo = 'assets/images/jpegs/profileLogo.jpeg';
   static const String test = 'assets/lotties/testRR.json';
 
@@ -10,9 +11,22 @@ class AssetRes {
   static const String onBoardingImage2 = 'assets/lotties/drugJson.json';
   static const String onBoardingImage3 = 'assets/lotties/sell3.json';
 
+  /// -- Menu Images
+  static const String wallet = 'assets/lotties/wallet.json';
+  static const String delayedCash = 'assets/lotties/delayedCash.json';
+  static const String creditCard = 'assets/lotties/creditCard.json';
+
+  ///////// rebots Image
+  static const String rebot1 = 'assets/lotties/rebot1.json';
+
+  ///////// shorComingBook
+  static const String shortComingBook = 'assets/lotties/shortComingBook.json';
+  static const String shortComingBook2 = 'assets/lotties/book.json';
+
   ///////// splash Image
 
-  static const String splashLottie = 'assets/lotties/splash3.json';
+  static const String splashLottie = 'assets/lotties/lastSplash.json';
+  static const String search = 'assets/lotties/search.json';
 
   //// Logo like gif images
   static const String gif1 = 'assets/images/svgs/Untitled (1).svg';
@@ -28,7 +42,8 @@ class AssetRes {
       'https://doctorpharmaco.com/public/assets/img/placeholder.jpg';
   static const String emptyProduct = 'assets/lotties/emtpyProduct1.json';
   static const String emptyProduct2 = 'assets/lotties/emptyProduct2.json';
-  static const String emptyCompany = 'assets/lotties/company.json';
+  static const String animationLoading =
+      'assets/lotties/splashMedicalConnections.json';
 
   ///////// loading
   static const String normalLoading = 'assets/lotties/loading1.json';
@@ -45,8 +60,10 @@ class AssetRes {
   static const String cartAfterFilling = 'assets/lotties/cartAfterFilling.json';
   static const String cartAfterFilling2 =
       'assets/lotties/cartAfterFilling2.json';
-  static const String cartBeforeFilling =
-      'assets/lotties/cartBeforeFilling.json';
+  static const String cartBeforeFilling = 'assets/lotties/emptyGreenCart.json';
+
+  /// address Images
+  static const String cashImage = 'assets/lotties/cash.json';
 
   /// -- Social Logos
   static const String google =

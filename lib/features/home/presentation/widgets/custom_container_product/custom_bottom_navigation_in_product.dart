@@ -65,7 +65,7 @@ class CustomBottomNavigationInProduct extends StatelessWidget {
               padding: EdgeInsets.all(10.sp),
               child: Row(
                 children: [
-                  CustomButtonWithIcon(
+                  CustomButtonWithIcon2(
                       textButton: textOfButton1,
                       width: width / 2.5,
                       color: colorOfButton1,
@@ -76,7 +76,7 @@ class CustomBottomNavigationInProduct extends StatelessWidget {
                       textButtonColor: textButton1Color,
                       isAddToCart: false),
                   const Spacer(),
-                  CustomButtonWithIcon(
+                  CustomButtonWithIcon2(
                       textButton: textOfButton2,
                       width: width / 2.5,
                       color: colorOfButton2,

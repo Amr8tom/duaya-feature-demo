@@ -1,210 +1,186 @@
 import 'dart:io';
 
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/widgets/date_input_formatter.dart';
+import 'package:duaya_app/features/authentication/presentation/signup/widgets/TextFormWidget.dart';
+import 'package:duaya_app/features/category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
+import 'package:duaya_app/features/menu/presentation/expire_product/presentation/controller/expired_products_cubit.dart';
+import 'package:duaya_app/features/menu/presentation/expire_product/presentation/widgets/date_input_formatter.dart';
+import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../../generated/l10n.dart';
+import '../../../../../generated/l10n.dart';
 
-class AddNewProductScreen extends StatefulWidget {
-  const AddNewProductScreen({super.key});
+class AddNewProductScreen extends StatelessWidget {
+  Map<String, dynamic> map;
+  AddNewProductScreen({super.key, required this.map});
 
-  @override
-  State<AddNewProductScreen> createState() => _AddNewProductScreenState();
-}
-
-class _AddNewProductScreenState extends State<AddNewProductScreen> {
   /// Select
-  List<String> works = [S.current.pharmacy, S.current.clinic, S.current.hospital, S.current.lab];
-  String? selectWork = S.current.pharmacy;
-  XFile? _selectedImage;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar:  DAppBar(
-        title: Text(S.current.addProduct),
-        centerTitle: true,
-        showBackArrow: true,
-      ),
-
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(AppSizes.defaultSpace),
-          child: Column(
-            children: [
-              /// Product name
-              TextFormField(
-                expands: false,
-                decoration:  InputDecoration(
-                  labelText: S.current.productName,
-                  prefixIcon: Icon(Iconsax.text),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-
-              /// Product description
-              TextFormField(
-                expands: false,
-                maxLines: 5,
-                decoration:  InputDecoration(
-                  labelText: S.current.productDescription,
-                  prefixIcon: Icon(Iconsax.text),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-
-              /// Select
-              SizedBox(
-                width: double.infinity,
-                child:  DropdownButtonFormField<String>(
-                  decoration: InputDecoration(
-                    enabledBorder: const OutlineInputBorder().copyWith(
-                      borderRadius: BorderRadius.circular(14.r),
-                      borderSide: BorderSide(width: 1.w, color: Colors.grey),
+    return BlocProvider(
+      create: (context) => ExpiredProductsCubit(),
+      child: BlocConsumer<ExpiredProductsCubit, ExpiredProductsState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          final expiredController = context.read<ExpiredProductsCubit>();
+          final categoriesController = context.read<CategoriesByPageCubit>();
+          return Scaffold(
+            appBar: DAppBar(
+              title: Text(S.current.addProduct),
+              centerTitle: true,
+              showBackArrow: true,
+            ),
+            body: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.all(AppSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    /// Select product category
+                    Text(
+                      S.current.category,
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
-                    focusedBorder: const OutlineInputBorder().copyWith(
-                      borderRadius: BorderRadius.circular(14.r),
-                      borderSide: BorderSide(width: 1.w, color: Colors.grey),
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+
+                    DropdownButtonFormField<String>(
+                      items:
+                          categoriesController.idsMapForCata.keys.map((item) {
+                        return DropdownMenuItem<String>(
+                          value: "$item",
+                          child: Text("${item}"),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        /// get the id for the categoru and send it to the expiredCubit as the user selection
+                        expiredController.categoryId.text = categoriesController
+                            .idsMapForCata[value]
+                            .toString()!;
+                        print(expiredController.categoryId.text);
+                      },
                     ),
-                    border: const OutlineInputBorder().copyWith(
-                      borderRadius: BorderRadius.circular(14.r),
-                      borderSide: BorderSide(width: 1.w, color: Colors.grey),
+
+                    /// Product name
+                    TextWithTextField(
+                      radius: 10,
+                      hintIcon: Icon(
+                        Iconsax.text,
+                        size: 20,
+                      ),
+                      title: S.current.productName,
+                      controller: expiredController.name,
+                      isError: expiredController.errorName,
                     ),
-                  ),
-                  value: selectWork,
-                  items: works.map((item) => DropdownMenuItem(value: item, child: Text(item, style: const TextStyle().copyWith(fontSize: 14.sp, color: Colors.black)))).toList(),
-                  onChanged: (item) => setState(() => selectWork = item),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
 
-              /// Expiry Date
-              TextFormField(
-                expands: false,
-                keyboardType: TextInputType.datetime,
-
-                decoration: const InputDecoration(
-                  labelText: '20/5/1990',
-                  prefixIcon: Icon(Iconsax.calendar),
-                ),
-                inputFormatters: [DateInputFormatter()],
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-
-              /// Unit Price
-              TextFormField(
-                expands: false,
-                decoration: InputDecoration(
-                  labelText: S.current.unitPrice,
-                  prefixIcon: Icon(Iconsax.money),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-
-              /// Quantity
-              TextFormField(
-                expands: false,
-                decoration:  InputDecoration(
-                  labelText: S.current.quantity,
-                  prefixIcon: Icon(Iconsax.text),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-
-              InkWell(
-                onTap: _openImageGallery,
-                child: Container(
-                  width: double.infinity,
-                  height: 200.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(24.r),
-                  ),
-                  child: _selectedImage != null
-                      ? ClipRRect(
-                    borderRadius: BorderRadius.circular(14.r),
-                    child: Image.file(
-                      File(_selectedImage!.path),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
+                    /// Product description
+                    TextWithTextField(
+                      radius: 10,
+                      hintIcon: Icon(
+                        Iconsax.text,
+                        size: 20,
+                      ),
+                      title: S.current.description,
+                      controller: expiredController.description,
+                      isError: expiredController.errorDescription,
                     ),
-                  )
-                      : Center(
-                    child: Column(
+
+                    /// Expiry Date
+                    Row(
                       children: [
-                        Lottie.asset(AssetRes.uploadImage, height: MediaQuery.of(context).size.height / 5.2),
-                        Text(S.current.chooseImage, style: const TextStyle().copyWith(fontSize: 12.8.sp, color: Colors.black),)
+                        Text(
+                          S.current.expiryDate,
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
                       ],
                     ),
-                  ),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
+                    InkWell(
+                      onTap: () async {
+                        expiredController.selectDate(context);
+                      },
+                      child: TextField(
+                        onTap: () async {
+                          expiredController.selectDate(context);
+                        },
+                        controller: expiredController.expiredDate,
+                        cursorColor: expiredController.errorExpiredDate
+                            ? ColorRes.error2
+                            : ColorRes.transparent,
+                      ),
+                    ),
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
 
-              InkWell(
-                onTap: _openImageGallery,
-                child: Container(
-                  width: double.infinity,
-                  height: 200.h,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(24.r),
-                  ),
-                  child: _selectedImage != null
-                      ? ClipRRect(
-                    borderRadius: BorderRadius.circular(14.r),
-                    child: Image.file(
-                      File(_selectedImage!.path),
-                      fit: BoxFit.cover,
+                    /// Unit Price
+                    TextWithTextField(
+                      textType: TextInputType.numberWithOptions(decimal: true),
+                      radius: 10,
+                      hintIcon: Icon(
+                        Icons.monetization_on,
+                        size: 20,
+                      ),
+                      title: S.current.productPrice,
+                      controller: expiredController.unitPrice,
+                      isError: expiredController.errorUnit_price,
+                    ),
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+
+                    /// Quantity
+
+                    TextWithTextField(
+                      textType: TextInputType.number,
+                      radius: 10,
+                      hintIcon: Icon(
+                        Icons.shopping_bag_sharp,
+                        size: 20,
+                      ),
+                      title: S.current.quantity,
+                      controller: expiredController.currentStock,
+                      isError: expiredController.errorCurrent_stock,
+                    ),
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+
+                    SizedBox(height: AppSizes.spaceBtwInputFields),
+
+                    /// Sign Up Button
+                    SizedBox(
                       width: double.infinity,
-                      height: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {
+                            expiredController.onSubmit(
+                                context: context,
+                                isUpdate: map["isUpdate"],
+                                ID: map["ID"]);
+                          },
+                          // onPressed: () => Get.to(() => const VerifyEmailScreen()),
+                          child: Text(
+                            map["isUpdate"]
+                                ? S.current.editProduct
+                                : S.current.addProduct,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(color: Colors.white, fontSize: 25.sp),
+                          )),
                     ),
-                  )
-                      : Center(
-                    child: Column(
-                      children: [
-                        Lottie.asset(AssetRes.uploadImage, height: MediaQuery.of(context).size.height / 5.2),
-                        Text(S.current.chooseImage, style: const TextStyle().copyWith(fontSize: 12.8.sp, color: Colors.black),)
-                      ],
-                    ),
-                  ),
+                  ],
                 ),
               ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
-
-              /// Sign Up Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                    onPressed: () {},
-                    // onPressed: () => Get.to(() => const VerifyEmailScreen()),
-                    child: Text(S.current.done)),
-              ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
-  Future<void> _openImageGallery() async {
-    final ImagePicker _picker = ImagePicker();
-    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      setState(() {
-        _selectedImage = image;
-      });
-    } else {
-      // User canceled the image picking
-      print('No image selected');
-    }
-  }
-
 }

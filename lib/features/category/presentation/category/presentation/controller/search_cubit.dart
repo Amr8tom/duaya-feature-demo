@@ -5,7 +5,6 @@ import 'package:duaya_app/features/category/data/model/SearchModel.dart';
 import 'package:duaya_app/features/category/data/repositories/searchRepo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
-
 part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
@@ -51,6 +50,11 @@ class SearchCubit extends Cubit<SearchState> {
     emit(BeforeSearchSuccess());
   }
 
+  void toggleISsearch() {
+    isSearchData = isSearchData!;
+    emit(ToggleSearchSuccess());
+  }
+
   Future<void> scrollListener(
       {required String name, required String cityID}) async {
     if (scrollController.position.pixels ==
@@ -61,7 +65,7 @@ class SearchCubit extends Cubit<SearchState> {
       }
 
       // Start a new timer with a delay
-      _debounceTimer = Timer(Duration(milliseconds: 500), () async {
+      _debounceTimer = Timer(Duration(milliseconds: 250), () async {
         // This function will execute after the delay if the user has stopped scrolling
         isScrollAtBottom = true;
         page++;

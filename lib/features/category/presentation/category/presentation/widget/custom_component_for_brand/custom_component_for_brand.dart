@@ -49,7 +49,7 @@ class CustomComponentForBrand extends StatelessWidget {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                            color: ColorRes.primary.withOpacity(0.5),
+                            color: ColorRes.medGreen.withOpacity(0.5),
                             width: 2.w)),
                     child: imageWidget,
                   ),
@@ -62,7 +62,7 @@ class CustomComponentForBrand extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(10),
                               bottomRight: Radius.circular(10)),
-                          color: ColorRes.primary.withOpacity(0.8),
+                          color: ColorRes.lightGreen.withOpacity(0.8),
                         ),
                         width: double.infinity,
                         padding: EdgeInsets.only(bottom: 6.sp),
@@ -71,8 +71,9 @@ class CustomComponentForBrand extends StatelessWidget {
                             brandTitle,
                             overflow: TextOverflow.fade,
                             style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 19.sp),
                           ),
                         ),
                       ),

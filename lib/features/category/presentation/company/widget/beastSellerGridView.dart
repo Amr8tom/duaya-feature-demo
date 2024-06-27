@@ -3,8 +3,8 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../routing/routes_name.dart';
-import '../../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
+import '../../../../../routing/routes_name.dart';
+import '../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
 
 class bestSellerGridView extends StatelessWidget {
   CompaniesByPageCubit companyDetailsController = CompaniesByPageCubit();
@@ -15,9 +15,9 @@ class bestSellerGridView extends StatelessWidget {
     return GridView.builder(
       // physics: const NeverScrollableScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         mainAxisSpacing: 20.h,
-        childAspectRatio: 0.36,
+        childAspectRatio: 1.2 / 2.2,
       ),
       // shrinkWrap: true,
       itemCount: companyDetailsController.bestSellerCompanyModel.data!.length!,

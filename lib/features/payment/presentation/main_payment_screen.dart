@@ -1,49 +1,40 @@
+import 'package:duaya_app/features/payment/presentation/widgets/methodCard.dart';
+import 'package:duaya_app/routing/routes_name.dart';
+import 'package:duaya_app/utils/constants/colors.dart';
+import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../generated/l10n.dart';
 
 class PaymentScreen extends StatelessWidget {
   void navigateToCashOnDelivery(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CashOnDeliveryScreen()),
-    );
+    context.pushNamed(DRoutesName.CashOnDeliveryRoute);
   }
 
   void navigateToCreditCardPayment(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => CreditCardPaymentScreen()),
-    );
+    context.pushNamed(DRoutesName.CreditCardPaymentRoute);
   }
 
   void navigateToDelayedCash(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => DelayedCashScreen()),
-    );
+    context.pushNamed(DRoutesName.DelayedCashRoute);
   }
 
-  Widget buildPaymentMethodCard(BuildContext context, String title,
-      IconData icon, void Function() onPressed) {
-    return Card(
-      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-      child: ListTile(
-        leading: Icon(icon, color: Colors.blue, size: 40.0),
-        title: Text(title,
-            style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
-        trailing: Icon(Icons.arrow_forward, color: Colors.blue),
-        onTap: onPressed,
-      ),
-    );
+  void navigateToWalletPaymen(BuildContext context) {
+    context.pushNamed(DRoutesName.walletPaymentRoute);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.choosePaymentMethod),
+        centerTitle: true,
+        title: Text(
+          S.current.choosePaymentMethod,
+          style: Theme.of(context)
+              .textTheme
+              .headlineMedium!
+              .copyWith(color: ColorRes.appBarColor, fontSize: 30.sp),
+        ),
       ),
       body: Center(
         child: Column(
@@ -51,26 +42,14 @@ class PaymentScreen extends StatelessWidget {
           children: <Widget>[
             buildPaymentMethodCard(context, S.current.cashOnDelivery,
                 Icons.delivery_dining, () => navigateToCashOnDelivery(context)),
+            buildPaymentMethodCard(context, S.current.walletByPayment,
+                Icons.wallet, () => navigateToWalletPaymen(context)),
             buildPaymentMethodCard(context, S.current.creditCard,
                 Icons.credit_card, () => navigateToCreditCardPayment(context)),
             buildPaymentMethodCard(context, S.current.delayedCash,
                 Icons.schedule, () => navigateToDelayedCash(context)),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class DelayedCashScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(S.current.delayedCash),
-      ),
-      body: Center(
-        child: Text(S.current.delayedCashScreen),
       ),
     );
   }

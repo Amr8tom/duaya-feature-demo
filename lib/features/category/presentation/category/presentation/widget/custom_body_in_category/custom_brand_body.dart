@@ -4,12 +4,10 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../controller/companies_by_page_cubit.dart';
 
 class CustomBrandBody extends StatelessWidget {
   const CustomBrandBody({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final companiesController = context.read<CompaniesByPageCubit>();
@@ -23,21 +21,30 @@ class CustomBrandBody extends StatelessWidget {
       shrinkWrap: true,
       itemCount: companiesController.companiesModel.data!.length!,
       itemBuilder: (context, index) {
-        String title = companiesController.companiesModel!.data![index].name!;
-        String logo = companiesController.companiesModel!.data![index].logo!;
+        String title =
+            companiesController.companiesModel?.data![index].name ?? "we";
+        String logo =
+            companiesController.companiesModel?.data![index].logo ?? "sd";
         String id =
-            companiesController.companiesModel!.data![index].id.toString();
-        return CustomComponentForBrand(
-            brandImage: companiesController.companiesModel!.data![index].logo!,
-            brandTitle: companiesController.companiesModel!.data![index].name!,
-            onTap: () async {
-              context.pushNamed(DRoutesName.companyDetailsRoute, arguments: {
-                'title': title,
-                'logo': logo,
-                'id': id,
-              });
-              await companiesController.fetchCompanyData(id: id);
-            });
+            companiesController.companiesModel?.data![index].id.toString() ??
+                "";
+        print(title);
+        print(logo);
+        print(id);
+        return id == ""
+            ? SizedBox()
+            : CustomComponentForBrand(
+                brandImage: logo,
+                brandTitle: title,
+                onTap: () async {
+                  context
+                      .pushNamed(DRoutesName.companyDetailsRoute, arguments: {
+                    'title': title,
+                    'logo': logo,
+                    'id': id,
+                  });
+                  await companiesController.fetchCompanyData(id: id);
+                });
       },
     );
   }

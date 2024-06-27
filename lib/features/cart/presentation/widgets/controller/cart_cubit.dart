@@ -4,6 +4,8 @@ import 'package:duaya_app/features/cart/data/model/cartCount.dart';
 import 'package:duaya_app/features/cart/data/model/cartSummary.dart';
 import 'package:duaya_app/features/cart/data/model/checkOutModel.dart';
 import 'package:duaya_app/features/cart/data/repositories/cartRepo.dart';
+import 'package:duaya_app/routing/routes_name.dart';
+import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 import '../../../../../common/common_snak_bar_widget.dart';
@@ -17,11 +19,12 @@ class CartCubit extends Cubit<CartState> {
   cartRepositoryImpl repo = cartRepositoryImpl();
   int numberOfItems = 0;
   int itemsCount = 0;
+  double total = 0;
   bool hasItems = false;
-  String summartTotal = "00.0";
+  // String summartTotal = "00.0";
   late addToCartModel addCartModel = addToCartModel();
   late CartCount cartCountModel;
-  late CartSummary summaryModel;
+  // late CartSummary summaryModel;
   late CheckOutModel ceckOutModel;
   late ListItemModel cartItemsModel;
   late ChangeQuantitiyModel chaneQuantitiyModel;
@@ -30,11 +33,12 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> fetchCartData() async {
     cartCountModel = await repo.getCartCount();
-    summaryModel = await repo.getCartSummary();
+    // summaryModel = await repo.getCartSummary();
     cartItemsModel = await repo.getCartItems();
     itemsCount = cartCountModel.count!.toInt();
     itemsCount == 0 ? hasItems = false : hasItems = true;
-    summartTotal = summaryModel.grandTotal.toString();
+    // summartTotal = summaryModel.grandTotal.toString();
+    calaTotal();
     emit(UpdatedDataSuccess());
   }
 
@@ -42,8 +46,14 @@ class CartCubit extends Cubit<CartState> {
   updateQuantitiy({required int index, required bool isAdd}) {
     int oldQuantitiy = Items![index].quantity!;
     isAdd
-        ? Items[index].quantity = oldQuantitiy + 1
-        : Items[index].quantity = oldQuantitiy - 1;
+        ? {
+            Items[index].quantity = oldQuantitiy + 1,
+            total = total + Items[index].price!.toDouble()
+          }
+        : {
+            Items[index].quantity = oldQuantitiy - 1,
+            total = total - Items[index].price!.toDouble()
+          };
     print(Items![index].quantity!);
     NewQuantitiesMap[Items![index].id.toString()] = {
       "id": Items![index].id.toString(),
@@ -53,18 +63,30 @@ class CartCubit extends Cubit<CartState> {
     emit(FetechCartDataSuccess());
   }
 
+  ///     cala total
+  calaTotal() {
+    total = 0;
+    Items.forEach((element) {
+      total = total + element.price!.toDouble() * element.quantity!.toInt();
+    });
+    emit(ClacTotalSummary());
+  }
+
   Future<void> saveQuantitiy() async {
     chaneQuantitiyModel = (await repo.chaneQuantitiy(
         quantitiyBody: {"items": NewQuantitiesMap.values.toList()}))!;
     print(NewQuantitiesMap.values.toList());
-    summaryModel = await repo.getCartSummary();
-    commonToast(chaneQuantitiyModel.results![0].message!);
+    print(
+        "111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+    // summaryModel = await repo.getCartSummary();
+    // commonToast(chaneQuantitiyModel.results![0].message!);
+    print(chaneQuantitiyModel.results![0].message!);
     emit(SaveDataSuccess());
   }
 
   Future<void> fetchCartItems() async {
-    Items.clear();
     await fetchCartData();
+    Items.clear();
     cartItemsModel.data?.forEach((element) {
       element.cartItems?.forEach((element) {
         Items.add(element);
@@ -90,16 +112,23 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> deleteCart({required int cartID}) async {
     await repo.deleteCart(cartID: cartID);
+    calaTotal();
     commonToast(S.current.done);
     emit(DeleteCartSuccess());
   }
 
   /////////////////////// CHECK OUT FUNCTION ////////////////
-
+  // $request->payment_type == 'cash_on_delivery'
+  // || $request->payment_type == 'wallet'
   Future<void> checkOut(
-      {required String userID, String paymentType = "cash_on_delivery"}) async {
+      {required String userID,
+      String paymentType = "cash_on_delivery",
+      required BuildContext context}) async {
     Map<String, dynamic> cartBody = {"payment_type": paymentType, "id": userID};
     ceckOutModel = (await repo.checkOut(checkOutBody: cartBody))!;
+    if (ceckOutModel.result == true) {
+      context.pushReplacementNamed(DRoutesName.navigationMenuRoute);
+    }
     commonToast(ceckOutModel.message!);
     emit(CheckOutSuccess());
   }

@@ -3,8 +3,10 @@ import 'package:duaya_app/common/widgets/login_signup/form_divider.dart';
 import 'package:duaya_app/common/widgets/login_signup/social_buttons.dart';
 import 'package:duaya_app/features/authentication/presentation/login/widgets/login_form.dart';
 import 'package:duaya_app/features/authentication/presentation/login/widgets/login_header.dart';
+import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -15,15 +17,18 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: DSpacingStyle.paddingWithAppBarHeight,
-          child: const Column(
-            children: [
-              /// Logo, Title & Sub-Title
-              DLoginHeader(),
+          child: Stack(children: [
+            Lottie.asset(AssetRes.animationLoading),
+            const Column(
+              children: [
+                /// Logo, Title & Sub-Title
+                DLoginHeader(),
 
-              /// Form
-              DLoginForm(),
-            ],
-          ),
+                /// Form
+                DLoginForm(),
+              ],
+            ),
+          ]),
         ),
       ),
     );

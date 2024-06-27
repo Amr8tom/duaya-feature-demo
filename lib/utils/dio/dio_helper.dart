@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/api_constants.dart';
@@ -60,7 +59,7 @@ class DioHelper {
     }
   }
 
-  Future<Response> postFormData({
+  Future<Map<String, dynamic>?> postFormData({
     bool handleError = true,
     required String URL,
     FormData? formData,
@@ -74,6 +73,7 @@ class DioHelper {
           followRedirects: false,
           validateStatus: (status) => true,
           headers: {
+            'Content-Type': 'application/json',
             "Authorization":
                 "Bearer ${PrefService.getString(key: CacheKeys.token)}",
           },
@@ -83,7 +83,7 @@ class DioHelper {
           response.statusCode == 200 ||
           response.statusCode == 201) {
       } else if (response.statusCode == 403) {}
-      return response;
+      return response.data;
     } on DioError catch (error) {
       rethrow;
     }

@@ -20,9 +20,9 @@ class detailsRow extends StatelessWidget {
             child: Text(
               title,
               style: Theme.of(context).textTheme.headline6!.copyWith(
-                    color: ColorRes.primary,
-                    fontSize: 15.2.sp,
-                  ),
+                  color: ColorRes.black,
+                  fontSize: 18.2.sp,
+                  fontWeight: FontWeight.w900),
             ),
           ),
           // Spacer
@@ -30,11 +30,19 @@ class detailsRow extends StatelessWidget {
           // Overview Text
           Expanded(
             flex: 7,
-            child: Text(
-              description,
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                    fontSize: 15.2.sp,
-                  ),
+            child: Container(
+              decoration: BoxDecoration(
+                  color: ColorRes.lightGreen,
+                  borderRadius: BorderRadius.circular(10.sp)),
+              child: Center(
+                child: Text(
+                  description,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                      color: ColorRes.white,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 16.sp),
+                ),
+              ),
             ),
           ),
         ],

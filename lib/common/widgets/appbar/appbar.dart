@@ -9,7 +9,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../utils/constants/exports.dart';
 
 class DAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const DAppBar({
+  DAppBar({
     super.key,
     this.title,
     this.showBackArrow = false,
@@ -19,6 +19,7 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.bgColor,
     this.arrowBackColor = false,
     this.showBackGroundColor = false,
+    this.doSomeThing,
   });
 
   final Widget? title;
@@ -31,6 +32,7 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
   // final VoidCallback? leadingOnPressed;
   final Widget? leadingWidget;
   final Color? bgColor;
+  void Function()? doSomeThing;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +46,12 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
-                onPressed: () => context.pop(),
+                onPressed: () {
+                  if (doSomeThing != null) {
+                    doSomeThing!();
+                  }
+                  context.pop();
+                },
                 icon: Icon(Iconsax.arrow_left,
                     color: arrowBackColor ? ColorRes.white : ColorRes.black))
             : leadingWidget,

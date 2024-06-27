@@ -1,29 +1,24 @@
-import 'package:duaya_app/common/screens/no_connection/no_connection.dart';
 import 'package:duaya_app/features/authentication/presentation/login/login.dart';
 import 'package:duaya_app/features/authentication/presentation/password_configuration/forget_password.dart';
 import 'package:duaya_app/features/authentication/presentation/password_configuration/reset_password.dart';
 import 'package:duaya_app/features/authentication/presentation/password_configuration/send_otp.dart';
 import 'package:duaya_app/features/authentication/presentation/signup/signup.dart';
 import 'package:duaya_app/features/cart/presentation/cart_screen.dart';
-// import 'package:duaya_app/features/cart/presentation/add_new_address_form_screem.dart';
-// import 'package:duaya_app/features/cart/presentation/add_new_address_screen.dart';
-// import 'package:duaya_app/features/cart/presentation/payment_screen.dart';
-// import 'package:duaya_app/features/cart/presentation/shipping_information_screen.dart';
-import 'package:duaya_app/features/category/presentation/category/presentation/company_details_screen.dart';
+import 'package:duaya_app/features/category/presentation/company/company_details_screen.dart';
 import 'package:duaya_app/features/gift/presentation/gift_screen.dart';
 import 'package:duaya_app/features/home/presentation/details_product.dart';
 import 'package:duaya_app/features/menu/presentation/customer_ads/customer_ads_screen.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/add_new_product_screen.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/expire_products_screen.dart';
 import 'package:duaya_app/features/menu/presentation/favorite/favorite_screen.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/medical_service_screen.dart';
+import 'package:duaya_app/features/menu/presentation/medical_service/presentation/medical_service_screen.dart';
 import 'package:duaya_app/features/menu/presentation/my_ads/add_product_or_ads_screen.dart';
 import 'package:duaya_app/features/menu/presentation/my_ads/my_ads_screen.dart';
-import 'package:duaya_app/features/menu/presentation/my_note_book/my_note_book_screen.dart';
 import 'package:duaya_app/features/menu/presentation/my_order/my_order_screen.dart';
 import 'package:duaya_app/features/menu/presentation/return_request/return_request_screen.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/wallet_screen.dart';
+import 'package:duaya_app/features/menu/presentation/wallet/presentation/wallet_screen.dart';
 import 'package:duaya_app/features/onboarding/presentation/onboarding.dart';
+import 'package:duaya_app/features/payment/presentation/cash_on_delivery_screen/cash_on_delivery_screen.dart';
+import 'package:duaya_app/features/payment/presentation/credit_card_payment_screen/credit_card_payment_screen.dart';
+import 'package:duaya_app/features/payment/presentation/delayed_cash_screen/delayed_cash_screen.dart';
 import 'package:duaya_app/features/settings/presentation/pharmacy_info/pharmacy_info_screen.dart';
 import 'package:duaya_app/features/settings/presentation/profile_info/profile_info_screen.dart';
 import 'package:duaya_app/features/settings/presentation/settings_screen.dart';
@@ -34,7 +29,15 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import '../common/gifImages.dart';
 import '../common/webViewPage.dart';
+import '../features/address/presentation/address_form_screen.dart';
+import '../features/address/presentation/address_list_screen.dart';
+import '../features/category/presentation/category/category_screen.dart';
 import '../features/category/presentation/category/presentation/certain_category_screen.dart';
+import '../features/menu/presentation/expire_product/presentation/add_new_product_screen.dart';
+import '../features/menu/presentation/expire_product/presentation/expire_products_screen.dart';
+import '../features/menu/presentation/my_shor_coming_book/my_short_coming_book_screen.dart';
+import '../features/payment/presentation/main_payment_screen.dart';
+import '../features/payment/presentation/wallet_cache_Screen/wallet_cash_screen.dart';
 import '../utils/constants/exports.dart';
 
 class RouteGenerator {
@@ -70,8 +73,8 @@ class RouteGenerator {
         );
       case DRoutesName.onBoardingRoute:
         return PageTransition(
-          child: const OnBoardingScreen(),
-          type: PageTransitionType.rightToLeftWithFade,
+          child: OnBoardingScreen(),
+          type: PageTransitionType.fade,
           settings: settings,
           reverseDuration: const Duration(milliseconds: 700),
         );
@@ -150,6 +153,14 @@ class RouteGenerator {
           reverseDuration: const Duration(milliseconds: 700),
         );
 
+      case DRoutesName.categoriesRoute:
+        return PageTransition(
+          child: CategoryScreen(),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+
       case DRoutesName.myAdsRoute:
         return PageTransition(
           child: const MyAdsScreen(),
@@ -176,7 +187,7 @@ class RouteGenerator {
 
       case DRoutesName.myNoteBookRoute:
         return PageTransition(
-          child: const MyNoteBookScreen(),
+          child: ShortComingScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           reverseDuration: const Duration(milliseconds: 700),
@@ -184,7 +195,7 @@ class RouteGenerator {
 
       case DRoutesName.expireProductRoute:
         return PageTransition(
-          child: const ExpireProductsScreen(),
+          child: ExpireProductsScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           reverseDuration: const Duration(milliseconds: 700),
@@ -261,8 +272,10 @@ class RouteGenerator {
         );
 
       case DRoutesName.addNewProductRoute:
+        final Map<String, dynamic> map = settings.arguments
+            as Map<String, dynamic>; // Safely cast to nullable bool
         return PageTransition(
-          child: const AddNewProductScreen(),
+          child: AddNewProductScreen(map: map),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           reverseDuration: const Duration(milliseconds: 700),
@@ -276,28 +289,50 @@ class RouteGenerator {
           reverseDuration: const Duration(milliseconds: 700),
         );
 
-      case DRoutesName.addNewAddressRoute:
-        return PageTransition(
-          // child:  const AddNewAddressScreen(),
-          child: const PharmacyInfoScreen(),
-          type: PageTransitionType.rightToLeftWithFade,
-          settings: settings,
-          reverseDuration: const Duration(milliseconds: 700),
-        );
-
-      case DRoutesName.addNewAddressFormRoute:
-        return PageTransition(
-          // child:  const AddNewAddressFormScreen(),
-          child: const PharmacyInfoScreen(),
-          type: PageTransitionType.rightToLeftWithFade,
-          settings: settings,
-          reverseDuration: const Duration(milliseconds: 700),
-        );
+      // case DRoutesName.addNewAddressFormRoute:
+      //   return PageTransition(
+      //     // child:  const AddNewAddressFormScreen(),
+      //     child: const PharmacyInfoScreen(),
+      //     type: PageTransitionType.rightToLeftWithFade,
+      //     settings: settings,
+      //     reverseDuration: const Duration(milliseconds: 700),
+      //   );
 
       case DRoutesName.paymentRoute:
         return PageTransition(
-          // child:  const PaymentScreen(),
-          child: const PharmacyInfoScreen(),
+          child: PaymentScreen(),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+
+      case DRoutesName.DelayedCashRoute:
+        return PageTransition(
+          child: DelayedCashScreen(),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+
+      case DRoutesName.walletPaymentRoute:
+        return PageTransition(
+          child: WalletPaymentScreen(),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+
+      case DRoutesName.CreditCardPaymentRoute:
+        return PageTransition(
+          child: CreditCardPaymentScreen(),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+
+      case DRoutesName.CashOnDeliveryRoute:
+        return PageTransition(
+          child: CashOnDeliveryScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           reverseDuration: const Duration(milliseconds: 700),
@@ -309,6 +344,33 @@ class RouteGenerator {
 
         return PageTransition(
           child: CompanyDetailsScreen(map: map),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+
+      case DRoutesName.addNewAddressFormRoute:
+        final args = settings.arguments as Map<String, dynamic>;
+        final String ID = args['ID'];
+        final bool isUpdate = args['isUpdate'];
+        return PageTransition(
+          child: AddressFormScreen(ID: ID, isUpdate: isUpdate),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          reverseDuration: const Duration(milliseconds: 700),
+        );
+      // case DRoutesName.addressRoute:
+      //   final Map<String, dynamic> map =
+      //       settings.arguments as Map<String, dynamic>;
+      //   return PageTransition(
+      //     child: AddressScreen(),
+      //     type: PageTransitionType.rightToLeftWithFade,
+      //     settings: settings,
+      //     reverseDuration: const Duration(milliseconds: 700),
+      //   );
+      case DRoutesName.AddressListRoute:
+        return PageTransition(
+          child: AddressListScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           reverseDuration: const Duration(milliseconds: 700),

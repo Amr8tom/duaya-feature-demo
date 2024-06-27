@@ -6,10 +6,10 @@ import 'package:duaya_app/utils/local_storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'features/settings/presentation/controller/translation_cubit.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DDeviceUtils.setStatusBarColor(ColorRes.transparent);
@@ -17,21 +17,16 @@ Future<void> main() async {
   DDeviceUtils.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   await PrefService.init();
-  final TranslationCubit translationCubit = TranslationCubit();
+  final SettinglationCubit settinglationCubit = SettinglationCubit();
   String? storedLang = PrefService.getString(key: CacheKeys.lang) == ''
       ? "ar"
       : PrefService.getString(key: CacheKeys.lang);
-  await translationCubit.setCurrentLangeuage(language: storedLang!);
+  await settinglationCubit.setCurrentLangeuage(language: storedLang!);
+  await ScreenUtil.ensureScreenSize();
   runApp(
     BlocProvider(
-      create: (context) => translationCubit,
+      create: (context) => settinglationCubit,
       child: DuayaApp(),
     ),
   );
-  // runApp(
-  //   BlocProvider<TranslationCubit>(
-  //     create: (context) => myCubit,
-  //     child: DuayaApp(),
-  //   ),
-  // );
 }

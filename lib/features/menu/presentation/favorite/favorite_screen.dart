@@ -36,12 +36,13 @@ class FavoriteScreen extends StatelessWidget {
                     context.pushNamed(DRoutesName.detailsProductRoute);
                   },
                   child: CustomContainerProduct(
+                    productID: "ID",
                     productImage: AssetRes.product,
-                    productName: "Panadol Extra",
-                    companyName: "gsk company",
-                    rete: 4.5,
+                    productName: "Amr Alaa",
+                    companyName: "Top one",
+                    rete: 5,
                     hasDicount: false,
-                    price: '800',
+                    price: '1KK',
                   ));
             },
           ),

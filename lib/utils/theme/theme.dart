@@ -19,10 +19,10 @@ class DAppTheme {
 
   static ThemeData lightTheme(BuildContext context) {
     String fontFamily =
-    // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
-    //     ?
-    'Poppins';
-        // : 'Cairo';
+        // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
+        //     ?
+        'Poppins';
+    // : 'Cairo';
 
     return ThemeData(
       useMaterial3: true,
@@ -43,10 +43,10 @@ class DAppTheme {
 
   static ThemeData darkTheme(BuildContext context) {
     String fontFamily =
-    // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
-    //     ?
-    'Poppins';
-        // : 'Cairo';
+        // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
+        //     ?
+        'Poppins';
+    // : 'Cairo';
 
     return ThemeData(
       useMaterial3: true,

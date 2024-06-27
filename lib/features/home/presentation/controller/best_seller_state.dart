@@ -13,11 +13,23 @@ final class BestSellerModelloading extends BestSellerState {}
 
 final class BestSellersuccess extends BestSellerState {}
 
-final class BestSellerproductSuccess extends BestSellerState {}
+final class SlidersSuccess extends BestSellerState {}
+
+final class SliderSuccess extends BestSellerState {}
+
+final class getSize extends BestSellerState {}
 
 final class productModelSuccess extends BestSellerState {}
 
 final class SilderSuccess extends BestSellerState {}
+
+final class SetColorSuccess extends BestSellerState {}
+
+final class VarientSuccess extends BestSellerState {}
+
+final class RelatedProductSuccess extends BestSellerState {}
+
+final class RelatedProductLoading extends BestSellerState {}
 
 final class SilderLoding extends BestSellerState {}
 

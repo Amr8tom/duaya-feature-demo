@@ -18,13 +18,16 @@ class OnBoardingSkip extends StatelessWidget {
     final cubit = context.read<OnBoardingCubit>();
 
     return Positioned(
-      top: DDeviceUtils.getAppBarHeight(),
-      right: AppSizes.defaultSpace,
+      top: 70.h,
+      right: ScreenUtil.defaultSize.width / 3,
       child: TextButton(
         onPressed: () => cubit.skipPage(),
         child: Text(
           S.current.skip,
-          style: TextStyle(fontSize: 20, color: ColorRes.appBarColor),
+          style: Theme.of(context)
+              .textTheme
+              .headlineLarge!
+              .copyWith(color: ColorRes.lightGreen),
         ),
       ),
     );

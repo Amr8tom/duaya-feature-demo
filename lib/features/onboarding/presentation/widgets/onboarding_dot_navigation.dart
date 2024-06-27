@@ -6,6 +6,7 @@ import 'package:duaya_app/utils/device/device_utility.dart';
 import 'package:duaya_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBoardingDotNavigation extends StatelessWidget {
@@ -19,8 +20,9 @@ class OnBoardingDotNavigation extends StatelessWidget {
     final dark = DHelperFunctions.isDarkMode(context);
 
     return Positioned(
-      bottom: DDeviceUtils.getBottomNavigationBarHeight() + 25,
-      left: AppSizes.defaultSpace,
+      bottom: DDeviceUtils.getBottomNavigationBarHeight() / 2,
+      left: ScreenUtil.defaultSize.width / 2.8,
+      // right: ScreenUtil.defaultSize.width / 3,
       child: SmoothPageIndicator(
         controller: cubit.pageController,
         onDotClicked: cubit.dotNavigationClick,

@@ -11,11 +11,33 @@ class addressRemoteDataSoureces {
     return response;
   }
 
-  Future<Map<String, dynamic>?> getAddressListData(
-      {required Map<String, dynamic> addressListBody}) {
+  Future<Map<String, dynamic>?> updateAddressData(
+      {required Map<String, dynamic> addressBody}) {
     DioHelper API = DioHelper();
     Future<Map<String, dynamic>?> response =
-        API.postData(URL: URL.getAddressList, body: addressListBody);
+        API.postData(URL: URL.updateAddress, body: addressBody);
+    return response;
+  }
+
+  Future<Map<String, dynamic>?> chooseAddressData(
+      {required Map<String, dynamic> addressBody}) {
+    DioHelper API = DioHelper();
+    Future<Map<String, dynamic>?> response =
+        API.postData(URL: URL.makeDefaultAddress, body: addressBody);
+    return response;
+  }
+
+  Future<Map<String, dynamic>?> getAddressListData() {
+    DioHelper API = DioHelper();
+    Future<Map<String, dynamic>?> response =
+        API.getData(URL: URL.getAddressList);
+    return response;
+  }
+
+  Future<Map<String, dynamic>?> deleteAddressfromList({required String ID}) {
+    DioHelper API = DioHelper();
+    Future<Map<String, dynamic>?> response =
+        API.getData(URL: "${URL.deleteAddress}$ID");
     return response;
   }
 }

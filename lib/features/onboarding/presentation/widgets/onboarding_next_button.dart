@@ -17,18 +17,23 @@ class OnBoardingNextButton extends StatelessWidget {
     final dark = DHelperFunctions.isDarkMode(context);
 
     return Positioned(
-      right: AppSizes.defaultSpace,
+      right: ScreenUtil.defaultSize.width / 3,
+      left: ScreenUtil.defaultSize.width / 3,
       bottom: DDeviceUtils.getBottomNavigationBarHeight(),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.r),
           ),
-          backgroundColor: dark ? ColorRes.primary : ColorRes.primary,
+          backgroundColor: dark ? ColorRes.medGreen : ColorRes.lightGreen,
           fixedSize: Size(60.w, 62.h),
         ),
         onPressed: () => cubit.nextPage(context: context),
-        child: Icon(Icons.arrow_forward, size: 24.sp),
+        child: Icon(
+          Icons.arrow_forward,
+          size: 24.sp,
+          color: Colors.white,
+        ),
       ),
     );
   }

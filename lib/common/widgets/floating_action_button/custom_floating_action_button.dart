@@ -4,8 +4,16 @@ import 'package:flutter/material.dart';
 
 class CustomFloatingActionButton extends StatelessWidget {
   final String textButton;
+  Color? color;
+  Widget? icon;
   final void Function() onPressed;
-  const CustomFloatingActionButton({Key? key, required this.textButton, required this.onPressed}) : super(key: key);
+  CustomFloatingActionButton(
+      {Key? key,
+      required this.textButton,
+      required this.onPressed,
+      this.color,
+      this.icon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +22,16 @@ class CustomFloatingActionButton extends StatelessWidget {
       onPressed: onPressed,
       label: Row(
         children: [
-          Text(textButton, style: Theme.of(context).textTheme.titleSmall!.copyWith(color: ColorRes.white)),
+          Text(textButton,
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .copyWith(color: ColorRes.white)),
           SizedBox(width: AppSizes.spaceBetweenIcon),
-          const Icon(Icons.arrow_forward,color: ColorRes.white)
+          icon ?? Icon(Icons.arrow_forward, color: ColorRes.white)
         ],
       ),
-      backgroundColor: ColorRes.primary,
+      backgroundColor: color ?? ColorRes.primary,
     );
   }
 }

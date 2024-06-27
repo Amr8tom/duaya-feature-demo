@@ -21,6 +21,8 @@ final class DeleteCartSuccess extends CartState {}
 
 final class FetechCartDataSuccess extends CartState {}
 
+final class ClacTotalSummary extends CartState {}
+
 final class CartAddfailure extends CartState {}
 
 final class CartMinysfailure extends CartState {}

@@ -11,10 +11,11 @@ class DAppBarTheme {
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
-    backgroundColor: Colors.transparent,
-    surfaceTintColor: Colors.transparent,
+    backgroundColor: ColorRes.primary,
+    surfaceTintColor: ColorRes.primary,
     iconTheme: IconThemeData(color: ColorRes.black, size: AppSizes.iconMd),
-    actionsIconTheme: IconThemeData(color: ColorRes.black, size: AppSizes.iconMd),
+    actionsIconTheme:
+        IconThemeData(color: ColorRes.black, size: AppSizes.iconMd),
     titleTextStyle: TextStyle(
         fontSize: 18.sp, fontWeight: FontWeight.w600, color: ColorRes.black),
   );
@@ -23,10 +24,11 @@ class DAppBarTheme {
     elevation: 0,
     centerTitle: false,
     scrolledUnderElevation: 0,
-    backgroundColor: Colors.transparent,
-    surfaceTintColor: Colors.transparent,
+    backgroundColor: ColorRes.primary,
+    surfaceTintColor: ColorRes.primary,
     iconTheme: IconThemeData(color: ColorRes.white, size: AppSizes.iconMd),
-    actionsIconTheme: IconThemeData(color: ColorRes.white, size: AppSizes.iconMd),
+    actionsIconTheme:
+        IconThemeData(color: ColorRes.white, size: AppSizes.iconMd),
     titleTextStyle: TextStyle(
         fontSize: 18.sp, fontWeight: FontWeight.w600, color: ColorRes.white),
   );

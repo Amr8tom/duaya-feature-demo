@@ -29,14 +29,17 @@ class DTermsAndConditionCheckbox extends StatelessWidget {
               children: [
                 TextSpan(
                     text: S.current.iAgreeTo,
-                    style: Theme.of(context).textTheme.bodySmall),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodySmall!
+                        .copyWith(color: Colors.red)),
                 TextSpan(
                     text: S.current.privacyPolicy,
                     style: Theme.of(context).textTheme.bodyMedium!.apply(
-                          color: dark ? ColorRes.white : ColorRes.primary,
+                          color: dark ? ColorRes.white : ColorRes.lightGreen,
                           decoration: TextDecoration.underline,
                           decorationColor:
-                              dark ? ColorRes.white : ColorRes.primary,
+                              dark ? ColorRes.white : ColorRes.lightGreen,
                         )),
                 TextSpan(
                     text: '', style: Theme.of(context).textTheme.bodySmall),
@@ -46,7 +49,7 @@ class DTermsAndConditionCheckbox extends StatelessWidget {
                         color: dark ? ColorRes.white : ColorRes.primary,
                         decoration: TextDecoration.underline,
                         decorationColor:
-                            dark ? ColorRes.white : ColorRes.primary,
+                            dark ? ColorRes.white : ColorRes.lightGreen,
                         overflow: TextOverflow.clip)),
               ],
             ),

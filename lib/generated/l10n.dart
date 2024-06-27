@@ -100,6 +100,26 @@ class S {
     );
   }
 
+  /// `avaliable to loan`
+  String get avaiableToLoan {
+    return Intl.message(
+      'avaliable to loan',
+      name: 'avaiableToLoan',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you loan`
+  String get moneyYouLoan {
+    return Intl.message(
+      'you loan',
+      name: 'moneyYouLoan',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Best Offers`
   String get bestOffers {
     return Intl.message(
@@ -120,6 +140,16 @@ class S {
     );
   }
 
+  /// `continue`
+  String get continueShoping {
+    return Intl.message(
+      'continue',
+      name: 'continueShoping',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `The Sale Time ends in`
   String get saleTime {
     return Intl.message(
@@ -135,6 +165,56 @@ class S {
     return Intl.message(
       'My Order',
       name: 'myOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit App`
+  String get exitApp {
+    return Intl.message(
+      'Exit App',
+      name: 'exitApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to exit the app?`
+  String get confirmExitMessage {
+    return Intl.message(
+      'Are you sure you want to exit the app?',
+      name: 'confirmExitMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get no {
+    return Intl.message(
+      'No',
+      name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get yes {
+    return Intl.message(
+      'Yes',
+      name: 'yes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Postal Code`
+  String get postalCode {
+    return Intl.message(
+      'Postal Code',
+      name: 'postalCode',
       desc: '',
       args: [],
     );
@@ -185,6 +265,416 @@ class S {
     return Intl.message(
       'Hours',
       name: 'hours',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Accepted`
+  String get accepted {
+    return Intl.message(
+      'Accepted',
+      name: 'accepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help`
+  String get helper {
+    return Intl.message(
+      'Help',
+      name: 'helper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send Missing Items Notebook....Important`
+  String get sendNotebook {
+    return Intl.message(
+      'Send Missing Items Notebook....Important',
+      name: 'sendNotebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Stagnant Items.......You can upload your stagnant items to your account and they will be rotated and resold on your behalf`
+  String get stagnantItems {
+    return Intl.message(
+      'Stagnant Items.......You can upload your stagnant items to your account and they will be rotated and resold on your behalf',
+      name: 'stagnantItems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wallet......Here you can get money and cashback to help you increase your profits`
+  String get wallet {
+    return Intl.message(
+      'Wallet......Here you can get money and cashback to help you increase your profits',
+      name: 'wallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customer's Stagnant Items.....You can browse stagnant items at other pharmacies in your area and repurchase them`
+  String get customerStagnantItems {
+    return Intl.message(
+      'Customer\'s Stagnant Items.....You can browse stagnant items at other pharmacies in your area and repurchase them',
+      name: 'customerStagnantItems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Missing Items Notebook....You can upload a missing items sheet or an Excel sheet, and the orders will be processed automatically on your behalf`
+  String get missingItemsNotebook {
+    return Intl.message(
+      'Missing Items Notebook....You can upload a missing items sheet or an Excel sheet, and the orders will be processed automatically on your behalf',
+      name: 'missingItemsNotebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Expired Products or Expired Items.......Dispose of expired items by uploading expired or damaged products`
+  String get expiredProducts {
+    return Intl.message(
+      'Expired Products or Expired Items.......Dispose of expired items by uploading expired or damaged products',
+      name: 'expiredProducts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Return Order....You can return an item within 3 days after receiving it`
+  String get returnOrder {
+    return Intl.message(
+      'Return Order....You can return an item within 3 days after receiving it',
+      name: 'returnOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Favorite Items.....What you want to buy later`
+  String get favoriteItems {
+    return Intl.message(
+      'My Favorite Items.....What you want to buy later',
+      name: 'favoriteItems',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Address`
+  String get addNewAddress {
+    return Intl.message(
+      'Add Address',
+      name: 'addNewAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `More`
+  String get more {
+    return Intl.message(
+      'More',
+      name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log Out`
+  String get logOut {
+    return Intl.message(
+      'Log Out',
+      name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `en`
+  String get localeee {
+    return Intl.message(
+      'en',
+      name: 'localeee',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Address`
+  String get confirmAddress {
+    return Intl.message(
+      'Confirm Address',
+      name: 'confirmAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment Method`
+  String get choosePaymentMethod {
+    return Intl.message(
+      'Payment Method',
+      name: 'choosePaymentMethod',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash on Delivery`
+  String get cashOnDelivery {
+    return Intl.message(
+      'Cash on Delivery',
+      name: 'cashOnDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You will pay when you receive the order`
+  String get cashOnDeliverydes {
+    return Intl.message(
+      'You will pay when you receive the order',
+      name: 'cashOnDeliverydes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `pay from your wallet balance`
+  String get walletCacheDes {
+    return Intl.message(
+      'pay from your wallet balance',
+      name: 'walletCacheDes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `pay using your credit card `
+  String get creditCarddes {
+    return Intl.message(
+      'pay using your credit card ',
+      name: 'creditCarddes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `buy now and buy later `
+  String get delayedCashDes {
+    return Intl.message(
+      'buy now and buy later ',
+      name: 'delayedCashDes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credit Card`
+  String get creditCard {
+    return Intl.message(
+      'Credit Card',
+      name: 'creditCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delayed Cash`
+  String get delayedCash {
+    return Intl.message(
+      'Delayed Cash',
+      name: 'delayedCash',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome Doctor `
+  String get welcomeMessage {
+    return Intl.message(
+      'Welcome Doctor ',
+      name: 'welcomeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash on Delivery Screen`
+  String get cashOnDeliveryScreen {
+    return Intl.message(
+      'Cash on Delivery Screen',
+      name: 'cashOnDeliveryScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Credit Card Payment Screen`
+  String get creditCardPaymentScreen {
+    return Intl.message(
+      'Credit Card Payment Screen',
+      name: 'creditCardPaymentScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delayed Cash Payment Screen`
+  String get delayedCashScreen {
+    return Intl.message(
+      'Delayed Cash Payment Screen',
+      name: 'delayedCashScreen',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have 30 days to repay the debt`
+  String get delayedCashScreenDesTime {
+    return Intl.message(
+      'You have 30 days to repay the debt',
+      name: 'delayedCashScreenDesTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change the language of the application`
+  String get languageDes {
+    return Intl.message(
+      'Change the language of the application',
+      name: 'languageDes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Make Changes to your profile Info`
+  String get profileInfoDes {
+    return Intl.message(
+      'Make Changes to your profile Info',
+      name: 'profileInfoDes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About us`
+  String get aboutApp {
+    return Intl.message(
+      'About us',
+      name: 'aboutApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` you can take a look on our newest digital services `
+  String get medicalServices {
+    return Intl.message(
+      ' you can take a look on our newest digital services ',
+      name: 'medicalServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you can speak to a specialist`
+  String get speakToUs {
+    return Intl.message(
+      'you can speak to a specialist',
+      name: 'speakToUs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile Info`
+  String get profileInfo {
+    return Intl.message(
+      'Profile Info',
+      name: 'profileInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `conect with us for varification `
+  String get verification_status {
+    return Intl.message(
+      'conect with us for varification ',
+      name: 'verification_status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select Quantitiy at First`
+  String get selectQuantitiy {
+    return Intl.message(
+      'Select Quantitiy at First',
+      name: 'selectQuantitiy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pending`
+  String get refused {
+    return Intl.message(
+      'Pending',
+      name: 'refused',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` please enter valid email `
+  String get invalidEmail {
+    return Intl.message(
+      ' please enter valid email ',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Compare Price`
+  String get comparePrice {
+    return Intl.message(
+      'Compare Price',
+      name: 'comparePrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `discont`
+  String get discont {
+    return Intl.message(
+      'discont',
+      name: 'discont',
       desc: '',
       args: [],
     );
@@ -260,11 +750,71 @@ class S {
     );
   }
 
+  /// `Cash Back`
+  String get cashBack {
+    return Intl.message(
+      'Cash Back',
+      name: 'cashBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you have : `
+  String get youHave {
+    return Intl.message(
+      'you have : ',
+      name: 'youHave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The password cant be less than 4 `
+  String get passwordTooShort {
+    return Intl.message(
+      'The password cant be less than 4 ',
+      name: 'passwordTooShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You Can Convert Your Points To :  `
+  String get contvertTo {
+    return Intl.message(
+      'You Can Convert Your Points To :  ',
+      name: 'contvertTo',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Seconds`
   String get seconds {
     return Intl.message(
       'Seconds',
       name: 'seconds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm Payment`
+  String get confirmPayment {
+    return Intl.message(
+      'Confirm Payment',
+      name: 'confirmPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue Payment`
+  String get continuePayment {
+    return Intl.message(
+      'Continue Payment',
+      name: 'continuePayment',
       desc: '',
       args: [],
     );
@@ -340,20 +890,80 @@ class S {
     );
   }
 
-  /// `Welcome ,`
+  /// `Size`
+  String get size {
+    return Intl.message(
+      'Size',
+      name: 'size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Description`
+  String get description {
+    return Intl.message(
+      'Description',
+      name: 'description',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Today Sale`
+  String get flashTodaySale {
+    return Intl.message(
+      'Today Sale',
+      name: 'flashTodaySale',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Color`
+  String get color {
+    return Intl.message(
+      'Color',
+      name: 'color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `EGP`
+  String get pound {
+    return Intl.message(
+      'EGP',
+      name: 'pound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shipping Address`
+  String get address {
+    return Intl.message(
+      'Shipping Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome ,doctor `
   String get loginTitle {
     return Intl.message(
-      'Welcome ,',
+      'Welcome ,doctor ',
       name: 'loginTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Discover special drugs and medical tools & services`
+  /// `Enjoy a Shipping experiment with Duaya`
   String get loginBody {
     return Intl.message(
-      'Discover special drugs and medical tools & services',
+      'Enjoy a Shipping experiment with Duaya',
       name: 'loginBody',
       desc: '',
       args: [],
@@ -365,6 +975,16 @@ class S {
     return Intl.message(
       'Buy Now',
       name: 'buyNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `expiry date of drugs`
+  String get expiryDate {
+    return Intl.message(
+      'expiry date of drugs',
+      name: 'expiryDate',
       desc: '',
       args: [],
     );
@@ -385,6 +1005,66 @@ class S {
     return Intl.message(
       'Create Account',
       name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address Details`
+  String get addressDetails {
+    return Intl.message(
+      'Address Details',
+      name: 'addressDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Address`
+  String get lastAddress {
+    return Intl.message(
+      'Last Address',
+      name: 'lastAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pay with Last Address`
+  String get payWithLastAddress {
+    return Intl.message(
+      'Pay with Last Address',
+      name: 'payWithLastAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save and Pay`
+  String get saveAndPay {
+    return Intl.message(
+      'Save and Pay',
+      name: 'saveAndPay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phoneNumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phoneNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New Client`
+  String get newCilent {
+    return Intl.message(
+      'New Client',
+      name: 'newCilent',
       desc: '',
       args: [],
     );
@@ -465,6 +1145,16 @@ class S {
     return Intl.message(
       'Points',
       name: 'points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit The Product`
+  String get editProduct {
+    return Intl.message(
+      'Edit The Product',
+      name: 'editProduct',
       desc: '',
       args: [],
     );
@@ -580,6 +1270,36 @@ class S {
     );
   }
 
+  /// ` Send Short Coming Book `
+  String get sendMyShortComingBook {
+    return Intl.message(
+      ' Send Short Coming Book ',
+      name: 'sendMyShortComingBook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter the name of the `
+  String get addWorkName {
+    return Intl.message(
+      'Enter the name of the ',
+      name: 'addWorkName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please Upload the photo of`
+  String get addPhotoOf {
+    return Intl.message(
+      'Please Upload the photo of',
+      name: 'addPhotoOf',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Pharmacy Name`
   String get pharmacyName {
     return Intl.message(
@@ -605,16 +1325,6 @@ class S {
     return Intl.message(
       'Bahrain',
       name: 'Bahrain',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Profile Info`
-  String get profileInfo {
-    return Intl.message(
-      'Profile Info',
-      name: 'profileInfo',
       desc: '',
       args: [],
     );
@@ -655,6 +1365,16 @@ class S {
     return Intl.message(
       'Send',
       name: 'send',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `your can review your previous orders`
+  String get myOrderSpeak {
+    return Intl.message(
+      'your can review your previous orders',
+      name: 'myOrderSpeak',
       desc: '',
       args: [],
     );
@@ -750,10 +1470,10 @@ class S {
     );
   }
 
-  /// `Lets start collect more money with us`
+  /// `Welcome Again`
   String get letsStart {
     return Intl.message(
-      'Lets start collect more money with us',
+      'Welcome Again',
       name: 'letsStart',
       desc: '',
       args: [],
@@ -770,11 +1490,11 @@ class S {
     );
   }
 
-  /// `My Note Book`
-  String get myNoteBook {
+  /// `My Short Coming Book`
+  String get ShortComing {
     return Intl.message(
-      'My Note Book',
-      name: 'myNoteBook',
+      'My Short Coming Book',
+      name: 'ShortComing',
       desc: '',
       args: [],
     );
@@ -900,16 +1620,6 @@ class S {
     );
   }
 
-  /// `Phone Number`
-  String get phoneNumber {
-    return Intl.message(
-      'Phone Number',
-      name: 'phoneNumber',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Beauty Tools`
   String get beautyTools {
     return Intl.message(
@@ -1000,6 +1710,16 @@ class S {
     );
   }
 
+  /// `By Wallet`
+  String get walletByPayment {
+    return Intl.message(
+      'By Wallet',
+      name: 'walletByPayment',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `my Favorites`
   String get favorite {
     return Intl.message(
@@ -1025,6 +1745,16 @@ class S {
     return Intl.message(
       'Please upload a picture of your pharmacy license or commercial registration to activate your account',
       name: 'msgImage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please upload a picture of your`
+  String get msgImage2 {
+    return Intl.message(
+      'Please upload a picture of your',
+      name: 'msgImage2',
       desc: '',
       args: [],
     );

@@ -12,15 +12,15 @@ class DElevatedButtonTheme {
       ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.white,
-      backgroundColor: ColorRes.primary,
-      disabledForegroundColor: Colors.grey,
-      disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: ColorRes.primary),
+      // foregroundColor: Colors.white,
+      backgroundColor: ColorRes.lightGreen.withOpacity(0.7),
+      // disabledForegroundColor: Colors.white,
+      // disabledBackgroundColor: Colors.white,
+      side: BorderSide(color: ColorRes.white.withOpacity(0.7)),
       padding: EdgeInsets.symmetric(vertical: 18.h),
       textStyle: TextStyle(
-          fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w600),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+          fontSize: 23.sp, color: Colors.red, fontWeight: FontWeight.bold),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.r)),
     ),
   );
 
@@ -29,15 +29,15 @@ class DElevatedButtonTheme {
       ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       elevation: 0,
-      foregroundColor: Colors.white,
-      backgroundColor: ColorRes.primary.withOpacity(.8),
-      disabledForegroundColor: Colors.grey,
-      disabledBackgroundColor: Colors.grey,
-      side: const BorderSide(color: Colors.blueGrey),
+      // foregroundColor: Colors.white,
+      backgroundColor: ColorRes.lightGreen.withOpacity(.8),
+      // disabledForegroundColor: Colors.white,
+      // disabledBackgroundColor: Colors.white,
+      side: const BorderSide(color: Colors.white),
       padding: EdgeInsets.symmetric(vertical: 18.h),
       textStyle: TextStyle(
-          fontSize: 16.sp, color: Colors.white, fontWeight: FontWeight.w600),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.r)),
+          fontSize: 23.sp, color: Colors.red, fontWeight: FontWeight.bold),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.r)),
     ),
   );
 }

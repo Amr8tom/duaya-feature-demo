@@ -40,6 +40,9 @@ class _CustomCartComponentState extends State<CustomCartComponent> {
         // TODO: implement listener
       },
       builder: (context, state) {
+        double removeFractions =
+            (cartController.Items![widget.index].quantity!) *
+                double.parse(widget.price);
         return Card(
           elevation: 5,
           child: Container(
@@ -70,7 +73,7 @@ class _CustomCartComponentState extends State<CustomCartComponent> {
 
                         /// Price
                         Text(
-                          "${(cartController.Items![widget.index].quantity!) * double.parse(widget.price)}",
+                          "${removeFractions.toStringAsFixed(2)}",
                           style: Theme.of(context)
                               .textTheme
                               .titleLarge!

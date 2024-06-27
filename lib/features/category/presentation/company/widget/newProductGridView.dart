@@ -3,8 +3,8 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../routing/routes_name.dart';
-import '../../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
+import '../../../../../routing/routes_name.dart';
+import '../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
 
 class newProductGridView extends StatelessWidget {
   CompaniesByPageCubit companyDetailsController = CompaniesByPageCubit();
@@ -17,7 +17,7 @@ class newProductGridView extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 10.h,
-        childAspectRatio: 1 / 2.2,
+        childAspectRatio: 1.2 / 2.2,
       ),
       // shrinkWrap: true,
       itemCount: companyDetailsController.newCompanyModel.data!.length!,

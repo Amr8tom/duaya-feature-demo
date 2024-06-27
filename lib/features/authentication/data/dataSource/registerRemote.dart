@@ -4,16 +4,30 @@ import 'package:duaya_app/utils/dio/dio_helper.dart';
 
 class rigsterRemoteDataSoureces {
   Future<Map<String, dynamic>?> getRigsterData(
-      {required Map<String, dynamic> rigsterBody}) async {
+      {required FormData rigsterBody}) async {
     DioHelper API = DioHelper();
-    final response = await API.postData(URL: URL.register, body: rigsterBody);
+    final response =
+        await API.postFormData(URL: URL.register, formData: rigsterBody);
 
     return response;
   }
 
-  Future<Map<String, dynamic>?> getCitiesData() async {
+  Future<Map<String, dynamic>?> getCountryList() async {
     DioHelper API = DioHelper();
-    final response = await API.getData(URL: URL.cities);
+    final response = await API.getData(URL: "${URL.countries}");
+    return response;
+  }
+
+  Future<Map<String, dynamic>?> getCityList({required String countryID}) async {
+    DioHelper API = DioHelper();
+    final response =
+        await API.getData(URL: "${URL.GetCitiesByCountryID}$countryID");
+    return response;
+  }
+
+  Future<Map<String, dynamic>?> getStateList({required String cityID}) async {
+    DioHelper API = DioHelper();
+    final response = await API.getData(URL: "${URL.statiesByCityID}$cityID");
     return response;
   }
 }

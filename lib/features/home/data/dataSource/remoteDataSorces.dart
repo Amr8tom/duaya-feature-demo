@@ -21,4 +21,10 @@ class bestSellerRemoteDataSoureces {
         API.getData(URL: "${URL.product}$productID");
     return response;
   }
+
+  Future<Map<String, dynamic>?> getRelatedProduct({required String productID}) {
+    Future<Map<String, dynamic>?> response =
+        API.getData(URL: "${URL.relatedProduct}$productID");
+    return response;
+  }
 }

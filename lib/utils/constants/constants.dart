@@ -7,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DConstants {
-
   static List<String> brandImage = [
     AssetRes.sanofiBrand,
     AssetRes.merckBrand,
@@ -74,7 +73,6 @@ class DConstants {
     AssetRes.webApps,
   ];
 
-
   static List<String> categoryImage = [
     AssetRes.medicine,
     AssetRes.medicalSupplies,
@@ -86,7 +84,7 @@ class DConstants {
     S.current.myStagnantCategories,
     S.current.stagnantCategories,
     S.current.myOrder,
-    S.current.myNoteBook,
+    S.current.ShortComing,
     S.current.medicalService,
     S.current.expiredProduct,
     S.current.favorite,
@@ -108,30 +106,30 @@ class DConstants {
   ];
 
   static List<String> titleSetting = [
-    'Profile Info',
+    S.current.profileInfo,
+    S.current.language,
+    // S.current.selectCountry,
+    S.current.aboutApp,
+    S.current.logOut,
     'Pharmacy Info',
-    'Language',
-    'Egypt',
-    'About App',
-    'Log Out',
   ];
 
   static List<IconData> iconsSetting = [
-    Icons.person,
     Icons.local_pharmacy,
     Icons.language,
-    Icons.flag,
+    // Icons.flag,
     Icons.favorite,
     Icons.logout,
+    Icons.person,
   ];
 
   static List<String> desSetting = [
-    'Make Changes to your account',
-    'Make Changes to your pharmacy',
-    'Change the language of the application',
-    'Change your location',
+    S.current.profileInfoDes,
+    S.current.languageDes,
+    // S.current.selectCountry,
     'About of us Company',
-    'Further secure your account for safety',
+    S.current.logOut,
+    'Make Changes to your account',
   ];
 
   static launchFacebookProfile({required String faceLink}) async {
@@ -144,7 +142,8 @@ class DConstants {
     }
   }
 
-  static openWhatsAppChat({required String num, required String urlLink}) async {
+  static openWhatsAppChat(
+      {required String num, required String urlLink}) async {
     String phoneNumber = num;
     String url = urlLink;
 
@@ -166,12 +165,11 @@ class DConstants {
 
   /// Make Stars
   static buildRatingStars(int rating) {
-    String stars ='';
-    for(int i=0;i<rating ;i++){
-      stars +='⭐ ';
+    String stars = '';
+    for (int i = 0; i < rating; i++) {
+      stars += '⭐ ';
     }
     stars.trim();
     return Text(stars);
   }
-
 }

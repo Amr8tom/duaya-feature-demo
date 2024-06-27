@@ -3,12 +3,10 @@ import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/helpers/helper_functions.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../generated/l10n.dart';
 
 class VerifyEmailScreen extends StatelessWidget {
   const VerifyEmailScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,8 +14,7 @@ class VerifyEmailScreen extends StatelessWidget {
         automaticallyImplyLeading: false,
         actions: [
           IconButton(
-              onPressed: () => context.pop,
-              icon: const Icon(Icons.close))
+              onPressed: () => context.pop, icon: const Icon(Icons.close))
         ],
       ),
       body: SingleChildScrollView(
@@ -41,7 +38,8 @@ class VerifyEmailScreen extends StatelessWidget {
                   style: Theme.of(context).textTheme.labelLarge,
                   textAlign: TextAlign.center),
               SizedBox(height: AppSizes.spaceBtwItems),
-              Text('Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.',
+              Text(
+                  'Congratulations! Your Account Awaits: Verify Your Email to Start Shopping and Experience a World of Unrivaled Deals and Personalized Offers.',
                   style: Theme.of(context).textTheme.labelMedium,
                   textAlign: TextAlign.center),
               SizedBox(height: AppSizes.spaceBtwItems),
@@ -50,19 +48,12 @@ class VerifyEmailScreen extends StatelessWidget {
               SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-                    onPressed: () {},
-                      // onPressed: () => Get.to(() => SuccessScreen(
-                      //       image: AssetRes.productsSuccessIllustration,
-                      //       title: TTexts.yourAccountCreatedTitle,
-                      //       subTitle: TTexts.yourAccountCreatedSubTitle,
-                      //       onPressed: () => Get.to(() => const LoginScreen()),
-                      //     )),
-                      child: Text(S.current.coontinue))),
+                      onPressed: () {}, child: Text(S.current.coontinue))),
               SizedBox(height: AppSizes.spaceBtwItems),
               SizedBox(
                   width: double.infinity,
                   child: TextButton(
-                      onPressed: () {}, child:  Text(S.current.resendEmail))),
+                      onPressed: () {}, child: Text(S.current.resendEmail))),
             ],
           ),
         ),

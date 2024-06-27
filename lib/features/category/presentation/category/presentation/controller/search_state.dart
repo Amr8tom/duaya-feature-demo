@@ -9,6 +9,8 @@ final class SearchSuccess extends SearchState {}
 
 final class BeforeSearchSuccess extends SearchState {}
 
+final class ToggleSearchSuccess extends SearchState {}
+
 final class SearchLoading extends SearchState {}
 
 final class SearchFaliure extends SearchState {}

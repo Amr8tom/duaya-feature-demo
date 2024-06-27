@@ -8,6 +8,7 @@ import 'package:duaya_app/features/home/data/model/productModel.dart';
 import 'package:duaya_app/features/home/data/model/sliderModel.dart';
 
 import '../../../../utils/connection/checkNetwork.dart';
+import '../model/RelatedProductModel.dart';
 
 class bestSellerReposoitoryImp {
   bestSellerLocalDataSourceImpl localData = bestSellerLocalDataSourceImpl();
@@ -65,6 +66,25 @@ class bestSellerReposoitoryImp {
       print(" /////////////////////// nor connected /////////////////////");
       var response = await localData.getProductJson(productID: productID);
       return ProductModel.fromJson(response);
+    }
+  }
+
+/////////// id didnt modify the model here
+  Future<RelatedProductModel> getRelatedModel(
+      {required String productID}) async {
+    bool networkInfo =
+        await NetworkInfoImpl(DataConnectionChecker()).isConnected;
+    if (networkInfo) {
+      print("////////////////  connected   ////////////////////");
+      var response = await remoteData.getRelatedProduct(productID: productID);
+      localData.cacheRelatedProduct(
+          relatedProductJson: jsonEncode(response), productID: productID);
+      print(response);
+      return RelatedProductModel.fromJson(response);
+    } else {
+      print(" /////////////////////// nor connected /////////////////////");
+      var response = await localData.getRelatedProduct(productID: productID);
+      return RelatedProductModel.fromJson(response);
     }
   }
 }

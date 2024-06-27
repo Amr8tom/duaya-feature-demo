@@ -6,7 +6,12 @@ import 'package:duaya_app/features/address/data/dataSources/localDataSources.dar
 import 'package:duaya_app/features/address/data/dataSources/remoteDataSources.dart';
 import 'package:duaya_app/features/address/data/model/AdressListModel.dart';
 import 'package:duaya_app/features/address/data/model/AdressListModel.dart';
+import 'package:duaya_app/features/address/data/model/ChooseAddressModel.dart';
 import 'package:duaya_app/features/address/data/model/CreateAddress.dart';
+import 'package:duaya_app/features/address/data/model/DeleteAddressModel.dart';
+import 'package:duaya_app/features/address/data/model/DeleteAddressModel.dart';
+import 'package:duaya_app/features/address/data/model/DeleteAddressModel.dart';
+import 'package:duaya_app/features/address/data/model/UpdateAddressModel.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../utils/connection/checkNetwork.dart';
 
@@ -19,31 +24,64 @@ class addressRepositoryImpl {
     bool networkInfo =
         await NetworkInfoImpl(DataConnectionChecker()).isConnected;
     if (networkInfo) {
-      print("///////// Net Connected ///////////////");
       Map<String, dynamic>? response =
           await remoteData.createAddressData(addressBody: AddressBody);
       localData.cacheAddreessJson(addressJson: jsonEncode(response));
       return CreateAddress.fromJson(response);
     } else {
-      print("///////// Net Is Not Connected ///////////////");
-
       commonToast(S.current.NoInternetConnection);
     }
   }
 
-  Future<AdressListModel?> getAddressListModel(
-      {required Map<String, dynamic> addressListBody}) async {
+  Future<UpdateAddressModel?> updateAddressModel(
+      {required Map<String, dynamic> AddressBody}) async {
     bool networkInfo =
         await NetworkInfoImpl(DataConnectionChecker()).isConnected;
     if (networkInfo) {
-      print("///////// Net Connected ///////////////");
       Map<String, dynamic>? response =
-          await remoteData.getAddressListData(addressListBody: addressListBody);
+          await remoteData.updateAddressData(addressBody: AddressBody);
+      return UpdateAddressModel.fromJson(response);
+    } else {
+      commonToast(S.current.NoInternetConnection);
+    }
+  }
+
+  Future<AdressListModel?> getAddressListModel() async {
+    bool networkInfo =
+        await NetworkInfoImpl(DataConnectionChecker()).isConnected;
+    if (networkInfo) {
+      Map<String, dynamic>? response = await remoteData.getAddressListData();
       localData.cacheAddreessListJson(addressListJson: jsonEncode(response!));
       return AdressListModel.fromJson(response);
     } else {
       final response = await localData.getAddressListJson();
       return AdressListModel.fromJson(response);
+    }
+  }
+
+  Future<DeleteAddressModel?> deleteAddressFromList(
+      {required String ID}) async {
+    bool networkInfo =
+        await NetworkInfoImpl(DataConnectionChecker()).isConnected;
+    if (networkInfo) {
+      Map<String, dynamic>? response =
+          await remoteData.deleteAddressfromList(ID: ID);
+      return DeleteAddressModel.fromJson(response);
+    } else {
+      commonToast(S.current.NoInternetConnection);
+    }
+  }
+
+  Future<ChooseAddressModel?> chooseAddressFromList(
+      {required Map<String, dynamic> addressBody}) async {
+    bool networkInfo =
+        await NetworkInfoImpl(DataConnectionChecker()).isConnected;
+    if (networkInfo) {
+      Map<String, dynamic>? response =
+          await remoteData.chooseAddressData(addressBody: addressBody);
+      return ChooseAddressModel.fromJson(response);
+    } else {
+      commonToast(S.current.NoInternetConnection);
     }
   }
 }

@@ -1,36 +1,186 @@
+import 'package:duaya_app/common/text_record_function.dart';
 import 'package:duaya_app/features/menu/presentation/widget/custom_container_menu/custom_container_menu.dart';
 import 'package:duaya_app/routing/routes_name.dart';
+import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/constants.dart';
+import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
+import '../../../generated/l10n.dart';
 
-class MenuScreen extends StatelessWidget {
+class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
+  @override
+  State<MenuScreen> createState() => _MenuScreenState();
+}
 
+class _MenuScreenState extends State<MenuScreen> {
+  int selectedIndex = -1; // Track the index of the selected item
+  bool isHelpWithAvatar = true;
   @override
   Widget build(BuildContext context) {
-    return  GridView.builder(
-      padding:  EdgeInsets.symmetric(horizontal: AppSizes.spaceBtwItems, vertical: AppSizes.defaultSpace),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: AppSizes.imageSize,crossAxisSpacing: AppSizes.padding * 1, childAspectRatio: 5/3.5),
-      shrinkWrap: true,
-      itemCount: DConstants.iconOfMenu.length,
-      itemBuilder: (context, index) {
-        return GestureDetector(
-            onTap: (){
-              index == 0 ? context.pushNamed(DRoutesName.walletRoute):
-              index == 1 ? context.pushNamed(DRoutesName.myAdsRoute):
-              index == 2 ? context.pushNamed(DRoutesName.customerAdsRoute):
-              index == 3 ? context.pushNamed(DRoutesName.myOrderRoute):
-              index == 4 ? context.pushNamed(DRoutesName.myNoteBookRoute):
-              index == 5 ? context.pushNamed(DRoutesName.medicalServiceRoute):
-              index == 6 ? context.pushNamed(DRoutesName.expireProductRoute):
-              index == 7 ? context.pushNamed(DRoutesName.favoriteRoute):
-              index == 9 ? context.pushNamed(DRoutesName.returnRequestRoute):
-              Container();
+    return Stack(
+      children: [
+        GridView.builder(
+          padding: EdgeInsets.symmetric(
+              horizontal: AppSizes.spaceBtwItems,
+              vertical: AppSizes.defaultSpace),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: AppSizes.imageSize,
+              crossAxisSpacing: AppSizes.padding * 1,
+              childAspectRatio: 5 / 3.5),
+          shrinkWrap: true,
+          itemCount: DConstants.iconOfMenu.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  selectedIndex = index; // Update the selected index
+                });
+
+                // Handle navigation or text-to-speech logic
+                if (isHelpWithAvatar) {
+                  switch (index) {
+                    case 0:
+                      context.pushNamed(DRoutesName.walletRoute);
+                      break;
+                    case 1:
+                      context.pushNamed(DRoutesName.myAdsRoute);
+                      break;
+                    case 2:
+                      context.pushNamed(DRoutesName.customerAdsRoute);
+                      break;
+                    case 3:
+                      context.pushNamed(DRoutesName.myOrderRoute);
+                      break;
+                    case 4:
+                      context.pushNamed(DRoutesName.myNoteBookRoute);
+                      break;
+                    case 5:
+                      context.pushNamed(DRoutesName.medicalServiceRoute);
+                      break;
+                    case 6:
+                      context.pushNamed(DRoutesName.expireProductRoute);
+                      break;
+                    case 7:
+                      context.pushNamed(DRoutesName.favoriteRoute);
+                      break;
+                    case 9:
+                      context.pushNamed(DRoutesName.returnRequestRoute);
+                      break;
+                    default:
+                      break;
+                  }
+                } else {
+                  switch (index) {
+                    case 0:
+                      speak(
+                          statements: S.current.wallet,
+                          locale: S.current.localeee);
+                      break;
+                    case 1:
+                      speak(
+                          statements: S.current.stagnantItems,
+                          locale: S.current.localeee);
+                      break;
+                    case 2:
+                      speak(
+                          statements: S.current.customerStagnantItems,
+                          locale: S.current.localeee);
+                      break;
+                    case 3:
+                      speak(
+                          statements: S.current.myOrderSpeak,
+                          locale: S.current.localeee);
+                      break;
+                    case 4:
+                      speak(
+                          statements: S.current.sendNotebook,
+                          locale: S.current.localeee);
+                      break;
+                    case 5:
+                      speak(
+                          statements: S.current.medicalServices,
+                          locale: S.current.localeee);
+                      break;
+                    case 6:
+                      speak(
+                          statements: S.current.expiredProducts,
+                          locale: S.current.localeee);
+                      break;
+                    case 7:
+                      speak(
+                          statements: S.current.favoriteItems,
+                          locale: S.current.localeee);
+                      break;
+                    case 9:
+                      speak(
+                          statements: S.current.returnOrder,
+                          locale: S.current.localeee);
+                      break;
+                    case 10:
+                      speak(
+                          statements: S.current.speakToUs,
+                          locale: S.current.localeee);
+                      break;
+                    default:
+                      break;
+                  }
+                }
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: selectedIndex == index
+                        ? ColorRes.primary
+                        : Colors
+                            .transparent, // Optional: highlight border color for the selected item
+                    width: 2.0,
+                  ),
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: selectedIndex == index
+                    ? Lottie.asset(
+                        AssetRes.rebot1,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: double.infinity,
+                      )
+                    : CustomContainerMenu(
+                        text: DConstants.textOfMenu[index],
+                        iconData: DConstants.iconOfMenu[index],
+                      ),
+              ),
+            );
+          },
+        ),
+        Positioned(
+          bottom: 2.sp,
+          right: 10,
+          child: IconButton(
+            onPressed: () {
+              setState(() {
+                isHelpWithAvatar = !isHelpWithAvatar; // Toggle the state
+              });
             },
-            child: CustomContainerMenu(text: DConstants.textOfMenu[index], iconData: DConstants.iconOfMenu[index]));
-      },
+            icon: Column(
+              children: [
+                Icon(
+                  isHelpWithAvatar ? Icons.help : Icons.help_outline,
+                  size: 40.sp,
+                  color: ColorRes.lightGreen,
+                ),
+                Text(S.current.helper),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
