@@ -1,13 +1,13 @@
-flutter_native_splash:
-  color: "#FFFFFF"
-  color_dark: "#272727"
-  image: assets/images/pngs/app-logo.png
-  image_dark: assets/images/pngs/app-logo.png
-
-  android_12:
-    color: "#FFFFFF"
-    color_dark: "#272727"
-    image: assets/images/pngs/app-logo.png
-    image_dark: assets/images/pngs/app-logo.png
-
-  web: false
+#flutter_native_splash:
+#  color: "#FFFFFF"
+#  color_dark: "#272727"
+#  image: assets/images/pngs/app-logo.png
+#  image_dark: assets/images/pngs/app-logo.png
+#
+#  android_12:
+#    color: "#FFFFFF"
+#    color_dark: "#272727"
+#    image: assets/images/pngs/app-logo.png
+#    image_dark: assets/images/pngs/app-logo.png
+#
+#  web: false

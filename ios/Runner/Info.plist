@@ -52,5 +52,8 @@
     <string>ar</string>
     <string>en</string>
 </array>
+<key>NSMicrophoneUsageDescription</key>
+<string>We need access to your microphone for speech synthesis.</string>
+
 	</dict>
 </plist>
