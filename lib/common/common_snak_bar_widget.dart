@@ -6,10 +6,10 @@ import '../utils/constants/colors.dart';
 Future<void> commonToast(String msg) {
   return Fluttertoast.showToast(
       msg: msg,
-      toastLength: Toast.LENGTH_SHORT,
+      toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.CENTER,
       timeInSecForIosWeb: 1,
-      backgroundColor: ColorRes.appBarColor,
+      backgroundColor: ColorRes.lightGreen,
       textColor: Colors.white,
-      fontSize: 16.0);
+      fontSize: 18.0);
 }

@@ -11,17 +11,20 @@ class searchRemoteDataSourcesImp {
     if (page == null) {
       Map<String, dynamic>? response =
           await API.getData(URL: "${URL.search}$name");
+      print("${URL.search}$name");
       print(response);
+      print(response);
+
       return response!;
     } else {
       final Map<String, dynamic>? response =
           await API.getData(URL: "${URL.search}$name&page=$page");
-      // print("The URL ////////////////  URL ////////////////////////////     ");
-      // print("${URL.search}$name&page=$page");
-      // print("${URL.search}$name&page=$page");
-      // print("${URL.search}$name&page=$page");
-      // print("${URL.search}$name&page=$page");
-      // print(response);
+      print("The URL ////////////////  URL ////////////////////////////     ");
+      print("${URL.search}$name&page=$page");
+      print("${URL.search}$name&page=$page");
+      print("${URL.search}$name&page=$page");
+      print("${URL.search}$name&page=$page");
+      print(response);
       return response!;
     }
   }

@@ -48,6 +48,7 @@ class SearchCubit extends Cubit<SearchState> {
   void getProductModel() {
     isSearchData = false;
     emit(BeforeSearchSuccess());
+    emit(ToggleSearchSuccess());
   }
 
   void toggleISsearch() {
