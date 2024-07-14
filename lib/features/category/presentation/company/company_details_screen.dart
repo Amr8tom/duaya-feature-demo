@@ -3,9 +3,6 @@ import 'package:duaya_app/features/category/presentation/category/presentation/c
 import 'package:duaya_app/features/category/presentation/category/presentation/widget/flash_today_deals_body_girdview.dart';
 import 'package:duaya_app/features/category/presentation/company/widget/beastSellerGridView.dart';
 import 'package:duaya_app/features/flash/presentation/controller/flash_cubit.dart';
-import 'package:duaya_app/utils/constants/colors.dart';
-import 'package:duaya_app/utils/constants/sizes.dart';
-import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,7 +10,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../common/widgets/cached_image/cached_image.dart';
 import '../../../../generated/l10n.dart';
-import 'package:duaya_app/utils/connection/checkImageNetwork.dart';
 import '../../../../utils/constants/image_strings.dart';
 import 'widget/newProductGridView.dart';
 
@@ -23,7 +19,6 @@ class CompanyDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final companyDetailsController = context.read<CompaniesByPageCubit>();
-
     String email = S.current.loading;
     String phone = S.current.loading;
     String adress = S.current.loading;

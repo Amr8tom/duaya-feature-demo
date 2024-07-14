@@ -8,28 +8,32 @@ class DTextFormFieldTheme {
   DTextFormFieldTheme._();
 
   static InputDecorationTheme lightInputDecorationTheme = InputDecorationTheme(
-    errorMaxLines: 3,
-    prefixIconColor: Colors.grey,
-    suffixIconColor: Colors.grey,
-    labelStyle: const TextStyle().copyWith(fontSize: 14.sp, color: Colors.black),
-    hintStyle: const TextStyle().copyWith(fontSize: 14.sp, color: Colors.black),
-    errorStyle: const TextStyle().copyWith(fontStyle: FontStyle.normal),
-    floatingLabelStyle: const TextStyle().copyWith(color: Colors.black.withOpacity(0.8)),
+    errorMaxLines: 2,
+    prefixIconColor: ColorRes.greenBlue,
+    suffixIconColor: ColorRes.greenBlue,
+    labelStyle: const TextStyle().copyWith(
+        fontWeight: FontWeight.w400, fontSize: 14.sp, color: Colors.grey),
+    hintStyle: const TextStyle().copyWith(
+        fontWeight: FontWeight.w400, fontSize: 14.sp, color: Colors.black),
+    errorStyle: const TextStyle()
+        .copyWith(fontWeight: FontWeight.w400, fontStyle: FontStyle.normal),
+    floatingLabelStyle:
+        const TextStyle().copyWith(color: ColorRes.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 1.w, color: Colors.grey),
+      borderSide: BorderSide(width: 2.w, color: ColorRes.greenBlue),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 1.w, color: Colors.grey),
+      borderSide: BorderSide(width: 2.w, color: ColorRes.greenBlue),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 1.w, color: Colors.black12),
+      borderSide: BorderSide(width: 2.w, color: ColorRes.greenBlue),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 1.w, color: Colors.red),
+      borderSide: BorderSide(width: 2.w, color: Colors.red),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
@@ -41,9 +45,11 @@ class DTextFormFieldTheme {
     errorMaxLines: 2,
     prefixIconColor: Colors.grey,
     suffixIconColor: Colors.grey,
-    labelStyle: const TextStyle().copyWith(fontSize: 14.sp, color: Colors.white),
+    labelStyle:
+        const TextStyle().copyWith(fontSize: 14.sp, color: Colors.white),
     hintStyle: const TextStyle().copyWith(fontSize: 14.sp, color: Colors.white),
-    floatingLabelStyle: const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
+    floatingLabelStyle:
+        const TextStyle().copyWith(color: Colors.white.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
       borderSide: BorderSide(width: 1.w, color: Colors.grey),

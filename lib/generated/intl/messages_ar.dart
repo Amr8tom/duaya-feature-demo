@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alsoAvailable":
             MessageLookupByLibrary.simpleMessage(" : أيضا متاح في"),
         "appName": MessageLookupByLibrary.simpleMessage("دَوَآيَـــاَ"),
+        "arabic": MessageLookupByLibrary.simpleMessage("العربيه"),
         "avaiableToLoan":
             MessageLookupByLibrary.simpleMessage("سٌـلفة مٌتـاحة"),
         "avaliableItemCount":
@@ -56,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "لا يمكنك الشراء باقل من  500 جنيها "),
         "callUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "calnced": MessageLookupByLibrary.simpleMessage("تم الالغاء"),
-        "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+        "cart": MessageLookupByLibrary.simpleMessage("العربه"),
         "cashBack": MessageLookupByLibrary.simpleMessage("كاش باك"),
         "cashOnDelivery":
             MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),
@@ -117,6 +118,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تَــعديـل المُنـتج"),
         "emailPasswordSend":
             MessageLookupByLibrary.simpleMessage("تم ارسال الكود"),
+        "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
         "exitApp":
             MessageLookupByLibrary.simpleMessage("الخٍـروُج من التَـطبيـق"),
         "expiredProduct":
@@ -149,8 +151,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "languageDes":
             MessageLookupByLibrary.simpleMessage("قُــم بـتغير لــغة التـطبيق"),
         "lastAddress": MessageLookupByLibrary.simpleMessage("العنوان الأخير"),
-        "letsStart": MessageLookupByLibrary.simpleMessage(
-            "مـــرحبـاََ بـك مــجـدداََ يا دكتــور"),
+        "letsStart":
+            MessageLookupByLibrary.simpleMessage("مـــرحبـاََ بـك مــجـدداََ "),
         "loading": MessageLookupByLibrary.simpleMessage("تحميل ..."),
         "localeee": MessageLookupByLibrary.simpleMessage("ar"),
         "logOut": MessageLookupByLibrary.simpleMessage("تَســجيل الخــروج"),
@@ -183,20 +185,29 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عَميِلْ جِـديـــد ْ"),
         "newProduct": MessageLookupByLibrary.simpleMessage("مٌــنتج جَـدٍيد"),
         "no": MessageLookupByLibrary.simpleMessage("لا"),
+        "noData": MessageLookupByLibrary.simpleMessage(
+            "لا يــوجد شـئ في الوقت الحـالي"),
+        "noResult": MessageLookupByLibrary.simpleMessage("لا توٌجـد نتــائج"),
+        "noUserFound": MessageLookupByLibrary.simpleMessage(
+            "لم يتم العثور على هذه البيانات"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("هذا الحساب لم يتم تفعيله"),
         "numberOfPints":
             MessageLookupByLibrary.simpleMessage("النقاط المكتسبة"),
         "onboardingBody1": MessageLookupByLibrary.simpleMessage(
             "الأدوية- المستلزمات الطبية -مستحضرات التجميل -ألاجهزة الطبية"),
         "onboardingBody2": MessageLookupByLibrary.simpleMessage(
-            "من خلال دوايا  يمكنك الطلب في اي وقت ومن اي مكان"),
+            "لمساعدتك في الحصول علي مميزات دوايا"),
         "onboardingBody3": MessageLookupByLibrary.simpleMessage(
-            "عن طريق توفير جميع الاحتياجات باعلى الخصومات من اقوى الموردين"),
+            "عن طريق توفير جميع الاحتياجات باعلى الخصومات"),
         "onboardingTitle1":
             MessageLookupByLibrary.simpleMessage("جميـع مشترياتك في مكان واحد"),
         "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
-            "جميع الشركات متاحة للطلب 24/7"),
+            "يمكنك استخدام ميزة الذكاء الاصطناعي"),
         "onboardingTitle3":
             MessageLookupByLibrary.simpleMessage("الطلب من دوايا يضاعف أرباحك"),
+        "onbordingMsg": MessageLookupByLibrary.simpleMessage(
+            "أنا المساعد الذكي هنا لمساعدتك عبر التطبيق"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordTooShort": MessageLookupByLibrary.simpleMessage(
             " لا يــمكن أن تــكون كـلمة المرور أقل من 4  "),
@@ -243,8 +254,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("سينتهي هذا العرض خلال"),
         "saudiArabia": MessageLookupByLibrary.simpleMessage("السعودية"),
         "saveAndPay": MessageLookupByLibrary.simpleMessage("حفظ والدفع"),
-        "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغيرات"),
+        "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ"),
         "search": MessageLookupByLibrary.simpleMessage("أبحث هنا "),
+        "searchTitle": MessageLookupByLibrary.simpleMessage("الــبحث"),
         "seconds": MessageLookupByLibrary.simpleMessage("ثواني"),
         "seeAll": MessageLookupByLibrary.simpleMessage("رؤية الكل"),
         "selectCity": MessageLookupByLibrary.simpleMessage("المدينة"),
@@ -258,7 +270,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أرسـال كشــكول النــواقص"),
         "sendNotebook": MessageLookupByLibrary.simpleMessage(
             "يمكنك تصوير ورفع النواقص والحصول علي طلبك بسرعة فائقة"),
-        "settings": MessageLookupByLibrary.simpleMessage("الاعدادت"),
+        "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
         "singIn": MessageLookupByLibrary.simpleMessage("تسجـيل الدخـول"),
         "size": MessageLookupByLibrary.simpleMessage("الحــجم "),
         "skip": MessageLookupByLibrary.simpleMessage("تخطـى"),
@@ -274,6 +286,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("الاجمالي"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage(
+            "  يُـرجى المُحاولة مرة أخرى أو التسجيل"),
         "unitPrice": MessageLookupByLibrary.simpleMessage("العملة"),
         "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
         "upgradePackage": MessageLookupByLibrary.simpleMessage(
@@ -287,6 +301,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("كــود التفعيل"),
         "verification_status": MessageLookupByLibrary.simpleMessage(
             "تَـواصـل مع الأدارة لتفعيل حٍسابـك"),
+        "verified": MessageLookupByLibrary.simpleMessage("تم تفعيل الحساب"),
         "wallet": MessageLookupByLibrary.simpleMessage(
             " هنا يمكنك الحصول على أموال والكاش باك لتساعدك في زياده أرباحك"),
         "walletByPayment":

@@ -17,7 +17,7 @@ class DTextTheme {
     headlineMedium: const TextStyle().copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w900,
-        color: ColorRes.lightGreen,
+        color: ColorRes.greenBlue,
         fontFamily: 'Poppins'),
     headlineSmall: const TextStyle().copyWith(
         fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
@@ -32,7 +32,7 @@ class DTextTheme {
     bodyMedium: const TextStyle(overflow: TextOverflow.clip).copyWith(
         fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black),
     bodySmall: const TextStyle().copyWith(
-        fontSize: 14, fontWeight: FontWeight.w500, color: ColorRes.lightGreen),
+        fontSize: 14, fontWeight: FontWeight.w500, color: ColorRes.greenBlue),
     labelLarge: const TextStyle().copyWith(
         fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black),
     labelMedium: const TextStyle().copyWith(

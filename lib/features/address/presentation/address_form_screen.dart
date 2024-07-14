@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
@@ -16,16 +17,10 @@ class AddressFormScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: ColorRes.primary,
-        title: Text(
-          S.current.address,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: ColorRes.white, fontSize: 30.sp),
-        ),
-        centerTitle: true,
+      appBar: DAppBar(
+        leadingWidget: Icon(Icons.arrow_back_ios),
+        showBackArrow: true,
+        title: Text(S.current.address),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -42,28 +37,31 @@ class AddressFormScreen extends StatelessWidget {
                 return Form(
                   child: ListView(
                     children: [
-                      SizedBox(height: 60.sp),
-
-                      ////////////////////////////// phone //////////////////////////
-                      TextWithTextField(
-                        radius: 5,
-                        textType: TextInputType.number,
-                        isError: addressController.phoneError,
-                        controller: addressController.phoneController,
-                        title: S.current.phoneNumber,
-                      ),
-                      SizedBox(height: 20.sp),
-                      TextWithTextField(
-                        radius: 5,
-                        hight: 150.sp,
-                        isError: addressController.addressError,
+                      SizedBox(height: 40.h),
+                      Text(S.current.addressDetails),
+                      SizedBox(height: 20.h),
+                      TextField(
+                        maxLines: 10,
                         controller: addressController.addressController,
-                        title: S.current.address,
+                        decoration: InputDecoration(
+                          hintText: S.current.addressDetails,
+                        ),
                       ),
-                      SizedBox(height: 60.sp),
+                      SizedBox(height: 40.h),
+                      ////////////////////////////// phone //////////////////////////
+                      Text(S.current.phoneNumber),
+                      SizedBox(height: 20.h),
+                      TextField(
+                          maxLines: 1,
+                          keyboardType: TextInputType.number,
+                          controller: addressController.phoneController,
+                          decoration: InputDecoration(
+                            hintText: S.current.phoneNumber,
+                          )),
+                      SizedBox(height: 60.h),
                       Container(
                         decoration: BoxDecoration(
-                            color: ColorRes.primary,
+                            color: ColorRes.greenBlue,
                             borderRadius: BorderRadius.circular(100)),
                         child: ElevatedButton(
                           onPressed: () async {

@@ -6,15 +6,21 @@ class ColorRes {
   /// App Basic Colors
   static const Color sdasd = Color(0xff483d8b);
   static const Color primary = Color(0xff556b2f);
+  // static const Color primary = Color(0xFF3D9889);
   static const Color primaryDark = Colors.blueGrey;
   static const Color accent = Color(0xFFB0C7FF);
   static const Color gold = Color(0xffDDB351);
   static const Color silver = Color(0xff9C9C9C);
   static const Color whiteLevel = Color(0xffEBEBEB);
   static const Color blueColor = Color(0xff358FE1);
-  static const Color appBarColor = Color(0xff4b5222);
-  static const Color lightGreen = Color(0xff7fbd20);
+  // static const Color appBarColor = Color(0xff4b5222);
+  static const Color appBarColor = Color(0xFF3D9889);
+  // static const Color lightGreen = Color(0xff7fbd20);
+  static const Color lightGreen = Color(0xFF3D9889);
   static const Color medGreen = Color(0xff8dc63e);
+  static const Color greenBlue = Color(0xFF3D9889);
+  static const Color greenBlueLight = Color(0xFFE5FBF8);
+  // static const Color greenBlue = Color(0xff7fbd20);
 
   /// Gradient Colors
   static const Gradient linerGradient = LinearGradient(

@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
+import '../../../../generated/l10n.dart';
 import '../../../authentication/presentation/controller/auth_controller_cubit.dart';
 import '../../presentation/controller/translation_cubit.dart';
 
@@ -33,22 +35,41 @@ class CustomContainerOfDataUser extends StatelessWidget {
           ),
         ],
       ),
-      child: Row(
-        children: [
-          Column(
+      child: Stack(alignment: AlignmentDirectional.topEnd, children: [
+        settingController.profileModel.verificationStatus == 0
+            ? Icon(Icons.dangerous_outlined,
+                color: ColorRes.error2, size: 35.sp)
+            : Icon(Icons.check_circle_outline,
+                color: ColorRes.white, size: 35.sp),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(authController.userModel.user!.name!,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineLarge!
-                          .copyWith(fontSize: 16.sp, color: ColorRes.white))
-                ],
+              CircleAvatar(
+                radius: 30.r,
+                backgroundColor: ColorRes.greenBlueLight,
+                child: CachedImage(
+                    height: 50.h,
+                    link: authController.userModel.user!.avatarOriginal!),
               ),
+              Text(authController.userModel.user!.name!,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headlineLarge!
+                      .copyWith(fontSize: 16.sp, color: ColorRes.white)),
+
+              SizedBox(height: AppSizes.spaceBtwItems / 2),
+              Text(authController.userModel.user!.email!,
+                  style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w400,
+                      color: ColorRes.white,
+                      overflow: TextOverflow.ellipsis)),
+
+              /// show vip status
               settingController.profileModel.vipStatus == 1
                   ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text("VIP ",
                             style: Theme.of(context)
@@ -56,58 +77,41 @@ class CustomContainerOfDataUser extends StatelessWidget {
                                 .headlineLarge!
                                 .copyWith(
                                     fontSize: 20.sp, color: ColorRes.error2)),
+                        SizedBox(
+                          width: AppSizes.defaultSpace,
+                        ),
                         Icon(
                           Iconsax.crown1,
                           size: 35.sp,
                           color: ColorRes.error2,
                         ),
-                        SizedBox(
-                          width: AppSizes.defaultSpace,
-                        ),
                       ],
                     )
                   : SizedBox(),
-              SizedBox(height: AppSizes.spaceBtwItems / 2),
-              Container(
-                width: 220.sp,
-                child: Text(authController.userModel.user!.email!,
-                    style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                        fontSize: 16.sp,
-                        color: ColorRes.white,
-                        overflow: TextOverflow.ellipsis)),
-              ),
-            ],
-          ),
-          SizedBox(width: AppSizes.spaceBtwItems * 3),
-          Column(
-            children: [
-              CircleAvatar(
-                radius: 30.r,
-                backgroundColor: ColorRes.white,
-                child: CircleAvatar(
-                  radius: 25.r,
-                  backgroundColor: ColorRes.gold.withOpacity(0.6),
-                  child: Center(
-                    child: Text(authController.userModel.user!.jobName!,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineLarge!
-                            .copyWith(
-                                fontSize: 16.sp,
-                                color: ColorRes.white,
-                                overflow: TextOverflow.ellipsis)),
-                  ),
-                ),
-              ),
+
               settingController.profileModel.verificationStatus == 0
-                  ? Icon(Icons.dangerous_outlined,
-                      color: ColorRes.error2, size: 50.sp)
-                  : Icon(Icons.check_box, color: ColorRes.white, size: 40.sp),
+                  ? Text(S.current.notVerified,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineLarge!
+                          .copyWith(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              color: ColorRes.white,
+                              overflow: TextOverflow.ellipsis))
+                  : Text(S.current.verified,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineLarge!
+                          .copyWith(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              color: ColorRes.white,
+                              overflow: TextOverflow.ellipsis)),
             ],
           ),
-          const Spacer(),
-        ],
-      ),
+        ),
+      ]),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/common_snak_bar_widget.dart';
 import 'package:duaya_app/common/text_record_function.dart';
 import 'package:duaya_app/features/menu/presentation/widget/custom_container_menu/custom_container_menu.dart';
 import 'package:duaya_app/routing/routes_name.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import '../../../generated/l10n.dart';
+import 'chat/presentation/controller/chat_controller.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({Key? key}) : super(key: key);
@@ -21,6 +23,7 @@ class MenuScreen extends StatefulWidget {
 class _MenuScreenState extends State<MenuScreen> {
   int selectedIndex = -1; // Track the index of the selected item
   bool isHelpWithAvatar = true;
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -38,7 +41,7 @@ class _MenuScreenState extends State<MenuScreen> {
           itemCount: DConstants.iconOfMenu.length,
           itemBuilder: (context, index) {
             return GestureDetector(
-              onTap: () {
+              onTap: () async {
                 setState(() {
                   selectedIndex = index; // Update the selected index
                 });
@@ -50,13 +53,13 @@ class _MenuScreenState extends State<MenuScreen> {
                       context.pushNamed(DRoutesName.walletRoute);
                       break;
                     case 1:
-                      context.pushNamed(DRoutesName.myAdsRoute);
+                      context.pushNamed(DRoutesName.navigationMenuRoute);
                       break;
                     case 2:
-                      context.pushNamed(DRoutesName.customerAdsRoute);
+                      // context.pushNamed(DRoutesName.customerAdsRoute);
                       break;
                     case 3:
-                      context.pushNamed(DRoutesName.myOrderRoute);
+                      context.pushNamed(DRoutesName.navigationMenuRoute);
                       break;
                     case 4:
                       context.pushNamed(DRoutesName.myNoteBookRoute);
@@ -68,11 +71,15 @@ class _MenuScreenState extends State<MenuScreen> {
                       context.pushNamed(DRoutesName.expireProductRoute);
                       break;
                     case 7:
-                      context.pushNamed(DRoutesName.favoriteRoute);
+                      context.pushNamed(DRoutesName.navigationMenuRoute);
+                      break;
+                    case 8:
+                      openWhatsAppChat();
                       break;
                     case 9:
-                      context.pushNamed(DRoutesName.returnRequestRoute);
+                      context.pushNamed(DRoutesName.navigationMenuRoute);
                       break;
+
                     default:
                       break;
                   }
@@ -118,16 +125,17 @@ class _MenuScreenState extends State<MenuScreen> {
                           statements: S.current.favoriteItems,
                           locale: S.current.localeee);
                       break;
+                    case 8:
+                      speak(
+                          statements: S.current.speakToUs,
+                          locale: S.current.localeee);
+                      break;
                     case 9:
                       speak(
                           statements: S.current.returnOrder,
                           locale: S.current.localeee);
                       break;
-                    case 10:
-                      speak(
-                          statements: S.current.speakToUs,
-                          locale: S.current.localeee);
-                      break;
+
                     default:
                       break;
                   }
@@ -138,8 +146,8 @@ class _MenuScreenState extends State<MenuScreen> {
                   border: Border.all(
                     color: selectedIndex == index
                         ? ColorRes.primary
-                        : Colors
-                            .transparent, // Optional: highlight border color for the selected item
+                        : Colors.transparent,
+                    // Optional: highlight border color for the selected item
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(10.0),
@@ -167,6 +175,8 @@ class _MenuScreenState extends State<MenuScreen> {
               setState(() {
                 isHelpWithAvatar = !isHelpWithAvatar; // Toggle the state
               });
+              commonToast(
+                  "لقد تم تشغيل المساعده الصوتية انقر علي الايكونات المتاحة امامك لمعرفة خاصية كل واحدة منهم");
             },
             icon: Column(
               children: [

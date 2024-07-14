@@ -21,7 +21,7 @@ class OnBoardingSkip extends StatelessWidget {
       top: 70.h,
       right: ScreenUtil.defaultSize.width / 3,
       child: TextButton(
-        onPressed: () => cubit.skipPage(),
+        onPressed: () => cubit.skipPage(context: context),
         child: Text(
           S.current.skip,
           style: Theme.of(context)

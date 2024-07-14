@@ -46,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "alsoAvailable":
             MessageLookupByLibrary.simpleMessage("Also Available In :"),
         "appName": MessageLookupByLibrary.simpleMessage("Duaya"),
+        "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "avaiableToLoan":
             MessageLookupByLibrary.simpleMessage("avaliable to loan"),
         "avaliableItemCount":
@@ -115,6 +116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "editProduct": MessageLookupByLibrary.simpleMessage("Edit The Product"),
         "emailPasswordSend":
             MessageLookupByLibrary.simpleMessage("The Reset Code is Sent"),
+        "english": MessageLookupByLibrary.simpleMessage("English"),
         "exitApp": MessageLookupByLibrary.simpleMessage("Exit App"),
         "expiredProduct":
             MessageLookupByLibrary.simpleMessage("Expired Product"),
@@ -178,19 +180,28 @@ class MessageLookup extends MessageLookupByLibrary {
         "newCilent": MessageLookupByLibrary.simpleMessage("New Client"),
         "newProduct": MessageLookupByLibrary.simpleMessage("New Product"),
         "no": MessageLookupByLibrary.simpleMessage("No"),
+        "noData": MessageLookupByLibrary.simpleMessage(
+            "There is no data here till now"),
+        "noResult": MessageLookupByLibrary.simpleMessage("No results found"),
+        "noUserFound": MessageLookupByLibrary.simpleMessage(
+            "These credentials are not found"),
+        "notVerified":
+            MessageLookupByLibrary.simpleMessage("please verify your account"),
         "numberOfPints": MessageLookupByLibrary.simpleMessage("earned Points"),
         "onboardingBody1": MessageLookupByLibrary.simpleMessage(
             "Medicines - Medical Supplies - Cosmetics - Medical Devices"),
         "onboardingBody2": MessageLookupByLibrary.simpleMessage(
-            "With Duaya, you can order anytime, from anywhere"),
-        "onboardingBody3": MessageLookupByLibrary.simpleMessage(
-            "By providing all needs at the highest discounts from the strongest suppliers"),
+            "To help you to know Duaya Pros"),
+        "onboardingBody3":
+            MessageLookupByLibrary.simpleMessage("By providing all needs "),
         "onboardingTitle1": MessageLookupByLibrary.simpleMessage(
             "All your purchases in one place"),
-        "onboardingTitle2": MessageLookupByLibrary.simpleMessage(
-            "All companies available for ordering 24/7"),
+        "onboardingTitle2":
+            MessageLookupByLibrary.simpleMessage("you can use the AI features"),
         "onboardingTitle3": MessageLookupByLibrary.simpleMessage(
             "Ordering from Duaya doubles your profits"),
+        "onbordingMsg": MessageLookupByLibrary.simpleMessage(
+            "i am here to help you around the whole app"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordTooShort": MessageLookupByLibrary.simpleMessage(
             "The password cant be less than 4 "),
@@ -236,8 +247,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("The Sale Time ends in"),
         "saudiArabia": MessageLookupByLibrary.simpleMessage("saudiArabia"),
         "saveAndPay": MessageLookupByLibrary.simpleMessage("Save and Pay"),
-        "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
+        "saveChanges": MessageLookupByLibrary.simpleMessage("Save"),
         "search": MessageLookupByLibrary.simpleMessage("Search here"),
+        "searchTitle": MessageLookupByLibrary.simpleMessage("Search"),
         "seconds": MessageLookupByLibrary.simpleMessage("Seconds"),
         "seeAll": MessageLookupByLibrary.simpleMessage("see all"),
         "selectCity": MessageLookupByLibrary.simpleMessage("choose your city"),
@@ -268,6 +280,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
+        "tryAgain":
+            MessageLookupByLibrary.simpleMessage("Please try again or sign up"),
         "unitPrice": MessageLookupByLibrary.simpleMessage("Unit Price"),
         "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
         "upgradePackage": MessageLookupByLibrary.simpleMessage(
@@ -281,6 +295,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Verification Code"),
         "verification_status": MessageLookupByLibrary.simpleMessage(
             "conect with us for varification "),
+        "verified": MessageLookupByLibrary.simpleMessage("verified"),
         "wallet": MessageLookupByLibrary.simpleMessage(
             "Wallet......Here you can get money and cashback to help you increase your profits"),
         "walletByPayment": MessageLookupByLibrary.simpleMessage("By Wallet"),

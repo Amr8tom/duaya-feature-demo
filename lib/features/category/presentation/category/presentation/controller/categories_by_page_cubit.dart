@@ -35,7 +35,9 @@ class CategoriesByPageCubit extends Cubit<CategoriesByPageState> {
 
   Future<void> fetchCategoryByID({required String cataID}) async {
     print("////////////////  categoryID        ////////////");
-    singleCata = await repo.getCategory(categoryID: cataID);
+    singleCata = await repo.getCategory(
+      categoryID: cataID,
+    );
     emit(CategoryByIDSuccess());
   }
 }

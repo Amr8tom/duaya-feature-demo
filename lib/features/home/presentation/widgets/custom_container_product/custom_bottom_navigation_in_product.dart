@@ -51,11 +51,11 @@ class CustomBottomNavigationInProduct extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .titleLarge!
-                            .copyWith(color: ColorRes.primary),
+                            .copyWith(color: ColorRes.greenBlue),
                         overflow: TextOverflow.ellipsis),
                     Text(price!,
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            color: ColorRes.primary, fontSize: 14.sp)),
+                            color: ColorRes.greenBlue, fontSize: 14.sp)),
                   ],
                 )
               : const SizedBox.shrink(),

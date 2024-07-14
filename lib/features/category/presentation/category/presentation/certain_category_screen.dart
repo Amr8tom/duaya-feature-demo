@@ -1,8 +1,10 @@
+import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/authentication/presentation/controller/auth_controller_cubit.dart';
-import 'package:duaya_app/features/category/data/model/SearchModel.dart';
+import 'package:duaya_app/features/search/data/model/SearchModel.dart';
 import 'package:duaya_app/features/category/data/model/SingleCategoryModel.dart';
 import 'package:duaya_app/features/category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
+import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +14,7 @@ import '../../../../../common/widgets/text_form_field/custom_text_form_field_sea
 import '../../../../../generated/l10n.dart';
 import '../../../../../routing/routes_name.dart';
 import '../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
-import 'controller/search_cubit.dart';
+import '../../../../search/presentation/controller/search_cubit.dart';
 
 class certainCategoryScreen extends StatelessWidget {
   TextEditingController searchTextController = TextEditingController();
@@ -31,7 +33,7 @@ class certainCategoryScreen extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        final String CityID = userController.userModel.user!.brandId!;
+        final String CityID = userController.userModel.user!.brandId ?? "75";
         searchController.scrollController.addListener(() async {
           await searchController.scrollListener(
               name: searchTextController.text, cityID: CityID);
@@ -39,15 +41,11 @@ class certainCategoryScreen extends StatelessWidget {
 
         return Scaffold(
           backgroundColor: ColorRes.borderPrimary,
-          appBar: AppBar(
+          appBar: DAppBar(
+            showBackArrow: true,
+            leadingWidget: Icon(Icons.arrow_back_ios),
             centerTitle: true,
-            title: Text(
-              map["cataName"],
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22,
-                  color: ColorRes.white),
-            ),
+            title: Text(map["cataName"]),
           ),
           body: SingleChildScrollView(
             controller: searchController.scrollController,
@@ -122,57 +120,79 @@ class certainCategoryScreen extends StatelessWidget {
                             ),
                           );
                         })
-                    : GridView.builder(
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 10.h,
-                          childAspectRatio: 1 / 2.2,
-                        ),
-                        shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
-                        itemCount: productModel.data!.length,
-                        itemBuilder: (context, index) {
-                          String productName = productModel.data![index].name!;
-                          String productimage =
-                              productModel.data![index].thumbnailImage!;
-                          String productprice =
-                              productModel.data![index].mainPrice!;
-                          String StrokedPrice =
-                              productModel.data![index].strokedPrice!;
-                          bool hasDicount =
-                              productModel.data![index].hasDiscount!;
-                          String productCompany =
-                              productModel.data![index].shopName!;
-                          String discount = productModel.data![index].discount!;
-                          String ID = productModel.data![index].id!.toString();
-                          return GestureDetector(
-                            onTap: () async {
-                              context.pushNamed(DRoutesName.detailsProductRoute,
-                                  arguments: {
-                                    "productName": productName,
-                                    "productID": ID,
-                                    "discount": discount,
-                                    "productImage": productimage,
-                                    "companyName": productCompany,
-                                    "discount": discount,
-                                    "price": productprice,
-                                    "strockedPrice": StrokedPrice,
-                                    "hasDicount": hasDicount,
-                                  });
-                            },
-                            child: CustomContainerProduct(
-                              productID: ID,
-                              productImage: productimage,
-                              productName: productName,
-                              companyName: productCompany,
-                              discount: discount,
-                              rete: 4.5,
-                              price: productprice,
-                              hasDicount: hasDicount,
-                              strockedPrice: StrokedPrice,
+                    : productModel.data!.length != 0
+                        ? GridView.builder(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              mainAxisSpacing: 10.h,
+                              childAspectRatio: 1 / 2.2,
                             ),
-                          );
-                        })
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: productModel.data!.length,
+                            itemBuilder: (context, index) {
+                              if (productModel.data?.length != 0) {
+                                String productName =
+                                    productModel.data![index].name!;
+                                String productimage =
+                                    productModel.data![index].thumbnailImage!;
+                                String productprice =
+                                    productModel.data![index].mainPrice!;
+                                String StrokedPrice =
+                                    productModel.data![index].strokedPrice!;
+                                bool hasDicount =
+                                    productModel.data![index].hasDiscount!;
+                                String productCompany =
+                                    productModel.data![index].shopName!;
+                                String discount =
+                                    productModel.data![index].discount!;
+                                String ID =
+                                    productModel.data![index].id!.toString();
+                                return GestureDetector(
+                                  onTap: () async {
+                                    context.pushNamed(
+                                        DRoutesName.detailsProductRoute,
+                                        arguments: {
+                                          "productName": productName,
+                                          "productID": ID,
+                                          "discount": discount,
+                                          "productImage": productimage,
+                                          "companyName": productCompany,
+                                          "discount": discount,
+                                          "price": productprice,
+                                          "strockedPrice": StrokedPrice,
+                                          "hasDicount": hasDicount,
+                                        });
+                                  },
+                                  child: CustomContainerProduct(
+                                    productID: ID,
+                                    productImage: productimage,
+                                    productName: productName,
+                                    companyName: productCompany,
+                                    discount: discount,
+                                    rete: 4.5,
+                                    price: productprice,
+                                    hasDicount: hasDicount,
+                                    strockedPrice: StrokedPrice,
+                                  ),
+                                );
+                              } else {
+                                return Text(S.current.noData);
+                              }
+                            })
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                height: AppSizes.productItemHeight * 2,
+                              ),
+                              Text(
+                                S.current.noData,
+                                style: TextStyle(color: ColorRes.greenBlue),
+                              ),
+                            ],
+                          )
               ],
             ),
           ),

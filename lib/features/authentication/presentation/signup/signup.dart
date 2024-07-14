@@ -1,7 +1,6 @@
 import 'package:duaya_app/features/authentication/presentation/signup/widgets/signup_form.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
-import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,10 @@ class SignupScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           S.current.appName,
-          style: Theme.of(context).textTheme.headlineLarge,
+          style: Theme.of(context)
+              .textTheme
+              .headlineLarge!
+              .copyWith(color: ColorRes.greenBlue),
         ),
         centerTitle: true,
         backgroundColor: ColorRes.grey.withOpacity(0.2),
@@ -24,32 +26,28 @@ class SignupScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(AppSizes.md),
-          child: Container(
-            decoration: BoxDecoration(
-                color: ColorRes.grey.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(20)),
-            child: Padding(
-              padding: EdgeInsets.all(
-                AppSizes.sm,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  /// Title
-                  Center(
-                    child: Text(S.current.letsStart,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium!
-                            .copyWith(fontSize: 28.sp, color: Colors.red)),
-                  ),
-                  SizedBox(height: AppSizes.spaceBtwSections),
+          child: Padding(
+            padding: EdgeInsets.all(
+              AppSizes.sm,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                /// Title
+                Center(
+                  child: Text(S.current.letsStart,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .copyWith(
+                              fontSize: 28.sp, color: ColorRes.greenBlue)),
+                ),
+                SizedBox(height: AppSizes.spaceBtwSections),
 
-                  /// Form
-                  DSignupForm(),
-                  SizedBox(height: AppSizes.spaceBtwSections / 2),
-                ],
-              ),
+                /// Form
+                DSignupForm(),
+                SizedBox(height: AppSizes.spaceBtwSections / 2),
+              ],
             ),
           ),
         ),

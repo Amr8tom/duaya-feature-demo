@@ -12,17 +12,19 @@ import 'package:flutter/material.dart';
 class DioHelper {
   Dio dio = Dio();
 
-  Future<Map<String, dynamic>?> getData({required String URL}) async {
+  Future<Map<String, dynamic>?> getData(
+      {required String URL, bool isHeader = true}) async {
+    print(URL);
     print('Before response');
-    Response response = await dio.get(
-      URL,
-      options: Options(
-        headers: {
-          "Authorization":
-              "Bearer ${PrefService.getString(key: CacheKeys.token)}",
-        },
-      ),
-    );
+    Response response = await dio.get(URL,
+        options: isHeader
+            ? Options(
+                headers: {
+                  "Authorization":
+                      "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+                },
+              )
+            : null);
     print('After response');
     return response.data;
   }
@@ -34,6 +36,7 @@ class DioHelper {
     String? token,
   }) async {
     try {
+      print(URL);
       Response response = await dio.post(
         URL,
         data: body,
@@ -73,7 +76,8 @@ class DioHelper {
           followRedirects: false,
           validateStatus: (status) => true,
           headers: {
-            'Content-Type': 'application/json',
+            // 'Content-Type': 'application/json',
+            'Content-Type': 'multipart/form-data',
             "Authorization":
                 "Bearer ${PrefService.getString(key: CacheKeys.token)}",
           },

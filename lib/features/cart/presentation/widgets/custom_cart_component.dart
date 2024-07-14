@@ -47,7 +47,7 @@ class _CustomCartComponentState extends State<CustomCartComponent> {
           elevation: 5,
           child: Container(
             decoration: BoxDecoration(
-              color: ColorRes.white,
+              color: ColorRes.grey,
               borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
             ),
             child: Row(
@@ -67,9 +67,7 @@ class _CustomCartComponentState extends State<CustomCartComponent> {
                           style: Theme.of(context).textTheme.bodySmall!,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        SizedBox(height: AppSizes.spaceBtwTexts),
-
-                        SizedBox(height: AppSizes.spaceBtwTexts),
+                        SizedBox(height: AppSizes.spaceBtwTexts * 2),
 
                         /// Price
                         Text(

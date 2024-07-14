@@ -13,7 +13,7 @@ class DElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
       elevation: 0,
       // foregroundColor: Colors.white,
-      backgroundColor: ColorRes.lightGreen.withOpacity(0.7),
+      backgroundColor: ColorRes.greenBlue,
       // disabledForegroundColor: Colors.white,
       // disabledBackgroundColor: Colors.white,
       side: BorderSide(color: ColorRes.white.withOpacity(0.7)),

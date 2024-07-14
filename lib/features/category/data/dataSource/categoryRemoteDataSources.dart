@@ -2,6 +2,9 @@ import 'dart:async';
 import 'package:duaya_app/utils/constants/api_constants.dart';
 import 'package:duaya_app/utils/dio/dio_helper.dart';
 
+import '../../../../utils/local_storage/cach_keys.dart';
+import '../../../../utils/local_storage/cache_helper.dart';
+
 class categoriesByPageRemoteDataSources {
   categoriesByPageRemoteDataSources();
   Future<Map<String, dynamic>?> getCategoriesByPage({userID = 0}) async {
@@ -9,6 +12,7 @@ class categoriesByPageRemoteDataSources {
     final Map<String, dynamic>? response =
         await API.getData(URL: "${URL.categoriesByPageBycity}");
     print(response);
+    print("Bearer ${PrefService.getString(key: CacheKeys.token)}");
     print("${URL.categoriesByPageBycity}");
     return response;
   }

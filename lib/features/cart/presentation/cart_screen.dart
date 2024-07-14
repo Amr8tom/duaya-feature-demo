@@ -9,7 +9,6 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:geocoding/geocoding.dart';
 import '../../../routing/routes_name.dart';
 import '../../address/presentation/controller/address_cubit.dart';
 import '../../home/presentation/widgets/custom_container_product/custom_bottom_navigation_in_product.dart';
@@ -42,26 +41,10 @@ class _CartScreenState extends State<CartScreen> {
           create: (context) => AddressCubit(),
           child: Scaffold(
             appBar: DAppBar(
-              leadingWidget: CircleAvatar(
-                radius: 50.r,
-                backgroundImage: const AssetImage(AssetRes.profileLogo),
-              ),
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(S.current.appName,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall!
-                          .copyWith(fontSize: 18.sp)),
-                  Text(currentCountry,
-                      style: Theme.of(context)
-                          .textTheme
-                          .titleSmall!
-                          .copyWith(fontSize: 12.sp))
-                ],
-              ),
+              leadingWidget: Icon(Icons.arrow_back_ios),
+              showBackArrow: true,
+              centerTitle: true,
+              title: Text(S.current.cart),
             ),
             body: Padding(
               padding: EdgeInsets.all(AppSizes.padding),
@@ -73,7 +56,7 @@ class _CartScreenState extends State<CartScreen> {
                       data: Theme.of(context).copyWith(
                         scrollbarTheme: ScrollbarThemeData(
                           thumbColor: MaterialStateProperty.all<Color?>(
-                              ColorRes.primary.withOpacity(.8)),
+                              ColorRes.greenBlue.withOpacity(.8)),
                           trackColor:
                               MaterialStateProperty.all<Color?>(ColorRes.grey3),
                         ),
@@ -88,17 +71,16 @@ class _CartScreenState extends State<CartScreen> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return CustomCartComponent(
-                              name: cartController.Items[index].productName!,
-                              image: cartController
-                                  .Items[index].productThumbnailImage
-                                  .toString(),
-                              quantity:
-                                  cartController.Items[index].quantity!.toInt(),
-                              price:
-                                  cartController.Items[index].price.toString(),
-                              cartID: cartController.Items[index].id!.toInt(),
-                              index: index,
-                            );
+                                name: cartController.Items[index].productName!,
+                                image: cartController
+                                    .Items[index].productThumbnailImage
+                                    .toString(),
+                                quantity: cartController.Items[index].quantity!
+                                    .toInt(),
+                                price: cartController.Items[index].price
+                                    .toString(),
+                                cartID: cartController.Items[index].id!.toInt(),
+                                index: index);
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(height: AppSizes.defaultSpace);
@@ -111,13 +93,13 @@ class _CartScreenState extends State<CartScreen> {
                   Expanded(
                       child: CustomBottomNavigationInProduct(
                     isCart: true,
-                    colorOfButton1: Colors.transparent,
-                    colorOfButton2: ColorRes.primary,
+                    colorOfButton1: ColorRes.greenBlueLight,
+                    colorOfButton2: ColorRes.greenBlue,
                     textOfButton1: S.current.continueShoping,
                     textOfButton2: S.current.checkOut,
-                    colorOfBorderOfButton1: ColorRes.primary,
+                    colorOfBorderOfButton1: ColorRes.greenBlue,
                     colorOfBorderOfButton2: Colors.transparent,
-                    textButton1Color: ColorRes.primary,
+                    textButton1Color: ColorRes.greenBlue,
                     textButton2Color: ColorRes.white,
                     price: cartController.total.toStringAsFixed(2),
                     totalText: S.current.total,

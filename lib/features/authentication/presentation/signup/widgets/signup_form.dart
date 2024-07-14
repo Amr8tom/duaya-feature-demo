@@ -19,6 +19,7 @@ import 'package:webview_flutter/webview_flutter.dart';
 import '../../../../../utils/constants/api_constants.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../controller/auth_controller_cubit.dart';
+import 'TextFormRegisterationWidget.dart';
 
 class DSignupForm extends StatefulWidget {
   const DSignupForm({super.key});
@@ -29,11 +30,6 @@ class DSignupForm extends StatefulWidget {
 
 class _DSignupFormState extends State<DSignupForm> {
   String selectedCountryCode = '+20';
-  // String? _selectedCountry;
-  // String? _selectedCity;
-  // String? _selectedRegion;
-  //
-  // XFile? _selectedImage;
 
   @override
   Widget build(BuildContext context) {
@@ -47,11 +43,21 @@ class _DSignupFormState extends State<DSignupForm> {
         Widget getStates({required BuildContext context}) {
           return Column(
             children: [
-              Text(
-                S.current.selectRegion,
-                style: Theme.of(context).textTheme.headlineMedium,
+              SizedBox(
+                height: 15.h,
               ),
               DropdownButtonFormField<String>(
+                decoration: InputDecoration(
+                  hintStyle: TextStyle(
+                    color: Colors.grey,
+                  ),
+                  hintText: S.current.selectRegion,
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    borderSide:
+                        BorderSide(color: ColorRes.greenBlue, width: 2.0),
+                  ),
+                ),
                 value: authController.selectedRegion,
                 items: authController.stateMap.keys.map((item) {
                   return DropdownMenuItem<String>(
@@ -76,14 +82,14 @@ class _DSignupFormState extends State<DSignupForm> {
         return Column(
           children: [
             /// name
-            TextWithTextField(
+            TextWithTextFieldForRrgistration(
               isError: authController.errorname,
               controller: authController.name,
               title: S.current.userName,
             ),
 
             /// email
-            TextWithTextField(
+            TextWithTextFieldForRrgistration(
               isError: authController.erroremail,
               controller: authController.email,
               title: S.current.eMail,
@@ -105,7 +111,7 @@ class _DSignupFormState extends State<DSignupForm> {
                   borderSide: BorderSide(
                     color: authController.errorphone
                         ? ColorRes.error2
-                        : ColorRes.black,
+                        : ColorRes.greenBlue,
                     width: 1,
                   ),
                 ),
@@ -113,7 +119,10 @@ class _DSignupFormState extends State<DSignupForm> {
                 suffixIcon: const Icon(Iconsax.call),
                 prefixIcon: CustomPopupMenu(
                   textWidget: Text(
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(color: ColorRes.greenBlue),
                     authController.currentCountry == S.current.Egypt
                         ? selectedCountryCode.toString()
                         : authController.currentCountry ==
@@ -129,14 +138,14 @@ class _DSignupFormState extends State<DSignupForm> {
             ),
 
             /// password
-            TextWithTextField(
+            TextWithTextFieldForRrgistration(
               isError: authController.errorpassword,
               title: S.current.password,
               controller: authController.password,
             ),
 
             ///confirm password
-            TextWithTextField(
+            TextWithTextFieldForRrgistration(
               isError: authController.errorconfirmPassword,
               title: S.current.confirmPassword,
               controller: authController.confirmPassword,
@@ -145,11 +154,20 @@ class _DSignupFormState extends State<DSignupForm> {
             //     ? Image.asset(AssetRes.egyptFlag)
             //     : Image.asset(AssetRes.saudiFlag),
             /// country
-            Text(
-              S.current.selectCountry,
-              style: Theme.of(context).textTheme.headlineMedium,
+            SizedBox(
+              height: 15.h,
             ),
             DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                hintStyle: TextStyle(
+                  color: Colors.grey,
+                ),
+                hintText: S.current.selectCountry,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: ColorRes.greenBlue, width: 2.0),
+                ),
+              ),
               value: authController.selectedCountry,
               items: authController.countriesMap.keys.map((item) {
                 return DropdownMenuItem<String>(
@@ -173,11 +191,20 @@ class _DSignupFormState extends State<DSignupForm> {
             ),
 
             /// city
-            Text(
-              S.current.selectCity,
-              style: Theme.of(context).textTheme.headlineMedium,
+            SizedBox(
+              height: 15.h,
             ),
             DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                hintStyle: TextStyle(
+                  color: Colors.grey,
+                ),
+                hintText: S.current.selectCity,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: ColorRes.greenBlue, width: 2.0),
+                ),
+              ),
               value: authController.selectedCity2,
               items: authController.citiesMap.keys.map((item) {
                 return DropdownMenuItem<String>(
@@ -203,9 +230,20 @@ class _DSignupFormState extends State<DSignupForm> {
             authController.selectedCity == null
                 ? SizedBox()
                 : getStates(context: context),
-            Text(S.current.worktype,
-                style: Theme.of(context).textTheme.headlineMedium),
+            SizedBox(
+              height: 15.h,
+            ),
             DropdownButtonFormField<String>(
+              decoration: InputDecoration(
+                hintStyle: TextStyle(
+                  color: Colors.grey,
+                ),
+                hintText: S.current.worktype,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: ColorRes.greenBlue, width: 2.0),
+                ),
+              ),
               value: authController.workType.text.isNotEmpty
                   ? authController.workType.text
                   : null,
@@ -224,7 +262,7 @@ class _DSignupFormState extends State<DSignupForm> {
               },
             ),
             authController.isChoiceWork
-                ? TextWithTextField(
+                ? TextWithTextFieldForRrgistration(
                     title:
                         "${S.current.addWorkName} ${authController.workTypeList[authController.realWorkTypeList.indexOf(authController.workType.text)]}",
                     controller: authController.workName,
@@ -238,14 +276,26 @@ class _DSignupFormState extends State<DSignupForm> {
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           S.current.msgImage,
-                          style: Theme.of(context).textTheme.headlineMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium!
+                              .copyWith(
+                                  color: ColorRes.greenBlue,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold),
                         ),
                       )
                     : Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: Text(
                           "${S.current.addPhotoOf} ${authController.workTypeList[authController.realWorkTypeList.indexOf(authController.workType.text)]}",
-                          style: Theme.of(context).textTheme.headlineMedium,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineMedium!
+                              .copyWith(
+                                  color: ColorRes.greenBlue,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold),
                         ),
                       )
                 : SizedBox(),
@@ -258,8 +308,8 @@ class _DSignupFormState extends State<DSignupForm> {
                       width: double.infinity,
                       height: 200.h,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(24.r),
+                        border: Border.all(color: ColorRes.greenBlue),
+                        borderRadius: BorderRadius.circular(15.r),
                       ),
                       child: authController.selectedImage2 != null
                           ? ClipRRect(
@@ -285,23 +335,31 @@ class _DSignupFormState extends State<DSignupForm> {
                   )
                 : SizedBox(),
             SizedBox(height: AppSizes.spaceBtwInputFields),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, DRoutesName.webViewRoute,
-                    arguments: URL.privacyPolicy);
-              },
-              child: DTermsAndConditionCheckbox(),
-            ),
+            DTermsAndConditionCheckbox(),
             SizedBox(height: AppSizes.spaceBtwSections),
-            Container(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () async {
-                  authController.onClickRegistration(context: context);
-                },
-                child: Text(
-                  S.current.createAccount,
-                  style: TextStyle(color: Colors.red),
+            InkWell(
+              onTap: () async {
+                authController.onClickRegistration(context: context);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                    color: authController.isAgree
+                        ? ColorRes.greenBlue
+                        : ColorRes.greenBlue.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(50.sp)),
+                width: 182.sp,
+                height: 46.sp,
+                child: Center(
+                  child: Text(
+                    S.current.createAccount,
+                    style: TextStyle(
+                      color: authController.isAgree
+                          ? Colors.white
+                          : ColorRes.greenBlue,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                 ),
               ),
             ),

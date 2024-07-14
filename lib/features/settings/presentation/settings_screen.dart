@@ -34,21 +34,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final settingController = context.read<SettinglationCubit>();
-    final FlutterTts flutterTts = FlutterTts();
-    Future<void> speak() async {
-      await flutterTts.setLanguage('ar');
-      await flutterTts.setPitch(1.0);
-      await flutterTts.setSpeechRate(0.3);
-      await flutterTts.speak(
-          "تنبيه عليك سلفة بمقدار   ${settingController.profileModel.delayBalance!} ");
-    }
 
     return BlocConsumer<SettinglationCubit, TranslationState>(
       listener: (context, state) {
         // TODO: implement listener
       },
       builder: (context, state) {
-        state is fetchProfileDataSuccess ? speak() : () {};
         state is fetchProfileDataLoading
             ? settingController.fetchProfileData()
             : () {};
@@ -71,32 +62,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                         /// Make Size
                         SizedBox(height: AppSizes.spaceBtwItems / 1.2),
-
-                        /// Container Credit Limit
-                        Text(settingController.profileModel.message!,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineLarge!
-                                .copyWith(
-                                    fontSize: 10.sp, color: ColorRes.black)),
-                        settingController.profileModel.verificationStatus == 0
-                            ? Text(
-                                S.current.verification_status,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineMedium!
-                                    .copyWith(color: ColorRes.error2),
-                              )
-                            : CustomContainer(
-                                titleContainer1: S.current.avaiableToLoan,
-                                titleContainer2: S.current.moneyYouLoan,
-                                number1:
-                                    "${settingController.profileModel.minAmount! - settingController.profileModel.delayBalance!}  ${S.current.pound}",
-                                number2:
-                                    "${settingController.profileModel.delayBalance}  ${S.current.pound}"),
-
-                        /// Make Size
-                        SizedBox(height: AppSizes.defaultSpace),
+                        //
+                        // /// Container Credit Limit
+                        // Text(settingController.profileModel.message!,
+                        //     style: Theme.of(context)
+                        //         .textTheme
+                        //         .headlineLarge!
+                        //         .copyWith(
+                        //             fontSize: 10.sp, color: ColorRes.black)),
+                        // settingController.profileModel.verificationStatus == 0
+                        //     ? Text(
+                        //         S.current.verification_status,
+                        //         style: Theme.of(context)
+                        //             .textTheme
+                        //             .headlineMedium!
+                        //             .copyWith(color: ColorRes.error2),
+                        //       )
+                        //     : CustomContainer(
+                        //         titleContainer1: S.current.avaiableToLoan,
+                        //         titleContainer2: S.current.moneyYouLoan,
+                        //         number1:
+                        //             "${settingController.profileModel.minAmount! - settingController.profileModel.delayBalance!}  ${S.current.pound}",
+                        //         number2:
+                        //             "${settingController.profileModel.delayBalance}  ${S.current.pound}"),
+                        //
+                        // /// Make Size
+                        // SizedBox(height: AppSizes.defaultSpace),
 
                         /// Component Setting
                         Container(
@@ -148,17 +139,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
 
                         /// Make Size
-                        SizedBox(height: AppSizes.spaceBtwItems),
-                        Text(S.current.more,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleLarge!
-                                .copyWith(
-                                    fontSize: 18.sp, color: ColorRes.error2)),
-
-                        /// Make Size
-                        SizedBox(height: AppSizes.spaceBtwItems),
-
+                        SizedBox(height: AppSizes.spaceBtwItems * 3),
+                        // Text(S.current.more,
+                        //     style: Theme.of(context)
+                        //         .textTheme
+                        //         .titleLarge!
+                        //         .copyWith(
+                        //             fontSize: 18.sp, color: ColorRes.error2)),
                         /// Other Component Setting
                         Container(
                             padding: EdgeInsets.symmetric(

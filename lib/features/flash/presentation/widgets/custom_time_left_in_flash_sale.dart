@@ -28,7 +28,7 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
 
             Text(S.current.saleTime,
                 style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: ColorRes.gold,
+                    color: ColorRes.greenBlue,
                     height: .5.h,
                     fontSize: 22.sp,
                     fontWeight: FontWeight.w600)),
@@ -47,7 +47,7 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
                             .textTheme
                             .titleMedium!
                             .copyWith(
-                                color: ColorRes.gold,
+                                color: ColorRes.greenBlue,
                                 height: .5.h,
                                 fontSize: 16.sp)),
                     SizedBox(height: AppSizes.defaultSpace / 2),
@@ -56,14 +56,16 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
                             .textTheme
                             .titleMedium!
                             .copyWith(
-                                color: ColorRes.gold,
+                                color: ColorRes.greenBlue,
                                 height: .5.h,
                                 fontSize: 16.sp)),
                   ],
                 ),
                 Text(':',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: ColorRes.gold, height: .5.h, fontSize: 16.sp)),
+                        color: ColorRes.greenBlue,
+                        height: .5.h,
+                        fontSize: 16.sp)),
                 Column(
                   children: [
                     Text(flashController.minutes.toString(),
@@ -71,7 +73,7 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
                             .textTheme
                             .titleMedium!
                             .copyWith(
-                                color: ColorRes.gold,
+                                color: ColorRes.greenBlue,
                                 height: .5.h,
                                 fontSize: 16.sp)),
                     SizedBox(height: AppSizes.defaultSpace / 2),
@@ -80,14 +82,16 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
                             .textTheme
                             .titleMedium!
                             .copyWith(
-                                color: ColorRes.gold,
+                                color: ColorRes.greenBlue,
                                 height: .5.h,
                                 fontSize: 16.sp)),
                   ],
                 ),
                 Text(':',
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                        color: ColorRes.gold, height: .5.h, fontSize: 16.sp)),
+                        color: ColorRes.greenBlue,
+                        height: .5.h,
+                        fontSize: 16.sp)),
                 Column(
                   children: [
                     Text(flashController.seconds.toString(),
@@ -95,7 +99,7 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
                             .textTheme
                             .titleMedium!
                             .copyWith(
-                                color: ColorRes.gold,
+                                color: ColorRes.greenBlue,
                                 height: .5.h,
                                 fontSize: 16.sp)),
                     SizedBox(height: AppSizes.defaultSpace / 2),
@@ -104,7 +108,7 @@ class CustomTimeLeftInFlashSale extends StatelessWidget {
                             .textTheme
                             .titleMedium!
                             .copyWith(
-                                color: ColorRes.gold,
+                                color: ColorRes.greenBlue,
                                 height: .5.h,
                                 fontSize: 16.sp)),
                   ],

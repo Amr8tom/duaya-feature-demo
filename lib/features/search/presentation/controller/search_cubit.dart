@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:duaya_app/features/category/data/model/SearchModel.dart';
-import 'package:duaya_app/features/category/data/repositories/searchRepo.dart';
+import 'package:duaya_app/features/search/data/model/SearchModel.dart';
+import 'package:duaya_app/features/search/data/repositories/searchRepo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
 part 'search_state.dart';
@@ -43,12 +43,12 @@ class SearchCubit extends Cubit<SearchState> {
   void clearProducts() {
     products.clear();
     page = 1;
+    emit(ToggleSearchSuccess());
   }
 
   void getProductModel() {
     isSearchData = false;
     emit(BeforeSearchSuccess());
-    emit(ToggleSearchSuccess());
   }
 
   void toggleISsearch() {

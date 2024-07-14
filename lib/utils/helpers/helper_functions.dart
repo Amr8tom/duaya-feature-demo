@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:duaya_app/main.dart';
 import 'package:duaya_app/utils/constants/exports.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +39,6 @@ class DHelperFunctions {
   }
 
   static void showSnackBar(String message, BuildContext context) {
-
     ScaffoldMessenger.of(navigatorKey.currentContext!).showSnackBar(
       SnackBar(content: Text(message)),
     );
@@ -117,5 +119,13 @@ class DHelperFunctions {
       wrappedList.add(Row(children: rowChildren));
     }
     return wrappedList;
+  }
+
+  static String getBase64FormateFile(String path) {
+    File file = File(path);
+    print('File is = ' + file.toString());
+    List<int> fileInByte = file.readAsBytesSync();
+    String fileInBase64 = base64Encode(fileInByte);
+    return fileInBase64;
   }
 }

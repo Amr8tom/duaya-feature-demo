@@ -65,6 +65,11 @@ class DLoginForm extends StatelessWidget {
               controller: emailController,
               validator: emailValidator,
               decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: ColorRes.greenBlue,
+                    )),
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: S.current.eMail,
               ),
@@ -82,6 +87,9 @@ class DLoginForm extends StatelessWidget {
                   obscureText: !controller.isPasswordVisible,
                   validator: passwordValidator,
                   decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10.sp),
+                        borderSide: BorderSide(color: ColorRes.greenBlue)),
                     prefixIcon: Icon(Iconsax.password_check),
                     labelText: S.current.password,
                     suffixIcon: IconButton(
@@ -112,7 +120,7 @@ class DLoginForm extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .headlineSmall
-                        ?.copyWith(color: Colors.red, fontSize: 17.sp),
+                        ?.copyWith(color: Colors.red, fontSize: 14.sp),
                   ),
                 ),
               ],
@@ -124,19 +132,18 @@ class DLoginForm extends StatelessWidget {
               onTap: _submit,
               child: Container(
                 decoration: BoxDecoration(
-                  color: ColorRes.lightGreen.withOpacity(0.6),
+                  color: ColorRes.greenBlue,
                   borderRadius: BorderRadius.circular(50.sp),
                 ),
-                width: 300.sp,
-                height: 60.sp,
+                width: 182.sp,
+                height: 42.sp,
                 child: Center(
                   child: Text(
                     S.current.singIn,
-                    style: TextStyle(
-                      fontSize: 25.sp,
-                      color: Colors.red,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: ColorRes.white,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 20.sp),
                   ),
                 ),
               ),
@@ -148,20 +155,20 @@ class DLoginForm extends StatelessWidget {
               onTap: () =>
                   context.pushReplacementNamed(DRoutesName.signupRoute),
               child: Container(
-                width: 300.sp,
-                height: 60.sp,
+                width: 182.sp,
+                height: 46.sp,
                 decoration: BoxDecoration(
-                  border: Border.all(),
+                  // border: Border.all(),
                   borderRadius: BorderRadius.circular(50.sp),
-                  color: ColorRes.white.withOpacity(0.9),
+                  color: ColorRes.greenBlue.withOpacity(0.2),
                 ),
                 child: Center(
                   child: Text(
                     S.current.newCilent,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium
-                        ?.copyWith(color: Colors.red, fontSize: 25.sp),
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        color: ColorRes.greenBlue,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 20.sp),
                   ),
                 ),
               ),

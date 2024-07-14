@@ -38,11 +38,15 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: showBackArrow || showBackGroundColor ? 0 : 20.w,
+          // left: showBackArrow || showBackGroundColor ? 0 : 20.w,
           right: 0.w,
           top: 0.h),
       child: AppBar(
-        backgroundColor: showBackGroundColor ? bgColor : ColorRes.white,
+        titleTextStyle: TextStyle(
+            fontWeight: FontWeight.w700,
+            fontSize: 32.sp,
+            color: ColorRes.greenBlue),
+        backgroundColor: bgColor ?? ColorRes.greenBlueLight,
         automaticallyImplyLeading: false,
         leading: showBackArrow
             ? IconButton(
@@ -52,8 +56,10 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
                   }
                   context.pop();
                 },
-                icon: Icon(Iconsax.arrow_left,
-                    color: arrowBackColor ? ColorRes.white : ColorRes.black))
+                icon: Icon(Icons.arrow_back_ios,
+                    color: arrowBackColor
+                        ? ColorRes.greenBlue
+                        : ColorRes.greenBlue))
             : leadingWidget,
         title: title,
         centerTitle: centerTitle,

@@ -130,6 +130,16 @@ class S {
     );
   }
 
+  /// `Please try again or sign up`
+  String get tryAgain {
+    return Intl.message(
+      'Please try again or sign up',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `E-mail`
   String get eMail {
     return Intl.message(
@@ -170,11 +180,51 @@ class S {
     );
   }
 
+  /// `verified`
+  String get verified {
+    return Intl.message(
+      'verified',
+      name: 'verified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `please verify your account`
+  String get notVerified {
+    return Intl.message(
+      'please verify your account',
+      name: 'notVerified',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No results found`
+  String get noResult {
+    return Intl.message(
+      'No results found',
+      name: 'noResult',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Exit App`
   String get exitApp {
     return Intl.message(
       'Exit App',
       name: 'exitApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is no data here till now`
+  String get noData {
+    return Intl.message(
+      'There is no data here till now',
+      name: 'noData',
       desc: '',
       args: [],
     );
@@ -195,6 +245,16 @@ class S {
     return Intl.message(
       'No',
       name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `These credentials are not found`
+  String get noUserFound {
+    return Intl.message(
+      'These credentials are not found',
+      name: 'noUserFound',
       desc: '',
       args: [],
     );
@@ -279,6 +339,38 @@ class S {
       args: [],
     );
   }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get searchTitle {
+    return Intl.message(
+      'Search',
+      name: 'searchTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the 'search...' key
 
   /// `Help`
   String get helper {
@@ -385,6 +477,16 @@ class S {
     return Intl.message(
       'More',
       name: 'more',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `i am here to help you around the whole app`
+  String get onbordingMsg {
+    return Intl.message(
+      'i am here to help you around the whole app',
+      name: 'onbordingMsg',
       desc: '',
       args: [],
     );
@@ -1210,10 +1312,10 @@ class S {
     );
   }
 
-  /// `Save Changes`
+  /// `Save`
   String get saveChanges {
     return Intl.message(
-      'Save Changes',
+      'Save',
       name: 'saveChanges',
       desc: '',
       args: [],
@@ -1960,10 +2062,10 @@ class S {
     );
   }
 
-  /// `All companies available for ordering 24/7`
+  /// `you can use the AI features`
   String get onboardingTitle2 {
     return Intl.message(
-      'All companies available for ordering 24/7',
+      'you can use the AI features',
       name: 'onboardingTitle2',
       desc: '',
       args: [],
@@ -1990,20 +2092,20 @@ class S {
     );
   }
 
-  /// `With Duaya, you can order anytime, from anywhere`
+  /// `To help you to know Duaya Pros`
   String get onboardingBody2 {
     return Intl.message(
-      'With Duaya, you can order anytime, from anywhere',
+      'To help you to know Duaya Pros',
       name: 'onboardingBody2',
       desc: '',
       args: [],
     );
   }
 
-  /// `By providing all needs at the highest discounts from the strongest suppliers`
+  /// `By providing all needs `
   String get onboardingBody3 {
     return Intl.message(
-      'By providing all needs at the highest discounts from the strongest suppliers',
+      'By providing all needs ',
       name: 'onboardingBody3',
       desc: '',
       args: [],

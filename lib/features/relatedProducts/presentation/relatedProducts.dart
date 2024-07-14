@@ -1,15 +1,9 @@
 import 'package:duaya_app/features/home/presentation/controller/best_seller_cubit.dart';
 import 'package:duaya_app/features/relatedProducts/presentation/widget/relatedContainerProduct.dart';
-import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../generated/l10n.dart';
-import '../../../routing/routes_name.dart';
-import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/image_strings.dart';
-import '../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
 
 class relatedProducts extends StatelessWidget {
   relatedProducts({super.key});

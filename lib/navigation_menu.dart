@@ -1,4 +1,6 @@
+import 'package:duaya_app/common/check_for_updates.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/features/cart/presentation/widgets/controller/cart_cubit.dart';
 import 'package:duaya_app/features/category/presentation/category/category_screen.dart';
 import 'package:duaya_app/features/category/presentation/company/companyScreen.dart';
@@ -14,6 +16,7 @@ import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/helpers/helper_functions.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -22,7 +25,10 @@ import 'common/exit_app_function_dialoag.dart';
 import 'common/managers/navigation_menu/navigation_menu_cubit.dart';
 import 'common/text_record_function.dart';
 import 'features/authentication/presentation/controller/auth_controller_cubit.dart';
+import 'features/category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
+import 'features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import 'features/flash/presentation/controller/flash_cubit.dart';
+import 'features/home/presentation/controller/best_seller_cubit.dart';
 import 'generated/l10n.dart';
 
 class NavigationMenu extends StatefulWidget {
@@ -33,16 +39,26 @@ class NavigationMenu extends StatefulWidget {
 
 class _NavigationMenuState extends State<NavigationMenu> {
   String currentCountry = S.current.loading;
-
+  Offset _fabOffset = Offset(85.w, 110.h); // Initial position of the FAB
+  CheckForeUpdates updateCode = CheckForeUpdates();
   @override
   void initState() {
     super.initState();
     fetchData();
+    fetchNavigationsData();
+    updateCode.makeUpdate();
     speak(locale: S.current.localeee, statements: S.current.welcomeMessage);
   }
 
   Future<void> fetchData() async {
-    await context.read<FlashCubit>().fetchFlashTodayData();
+    await context
+        .read<CategoriesByPageCubit>()
+        .fetchCategoriesByPage(userID: 0);
+    try {
+      if (context.read<FlashCubit>().flashTodayModel.data!.isEmpty) {
+        await context.read<FlashCubit>().fetchFlashTodayData();
+      }
+    } catch (e) {}
     await context.read<SettinglationCubit>().fetchProfileData();
     await context.read<CartCubit>()
       ..fetchCartItems();
@@ -74,17 +90,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
 
                     /// Flash AppBar
                     ? DAppBar(
-                        // bgColor: ColorRes.white.withOpacity(0.8),
-                        // showBAackGroundColor: true,
-                        // centerTitle: true,
-                        //
-                        // /// sale Icon
-                        // leadingWidget: IconButton(
-                        //     onPressed: () {},
-                        //     icon: const Icon(Icons.local_offer_rounded,
-                        //         color: ColorRes.gold)),
-                        //
-                        // /// Flash Title
+                        bgColor: ColorRes.white,
                         title: Text(S.current.appName,
                             style: Theme.of(context)
                                 .textTheme
@@ -93,27 +99,18 @@ class _NavigationMenuState extends State<NavigationMenu> {
                                     fontSize: 30.sp,
                                     color: ColorRes.lightGreen)),
                         centerTitle: true,
-
-                        /// Search Icon
-                        // actions: [
-                        //   IconButton(
-                        //       onPressed: () {},
-                        //       icon: const Icon(Iconsax.search_normal,
-                        //           color: ColorRes.gold))
-                        // ],
                       )
 
                     /// AppBar in All Screens
                     : DAppBar(
+                        bgColor: ColorRes.white,
                         leadingWidget: GestureDetector(
                           onTap: () =>
                               context.pushNamed(DRoutesName.settingsRoute),
-                          child: CircleAvatar(
-                            radius: 50.r,
-                            backgroundImage: Image.network(authController
-                                    .userModel.user!.avatarOriginal!)
-                                .image,
-                          ),
+                          child: CachedImage(
+                              link: authController
+                                      .userModel.user?.avatarOriginal ??
+                                  ""),
                         ),
                         title: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -132,7 +129,6 @@ class _NavigationMenuState extends State<NavigationMenu> {
                           ],
                         ),
                         actions: [
-                          /// Gift Icon
                           InkWell(
                             onTap: () =>
                                 context.pushNamed(DRoutesName.giftRoute),
@@ -140,9 +136,8 @@ class _NavigationMenuState extends State<NavigationMenu> {
                                 ColorRes.primary.withOpacity(.1)),
                             borderRadius:
                                 BorderRadius.circular(AppSizes.borderRadiusMd),
-                            child: Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 10.w),
-                                child: Lottie.asset(AssetRes.gifts)),
+                            child:
+                                Container(child: Lottie.asset(AssetRes.gifts)),
                           ),
                           InkWell(
                             onTap: () async {
@@ -154,8 +149,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
                             borderRadius:
                                 BorderRadius.circular(AppSizes.borderRadiusMd),
                             child: Stack(children: [
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 0.w),
+                              Container(
                                 child: cartController.hasItems
                                     ? Lottie.asset(AssetRes.cartAfterFilling)
                                     : Lottie.asset(AssetRes.cartBeforeFilling),
@@ -210,9 +204,41 @@ class _NavigationMenuState extends State<NavigationMenu> {
                   },
                   child: _buildScreen(selectedIndex),
                 ),
-                // floatingActionButton: selectedIndex == 4
-                //     ? FloatingActionButton(onPressed: () {})
-                //     : SizedBox(),
+                floatingActionButton: Stack(
+                  children: [
+                    Positioned(
+                      left: _fabOffset.dx,
+                      top: _fabOffset.dy,
+                      child: Draggable<Offset>(
+                        data: _fabOffset,
+                        feedback: Material(
+                          borderRadius: BorderRadius.circular(20.sp),
+                          color: ColorRes.lightGreen,
+                          child: Lottie.asset(AssetRes.searchICon, height: 60),
+                        ),
+                        childWhenDragging: Container(),
+                        onDraggableCanceled: (velocity, offset) {
+                          setState(() {
+                            _fabOffset = offset;
+                          });
+                        },
+                        onDragEnd: (details) {
+                          setState(() {
+                            _fabOffset = details.offset;
+                          });
+                        },
+                        child: RawMaterialButton(
+                          onPressed: () {
+                            context
+                                .pushReplacementNamed(DRoutesName.searchRoute);
+                          },
+                          child:
+                              Lottie.asset(AssetRes.searchICon, height: 85.sp),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             );
           },
@@ -235,6 +261,28 @@ class _NavigationMenuState extends State<NavigationMenu> {
         return const MenuScreen();
       default:
         return Container();
+    }
+  }
+
+  Future<void> fetchNavigationsData() async {
+    try {
+      await context
+          .read<CompaniesByPageCubit>()
+          .fetchCompaniesByPageRepositories();
+    } catch (e) {
+      print(e);
+    }
+    try {
+      await context.read<FlashCubit>().fetchFlashData();
+    } catch (e) {
+      print(e);
+    }
+    try {
+      if (context.read<BestSellerCubit>().productModel.data?.length == 0) {
+        await context.read<BestSellerCubit>().fetchBestSellerData();
+      }
+    } catch (e) {
+      print(e);
     }
   }
 }

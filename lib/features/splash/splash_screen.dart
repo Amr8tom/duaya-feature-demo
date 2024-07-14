@@ -2,8 +2,10 @@ import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:duaya_app/utils/local_storage/cache_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../utils/local_storage/cach_keys.dart';
 import '../authentication/presentation/controller/auth_controller_cubit.dart';
 import '../category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
@@ -28,21 +30,28 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// i get here best seller data and silder and category for home screen
   Future<void> fetchHomeData() async {
+    String cachedToken = PrefService.getString(key: CacheKeys.token).toString();
     try {
+      // if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
       await context.read<BestSellerCubit>().fetchSlidersData();
+      // }
     } catch (e) {
       print(e);
     }
     try {
-      await context.read<BestSellerCubit>().fetchBestSellerData();
+      if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
+        await context.read<BestSellerCubit>().fetchBestSellerData();
+      }
     } catch (e) {
       print(e);
     }
 
     try {
+      // if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
       await context
           .read<CategoriesByPageCubit>()
           .fetchCategoriesByPage(userID: 0);
+      // }
     } catch (e) {
       print(e);
     }
@@ -50,18 +59,21 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> fetchNavigationsData() async {
+    String cachedToken = PrefService.getString(key: CacheKeys.token).toString();
     try {
       await context.read<FlashCubit>().fetchFlashTodayData();
     } catch (e) {}
     try {
-      await context.read<FlashCubit>().fetchFlashData();
+      // await context.read<FlashCubit>().fetchFlashData();
     } catch (e) {
       print(e);
     }
     try {
-      await context
-          .read<CompaniesByPageCubit>()
-          .fetchCompaniesByPageRepositories();
+      if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
+        await context
+            .read<CompaniesByPageCubit>()
+            .fetchCompaniesByPageRepositories();
+      }
     } catch (e) {
       print(e);
     }
@@ -71,28 +83,30 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     final authController = context.read<AuthControllerCubit>();
     return Scaffold(
-      body: Stack(children: [
-        Column(
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Spacer(),
-            Image.asset(
-              AssetRes.animationLogo,
+            SizedBox(
+              height: 280.h,
             ),
-            Spacer()
+            Image.asset(
+              AssetRes.appLogo,
+            )
           ],
-        )
-      ]),
+        ),
+      ),
     );
   }
 
   void navigationToHome(BuildContext context) async {
     final authController = context.read<AuthControllerCubit>();
     Future.delayed(
-      const Duration(milliseconds: 12000),
+      const Duration(milliseconds: 1500),
       () async {
         if (PrefService.getString(key: CacheKeys.token) == '') {
           authController.fetchCountries();
-          context.pushReplacementNamed(DRoutesName.onBoardingRoute);
+          context.pushReplacementNamed(DRoutesName.onBoardingRouteTwo);
         } else {
           await authController.fetchLoginData(
               password: PrefService.getString(key: CacheKeys.password)!,

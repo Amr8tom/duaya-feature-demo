@@ -8,8 +8,8 @@ import '../../data/repositories/flashRepo.dart';
 part 'flash_state.dart';
 
 class FlashCubit extends Cubit<FlashState> {
-  late FlashDealModel flashModel;
-  late FlashTodayDealModel flashTodayModel;
+  FlashDealModel flashModel = FlashDealModel();
+  FlashTodayDealModel flashTodayModel = FlashTodayDealModel();
   DateTime currentDate = DateTime.now();
   int hours = 0, minutes = 0, seconds = 0;
   flashRepositoryImp flashRepo = flashRepositoryImp();

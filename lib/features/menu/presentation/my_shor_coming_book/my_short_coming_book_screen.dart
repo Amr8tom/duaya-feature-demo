@@ -137,13 +137,13 @@ class ShortComingScreen extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          S.current.sendMyShortComingBook,
-                          style:
-                              TextStyle(color: Colors.black, fontSize: 18.sp),
-                        )),
+                    // ElevatedButton(
+                    //     onPressed: () {},
+                    //     child: Text(
+                    //       S.current.sendMyShortComingBook,
+                    //       style:
+                    //           TextStyle(color: Colors.black, fontSize: 18.sp),
+                    //     )),
                     SizedBox(height: AppSizes.spaceBtwInputFields),
                   ],
                 )),

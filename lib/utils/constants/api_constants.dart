@@ -1,6 +1,6 @@
 class URL {
-  // static const base = 'https://doctorpharmaco.com/';
-  static const base = 'https://duaya.net/';
+  static const base = 'https://doctorpharmaco.com/';
+  // static const base = 'https://duaya.net/';
   static const baseUrl = '${base}api/v2/';
 
   /// Authentication

@@ -17,7 +17,7 @@ part 'best_seller_state.dart';
 class BestSellerCubit extends Cubit<BestSellerState> {
   BestSellerCubit() : super(BestSellerInitial());
   BestSellerModel bestSellerModel = BestSellerModel();
-  late SliderModel slidersModel;
+  SliderModel slidersModel = SliderModel();
   late ProductModel productModel;
   bool isRelated = false;
   late RelatedProductModel relatedProduct;

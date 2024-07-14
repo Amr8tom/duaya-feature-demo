@@ -8,7 +8,10 @@ class rigsterRemoteDataSoureces {
     DioHelper API = DioHelper();
     final response =
         await API.postFormData(URL: URL.register, formData: rigsterBody);
-
+    print(rigsterBody);
+    print(rigsterBody);
+    print(rigsterBody);
+    print(response);
     return response;
   }
 

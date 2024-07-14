@@ -113,6 +113,7 @@ class AddressCubit extends Cubit<AddressState> {
     emit(FetchAddressListDataLoading());
     try {
       addressListModel = await repo.getAddressListModel();
+      print(addressListModel?.data?[0]);
       emit(FetchAddressListDataSuccess());
     } catch (e) {
       emit(AddressListError());

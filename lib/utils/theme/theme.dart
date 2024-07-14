@@ -21,8 +21,9 @@ class DAppTheme {
     String fontFamily =
         // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
         //     ?
-        'Poppins';
-    // : 'Cairo';
+        // 'Poppins';
+        // :
+        'Cairo';
 
     return ThemeData(
       useMaterial3: true,
@@ -45,8 +46,9 @@ class DAppTheme {
     String fontFamily =
         // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
         //     ?
-        'Poppins';
-    // : 'Cairo';
+        // 'Poppins';
+        // :
+        'Cairo';
 
     return ThemeData(
       useMaterial3: true,

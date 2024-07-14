@@ -32,7 +32,8 @@ class ExpireProductsScreen extends StatelessWidget {
               centerTitle: true,
               showBackArrow: true,
             ),
-            body: state is! ExpiredProductsListLoading
+            body: (state is! ExpiredProductsListLoading &&
+                    expiredController.expiredListModel.data?.length != 0)
                 ? Padding(
                     padding:
                         EdgeInsets.symmetric(vertical: AppSizes.spaceBtwItems),

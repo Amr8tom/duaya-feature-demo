@@ -17,7 +17,7 @@ class CustomSlider extends StatelessWidget {
     BestSellerCubit bestSellerController = context.read<BestSellerCubit>();
     return Container(
       // height: DDeviceUtils.getScreenHeight(context) * .3,
-      // width: DDeviceUtils.getScreenWidth(context),
+      width: DDeviceUtils.getScreenWidth(context),
       alignment: AlignmentDirectional.center,
 
       /// Decoration
@@ -30,33 +30,35 @@ class CustomSlider extends StatelessWidget {
           SizedBox(height: 20.h),
 
           /// Banner
-          CarouselSlider.builder(
-            itemBuilder: (BuildContext context, int index, int i) {
-              String sliderImage =
-                  bestSellerController.slidersModel.data![index].photo!;
-              return ClipRRect(
-                  borderRadius: BorderRadius.circular(16.r),
-                  child: FutureBuilder(
-                      future: checkImageNetwork.checkImageStatus(
-                          NetworkImageURL: sliderImage),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasData) {
-                          return Image.network(sliderImage,
-                              width: 400.w, fit: BoxFit.cover);
-                        } else {
-                          return Lottie.asset(AssetRes.loadingSliders);
-                        }
-                      }));
-            },
-            itemCount: DConstants.bannersList.length,
-            options: CarouselOptions(
-              autoPlay: true,
-              viewportFraction: 0.85,
-              aspectRatio: 2.2,
-              enlargeCenterPage: true,
-              // onPageChanged: homeCubit.onPageChangedSlider,
-            ),
-          ),
+          bestSellerController.slidersModel.data!.isNotEmpty
+              ? CarouselSlider.builder(
+                  itemBuilder: (BuildContext context, int index, int i) {
+                    String sliderImage =
+                        bestSellerController.slidersModel.data![index].photo!;
+                    return ClipRRect(
+                        borderRadius: BorderRadius.circular(16.r),
+                        child: FutureBuilder(
+                            future: checkImageNetwork.checkImageStatus(
+                                NetworkImageURL: sliderImage),
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Image.network(sliderImage,
+                                    width: 400.w, fit: BoxFit.cover);
+                              } else {
+                                return Lottie.asset(AssetRes.loadingSliders);
+                              }
+                            }));
+                  },
+                  itemCount: bestSellerController.slidersModel.data?.length,
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    viewportFraction: 0.85,
+                    aspectRatio: 2.2,
+                    enlargeCenterPage: true,
+                    // onPageChanged: homeCubit.onPageChangedSlider,
+                  ),
+                )
+              : Lottie.asset(AssetRes.loadingSliders),
         ],
       ),
     );

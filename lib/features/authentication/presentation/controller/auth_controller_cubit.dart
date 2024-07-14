@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
@@ -15,6 +17,7 @@ import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
+import '../../../../common/custom_ui.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../routing/routes_name.dart';
 import '../../data/repositories/loginRepo.dart';
@@ -25,6 +28,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
   AuthControllerCubit() : super(AuthControllerInitial());
   bool isPasswordVisible = false;
   bool isChoiceWork = false;
+  bool isAgree = false;
   LoginModel userModel = LoginModel();
   RegisterModel registerrModel = RegisterModel();
   CountryModel countryModel = CountryModel();
@@ -50,6 +54,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
   bool errorname = false;
   bool errorphone = false;
   bool errorworkType = false;
+  bool errorCheckBox = false;
   bool errorworkName = false;
   bool errorcity = false;
   bool erroremail = false;
@@ -91,17 +96,23 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       required BuildContext context}) async {
     emit(AuthControllerloading());
     loginRepositoryImpl repo = loginRepositoryImpl();
-    userModel = await repo
-        .getLoginModel(loginBody: {"email": email, "password": password});
-    commonToast(userModel.message.toString());
-    await PrefService.putString(
-        key: CacheKeys.token, value: userModel.accessToken!);
-    PrefService.putString(key: CacheKeys.email, value: email);
-    PrefService.putString(key: CacheKeys.password, value: password);
-    PrefService.putString(
-        key: CacheKeys.cityID, value: userModel.user!.brandId.toString());
-    context.pushReplacementNamed(DRoutesName.navigationMenuRoute);
-    emit(AuthControllerloadingSuccess());
+    CustomUI.loader(context: context);
+    try {
+      userModel = await repo
+          .getLoginModel(loginBody: {"email": email, "password": password});
+      commonToast(userModel.message.toString());
+      await PrefService.putString(
+          key: CacheKeys.token, value: userModel.accessToken!);
+      PrefService.putString(key: CacheKeys.email, value: email);
+      PrefService.putString(key: CacheKeys.password, value: password);
+      PrefService.putString(
+          key: CacheKeys.cityID, value: userModel.user!.brandId.toString());
+      context.pushReplacementNamed(DRoutesName.navigationMenuRoute);
+      emit(AuthControllerloadingSuccess());
+    } catch (e) {
+      Navigator.pop(context);
+      commonToast("${S.current.noUserFound} \n ${S.current.tryAgain}");
+    }
   }
 
   Future<void> fetchCountries() async {
@@ -141,8 +152,15 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       required String countryID,
       required String cityID}) async {
     rigsterRepositoryImpl repo = rigsterRepositoryImpl();
-    registerrModel = await repo.getRisgterModel(
-        rigsterBody: FormData.fromMap({
+    // File file = File(selectedImage2!.path);
+    // print('File is = ' + file.toString());
+    // List<int> fileInByte = file.readAsBytesSync();
+    // final base64Image = base64Encode(fileInByte);
+    FormData registerForm = FormData.fromMap({
+      'license_img': [
+        await MultipartFile.fromFile(selectedImage2!.path,
+            filename: selectedImage2!.path.split('/').last)
+      ],
       "name": name,
       "email_or_phone": emailOrPhone,
       "password": password,
@@ -151,16 +169,17 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       "customer_type": customerType,
       "job_name": jobName,
       "phone": phone,
-      "license_img": license_img,
+      // "license_img": base64Image,
       "filename": filename,
       "region": selectedRegionID,
-      "state_id": stateID,
-      "city_id": cityID,
+      "state_id": cityID,
+      "city_id": stateID,
       "country_id": countryID,
-    }));
+    });
+    registerrModel = await repo.getRisgterModel(rigsterBody: registerForm);
   }
 
-  onClickRegistration({required BuildContext context}) {
+  Future onClickRegistration({required BuildContext context}) async {
     errorname = false;
     errorphone = false;
     errorworkType = false;
@@ -168,6 +187,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
     erroremail = false;
     errorpassword = false;
     errorconfirmPassword = false;
+    errorCheckBox = false;
     errorimage = false;
     if (name.text.trim().isEmpty) {
       print("errorname");
@@ -201,8 +221,13 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       print("errorimage");
       errorimage = true;
     }
+    if (isAgree == false) {
+      print("errorCheckBox");
+      errorCheckBox = true;
+    }
     if (errorname ||
         errorphone ||
+        errorCheckBox ||
         errorworkType ||
         errorworkName ||
         errorcity ||
@@ -212,7 +237,8 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       emit(AuthControllerError());
       commonToast(S.current.pleaseEndterValue);
     } else {
-      fetchRegisterData(
+      CustomUI.loader(context: context);
+      await fetchRegisterData(
         stateID: selectedRegionID ?? "",
         name: name.text.trim(),
         phone: phone.text.trim(),
@@ -222,15 +248,15 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
         jobName: workName.text.trim(),
         customerType: workType.text.trim(),
         registerBy: "email",
-        filename: "name.text",
+        filename: selectedImage2!.path.split('/').last,
         license_img: selectedImage2!.path,
         cityID: selectedCity!,
         countryID: selectedCountryID ?? "64",
       );
+      commonToast(registerrModel.message!);
+      context.pushReplacementNamed(DRoutesName.loginRoute);
+      emit(AuthControllerSuccess());
     }
-    commonToast(registerrModel.message!);
-    context.pushReplacementNamed(DRoutesName.loginRoute);
-    emit(AuthControllerSuccess());
   }
 
   Future<void> showWarningDialoag(
@@ -319,5 +345,11 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
     } else {
       emit(AuthControllerToggleCity());
     }
+  }
+
+  void toggleCheckBox() {
+    emit(AuthControllerToggleCheckBoxFalse());
+    isAgree = !isAgree;
+    emit(AuthControllerToggleCheckBoxTrue());
   }
 }

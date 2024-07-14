@@ -27,6 +27,7 @@ class cartRepositoryImpl {
       Map<String, dynamic>? response =
           await remoteData.addToCart(cartBody: cartBody);
       print(cartBody);
+      print(response);
       return addToCartModel.fromJson(response);
     } else {
       commonToast(S.current.NoInternetConnection);

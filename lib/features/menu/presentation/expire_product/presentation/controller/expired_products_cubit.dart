@@ -16,7 +16,7 @@ part 'expired_products_state.dart';
 
 class ExpiredProductsCubit extends Cubit<ExpiredProductsState> {
   ExpiredProductsCubit() : super(ExpiredProductsInitial());
-  late ExpiredListModel expiredListModel;
+  ExpiredListModel expiredListModel = ExpiredListModel();
   late CreateExpiredModel createExpiredModel;
   late UpdateEXpiredModel updateExpiredModel;
   late DeleteExpired deleteExpiredModel;

@@ -1,8 +1,11 @@
+import 'package:duaya_app/common/text_record_function.dart';
 import 'package:duaya_app/features/onboarding/managers/onboarding_cubit/onboarding_state.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../generated/l10n.dart';
 
 class OnBoardingCubit extends Cubit<OnBoardingState> {
   OnBoardingCubit() : super(OnBoardingState(0));
@@ -23,6 +26,11 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     if (currentState.currentPageIndex == 2) {
       context.pushNamed(DRoutesName.loginRoute);
       // context.pushNamed(ORoutesName.loginRoute);
+    } else if (currentState.currentPageIndex == 1) {
+      speak(statements: S.current.onbordingMsg, locale: S.current.localeee);
+      final nextPage = currentState.currentPageIndex + 1;
+      pageController.jumpToPage(nextPage);
+      emit(OnBoardingState(nextPage));
     } else {
       final nextPage = currentState.currentPageIndex + 1;
       pageController.jumpToPage(nextPage);
@@ -30,8 +38,8 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     }
   }
 
-  void skipPage() {
-    pageController.jumpToPage(2);
+  void skipPage({required BuildContext context}) {
+    context.pushNamed(DRoutesName.loginRoute);
     emit(OnBoardingState(2));
   }
 }

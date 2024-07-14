@@ -7,12 +7,17 @@ import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../home/presentation/controller/best_seller_cubit.dart';
 
-class OnBoardingScreenTwo extends StatelessWidget {
-  const OnBoardingScreenTwo({super.key});
+class OnBoardingScreen extends StatelessWidget {
+  const OnBoardingScreen({super.key});
   @override
   Widget build(BuildContext context) {
+    // final besSellerController = context.read<BestSellerCubit>();
     final cubit = context.read<OnBoardingCubit>();
+    // try {
+    //   besSellerController.fetchBestSellerData();
+    // } catch (e) {}
     return Scaffold(
       body: Stack(
         children: [
@@ -25,23 +30,22 @@ class OnBoardingScreenTwo extends StatelessWidget {
             onPageChanged: cubit.updatePageIndicator,
             children: [
               OnBoardingPage(
-                topHight: 100.h,
+                topHight: 65.h,
                 image: AssetRes.onBoardingImagePng1,
                 title: S.current.onboardingTitle1,
                 subTitle: S.current.onboardingBody1,
               ),
               OnBoardingPage(
-                // topHight: 65.h,
+                topHight: 65.h,
                 image: AssetRes.onBoardingImagePng2,
-                title: S.current.onboardingTitle2,
-                subTitle: S.current.onboardingBody2,
-              ),
-              OnBoardingPage(
-                imgWidth: 420.sp,
-                imgHight: 373.sp,
-                image: AssetRes.onBoardingImagePng3,
                 title: S.current.onboardingTitle3,
                 subTitle: S.current.onboardingBody3,
+              ),
+              OnBoardingPage(
+                topHight: 65.h,
+                image: AssetRes.onBoardingImagePng3,
+                title: S.current.onboardingTitle2,
+                subTitle: S.current.onboardingBody2,
               ),
             ],
           ),

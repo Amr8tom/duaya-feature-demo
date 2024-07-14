@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../../generated/l10n.dart';
 import '../../../../routing/routes_name.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
@@ -20,57 +21,59 @@ class FlashGridView extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        print(State);
-        print(State);
-        print(State);
-        print(State);
-        print(State);
-        if (state is FlashInitial) {
-          flashController.fetchFlashData();
-          return Center(
-            child: Lottie.asset(AssetRes.loadingSliders),
-          );
-        } else if (state is FlashLoadingState) {
-          return Center(
-            child: Lottie.asset(AssetRes.loadingSliders),
-          );
-        } else if (state is FlashSuccessState) {
-          return GridView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10.h,
-              childAspectRatio: 1 / 2.2,
-            ),
-            shrinkWrap: true,
-            itemCount:
-                flashController.flashModel.data![0].products!.data2!.length,
-            itemBuilder: (context, index) {
-              String image = flashController
-                  .flashModel.data![0].products!.data2![index].image!;
-              String ID = flashController
-                  .flashModel.data![0].products!.data2![index].id
-                  .toString()!;
-              String name = flashController
-                  .flashModel.data![0].products!.data2![index].name!;
-              String price = flashController
-                  .flashModel.data![0].products!.data2![index].price!;
-              String shope = flashController.flashModel.data![0].title!;
-              return GestureDetector(
-                onTap: () => context.pushNamed(DRoutesName.detailsProductRoute),
-                child: CustomContainerProduct(
-                    productID: ID,
-                    hasDicount: false,
-                    productImage: image,
-                    productName: name,
-                    price: price,
-                    companyName: shope,
-                    rete: 4.5),
+        try {
+          if (state is FlashInitial) {
+            flashController.fetchFlashData();
+            return Center(
+              child: Lottie.asset(AssetRes.loadingSliders),
+            );
+          } else if (state is FlashLoadingState) {
+            return Center(
+              child: Lottie.asset(AssetRes.loadingSliders),
+            );
+          } else {
+            if (flashController.flashModel.data?.length != 0) {
+              return GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 10.h,
+                  childAspectRatio: 1 / 2.1,
+                ),
+                shrinkWrap: true,
+                itemCount:
+                    flashController.flashModel.data![0].products!.data2!.length,
+                itemBuilder: (context, index) {
+                  String image = flashController
+                      .flashModel.data![0].products!.data2![index].image!;
+                  String ID = flashController
+                      .flashModel.data![0].products!.data2![index].id
+                      .toString()!;
+                  String name = flashController
+                          .flashModel.data![0].products!.data2![index].name ??
+                      "";
+                  String price = flashController
+                      .flashModel.data![0].products!.data2![index].price!;
+                  String shope = flashController.flashModel.data![0].title!;
+                  return GestureDetector(
+                    onTap: () =>
+                        context.pushNamed(DRoutesName.detailsProductRoute),
+                    child: CustomContainerProduct(
+                        productID: ID,
+                        hasDicount: false,
+                        productImage: image,
+                        productName: name,
+                        price: price,
+                        companyName: shope,
+                        rete: 4.5),
+                  );
+                },
               );
-            },
-          );
-        } else {
-          return SizedBox();
+            } else
+              return Center(child: Text(S.current.noData));
+          }
+        } catch (e) {
+          return Center(child: Text(S.current.noData));
         }
       },
     );

@@ -14,7 +14,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../features/authentication/presentation/controller/auth_controller_cubit.dart';
 import '../features/category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 import '../features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
-import '../features/category/presentation/category/presentation/controller/search_cubit.dart';
+import '../features/search/presentation/controller/search_cubit.dart';
 import '../features/flash/presentation/controller/flash_cubit.dart';
 import '../features/menu/presentation/medical_service/presentation/controller/medical_services_cubit.dart';
 import '../features/settings/presentation/controller/translation_cubit.dart';

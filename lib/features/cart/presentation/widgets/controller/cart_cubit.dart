@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/features/cart/data/model/ChangeQuantitiyModel.dart';
 import 'package:duaya_app/features/cart/data/model/cartCount.dart';
 import 'package:duaya_app/features/cart/data/model/cartSummary.dart';
@@ -124,6 +125,7 @@ class CartCubit extends Cubit<CartState> {
       {required String userID,
       String paymentType = "cash_on_delivery",
       required BuildContext context}) async {
+    CustomUI.loader(context: context);
     Map<String, dynamic> cartBody = {"payment_type": paymentType, "id": userID};
     ceckOutModel = (await repo.checkOut(checkOutBody: cartBody))!;
     if (ceckOutModel.result == true) {

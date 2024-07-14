@@ -26,10 +26,10 @@ class ShortComingCubit extends Cubit<ShortComingState> {
       formData = FormData.fromMap({
         'file': await MultipartFile.fromFile(
           selectedImage?.path ?? selectedImageFromCamera!.path,
-          filename: 'image.jpg',
+          filename: selectedImage?.path.split('/').last ??
+              selectedImageFromCamera?.path.split('/').last,
         ),
-        'note': 'Your note here', // Add other form fields if needed
-        'type': 'Your type here',
+        'note': 'تيست ', // Add other form fields if needed
       });
       // Send FormData to remote data source
       Map<String, dynamic>? response =

@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+import '../../../common/widgets/appbar/appbar.dart';
 import '../../../generated/l10n.dart';
 import '../../../routing/routes_name.dart';
 import '../../../utils/constants/colors.dart';
@@ -20,15 +21,10 @@ class AddressListScreen extends StatelessWidget {
     addressListController.fetchAddressListData();
     AdressListModel? addressListModel = AdressListModel();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          S.current.address,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: ColorRes.white),
-        ),
-        centerTitle: true,
+      appBar: DAppBar(
+        leadingWidget: Icon(Icons.arrow_back_ios),
+        showBackArrow: true,
+        title: Text(S.current.address),
       ),
       body: BlocConsumer<AddressCubit, AddressState>(
         builder: (context, state) {
@@ -66,14 +62,14 @@ class AddressListScreen extends StatelessWidget {
                 return Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(10.sp),
+                      padding: EdgeInsets.all(10.w),
                       child: Card(
                         elevation: 1,
                         color: set_default == 0
-                            ? ColorRes.gold.withOpacity(0.2)
-                            : ColorRes.primary,
+                            ? ColorRes.white
+                            : ColorRes.greenBlueLight,
                         child: ListTile(
-                          contentPadding: EdgeInsets.all(20.sp),
+                          contentPadding: EdgeInsets.all(20.w),
                           leading: IconButton(
                             onPressed: () {
                               addressListController.selectAddress(
@@ -86,7 +82,7 @@ class AddressListScreen extends StatelessWidget {
                               color: set_default == 1
                                   ? ColorRes.lightGreen
                                   : Colors.grey,
-                              size: 30.sp,
+                              size: 30.w,
                             ),
                           ),
                           title: Text(
@@ -108,7 +104,7 @@ class AddressListScreen extends StatelessWidget {
                                     .headlineMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.w300,
-                                      fontSize: 15.sp,
+                                      fontSize: 15.w,
                                       color: ColorRes.black,
                                     ),
                               ),
@@ -119,7 +115,7 @@ class AddressListScreen extends StatelessWidget {
                                     .headlineMedium!
                                     .copyWith(
                                       fontWeight: FontWeight.w300,
-                                      fontSize: 15.sp,
+                                      fontSize: 15.w,
                                       color: ColorRes.black,
                                     ),
                               ),
@@ -149,13 +145,13 @@ class AddressListScreen extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                     ),
-                                    padding: EdgeInsets.all(10.sp),
+                                    padding: EdgeInsets.all(10.w),
                                     child: Icon(
                                       Icons.edit,
-                                      color: Colors.white,
+                                      color: ColorRes.greenBlue,
                                     ))),
                             SizedBox(
-                              height: 33.sp,
+                              height: 33.w,
                             ),
                             IconButton(
                                 onPressed: () {
@@ -166,9 +162,9 @@ class AddressListScreen extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(20),
                                     ),
-                                    padding: EdgeInsets.all(10.sp),
+                                    padding: EdgeInsets.all(10.w),
                                     child: Icon(Icons.delete,
-                                        color: Colors.white)))
+                                        color: ColorRes.greenBlue)))
                           ],
                         ),
                       ],
@@ -184,13 +180,13 @@ class AddressListScreen extends StatelessWidget {
       floatingActionButton: Stack(children: [
         Positioned(
           left: 10,
-          bottom: 70.sp,
+          bottom: 70.w,
           child: CustomFloatingActionButton(
             icon: Icon(
               Icons.add_outlined,
               color: Colors.white,
             ),
-            color: ColorRes.primary,
+            color: ColorRes.greenBlue,
             textButton: S.current.addNewAddress,
             onPressed: () => context.pushNamed(
                 DRoutesName.addNewAddressFormRoute,
@@ -199,9 +195,9 @@ class AddressListScreen extends StatelessWidget {
         ),
         Positioned(
           left: 10,
-          bottom: 00.sp,
+          bottom: 00.w,
           child: CustomFloatingActionButton(
-            color: ColorRes.primary,
+            color: ColorRes.greenBlue,
             textButton: S.current.continuePayment,
             onPressed: () => context.pushNamed(DRoutesName.paymentRoute),
           ),

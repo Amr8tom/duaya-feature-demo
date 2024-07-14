@@ -3,6 +3,7 @@ class DRoutesName {
   static const String splashRoute = 'splash-route';
   static const String test = 'test-route';
   static const String onBoardingRoute = 'on-boarding-route';
+  static const String onBoardingRouteTwo = 'on-boarding-route-two';
   static const String loginRoute = 'phone-login-route';
   static const String allDataLoginRoute = 'all-data-login-route';
   static const String signupRoute = 'signup-route';
@@ -26,6 +27,7 @@ class DRoutesName {
   static const String detailsProductRoute = 'details-product-route';
   static const String certainCategoryRoute = 'certain-category-route';
   static const String giftRoute = 'gift-route';
+  static const String searchRoute = 'search-route';
 
   /// More
   static const String termsAndConditionRoute = 'terms-and-conditions-route';

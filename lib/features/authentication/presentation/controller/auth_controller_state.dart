@@ -19,6 +19,10 @@ final class AuthControllerTogglePassword extends AuthControllerState {}
 
 final class AuthControllerToggleCity extends AuthControllerState {}
 
+final class AuthControllerToggleCheckBoxFalse extends AuthControllerState {}
+
+final class AuthControllerToggleCheckBoxTrue extends AuthControllerState {}
+
 final class AuthControllerToggleRigon extends AuthControllerState {}
 
 final class AuthControllerStateLoading extends AuthControllerState {}

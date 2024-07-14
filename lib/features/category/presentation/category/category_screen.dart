@@ -1,6 +1,5 @@
 import 'package:duaya_app/features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import 'package:duaya_app/features/category/presentation/category/presentation/widget/custom_body_in_category/custom_category_body.dart';
-import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';

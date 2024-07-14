@@ -6,10 +6,12 @@ class CustomTextFormFieldSearch extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final Function(String) onChange;
+  final Function()? onTapOutside;
 
   CustomTextFormFieldSearch({
     Key? key,
     required this.hintText,
+    this.onTapOutside,
     required this.controller,
     required this.onChange,
   }) : super(key: key);
@@ -26,36 +28,31 @@ class CustomTextFormFieldSearch extends StatelessWidget {
           style: Theme.of(context)
               .textTheme
               .titleLarge!
-              .copyWith(color: Colors.grey[700]),
+              .copyWith(color: ColorRes.greenBlue),
           decoration: InputDecoration(
             filled: true,
             fillColor: ColorRes.white.withOpacity(0.5),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: BorderSide(color: ColorRes.primary),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.0),
-              borderSide: BorderSide(color: Colors.grey),
-            ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.0),
-              borderSide: BorderSide(color: Colors.grey),
+              borderSide: BorderSide(color: ColorRes.lightGreen),
             ),
             hintText: hintText,
             hintStyle: Theme.of(context)
                 .textTheme
                 .titleSmall!
                 .copyWith(color: Colors.grey),
-            prefixIcon: Icon(Icons.search, color: Colors.grey, size: 25.sp),
+            prefixIcon:
+                Icon(Icons.search, color: ColorRes.greenBlue, size: 25.sp),
             contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
           ),
           onChanged: onChange,
-          onTapOutside: (s) {
+          onTapOutside: (s) async {
+            onTapOutside;
             print(
                 "donnnnnnnnnnnnedonnnnnnnnnnnnedonnnnnnnnnnnnedonnnnnnnnnnnnedonnnnnnnnnnnne");
           },
-          onEditingComplete: () {
+          onEditingComplete: () async {
+            onTapOutside;
             print(
                 "donnnnnnnnnnnnedonnnnnnnnnnnnedonnnnnnnnnnnnedonnnnnnnnnnnnedonnnnnnnnnnnne");
           },

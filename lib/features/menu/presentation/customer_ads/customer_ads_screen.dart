@@ -42,6 +42,7 @@ class CustomerAdsScreen extends StatelessWidget {
                     hasDicount: false,
                     price: "123",
                     productID: 'No ID',
+                    isCart: false,
                   ));
             },
           ),

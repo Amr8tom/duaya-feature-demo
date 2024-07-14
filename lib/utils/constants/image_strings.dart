@@ -6,10 +6,18 @@ class AssetRes {
   static const String profileLogo = 'assets/images/jpegs/profileLogo.jpeg';
   static const String test = 'assets/lotties/testRR.json';
 
-  /// -- OnBoarding Images
+  /// -- OnBoarding Images Lotties
   static const String onBoardingImage1 = 'assets/lotties/onboardingDoctor.json';
   static const String onBoardingImage2 = 'assets/lotties/drugJson.json';
   static const String onBoardingImage3 = 'assets/lotties/sell3.json';
+
+  /// -- OnBoarding Images png
+  static const String onBoardingImagePng1 =
+      'assets/images/pngs/on_boarding_images/onboarding_one.png';
+  static const String onBoardingImagePng2 =
+      'assets/images/pngs/on_boarding_images/onboarding_two.png';
+  static const String onBoardingImagePng3 =
+      'assets/images/pngs/on_boarding_images/onboarding_three.png';
 
   /// -- Menu Images
   static const String wallet = 'assets/lotties/wallet.json';
@@ -56,11 +64,13 @@ class AssetRes {
   static const String coloredSale = 'assets/lotties/sale2.json';
   static const String greenSale2 = 'assets/lotties/greenSale2.json';
 
-  /////////// cart Icons
+  /////////// AppBar Icons
   static const String cartAfterFilling = 'assets/lotties/cartAfterFilling.json';
   static const String cartAfterFilling2 =
       'assets/lotties/cartAfterFilling2.json';
   static const String cartBeforeFilling = 'assets/lotties/emptyGreenCart.json';
+  static const String searchICon = 'assets/lotties/search_icon.json';
+  static const String gifts = 'assets/lotties/gifts.json';
 
   /// address Images
   static const String cashImage = 'assets/lotties/cash.json';
@@ -79,6 +89,7 @@ class AssetRes {
   /// -- Animations
   static const String productsIllustration =
       'assets/animations/sammy-line-workout.gif';
+  static const String duayaText = 'assets/images/GIF/duaya_text.gif';
   static const String productsSaleIllustration =
       'assets/animations/sammy-line-sale.png';
   static const String productsSuccessIllustration =
@@ -95,11 +106,8 @@ class AssetRes {
 
   /// Upload Images
   static const String uploadImage = 'assets/lotties/uploadImage.json';
+  static const String uploadImage2 = 'assets/images/pngs/uploadImage.png';
   static const String backGroundImage = 'assets/images/pngs/backGround.png';
-
-  /// Home Icons
-  // static const String giftIcon = 'assets/images/jpegs/giftIcon.jpeg';
-  static const String gifts = 'assets/lotties/gifts.json';
 
   /// Icons
   static const String removeIcon = 'assets/images/pngs/remove.png';

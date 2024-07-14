@@ -8,7 +8,7 @@ class loginRemoteDataSoureces {
     DioHelper API = DioHelper();
     Future<Map<String, dynamic>?> response =
         API.postData(URL: URL.login, body: loginBody);
-
+    print(response);
     return response;
   }
 }

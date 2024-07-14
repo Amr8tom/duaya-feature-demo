@@ -88,7 +88,7 @@ class CustomContainerProduct extends StatelessWidget {
 
                   /// Product Image.
                   CachedImage(
-                    height: hight ?? AppSizes.productImageSize - 33.sp,
+                    height: hight ?? AppSizes.productImageSize - 3.sp,
                     link: productImage,
                   ),
 
@@ -129,7 +129,7 @@ class CustomContainerProduct extends StatelessWidget {
                                   color: ColorRes.error2, fontSize: 15.sp))
                     ],
                   ),
-                  Spacer(),
+                  // Spacer(),
 
                   /// Add to cart.
                   isCart

@@ -14,7 +14,7 @@ class DLoginHeader extends StatelessWidget {
     final dark = DHelperFunctions.isDarkMode(context);
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Center(
             child: Image(
@@ -25,15 +25,13 @@ class DLoginHeader extends StatelessWidget {
             style: Theme.of(context)
                 .textTheme
                 .headlineLarge
-                ?.copyWith(color: Colors.red, fontSize: 41.sp)),
+                ?.copyWith(color: ColorRes.greenBlue, fontSize: 36.sp)),
         SizedBox(height: AppSizes.sm),
-        Center(
-          child: Text(S.current.loginBody,
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineMedium!
-                  .copyWith(color: ColorRes.buttonSecondary.withOpacity(0.6))),
-        ),
+        Text(S.current.loginBody,
+            style: Theme.of(context)
+                .textTheme
+                .headlineMedium!
+                .copyWith(color: ColorRes.black, fontSize: 14.sp)),
       ],
     );
   }
