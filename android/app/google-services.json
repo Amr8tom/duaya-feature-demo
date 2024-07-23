@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "317901537413",
+    "project_id": "doctorpharma-3fc44",
+    "storage_bucket": "doctorpharma-3fc44.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317901537413:android:624fe97d96a59f254ba9ec",
+        "android_client_info": {
+          "package_name": "com.apmo.doctorpharma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317901537413-09i7e30aoffmu2tb2nmi2b5e0tdbjp12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4M2EaYi7JfTogW6QA9XaGUddmUk4TdAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317901537413-09i7e30aoffmu2tb2nmi2b5e0tdbjp12.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "317901537413-lc7fst5nug8qjef5v5f613d0h0k5cm4a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.apmo.doctorpharma"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317901537413:android:d70562d23ec9a5e24ba9ec",
+        "android_client_info": {
+          "package_name": "com.apmo.doctorpharmaseller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317901537413-09i7e30aoffmu2tb2nmi2b5e0tdbjp12.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4M2EaYi7JfTogW6QA9XaGUddmUk4TdAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317901537413-09i7e30aoffmu2tb2nmi2b5e0tdbjp12.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "317901537413-lc7fst5nug8qjef5v5f613d0h0k5cm4a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.apmo.doctorpharma"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
