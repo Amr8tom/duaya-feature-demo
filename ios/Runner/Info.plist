@@ -54,6 +54,22 @@
 </array>
 <key>NSMicrophoneUsageDescription</key>
 <string>We need access to your microphone for speech synthesis.</string>
-
 	</dict>
+
+
+
+
+	<key>NSCameraUsageDescription</key>
+    <string>Your camera usage description</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Your microphone usage description</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+
+
+
+
 </plist>

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:duaya_app/common/widgets/custom_button/custom_button_with_icon.dart';
 import 'package:duaya_app/features/home/presentation/controller/best_seller_cubit.dart';
 import 'package:duaya_app/utils/connection/checkImageNetwork.dart';
@@ -17,19 +19,22 @@ import '../../../../../routing/routes_name.dart';
 import '../../../../cart/presentation/widgets/add_miuns_cart_button.dart';
 
 class CustomContainerProduct extends StatelessWidget {
-  final String productImage, productName, companyName, price, productID;
+  final String productName, companyName, price, productID;
   String strockedPrice, discount;
   final double rete;
   bool hasDicount;
+  String? productImage;
   bool removeDiscount;
   double? hight;
   bool isCart;
+  Color? color;
 
   CustomContainerProduct({
     Key? key,
-    required this.productImage,
+    this.productImage,
     required this.productName,
     this.hight,
+    this.color,
     required this.productID,
     required this.companyName,
     this.removeDiscount = false,
@@ -50,11 +55,9 @@ class CustomContainerProduct extends StatelessWidget {
               child: Lottie.asset(AssetRes.normalLoading),
             )
           : Container(
-              padding: EdgeInsets.symmetric(
-                  vertical: AppSizes.spaceBtwTexts * 2,
-                  horizontal: AppSizes.spaceBtwTexts),
+              padding: EdgeInsets.symmetric(horizontal: AppSizes.spaceBtwTexts),
               decoration: BoxDecoration(
-                  color: ColorRes.white,
+                  color: color ?? ColorRes.white,
                   borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg)),
               child: Column(
                 children: [
@@ -129,15 +132,14 @@ class CustomContainerProduct extends StatelessWidget {
                                   color: ColorRes.error2, fontSize: 15.sp))
                     ],
                   ),
-                  // Spacer(),
 
                   /// Add to cart.
                   isCart
                       ? AddMinusCartButton(
                           height: AppSizes.appBarHeight,
                           width: double.infinity,
-                          color: ColorRes.lightGreen,
-                          borderColor: Colors.transparent,
+                          color: ColorRes.greenBlueLight,
+                          borderColor: ColorRes.greenBlue,
                           textButtonColor: Colors.white,
                           ID: productID,
                         )

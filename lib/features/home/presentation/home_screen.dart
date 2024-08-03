@@ -37,36 +37,12 @@ class HomeScreen extends StatelessWidget {
             if (state is BestSellerInitial) {
               bestSellerController.fetchSlidersData();
               return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Lottie.asset(AssetRes.animationLoading),
-                    Text(
-                      S.current.loading,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    CircularProgressIndicator(
-                      color: Colors.lightGreen,
-                    )
-                  ],
-                ),
+                child: Lottie.asset(AssetRes.loadingSliders, height: 150.h),
               );
             } else if (bestSellerController.slidersModel.data == null ||
                 bestSellerController.slidersModel?.data?.length == 0) {
               return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Lottie.asset(AssetRes.animationLoading),
-                    Text(
-                      S.current.loading,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                    CircularProgressIndicator(
-                      color: Colors.lightGreen,
-                    )
-                  ],
-                ),
+                child: Lottie.asset(AssetRes.loadingSliders),
               );
             } else {
               return BlocConsumer<SearchCubit, SearchState>(
@@ -82,15 +58,13 @@ class HomeScreen extends StatelessWidget {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              //
-
                               /// Make Space
                               SizedBox(height: AppSizes.spaceBtwItems),
 
                               /// Slider
-                              CustomSlider(),
+                              const CustomSlider(),
 
-                              /// Category
+                              /// see all Button
                               (catastate is CategoriesByPageInitial)
                                   ? Text(S.current.loading)
                                   : Row(
@@ -98,7 +72,9 @@ class HomeScreen extends StatelessWidget {
                                         Text(S.current.categories,
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .titleLarge),
+                                                .titleLarge!
+                                                .copyWith(
+                                                    color: ColorRes.greenBlue)),
                                         const Spacer(),
                                         IconButton(
                                           onPressed: () {
@@ -110,15 +86,19 @@ class HomeScreen extends StatelessWidget {
                                                   .textTheme
                                                   .titleSmall!
                                                   .copyWith(
-                                                      color: ColorRes.primary)),
+                                                      color:
+                                                          ColorRes.greenBlue)),
                                         ),
                                         Icon(Icons.arrow_forward_ios,
-                                            size: 12.sp, color: ColorRes.grey2)
+                                            size: 12.sp,
+                                            color: ColorRes.greenBlue)
                                       ],
                                     ),
 
                               /// Make Space
                               SizedBox(height: AppSizes.spaceBtwItems * 1.2),
+
+                              /// categories
                               SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 child: Row(
@@ -165,32 +145,44 @@ class HomeScreen extends StatelessWidget {
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                   crossAxisCount: 2,
-                                  mainAxisSpacing: 10.h,
-                                  childAspectRatio: 1 / 2.15,
+                                  mainAxisSpacing: 5.h,
+                                  childAspectRatio: 1.2 / 2.45,
                                 ),
                                 shrinkWrap: true,
                                 itemCount: bestSellerController
                                     .bestSellerModel.data?.length,
                                 itemBuilder: (context, index) {
-                                  String image = bestSellerController
+                                  String? image = bestSellerController
                                       .bestSellerModel
-                                      .data![index]
+                                      .data?[index]
                                       .thumbnailImage!;
                                   String ID = bestSellerController
-                                      .bestSellerModel.data![index].id!
-                                      .toString();
+                                          .bestSellerModel.data![index].id!
+                                          .toString() ??
+                                      "";
                                   String shopName = bestSellerController
-                                      .bestSellerModel.data![index].shopName!;
+                                          .bestSellerModel
+                                          .data![index]
+                                          .shopName! ??
+                                      "";
                                   String name = bestSellerController
-                                      .bestSellerModel.data![index].name!;
+                                          .bestSellerModel.data![index].name! ??
+                                      "";
                                   String discount = bestSellerController
-                                      .bestSellerModel.data![index].discount!;
+                                          .bestSellerModel
+                                          .data![index]
+                                          .discount ??
+                                      ""!;
                                   String price = bestSellerController
-                                      .bestSellerModel.data![index].mainPrice!;
+                                          .bestSellerModel
+                                          .data![index]
+                                          .mainPrice! ??
+                                      "";
                                   String strokedPrice = bestSellerController
-                                      .bestSellerModel
-                                      .data![index]
-                                      .strokedPrice!;
+                                          .bestSellerModel
+                                          .data![index]
+                                          .strokedPrice! ??
+                                      "";
                                   bool hasDiscount = bestSellerController
                                       .bestSellerModel
                                       .data![index]
@@ -213,6 +205,7 @@ class HomeScreen extends StatelessWidget {
                                           });
                                     },
                                     child: CustomContainerProduct(
+                                      color: ColorRes.greyGreen,
                                       productImage: image,
                                       productName: name,
                                       companyName: shopName,

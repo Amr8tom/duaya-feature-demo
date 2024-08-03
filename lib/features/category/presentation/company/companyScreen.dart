@@ -45,7 +45,7 @@ class _CompanyScreenState extends State<CompanyScreen>
         } else {
           return Stack(children: [
             Lottie.asset(AssetRes.onBoardingImage2),
-            SingleChildScrollView(child: CustomBrandBody()),
+            const SingleChildScrollView(child: CustomBrandBody()),
           ]);
         }
       },

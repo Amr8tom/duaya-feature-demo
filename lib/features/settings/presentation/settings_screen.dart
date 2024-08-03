@@ -1,7 +1,5 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/common/widgets/custom_container/custom_container.dart';
 import 'package:duaya_app/features/settings/presentation/controller/translation_cubit.dart';
-import 'package:duaya_app/features/settings/presentation/country/widgets/custom_bottom_sheet_country/custom_bottom_sheet_country.dart';
 import 'package:duaya_app/features/settings/presentation/language/widgets/custom_bottom_sheet_language.dart';
 import 'package:duaya_app/features/settings/widgets/custom_container_of_data_user/custom_container_of_data_user.dart';
 import 'package:duaya_app/features/settings/widgets/custom_setting_component/custom_setting_component.dart';
@@ -15,8 +13,9 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:lottie/lottie.dart';
+
+import 'controller/update_profile_cubit.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
@@ -34,7 +33,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final settingController = context.read<SettinglationCubit>();
-
+    context.read<UpdateProfileCubit>().fetchCountries();
     return BlocConsumer<SettinglationCubit, TranslationState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -62,32 +61,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                         /// Make Size
                         SizedBox(height: AppSizes.spaceBtwItems / 1.2),
-                        //
-                        // /// Container Credit Limit
-                        // Text(settingController.profileModel.message!,
-                        //     style: Theme.of(context)
-                        //         .textTheme
-                        //         .headlineLarge!
-                        //         .copyWith(
-                        //             fontSize: 10.sp, color: ColorRes.black)),
-                        // settingController.profileModel.verificationStatus == 0
-                        //     ? Text(
-                        //         S.current.verification_status,
-                        //         style: Theme.of(context)
-                        //             .textTheme
-                        //             .headlineMedium!
-                        //             .copyWith(color: ColorRes.error2),
-                        //       )
-                        //     : CustomContainer(
-                        //         titleContainer1: S.current.avaiableToLoan,
-                        //         titleContainer2: S.current.moneyYouLoan,
-                        //         number1:
-                        //             "${settingController.profileModel.minAmount! - settingController.profileModel.delayBalance!}  ${S.current.pound}",
-                        //         number2:
-                        //             "${settingController.profileModel.delayBalance}  ${S.current.pound}"),
-                        //
-                        // /// Make Size
-                        // SizedBox(height: AppSizes.defaultSpace),
 
                         /// Component Setting
                         Container(
@@ -140,12 +113,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
                         /// Make Size
                         SizedBox(height: AppSizes.spaceBtwItems * 3),
-                        // Text(S.current.more,
-                        //     style: Theme.of(context)
-                        //         .textTheme
-                        //         .titleLarge!
-                        //         .copyWith(
-                        //             fontSize: 18.sp, color: ColorRes.error2)),
+
                         /// Other Component Setting
                         Container(
                             padding: EdgeInsets.symmetric(

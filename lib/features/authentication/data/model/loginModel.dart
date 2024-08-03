@@ -46,6 +46,11 @@ class User {
     this.name,
     this.jobName,
     this.brandId,
+    this.regionID,
+    this.countryID,
+    this.cityID,
+    this.isVerfied,
+    this.stateID,
     this.brandName,
     this.email,
     this.phone,
@@ -61,6 +66,12 @@ class User {
     name = json['name'];
     jobName = json['job_name'];
     brandId = json['brand_id'];
+    cityID = json['city_id'];
+    countryID = json['country_id'];
+    stateID = json['state_id'];
+    isVerfied = json['is_verfied'];
+    brandId = json['brand_id'];
+    regionID = json['region'];
     brandName = json['brand_name'];
     email = json['email'];
     phone = json['phone'];
@@ -72,8 +83,13 @@ class User {
   String? type;
   String? customerType;
   String? name;
+  String? regionID;
   String? jobName;
   String? brandId;
+  int? cityID;
+  int? stateID;
+  int? countryID;
+  int? isVerfied;
   String? brandName;
   String? email;
   String? phone;
@@ -90,6 +106,10 @@ class User {
     map['job_name'] = jobName;
     map['brand_id'] = brandId;
     map['brand_name'] = brandName;
+    map['city_di'] = cityID;
+    map['state_id'] = stateID;
+    map['country_id'] = countryID;
+    map['is_verfied'] = isVerfied;
     map['email'] = email;
     map['phone'] = phone;
     map['avatar'] = avatar;

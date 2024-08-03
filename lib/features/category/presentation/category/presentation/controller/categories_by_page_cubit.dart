@@ -2,7 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:duaya_app/features/category/data/model/CategoriesByPage.dart';
 import 'package:duaya_app/features/category/data/model/SingleCategoryModel.dart';
 import 'package:duaya_app/features/category/data/repositories/categoriesRepo.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
+
+import '../../../../../../common/custom_ui.dart';
 
 part 'categories_by_page_state.dart';
 
@@ -33,11 +36,15 @@ class CategoriesByPageCubit extends Cubit<CategoriesByPageState> {
     emit(CategoriesGetIDsSuccess());
   }
 
-  Future<void> fetchCategoryByID({required String cataID}) async {
+  Future<void> fetchCategoryByID(
+      {required String cataID, required BuildContext context}) async {
+    emit(CategoryByIDLoading());
     print("////////////////  categoryID        ////////////");
+    CustomUI.loader(context: context);
     singleCata = await repo.getCategory(
       categoryID: cataID,
     );
+    Navigator.pop(context);
     emit(CategoryByIDSuccess());
   }
 }

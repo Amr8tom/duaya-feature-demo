@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/common_snak_bar_widget.dart';
 import 'package:duaya_app/common/widgets/floating_action_button/custom_floating_action_button.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
@@ -24,18 +25,26 @@ class AddressListScreen extends StatelessWidget {
       appBar: DAppBar(
         leadingWidget: Icon(Icons.arrow_back_ios),
         showBackArrow: true,
-        title: Text(S.current.address),
+        title: Column(
+          children: [
+            Text(S.current.address),
+            // Text(
+            //   S.current.addressListTitle,
+            //   style: Theme.of(context).textTheme!.headlineMedium.,
+            // )
+          ],
+        ),
       ),
       body: BlocConsumer<AddressCubit, AddressState>(
         builder: (context, state) {
           if (state is FetchAddressListDataLoading) {
             print(state);
             return Center(
-              child: Lottie.asset(AssetRes.loadingSliders),
+              child: Lottie.asset(AssetRes.loadingSliders, height: 150.h),
             );
           } else if (state is AddressInitial) {
             return Center(
-              child: Lottie.asset(AssetRes.loadingSliders),
+              child: Lottie.asset(AssetRes.loadingSliders, height: 150.h),
             );
           } else {
             if (state is FetchAddressListDataSuccess) {
@@ -59,6 +68,9 @@ class AddressListScreen extends StatelessWidget {
                     addressListController.addressListModel?.data?[index].id;
                 final set_default = addressListController
                     .addressListModel?.data?[index].setDefault;
+                if (set_default == 1) {
+                  addressListController.setDefult(selectValue: set_default!);
+                }
                 return Stack(
                   children: [
                     Padding(
@@ -66,7 +78,7 @@ class AddressListScreen extends StatelessWidget {
                       child: Card(
                         elevation: 1,
                         color: set_default == 0
-                            ? ColorRes.white
+                            ? ColorRes.greyGreen
                             : ColorRes.greenBlueLight,
                         child: ListTile(
                           contentPadding: EdgeInsets.all(20.w),
@@ -92,7 +104,7 @@ class AddressListScreen extends StatelessWidget {
                                 .headlineMedium!
                                 .copyWith(
                                     fontWeight: FontWeight.w900,
-                                    color: ColorRes.error2),
+                                    color: ColorRes.greenBlue),
                           ),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +145,7 @@ class AddressListScreen extends StatelessWidget {
                           children: [
                             IconButton(
                                 onPressed: () {
-                                  context.pushNamed(
+                                  context.pushReplacementNamed(
                                     DRoutesName.addNewAddressFormRoute,
                                     arguments: {
                                       'ID': ID.toString(),
@@ -188,7 +200,7 @@ class AddressListScreen extends StatelessWidget {
             ),
             color: ColorRes.greenBlue,
             textButton: S.current.addNewAddress,
-            onPressed: () => context.pushNamed(
+            onPressed: () => context.pushReplacementNamed(
                 DRoutesName.addNewAddressFormRoute,
                 arguments: {"ID": "", "isUpdate": false}),
           ),
@@ -199,7 +211,14 @@ class AddressListScreen extends StatelessWidget {
           child: CustomFloatingActionButton(
             color: ColorRes.greenBlue,
             textButton: S.current.continuePayment,
-            onPressed: () => context.pushNamed(DRoutesName.paymentRoute),
+            onPressed: () {
+              if (addressListModel?.data?.length != 0 &&
+                  addressListController.isSelected == 1) {
+                context.pushReplacementNamed(DRoutesName.paymentRoute);
+              } else {
+                commonToast(S.current.selectAddress);
+              }
+            },
           ),
         ),
       ]),

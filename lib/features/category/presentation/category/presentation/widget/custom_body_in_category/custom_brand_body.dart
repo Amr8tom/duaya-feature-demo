@@ -28,9 +28,6 @@ class CustomBrandBody extends StatelessWidget {
         String id =
             companiesController.companiesModel?.data![index].id.toString() ??
                 "";
-        print(title);
-        print(logo);
-        print(id);
         return id == ""
             ? SizedBox()
             : CustomComponentForBrand(

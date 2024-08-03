@@ -70,10 +70,13 @@ class URL {
   static const updateAddress = '${baseUrl}user/shipping/update';
   static const deleteAddress = '${baseUrl}user/shipping/delete/'; //{id}
   static const makeDefaultAddress = '${baseUrl}user/shipping/make_default';
+  static const updateAddressInCart = '${baseUrl}update-address-in-cart';
   static const getAddressList = '${baseUrl}user/shipping/address';
   static const medicalServices = '${baseUrl}products/digital';
   static const countries = '${baseUrl}countries';
   static const profile = '${baseUrl}profile/counters';
+  static const updateProfile = '${baseUrl}profile/update';
+  static const updateDeviceToken = '${baseUrl}profile/update-device-token';
   static const statiesByCityID =
       '${baseUrl}cities-by-state/'; // cities-by-state/{id}
   static const GetCitiesByCountryID =
@@ -82,4 +85,7 @@ class URL {
   static const verifyOTPUrl = 'api/provider/verify';
   static const generateOTPUrl = 'api/provider/generate-otp';
   static const updatePasswordUrl = 'api/provider/reset-password';
+  static const agoraID = '00d26e5417db439ba61866b00d8e5909';
+  static const agoraToken =
+      '007eJxTYHj/7u5av2eLDoZf1Pm0rf7H7Ov1EdXdzHapH2b0s86fW2uvwGBgkGJklmpqYmiekmRibJmUaGZoYWaWBBS2SDW1NLDcHLworSGQkaF4lhUTIwMEgvicDCmliZWJIanFJQwMAPD3I6c=';
 }

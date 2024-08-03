@@ -5,19 +5,29 @@ class CheckForeUpdates {
   CheckForeUpdates();
 
   // Create an instance of the ShorebirdCodePush class
-  final shorebirdCodePush = ShorebirdCodePush();
 
   // function to make update of version code
   Future<void> makeUpdate() async {
-    await shorebirdCodePush
-        .currentPatchNumber()
-        .then((value) => print('current patch number is $value'));
+    final shorebirdCodePush = await ShorebirdCodePush();
+    await shorebirdCodePush.currentPatchNumber().then((value) =>
+        print('current patch number iscurrent ==================>> $value'));
+
     // Check whether a patch is available to install.
     final isUpdateAvailable =
         await shorebirdCodePush.isNewPatchAvailableForDownload();
-
+    print("//////////////////////   available or not /////////////////////");
+    print("//////////////////////   available or not /////////////////////");
+    print("//////////////////////   available or not /////////////////////");
+    print("//////////////////////   available or not /////////////////////");
+    print(isUpdateAvailable);
+    print(isUpdateAvailable);
     if (isUpdateAvailable) {
       // Download the new patch if it's available.
+      print("//////////////////////   available  /////////////////////");
+      print("//////////////////////   available  /////////////////////");
+      print("//////////////////////   available  /////////////////////");
+      print("//////////////////////   available  /////////////////////");
+      print("//////////////////////   available  /////////////////////");
       await shorebirdCodePush.downloadUpdateIfAvailable();
     }
   }

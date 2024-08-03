@@ -96,7 +96,7 @@ class UserAndGiftModel {
   String? jobName;
   String? email;
   int? minAmount;
-  int? delayBalance;
+  num? delayBalance;
   String? emailVerifiedAt;
   dynamic verificationCode;
   dynamic newEmailVerificiationCode;

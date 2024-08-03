@@ -55,67 +55,35 @@ class RelatedContainerProduct extends StatelessWidget {
                         vertical: AppSizes.spaceBtwTexts * 2,
                         horizontal: AppSizes.spaceBtwTexts),
                     decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.2),
+                        // color: Colors.black.withOpacity(0.2),
+                        color: ColorRes.greyGreen,
                         borderRadius:
                             BorderRadius.circular(AppSizes.borderRadiusLg)),
                     child: Column(
                       children: [
-                        Row(
-                          children: [
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: AppSizes.spaceBtwTexts),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      AppSizes.borderRadiusLg),
-                                  color: ColorRes.black),
-                              child: hasDicount
-                                  ? Center(
-                                      child: Text(
-                                          "${S.current.discont} ${discount!}",
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium!
-                                              .copyWith(
-                                                  color: ColorRes.lightGreen,
-                                                  fontSize: 14.sp)))
-                                  : null,
-                            ),
-                            const Spacer(),
-                            Icon(Iconsax.discount_circle, size: 23.sp)
-                          ],
+                        Container(
+                          width: 90.w,
+                          height: 32.h,
+                          // padding: EdgeInsets.symmetric(
+                          //     horizontal: AppSizes.spaceBtwTexts),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  bottomRight:
+                                      Radius.circular(AppSizes.borderRadiusLg),
+                                  bottomLeft:
+                                      Radius.circular(AppSizes.borderRadiusLg)),
+                              color: Colors.red),
+                          child: hasDicount
+                              ? Center(
+                                  child: Text("${discount}",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium!
+                                          .copyWith(
+                                              color: ColorRes.white,
+                                              fontSize: 16.sp)))
+                              : null,
                         ),
-
-                        /// Company Name
-                        Center(
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20.sp),
-                            decoration: BoxDecoration(
-                                color: Colors.black,
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Text(companyName,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(
-                                        color: ColorRes.lightGreen,
-                                        fontSize: 25.sp,
-                                        fontWeight: FontWeight.w900)),
-                          ),
-                        ),
-                        SizedBox(height: AppSizes.spaceBtwTexts),
-
-                        /// Product Name.
-                        Text(productName,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(
-                                    overflow: TextOverflow.ellipsis,
-                                    color: ColorRes.white,
-                                    fontSize: 20.sp,
-                                    fontWeight: FontWeight.w900)),
-                        SizedBox(height: AppSizes.spaceBtwTexts),
 
                         /// Price
                         Column(
@@ -130,7 +98,7 @@ class RelatedContainerProduct extends StatelessWidget {
                                             decoration:
                                                 TextDecoration.lineThrough,
                                             fontSize: 17.sp,
-                                            color: ColorRes.white))
+                                            color: ColorRes.greenBlue))
                                 : SizedBox(),
                             Text(price,
                                 style: Theme.of(context)
@@ -140,17 +108,57 @@ class RelatedContainerProduct extends StatelessWidget {
                                         color: Colors.green, fontSize: 17.sp))
                           ],
                         ),
-                        Spacer(),
 
                         /// Add to cart.
                         isCart
-                            ? AddMinusCartButton(
-                                height: AppSizes.appBarHeight,
-                                width: double.infinity,
-                                color: ColorRes.lightGreen,
-                                borderColor: Colors.transparent,
-                                textButtonColor: Colors.white,
-                                ID: productID,
+                            ? Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  /// Product Name.
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        /// Company Name
+                                        Text(companyName,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleSmall!
+                                                .copyWith(
+                                                    color: Colors.red,
+                                                    fontSize: 25.sp,
+                                                    fontWeight:
+                                                        FontWeight.w900)),
+
+                                        Text(productName + " >",
+                                            maxLines: 2,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleMedium!
+                                                .copyWith(
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                    color: ColorRes.greenBlue,
+                                                    fontSize: 20.sp,
+                                                    fontWeight:
+                                                        FontWeight.w900)),
+                                      ],
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 144.w,
+                                    // height: 40.h,
+                                    child: AddMinusCartButton(
+                                      height: AppSizes.appBarHeight,
+                                      width: double.infinity,
+                                      color: ColorRes.greenBlue,
+                                      borderColor: Colors.transparent,
+                                      textButtonColor: Colors.white,
+                                      ID: productID,
+                                    ),
+                                  ),
+                                ],
                               )
                             : SizedBox(),
 

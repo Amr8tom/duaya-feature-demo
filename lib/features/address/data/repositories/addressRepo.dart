@@ -12,6 +12,7 @@ import 'package:duaya_app/features/address/data/model/DeleteAddressModel.dart';
 import 'package:duaya_app/features/address/data/model/DeleteAddressModel.dart';
 import 'package:duaya_app/features/address/data/model/DeleteAddressModel.dart';
 import 'package:duaya_app/features/address/data/model/UpdateAddressModel.dart';
+import 'package:duaya_app/features/address/data/model/updateAddressCart.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../utils/connection/checkNetwork.dart';
 
@@ -41,6 +42,20 @@ class addressRepositoryImpl {
       Map<String, dynamic>? response =
           await remoteData.updateAddressData(addressBody: AddressBody);
       return UpdateAddressModel.fromJson(response);
+    } else {
+      commonToast(S.current.NoInternetConnection);
+    }
+  }
+
+  /// update addresss in cart
+  Future<UpdateAddressCart?> updateAddressInCartModel(
+      {required Map<String, dynamic> AddressBody}) async {
+    bool networkInfo =
+        await NetworkInfoImpl(DataConnectionChecker()).isConnected;
+    if (networkInfo) {
+      Map<String, dynamic>? response =
+          await remoteData.updateAddressInCart(addressBody: AddressBody);
+      return UpdateAddressCart.fromJson(response);
     } else {
       commonToast(S.current.NoInternetConnection);
     }

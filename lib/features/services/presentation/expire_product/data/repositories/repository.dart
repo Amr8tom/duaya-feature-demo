@@ -3,9 +3,9 @@ import 'dart:convert';
 
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/dataSources/local_data_sources.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/dataSources/remote_data_sources.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/model/expiredList.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/dataSources/local_data_sources.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/dataSources/remote_data_sources.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/model/expiredList.dart';
 
 import '../../../../../../generated/l10n.dart';
 import '../../../../../../utils/connection/checkNetwork.dart';

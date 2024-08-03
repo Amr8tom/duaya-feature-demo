@@ -50,4 +50,16 @@ class categoriesByPageRepoImp {
       return SingleCategoryModel.fromJson(json);
     }
   }
+
+  Future<SingleCategoryModel?> getCachedCategory(
+      {required String categoryID}) async {
+    try {
+      print(
+          "///////////////  categoryByID Net Not Connected   ///////////////");
+      final json = await localData.getCategoryByID(categoryID: categoryID);
+      return SingleCategoryModel.fromJson(json);
+    } catch (error) {
+      print(error);
+    }
+  }
 }

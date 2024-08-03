@@ -7,7 +7,7 @@ Widget buildPaymentMethodCard(BuildContext context, String title, IconData icon,
     void Function() onPressed) {
   return Card(
     elevation: 2,
-    color: ColorRes.lightGreen.withOpacity(0.5),
+    color: ColorRes.greenBlue,
     margin: EdgeInsets.symmetric(vertical: 10.0.sp, horizontal: 20.0.sp),
     child: ListTile(
       leading: Icon(icon, color: ColorRes.white, size: 40.0.sp),

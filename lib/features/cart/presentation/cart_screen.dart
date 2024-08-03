@@ -1,4 +1,6 @@
+import 'package:duaya_app/common/common_snak_bar_widget.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/authentication/presentation/controller/auth_controller_cubit.dart';
 import 'package:duaya_app/features/cart/presentation/widgets/controller/cart_cubit.dart';
 import 'package:duaya_app/features/cart/presentation/widgets/custom_cart_component.dart';
 import 'package:duaya_app/generated/l10n.dart';
@@ -9,6 +11,7 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import '../../../routing/routes_name.dart';
 import '../../address/presentation/controller/address_cubit.dart';
 import '../../home/presentation/widgets/custom_container_product/custom_bottom_navigation_in_product.dart';
@@ -32,6 +35,7 @@ class _CartScreenState extends State<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cartController = context.read<CartCubit>();
+    final authController = context.read<AuthControllerCubit>();
     return BlocConsumer<CartCubit, CartState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -108,10 +112,14 @@ class _CartScreenState extends State<CartScreen> {
                       await cartController.saveQuantitiy();
                     },
                     onTap2: () async {
-                      // context.pushNamed(DRoutesName.addNewAddressFormRoute);
-                      context.pushNamed(DRoutesName.AddressListRoute);
-                      // context.pushNamed(DRoutesName.paymentRoute);
-                      await cartController.saveQuantitiy();
+                      /// check if the user account isverfied
+                      if (authController.userModel.user?.isVerfied == 1) {
+                        context.pushNamed(DRoutesName.AddressListRoute);
+                        await cartController.saveQuantitiy();
+                      } else {
+                        commonToast(S.current.notVerified);
+                        await cartController.saveQuantitiy();
+                      }
                     },
                   )),
                 ],

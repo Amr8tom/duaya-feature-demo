@@ -28,82 +28,79 @@ class GiftScreen extends StatelessWidget {
           final giftController = context.read<GiftCubit>();
           return Scaffold(
             appBar: DAppBar(
-              bgColor: ColorRes.lightGreen,
               showBackGroundColor: true,
               centerTitle: true,
               showBackArrow: true,
               arrowBackColor: true,
 
               /// Flash Title
-              title: Text('${S.current.cashBack}',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineLarge!
-                      .copyWith(fontSize: 30.sp, color: ColorRes.white)),
+              title: Text('${S.current.cashBack}'),
             ),
             body: state is GiftILoadingData
-                ? Lottie.asset(AssetRes.animationLoading)
-                : SingleChildScrollView(
+                ? Center(
+                    child: Lottie.asset(AssetRes.loadingSliders, width: 200.w))
+                : Center(
                     child: Padding(
                       padding: EdgeInsets.all(AppSizes.padding / 2),
                       child: Column(
                         children: [
-                          Card(
-                            elevation: 5,
-                            child: Container(
-                              padding: EdgeInsets.all(AppSizes.padding),
-                              decoration: BoxDecoration(
-                                color: ColorRes.white,
-                                borderRadius: BorderRadius.circular(
-                                    AppSizes.borderRadiusLg),
-                              ),
-                              child: Column(
-                                children: [
-                                  Text(
-                                      '${S.current.youHave} ${giftController.GiftModel.minAmount}  ${S.current.points}',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headlineMedium!
-                                          .copyWith(color: Colors.red),
-                                      overflow: TextOverflow.ellipsis),
-                                  SizedBox(height: AppSizes.defaultSpace / 2),
-                                  Row(
-                                    children: [
-                                      Expanded(
-                                        flex: 7,
-                                        child: Text('${S.current.contvertTo}',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineMedium!
-                                                .copyWith(
-                                                    color: ColorRes.lightGreen),
-                                            overflow: TextOverflow.ellipsis),
+                          SizedBox(
+                            height: 50.h,
+                          ),
+                          Container(
+                            height: 150.h,
+                            width: 327.w,
+                            padding: EdgeInsets.symmetric(
+                                vertical: AppSizes.padding),
+                            decoration: BoxDecoration(
+                              color: ColorRes.greyGreen2,
+                              // border:B ,
+                              borderRadius: BorderRadius.circular(
+                                  AppSizes.borderRadiusLg),
+                            ),
+                            child: Column(
+                              children: [
+                                Text(
+                                    '${S.current.youHave} ${giftController.GiftModel.minAmount}  ${S.current.points}',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium!
+                                        .copyWith(
+                                            fontSize: 24.sp,
+                                            fontWeight: FontWeight.w700),
+                                    overflow: TextOverflow.ellipsis),
+                                SizedBox(height: AppSizes.defaultSpace / 2),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        '${S.current.contvertTo}${giftController.money} ${S.current.pound}',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headlineMedium!
+                                            .copyWith(
+                                                color: ColorRes.lightGreen),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 3,
                                       ),
-                                      Expanded(
-                                        flex: 3,
-                                        child: Text(
-                                            '${giftController.money} ${S.current.pound}',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .headlineMedium!
-                                                .copyWith(color: Colors.red),
-                                            overflow: TextOverflow.ellipsis),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: AppSizes.defaultSpace),
-                                  // CustomButtonWithIcon2(
-                                  //     textButton: 'Refused',
-                                  //     width: width / 2.5,
-                                  //     color: ColorRes.error2,
-                                  //     onTap: () {},
-                                  //     borderColor: Colors.transparent,
-                                  //     textButtonColor: ColorRes.white,
-                                  //     isAddToCart: false),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          CustomButtonWithIcon2(
+                              textButton: S.current.sendToWallet,
+                              width: 191.w,
+                              height: 46.h,
+                              color: ColorRes.greenBlue,
+                              onTap: () {},
+                              borderColor: Colors.transparent,
+                              textButtonColor: ColorRes.white,
+                              isAddToCart: false),
                         ],
                       ),
                     ),

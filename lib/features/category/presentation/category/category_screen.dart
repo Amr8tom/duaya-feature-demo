@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import 'package:duaya_app/features/category/presentation/category/presentation/widget/custom_body_in_category/custom_category_body.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
@@ -8,6 +9,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
+
+import '../../../../generated/l10n.dart';
 
 class CategoryScreen extends StatelessWidget {
   CategoryScreen({Key? key}) : super(key: key);
@@ -29,14 +32,13 @@ class CategoryScreen extends StatelessWidget {
           );
         } else {
           return Scaffold(
-            // appBar: AppBar(
-            //   automaticallyImplyLeading: false,
-            //   title: Text(
-            //     S.current.categories,
-            //     style: Theme.of(context).textTheme.headlineLarge,
-            //   ),
-            //   centerTitle: true,
-            // ),
+            appBar: DAppBar(
+              showBackArrow: true,
+              title: Text(
+                S.current.categories,
+              ),
+              centerTitle: true,
+            ),
             body: Column(
               children: [
                 SizedBox(height: 20.sp),

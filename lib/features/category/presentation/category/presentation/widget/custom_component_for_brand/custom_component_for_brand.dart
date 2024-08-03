@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,19 +25,14 @@ class CustomComponentForBrand extends StatelessWidget {
         future: checkImageNetwork.checkImageStatus(NetworkImageURL: brandImage),
         builder: (context, snapshot) {
           Widget imageWidget;
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            imageWidget = Center(
-              child: Lottie.asset(AssetRes.circleLoading),
-            );
-          } else if (snapshot.hasError || !snapshot.data!) {
-            imageWidget = Lottie.asset(AssetRes.emptyProduct);
-          } else {
-            if (brandImage == AssetRes.emptyProductFromServer) {
-              imageWidget =
-                  Lottie.asset(AssetRes.emptyProduct, fit: BoxFit.cover);
-            } else {
-              imageWidget = Image.network(brandImage);
-            }
+          imageWidget = CachedImage(
+            link: brandImage,
+            width: 60,
+            height: 180,
+          );
+          if (brandImage == AssetRes.emptyProductFromServer) {
+            imageWidget =
+                Lottie.asset(AssetRes.emptyProduct, fit: BoxFit.cover);
           }
           return InkWell(
             onTap: onTap,
@@ -48,9 +44,8 @@ class CustomComponentForBrand extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                            color: ColorRes.medGreen.withOpacity(0.5),
-                            width: 2.w)),
+                        border:
+                            Border.all(color: ColorRes.greenBlue, width: 2.w)),
                     child: imageWidget,
                   ),
                   Column(
@@ -62,7 +57,7 @@ class CustomComponentForBrand extends StatelessWidget {
                           borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(10),
                               bottomRight: Radius.circular(10)),
-                          color: ColorRes.lightGreen.withOpacity(0.8),
+                          color: ColorRes.greenBlue,
                         ),
                         width: double.infinity,
                         padding: EdgeInsets.only(bottom: 6.sp),
@@ -71,7 +66,7 @@ class CustomComponentForBrand extends StatelessWidget {
                             brandTitle,
                             overflow: TextOverflow.fade,
                             style: TextStyle(
-                                color: Colors.black,
+                                color: ColorRes.white,
                                 fontWeight: FontWeight.bold,
                                 fontSize: 19.sp),
                           ),

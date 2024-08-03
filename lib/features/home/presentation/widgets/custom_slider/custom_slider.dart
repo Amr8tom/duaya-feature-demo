@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/utils/constants/constants.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/device/device_utility.dart';
@@ -35,19 +36,12 @@ class CustomSlider extends StatelessWidget {
                   itemBuilder: (BuildContext context, int index, int i) {
                     String sliderImage =
                         bestSellerController.slidersModel.data![index].photo!;
-                    return ClipRRect(
-                        borderRadius: BorderRadius.circular(16.r),
-                        child: FutureBuilder(
-                            future: checkImageNetwork.checkImageStatus(
-                                NetworkImageURL: sliderImage),
-                            builder: (context, snapshot) {
-                              if (snapshot.hasData) {
-                                return Image.network(sliderImage,
-                                    width: 400.w, fit: BoxFit.cover);
-                              } else {
-                                return Lottie.asset(AssetRes.loadingSliders);
-                              }
-                            }));
+                    return CachedImage(
+                      link: sliderImage,
+                      width: 600.w,
+                      fit: BoxFit.cover,
+                      lottieFileOnError: AssetRes.loadingSliders,
+                    );
                   },
                   itemCount: bestSellerController.slidersModel.data?.length,
                   options: CarouselOptions(

@@ -2,6 +2,7 @@ enum CacheKeys {
   userId,
   total,
   lang,
+  updateProfile,
   role,
   password,
   token,

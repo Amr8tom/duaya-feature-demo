@@ -28,14 +28,6 @@ class CustomContainerMinusAndPlus extends StatelessWidget {
               child: widget,
             ),
           ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 6.sp),
-            child: Container(
-              height: 50.sp,
-              width: 2,
-              color: ColorRes.black.withOpacity(0.7),
-            ),
-          )
         ],
       ),
     );

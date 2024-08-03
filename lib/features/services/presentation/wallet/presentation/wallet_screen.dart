@@ -1,6 +1,6 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/presentation/controller/wallet_cubit.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/presentation/widgets/custom_container_balance.dart';
+import 'package:duaya_app/features/services/presentation/wallet/presentation/controller/wallet_cubit.dart';
+import 'package:duaya_app/features/services/presentation/wallet/presentation/widgets/custom_container_balance.dart';
 
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';

@@ -1,8 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/features/address/data/model/AdressListModel.dart';
 import 'package:duaya_app/features/address/data/model/ChooseAddressModel.dart';
 import 'package:duaya_app/features/address/data/model/UpdateAddressModel.dart';
+import 'package:duaya_app/features/address/data/model/updateAddressCart.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:meta/meta.dart';
@@ -23,11 +25,13 @@ class AddressCubit extends Cubit<AddressState> {
   bool nameCodeError = false;
   bool phoneError = false;
   bool submitErrors = false;
+  int isSelected = 0;
   late CreateAddress? createAddressModel;
   late UpdateAddressModel? updateAddressModel;
   late AdressListModel? addressListModel;
   late DeleteAddressModel? deleteAddressModel;
   late ChooseAddressModel? chooseAddressModel;
+  late UpdateAddressCart? UpdateAddressInCartModel;
   addressRepositoryImpl repo = addressRepositoryImpl();
 
   /// need to take more information about state_id from the backend
@@ -82,6 +86,7 @@ class AddressCubit extends Cubit<AddressState> {
     addressError = false;
     phoneError = false;
     submitErrors = false;
+
     if (addressController.text.trim().isEmpty) {
       addressError = true;
     }
@@ -93,6 +98,7 @@ class AddressCubit extends Cubit<AddressState> {
       submitErrors = true;
       commonToast(S.current.pleaseEndterValue);
     } else {
+      CustomUI.loader(context: context);
       isUpdate
           ? await updateAddressShipping(
               context: context,
@@ -103,7 +109,10 @@ class AddressCubit extends Cubit<AddressState> {
           : await createAddressShipping(
               countryID: countryID, cityID: cityID, stateID: stateID);
       await fetchAddressListData();
-      context.pushNamed(DRoutesName.AddressListRoute);
+      await context.pushNamedAndRemoveUntil(DRoutesName.AddressListRoute,
+          predicate: (Route<dynamic> route) {
+        return route.settings.name == DRoutesName.CartRoute;
+      });
     }
 
     emit(AddressSubmitting());
@@ -120,6 +129,7 @@ class AddressCubit extends Cubit<AddressState> {
     }
   }
 
+  /// make defult address and update address in cart
   void selectAddress({required int index, required String ID}) async {
     emit(AddressListToggleFalse());
     for (int i = 0; i < addressListModel!.data!.length!; i++) {
@@ -128,11 +138,19 @@ class AddressCubit extends Cubit<AddressState> {
     addressListModel?.data?[index].setDefault = 1;
     chooseAddressModel =
         await repo.chooseAddressFromList(addressBody: {"id": ID});
+    UpdateAddressInCartModel =
+        await repo.updateAddressInCartModel(AddressBody: {"address_id": ID});
+    isSelected = 1;
     commonToast(chooseAddressModel!.message!);
     emit(AddressListToggleTrue());
   }
 
-  ///
+  void setDefult({required int selectValue}) {
+    emit(AddressSetSelectedLoading());
+    isSelected = selectValue;
+    emit(AddressSetSelectedSuccess());
+  }
+
   Future<void> deleteAddress({required int index, required String ID}) async {
     emit(AddressListDeleteError());
     addressListModel?.data?.removeAt(index);

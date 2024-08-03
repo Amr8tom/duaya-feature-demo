@@ -2,10 +2,13 @@ import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:duaya_app/utils/local_storage/cache_helper.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../utils/helpers/firebase_API.dart';
 import '../../utils/local_storage/cach_keys.dart';
 import '../authentication/presentation/controller/auth_controller_cubit.dart';
 import '../category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
@@ -26,6 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     fetchHomeData();
     fetchNavigationsData();
+    FirebaseApi().init();
   }
 
   /// i get here best seller data and silder and category for home screen

@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/model/expiredList.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/model/CreateExpiredModel.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/model/updateEXpiredModel.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/data/repositories/repository.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/model/expiredList.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/model/CreateExpiredModel.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/model/updateEXpiredModel.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/data/repositories/repository.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

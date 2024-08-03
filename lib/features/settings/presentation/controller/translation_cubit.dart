@@ -48,6 +48,7 @@ class SettinglationCubit extends Cubit<TranslationState> {
     PrefService.removeFromShared(key: CacheKeys.password);
     PrefService.removeFromShared(key: CacheKeys.email);
     PrefService.removeFromShared(key: CacheKeys.token);
+    PrefService.removeFromShared(key: CacheKeys.bestSeller);
     Navigator.pushNamedAndRemoveUntil(
       context,
       DRoutesName.loginRoute,

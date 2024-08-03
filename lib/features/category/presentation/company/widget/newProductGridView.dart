@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../generated/l10n.dart';
 import '../../../../../routing/routes_name.dart';
+import '../../../../../utils/constants/colors.dart';
 import '../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
 
 class newProductGridView extends StatelessWidget {
@@ -26,8 +27,8 @@ class newProductGridView extends StatelessWidget {
             // physics: const NeverScrollableScrollPhysics(),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              mainAxisSpacing: 10.h,
-              childAspectRatio: 1.2 / 2.2,
+              mainAxisSpacing: 5.h,
+              childAspectRatio: 1.2 / 2.3,
             ),
             // shrinkWrap: true,
             itemCount: companyDetailsController.newCompanyModel.data!.length!,
@@ -67,6 +68,7 @@ class newProductGridView extends StatelessWidget {
                   });
                 },
                 child: CustomContainerProduct(
+                  color: ColorRes.greyGreen,
                   productImage: image,
                   productName: name,
                   companyName: shopName,

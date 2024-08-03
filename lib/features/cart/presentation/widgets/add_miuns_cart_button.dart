@@ -93,15 +93,19 @@ class _AddMinusCartButtonState extends State<AddMinusCartButton> {
                           widget.isAddedOrinitial = false;
                         });
                       },
-                      icon: Icon(
-                        Icons.add,
-                        color: ColorRes.white,
+                      icon: CircleAvatar(
+                        radius: 17,
+                        backgroundColor: ColorRes.greenBlue,
+                        child: Icon(
+                          Icons.add,
+                          color: ColorRes.white,
+                        ),
                       )),
                   Spacer(),
                   Text(
                     widget.quantitiy.toString(),
                     style: TextStyle(
-                        color: ColorRes.white,
+                        color: ColorRes.greenBlue,
                         fontWeight: FontWeight.bold,
                         fontSize: 20),
                   ),
@@ -121,10 +125,14 @@ class _AddMinusCartButtonState extends State<AddMinusCartButton> {
                           });
                         },
                         iconSize: 10,
-                        icon: Container(
-                          color: ColorRes.white,
-                          width: 15,
-                          height: 3,
+                        icon: CircleAvatar(
+                          radius: 17,
+                          backgroundColor: ColorRes.greenBlue,
+                          child: Container(
+                            color: ColorRes.white,
+                            width: 15,
+                            height: 3,
+                          ),
                         ),
                       ),
                       Spacer()

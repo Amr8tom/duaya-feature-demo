@@ -1,3 +1,4 @@
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:duaya_app/common/check_for_updates.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
@@ -6,8 +7,6 @@ import 'package:duaya_app/features/category/presentation/category/category_scree
 import 'package:duaya_app/features/category/presentation/company/companyScreen.dart';
 import 'package:duaya_app/features/flash/presentation/flash_screen.dart';
 import 'package:duaya_app/features/home/presentation/home_screen.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/presentation/controller/medical_services_cubit.dart';
-import 'package:duaya_app/features/menu/presentation/menu_screen.dart';
 import 'package:duaya_app/features/settings/presentation/controller/translation_cubit.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
@@ -29,6 +28,9 @@ import 'features/category/presentation/category/presentation/controller/categori
 import 'features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import 'features/flash/presentation/controller/flash_cubit.dart';
 import 'features/home/presentation/controller/best_seller_cubit.dart';
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'features/services/presentation/medical_service/presentation/controller/medical_services_cubit.dart';
+import 'features/services/presentation/services_screen.dart';
 import 'generated/l10n.dart';
 
 class NavigationMenu extends StatefulWidget {
@@ -86,86 +88,68 @@ class _NavigationMenuState extends State<NavigationMenu> {
                     false;
               },
               child: Scaffold(
-                appBar: selectedIndex == 3
-
-                    /// Flash AppBar
-                    ? DAppBar(
-                        bgColor: ColorRes.white,
-                        title: Text(S.current.appName,
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineSmall!
-                                .copyWith(
-                                    fontSize: 30.sp,
-                                    color: ColorRes.lightGreen)),
-                        centerTitle: true,
-                      )
-
-                    /// AppBar in All Screens
-                    : DAppBar(
-                        bgColor: ColorRes.white,
-                        leadingWidget: GestureDetector(
-                          onTap: () =>
-                              context.pushNamed(DRoutesName.settingsRoute),
-                          child: CachedImage(
-                              link: authController
-                                      .userModel.user?.avatarOriginal ??
-                                  ""),
+                /// AppBar in All Screens
+                appBar: DAppBar(
+                  bgColor: ColorRes.white,
+                  leadingWidget: GestureDetector(
+                    onTap: () => context.pushNamed(DRoutesName.settingsRoute),
+                    child: CachedImage(
+                        link: authController.userModel.user?.avatarOriginal ??
+                            ""),
+                  ),
+                  title: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(authController.userModel.user!.name!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineSmall!
+                              .copyWith(fontSize: 18.sp)),
+                      Text(authController.userModel.user!.customerType!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(fontSize: 12.sp))
+                    ],
+                  ),
+                  actions: [
+                    InkWell(
+                      onTap: () => context.pushNamed(DRoutesName.giftRoute),
+                      overlayColor: MaterialStateProperty.all(
+                          ColorRes.primary.withOpacity(.1)),
+                      borderRadius:
+                          BorderRadius.circular(AppSizes.borderRadiusMd),
+                      child: Container(child: Lottie.asset(AssetRes.gifts)),
+                    ),
+                    InkWell(
+                      onTap: () async {
+                        context.pushNamed(DRoutesName.CartRoute);
+                        await cartController.fetchCartItems();
+                      },
+                      overlayColor: MaterialStateProperty.all(
+                          ColorRes.primary.withOpacity(.1)),
+                      borderRadius:
+                          BorderRadius.circular(AppSizes.borderRadiusMd),
+                      child: Stack(children: [
+                        Container(
+                          child: cartController.hasItems
+                              ? Lottie.asset(AssetRes.cartAfterFilling)
+                              : Lottie.asset(AssetRes.cartBeforeFilling),
                         ),
-                        title: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(authController.userModel.user!.name!,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .headlineSmall!
-                                    .copyWith(fontSize: 18.sp)),
-                            Text(authController.userModel.user!.customerType!,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleSmall!
-                                    .copyWith(fontSize: 12.sp))
-                          ],
+                        Container(
+                          child: Text(
+                            cartController.itemsCount.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.green),
+                          ),
                         ),
-                        actions: [
-                          InkWell(
-                            onTap: () =>
-                                context.pushNamed(DRoutesName.giftRoute),
-                            overlayColor: MaterialStateProperty.all(
-                                ColorRes.primary.withOpacity(.1)),
-                            borderRadius:
-                                BorderRadius.circular(AppSizes.borderRadiusMd),
-                            child:
-                                Container(child: Lottie.asset(AssetRes.gifts)),
-                          ),
-                          InkWell(
-                            onTap: () async {
-                              context.pushNamed(DRoutesName.CartRoute);
-                              await cartController.fetchCartItems();
-                            },
-                            overlayColor: MaterialStateProperty.all(
-                                ColorRes.primary.withOpacity(.1)),
-                            borderRadius:
-                                BorderRadius.circular(AppSizes.borderRadiusMd),
-                            child: Stack(children: [
-                              Container(
-                                child: cartController.hasItems
-                                    ? Lottie.asset(AssetRes.cartAfterFilling)
-                                    : Lottie.asset(AssetRes.cartBeforeFilling),
-                              ),
-                              Container(
-                                child: Text(
-                                  cartController.itemsCount.toString(),
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.green),
-                                ),
-                              )
-                            ]),
-                          ),
-                        ],
-                      ),
+                      ]),
+                    ),
+                  ],
+                ),
+
                 bottomNavigationBar: BottomNavigationBar(
                   elevation: 0,
                   currentIndex: navController.indx,
@@ -180,30 +164,30 @@ class _NavigationMenuState extends State<NavigationMenu> {
                     BottomNavigationBarItem(
                         icon: Icon(Iconsax.home), label: S.current.home),
                     BottomNavigationBarItem(
-                        icon: Center(
-                          child: Icon(
-                            Iconsax.category_25,
-                          ),
-                        ),
-                        label: S.current.category),
-                    BottomNavigationBarItem(
                         icon: Icon(Iconsax.shop), label: S.current.company),
                     BottomNavigationBarItem(
                         icon: Icon(Iconsax.timer), label: S.current.flashSale),
                     BottomNavigationBarItem(
-                        icon: Icon(Iconsax.setting_2), label: S.current.menu),
+                        icon: Icon(Iconsax.setting_2),
+                        label: S.current.services),
                   ],
                 ),
-                body: AnimatedSwitcher(
-                  duration: const Duration(milliseconds: 700),
-                  transitionBuilder: (child, animation) {
-                    return FadeTransition(
-                      opacity: animation,
-                      child: child,
-                    );
-                  },
-                  child: _buildScreen(selectedIndex),
-                ),
+                // floatingActionButton: FloatingButton(),
+                // floatingActionButtonLocation:
+                //     FloatingActionButtonLocation.centerDocked,
+                // bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+                //   itemCount: 4,
+                //   height: kToolbarHeight * .9,
+                //   gapLocation: GapLocation.center,
+                //   notchSmoothness: NotchSmoothness.verySmoothEdge,
+                //   // tabBuilder: (int index, bool isActive) {
+                //   //   return _items[index];
+                //   // },
+                //   activeIndex: 2,
+                //   onTap: (int) {},
+                // ),
+
+                body: _buildScreen(selectedIndex),
                 floatingActionButton: Stack(
                   children: [
                     Positioned(
@@ -229,11 +213,10 @@ class _NavigationMenuState extends State<NavigationMenu> {
                         },
                         child: RawMaterialButton(
                           onPressed: () {
-                            context
-                                .pushReplacementNamed(DRoutesName.searchRoute);
+                            context.pushNamed(DRoutesName.searchRoute);
                           },
                           child:
-                              Lottie.asset(AssetRes.searchICon, height: 85.sp),
+                              Lottie.asset(AssetRes.searchICon, height: 105.sp),
                         ),
                       ),
                     ),
@@ -252,13 +235,11 @@ class _NavigationMenuState extends State<NavigationMenu> {
       case 0:
         return HomeScreen();
       case 1:
-        return CategoryScreen();
-      case 2:
         return const CompanyScreen();
-      case 3:
+      case 2:
         return const FlashScreen();
-      case 4:
-        return const MenuScreen();
+      case 3:
+        return const ServicesScreen();
       default:
         return Container();
     }
@@ -285,4 +266,11 @@ class _NavigationMenuState extends State<NavigationMenu> {
       print(e);
     }
   }
+
+  List _items = [
+    Icon(Iconsax.home),
+    Icon(Iconsax.home),
+    Icon(Iconsax.home),
+    Icon(Iconsax.home),
+  ];
 }

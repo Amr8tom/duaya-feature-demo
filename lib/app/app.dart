@@ -16,8 +16,9 @@ import '../features/category/presentation/category/presentation/controller/categ
 import '../features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import '../features/search/presentation/controller/search_cubit.dart';
 import '../features/flash/presentation/controller/flash_cubit.dart';
-import '../features/menu/presentation/medical_service/presentation/controller/medical_services_cubit.dart';
+import '../features/services/presentation/medical_service/presentation/controller/medical_services_cubit.dart';
 import '../features/settings/presentation/controller/translation_cubit.dart';
+import '../features/settings/presentation/controller/update_profile_cubit.dart';
 import '../generated/l10n.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -44,6 +45,7 @@ class DuayaApp extends StatelessWidget {
               BlocProvider(create: (context) => BestSellerCubit()),
               BlocProvider(create: (context) => OnBoardingCubit()),
               BlocProvider(create: (context) => MedicalServicesCubit()),
+              BlocProvider(create: (context) => UpdateProfileCubit()),
               BlocProvider<NavigationMenuCubit>(
                   create: (context) => NavigationMenuCubit()),
             ],

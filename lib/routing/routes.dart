@@ -7,14 +7,14 @@ import 'package:duaya_app/features/cart/presentation/cart_screen.dart';
 import 'package:duaya_app/features/category/presentation/company/company_details_screen.dart';
 import 'package:duaya_app/features/gift/presentation/gift_screen.dart';
 import 'package:duaya_app/features/home/presentation/details_product.dart';
-import 'package:duaya_app/features/menu/presentation/customer_ads/customer_ads_screen.dart';
-import 'package:duaya_app/features/menu/presentation/favorite/favorite_screen.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/presentation/medical_service_screen.dart';
-import 'package:duaya_app/features/menu/presentation/my_ads/add_product_or_ads_screen.dart';
-import 'package:duaya_app/features/menu/presentation/my_ads/my_ads_screen.dart';
-import 'package:duaya_app/features/menu/presentation/my_order/my_order_screen.dart';
-import 'package:duaya_app/features/menu/presentation/return_request/return_request_screen.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/presentation/wallet_screen.dart';
+import 'package:duaya_app/features/services/presentation/customer_ads/customer_ads_screen.dart';
+import 'package:duaya_app/features/services/presentation/favorite/favorite_screen.dart';
+import 'package:duaya_app/features/services/presentation/medical_service/presentation/medical_service_screen.dart';
+import 'package:duaya_app/features/services/presentation/my_ads/add_product_or_ads_screen.dart';
+import 'package:duaya_app/features/services/presentation/my_ads/my_ads_screen.dart';
+import 'package:duaya_app/features/services/presentation/my_order/my_order_screen.dart';
+import 'package:duaya_app/features/services/presentation/return_request/return_request_screen.dart';
+import 'package:duaya_app/features/services/presentation/wallet/presentation/wallet_screen.dart';
 import 'package:duaya_app/features/onboarding/presentation/onboarding.dart';
 import 'package:duaya_app/features/payment/presentation/cash_on_delivery_screen/cash_on_delivery_screen.dart';
 import 'package:duaya_app/features/payment/presentation/credit_card_payment_screen/credit_card_payment_screen.dart';
@@ -33,12 +33,13 @@ import '../features/address/presentation/address_form_screen.dart';
 import '../features/address/presentation/address_list_screen.dart';
 import '../features/category/presentation/category/category_screen.dart';
 import '../features/category/presentation/category/presentation/certain_category_screen.dart';
-import '../features/menu/presentation/expire_product/presentation/add_new_product_screen.dart';
-import '../features/menu/presentation/expire_product/presentation/expire_products_screen.dart';
-import '../features/menu/presentation/my_shor_coming_book/my_short_coming_book_screen.dart';
+import '../features/services/presentation/expire_product/presentation/add_new_product_screen.dart';
+import '../features/services/presentation/expire_product/presentation/expire_products_screen.dart';
+import '../features/services/presentation/my_shor_coming_book/my_short_coming_book_screen.dart';
 import '../features/payment/presentation/main_payment_screen.dart';
 import '../features/payment/presentation/wallet_cache_Screen/wallet_cash_screen.dart';
 import '../features/search/presentation/search_screen.dart';
+import '../features/services/presentation/services_screen.dart';
 import '../utils/constants/exports.dart';
 
 class RouteGenerator {
@@ -50,7 +51,7 @@ class RouteGenerator {
       //     child: const NoConnectionScreen(),
       //     type: PageTransitionType.rightToLeftWithFade,
       //     settings: settings,
-      //     reverseDuration: const Duration(milliseconds: 300),
+      // //     reverseDuration: const Duration(milliseconds: 300),
       //   );
 
       /// *************************************** End No Connection *************************************** \\\
@@ -61,7 +62,7 @@ class RouteGenerator {
           child: const SplashScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.test:
         return PageTransition(
@@ -70,35 +71,36 @@ class RouteGenerator {
           ),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.onBoardingRoute:
         return PageTransition(
           child: OnBoardingScreen(),
           type: PageTransitionType.fade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.onBoardingRouteTwo:
         return PageTransition(
+          // child: index(),
           child: OnBoardingScreen(),
           type: PageTransitionType.fade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.loginRoute:
         return PageTransition(
           child: const LoginScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.forgetPasswordRoute:
         return PageTransition(
           child: const ForgetPassword(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.verifyCodeRoute:
         String phone = settings.arguments as String;
@@ -106,21 +108,21 @@ class RouteGenerator {
           child: SendOTPScreen(phone: phone),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.resetPasswordRoute:
         return PageTransition(
           child: const ResetPasswordScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.signupRoute:
         return PageTransition(
           child: const SignupScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.webViewRoute:
@@ -129,7 +131,7 @@ class RouteGenerator {
           child: WebViewPage(url: url),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.detailsProductRoute:
@@ -141,7 +143,7 @@ class RouteGenerator {
           ),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.walletRoute:
@@ -149,7 +151,7 @@ class RouteGenerator {
           child: const WalletScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.certainCategoryRoute:
         final Map<String, dynamic> map =
@@ -158,7 +160,7 @@ class RouteGenerator {
           child: certainCategoryScreen(map: map),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.categoriesRoute:
@@ -166,15 +168,15 @@ class RouteGenerator {
           child: CategoryScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.myAdsRoute:
         return PageTransition(
-          child: const MyAdsScreen(),
+          child: const ServicesScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.customerAdsRoute:
@@ -182,7 +184,7 @@ class RouteGenerator {
           child: const CustomerAdsScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.myOrderRoute:
@@ -190,7 +192,7 @@ class RouteGenerator {
           child: const MyOrderScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.myNoteBookRoute:
@@ -198,7 +200,7 @@ class RouteGenerator {
           child: ShortComingScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.expireProductRoute:
@@ -206,7 +208,7 @@ class RouteGenerator {
           child: ExpireProductsScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.favoriteRoute:
@@ -214,7 +216,7 @@ class RouteGenerator {
           child: const FavoriteScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.returnRequestRoute:
@@ -222,7 +224,7 @@ class RouteGenerator {
           child: ReturnRequestScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.medicalServiceRoute:
@@ -230,7 +232,7 @@ class RouteGenerator {
           child: const MedicalServiceScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       /// *************************************** End Authentication *************************************** \\\
@@ -241,49 +243,49 @@ class RouteGenerator {
           child: const NavigationMenu(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.giftRoute:
         return PageTransition(
           child: const GiftScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.searchRoute:
         return PageTransition(
           child: SearchScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.CartRoute:
         return PageTransition(
           child: const CartScreen(),
           type: PageTransitionType.leftToRightWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.settingsRoute:
         return PageTransition(
           child: const SettingsScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.profileInfoRoute:
         return PageTransition(
-          child: const ProfileInfoScreen(),
+          child: ProfileInfoScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.pharmacyInfoRoute:
         return PageTransition(
           child: const PharmacyInfoScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.addNewProductRoute:
@@ -293,7 +295,7 @@ class RouteGenerator {
           child: AddNewProductScreen(map: map),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.shippingInformationRoute:
         return PageTransition(
@@ -301,7 +303,7 @@ class RouteGenerator {
           child: const PharmacyInfoScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       // case DRoutesName.addNewAddressFormRoute:
@@ -310,7 +312,7 @@ class RouteGenerator {
       //     child: const PharmacyInfoScreen(),
       //     type: PageTransitionType.rightToLeftWithFade,
       //     settings: settings,
-      //     reverseDuration: const Duration(milliseconds: 300),
+      // //     reverseDuration: const Duration(milliseconds: 300),
       //   );
 
       case DRoutesName.paymentRoute:
@@ -318,7 +320,7 @@ class RouteGenerator {
           child: PaymentScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.DelayedCashRoute:
@@ -326,7 +328,7 @@ class RouteGenerator {
           child: DelayedCashScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.walletPaymentRoute:
@@ -334,7 +336,7 @@ class RouteGenerator {
           child: WalletPaymentScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.CreditCardPaymentRoute:
@@ -342,7 +344,7 @@ class RouteGenerator {
           child: CreditCardPaymentScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.CashOnDeliveryRoute:
@@ -350,7 +352,7 @@ class RouteGenerator {
           child: CashOnDeliveryScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.companyDetailsRoute:
@@ -361,18 +363,19 @@ class RouteGenerator {
           child: CompanyDetailsScreen(map: map),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.addNewAddressFormRoute:
-        Map<String, dynamic>? args = settings.arguments as Map<String, dynamic>;
-        String ID = args['ID'];
-        bool isUpdate = args['isUpdate'];
+        Map<String, dynamic>? args =
+            settings.arguments as Map<String, dynamic>?;
+        String ID = args?['ID'];
+        bool isUpdate = args?['isUpdate'];
         return PageTransition(
           child: AddressFormScreen(ID: ID, isUpdate: isUpdate),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
       // case DRoutesName.addressRoute:
       //   final Map<String, dynamic> map =
@@ -381,14 +384,14 @@ class RouteGenerator {
       //     child: AddressScreen(),
       //     type: PageTransitionType.rightToLeftWithFade,
       //     settings: settings,
-      //     reverseDuration: const Duration(milliseconds: 300),
+      // //     reverseDuration: const Duration(milliseconds: 300),
       //   );
       case DRoutesName.AddressListRoute:
         return PageTransition(
           child: AddressListScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       case DRoutesName.addNewProductOrAdsRoute:
@@ -396,7 +399,7 @@ class RouteGenerator {
           child: const AddProductOrAdsScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
-          reverseDuration: const Duration(milliseconds: 300),
+          // reverseDuration: const Duration(milliseconds: 300),
         );
 
       default:

@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:duaya_app/features/home/data/model/bestSellerModel.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/data/datasources/localDataSources.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/data/datasources/remoteDataSources.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/data/model/wallet_history.dart';
+import 'package:duaya_app/features/services/presentation/wallet/data/datasources/localDataSources.dart';
+import 'package:duaya_app/features/services/presentation/wallet/data/datasources/remoteDataSources.dart';
+import 'package:duaya_app/features/services/presentation/wallet/data/model/wallet_history.dart';
 import '../../../../../../utils/connection/checkNetwork.dart';
 import '../model/wallet_balance.dart';
 

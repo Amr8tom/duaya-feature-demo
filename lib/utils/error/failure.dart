@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 
 abstract class Failure {
@@ -58,12 +57,13 @@ String getFailureMessage(Failure failure, BuildContext context) {
     return failure.message;
   } else if (failure is UnauthorizedFailure) {
     return 'Unauthorized';
-  } else if (failure is SocialLoginFailure) {
-    if (failure.exception is FirebaseException &&
-        (failure.exception as FirebaseException).message != null) {
-      return (failure.exception as FirebaseException).message!;
-    }
-    return failure.exception.toString();
+    // }
+    // else if (failure is SocialLoginFailure) {
+    //   if (failure.exception is FirebaseException &&
+    //       (failure.exception as FirebaseException).message != null) {
+    //     return (failure.exception as FirebaseException).message!;
+    //   }
+    //   return failure.exception.toString();
   } else if (failure is CacheFailure) {
     return 'Cache Failure';
   } else if (failure is ValidationFailure) {

@@ -39,6 +39,10 @@ class AddressListToggleFalse extends AddressState {}
 
 class AddressListToggleTrue extends AddressState {}
 
+class AddressSetSelectedLoading extends AddressState {}
+
+class AddressSetSelectedSuccess extends AddressState {}
+
 class FetchAddressListDataLoading extends AddressState {}
 
 class FetchAddressListDataSuccess extends AddressState {}

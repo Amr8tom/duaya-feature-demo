@@ -9,7 +9,7 @@ Future<void> commonToast(String msg) {
       toastLength: Toast.LENGTH_LONG,
       gravity: ToastGravity.CENTER,
       timeInSecForIosWeb: 1,
-      backgroundColor: ColorRes.lightGreen,
+      backgroundColor: ColorRes.greenBlue,
       textColor: Colors.white,
       fontSize: 18.0);
 }

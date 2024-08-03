@@ -19,6 +19,15 @@ class addressRemoteDataSoureces {
     return response;
   }
 
+  /// updateAddress in Cart to send the address data to the backend
+  Future<Map<String, dynamic>?> updateAddressInCart(
+      {required Map<String, dynamic> addressBody}) {
+    DioHelper API = DioHelper();
+    Future<Map<String, dynamic>?> response =
+        API.postData(URL: URL.updateAddressInCart, body: addressBody);
+    return response;
+  }
+
   Future<Map<String, dynamic>?> chooseAddressData(
       {required Map<String, dynamic> addressBody}) {
     DioHelper API = DioHelper();

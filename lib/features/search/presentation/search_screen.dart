@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:duaya_app/features/search/presentation/controller/search_cubit.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
@@ -26,63 +28,19 @@ class SearchScreen extends StatelessWidget {
     final String CityID = userController.userModel.user?.brandId ??
         PrefService.getString(key: CacheKeys.cityID) ??
         "75";
+    Timer _decounce;
+    searchTextController.clear();
+    searchController.turnOff();
     return WillPopScope(
       onWillPop: () async {
-        searchTextController.clear();
-        searchController.clearProducts();
-        searchController.getProductModel();
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          DRoutesName.navigationMenuRoute,
-          (Route<dynamic> route) => false,
-        );
+        Navigator.pop(context);
         return false;
       },
       child: Scaffold(
-        // appBar: AppBar(
-        //   leading: GestureDetector(
-        //     onTap: () => Navigator.pushNamedAndRemoveUntil(
-        //         context,
-        //         DRoutesName.navigationMenuRoute,
-        //         (Route<dynamic> route) => false),
-        //     child: Icon(
-        //       Icons.arrow_forward,
-        //       color: ColorRes.white,
-        //     ),
-        //   ),
-        //   title: Text(
-        //     S.current.searchTitle,
-        //     style: Theme.of(context)
-        //         .textTheme
-        //         .headlineMedium!
-        //         .copyWith(color: ColorRes.white),
-        //   ),
-        //   centerTitle: true,
-        //   actions: [
-        //     IconButton(
-        //       icon: Icon(
-        //         Icons.clear,
-        //         color: ColorRes.white,
-        //       ),
-        //       onPressed: () async {
-        //         searchTextController.clear();
-        //         searchController.scrollController.addListener(() async {
-        //           await searchController.scrollListener(
-        //               name: searchTextController.text, cityID: CityID);
-        //         });
-        //       },
-        //     )
-        //   ],
-        // ),
         appBar: DAppBar(
           leadingWidget: GestureDetector(
-            onTap: () async {
-              searchTextController.clear();
-              searchController.clearProducts();
-              Navigator.pushNamedAndRemoveUntil(
-                  context,
-                  DRoutesName.navigationMenuRoute,
-                  (Route<dynamic> route) => false);
+            onTap: () {
+              Navigator.pop(context);
             },
             child: Icon(
               Icons.arrow_back_ios,
@@ -102,7 +60,7 @@ class SearchScreen extends StatelessWidget {
               onPressed: () async {
                 searchTextController.clear();
                 searchController.clearProducts();
-                searchController.getProductModel();
+                searchController.turnOff();
               },
             )
           ],
@@ -127,29 +85,79 @@ class SearchScreen extends StatelessWidget {
                         hintText: S.current.search,
                         controller: searchTextController,
                         onChange: (String s) async {
-                          if (searchTextController.text != "" ||
-                              searchTextController.text != " " ||
-                              searchTextController.text != "  " ||
-                              searchTextController.text.trim() != "" ||
-                              searchTextController.text.trim() != null) {
-                            searchController.clearProducts();
-                            await searchController.fetchSearchData(
-                                name: s, cityID: CityID);
-                            print(searchController.searchModel.data?[0].name!);
-                            // searchModel = searchController.searchModel;
-                          } else if (s.trim() == "") {
-                            searchController.getProductModel();
-                            searchTextController.clear();
-                            searchController.clearProducts();
+                          print(searchController.active);
+                          print(searchController.active);
+                          print(searchController.active);
+                          print(searchController.active);
+                          if (searchController.active) {
+                          } else {
+                            searchController.active = true;
+                            Future.delayed(Duration(milliseconds: 2000),
+                                () async {
+                              if (searchTextController.text != "" &&
+                                  searchTextController.text != " " &&
+                                  searchTextController.text != null &&
+                                  searchTextController.text != "  " &&
+                                  searchTextController.text.trim() != "" &&
+                                  searchTextController.text.trim() != null) {
+                                await searchController.clearProducts();
+                                await searchController.fetchSearchData(
+                                    name: searchTextController.text,
+                                    cityID: CityID);
+                                print("Im in Oneeeeeeeeeeeeeeeeeeee");
+                                print(searchTextController.text);
+                                print(searchTextController.text);
+                                print(searchTextController.text);
+                                print("Im in Oneeeeeeeeeeeeeeeeeeee");
+                                // searchModel = searchController.searchModel;
+                              } else if (searchTextController.text == "" ||
+                                  searchTextController.text == " " ||
+                                  searchTextController.text == "  " ||
+                                  searchTextController.text == null ||
+                                  searchTextController.text.isEmpty) {
+                                print("Im in Twoooooooooooooooooooooo");
+                                searchController.turnOff();
+                                searchTextController.clear();
+                                searchController.clearProducts();
+                              }
+                              Future.delayed(Duration(milliseconds: 1500),
+                                  () async {
+                                if (searchTextController.text != "" &&
+                                    searchTextController.text != " " &&
+                                    searchTextController.text != null &&
+                                    searchTextController.text != "  " &&
+                                    searchTextController.text.trim() != "" &&
+                                    searchTextController.text.trim() != null) {
+                                  await searchController.clearProducts();
+                                  await searchController.fetchSearchData(
+                                      name: searchTextController.text,
+                                      cityID: CityID);
+                                  print("Im in Oneeeeeeeeeeeeeeeeeeee");
+                                  print(searchTextController.text);
+                                  print(searchTextController.text);
+                                  print(searchTextController.text);
+                                  print("Im in Oneeeeeeeeeeeeeeeeeeee");
+                                  // searchModel = searchController.searchModel;
+                                } else if (searchTextController.text == "" ||
+                                    searchTextController.text == " " ||
+                                    searchTextController.text == "  " ||
+                                    searchTextController.text == null ||
+                                    searchTextController.text.isEmpty) {
+                                  print("Im in Twoooooooooooooooooooooo");
+                                  searchController.turnOff();
+                                  searchTextController.clear();
+                                  searchController.clearProducts();
+                                }
+                                searchController.active = false;
+                              });
+                            });
                           }
-                          // else {
-                          //   searchController.getProductModel();
-                          // }
                         },
                         onTapOutside: () async {
+                          print("OutSideDoneeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
                           searchTextController.clear();
                           searchController.clearProducts();
-                          searchController.getProductModel();
+                          await searchController.turnOff();
                         },
                       ),
                       searchController.isSearchData

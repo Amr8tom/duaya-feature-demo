@@ -3,6 +3,7 @@ import 'package:duaya_app/features/category/presentation/category/presentation/c
 import 'package:duaya_app/features/category/presentation/category/presentation/widget/flash_today_deals_body_girdview.dart';
 import 'package:duaya_app/features/category/presentation/company/widget/beastSellerGridView.dart';
 import 'package:duaya_app/features/flash/presentation/controller/flash_cubit.dart';
+import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ class CompanyDetailsScreen extends StatelessWidget {
     String name = S.current.loading;
     String products = S.current.loading;
     String verified = S.current.loading;
+    String? logo;
     Widget FlashToday = SizedBox();
     return BlocConsumer<CompaniesByPageCubit, CompaniesByPageState>(
       listener: (context, state) {
@@ -34,6 +36,7 @@ class CompanyDetailsScreen extends StatelessWidget {
         if (state is FetchCompanyDataSuccess) {
           email = companyDetailsController.companyModel.data!.email!;
           phone = companyDetailsController.companyModel.data!.phone!;
+          logo = companyDetailsController.companyModel.data?.logo;
           adress = companyDetailsController.companyModel.data!.address!;
           name = companyDetailsController.companyModel.data!.name!;
           String reName = companyDetailsController.companyModel.data!.name!;
@@ -48,15 +51,12 @@ class CompanyDetailsScreen extends StatelessWidget {
         }
         return Scaffold(
           appBar: DAppBar(
-            title: Container(
-              padding: EdgeInsets.all(10.sp),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(90), color: Colors.black),
-              child: Text(map['title'],
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium!
-                      .copyWith(color: Colors.green)),
+            title: Text(
+              map['title'],
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                    overflow: TextOverflow.ellipsis,
+                  ),
+              maxLines: 2,
             ),
             centerTitle: true,
             showBackArrow: true,
@@ -65,52 +65,65 @@ class CompanyDetailsScreen extends StatelessWidget {
           body: DefaultTabController(
             length: 3,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(
-                  child: CachedImage(
-                    link: map['logo'],
-                    height: 150.sp,
+                /// company details
+                Container(
+                  width: double.infinity,
+                  color: ColorRes.greenBlueLight,
+                  child: Column(
+                    children: [
+                      CircleAvatar(
+                        radius: 55,
+                        child: CachedImage(
+                          link: map['logo'] ?? logo,
+                          height: 150.sp,
+                        ),
+                      ),
+                      SizedBox(height: 10.sp),
+                      TabBar(
+                        tabs: [
+                          Text(
+                            S.current.newProduct,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(
+                                    color: ColorRes.greenBlue, fontSize: 14.sp),
+                          ),
+                          Text(
+                            S.current.bestOffers,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(
+                                    color: ColorRes.greenBlue, fontSize: 14.sp),
+                          ),
+                          Text(
+                            S.current.flashTodaySale,
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium!
+                                .copyWith(
+                                    color: ColorRes.greenBlue, fontSize: 14.sp),
+                          ), // First Tab
+                        ],
+                        indicatorWeight: 2,
+                        indicatorColor: ColorRes.greenBlue,
+                      ),
+                    ],
                   ),
-                ),
-                SizedBox(height: 10.sp),
-                TabBar(
-                  tabs: [
-                    Text(
-                      S.current.newProduct,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(color: Colors.green),
-                    ),
-                    Text(
-                      S.current.bestOffers,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(color: Colors.green, fontSize: 17.sp),
-                    ),
-                    Text(
-                      S.current.flashTodaySale,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium!
-                          .copyWith(color: Colors.green, fontSize: 16.sp),
-                    ), // First Tab
-                  ],
-                  indicatorWeight: 2,
-                  indicatorColor: Colors.black,
                 ),
                 state is FetchCompanyDataSuccess
                     ? Expanded(
                         child: TabBarView(
                         children: [
-                          bestSellerGridView(
-                              companyDetailsController:
-                                  companyDetailsController),
                           newProductGridView(
                             companyDetailsController: companyDetailsController,
                           ),
+                          bestSellerGridView(
+                              companyDetailsController:
+                                  companyDetailsController),
                           FlashToday,
                         ],
                       ))

@@ -126,6 +126,7 @@ class AssetRes {
 
   /// Product
   static const String product = 'assets/images/pngs/product.png';
+  static const String bProduct = 'assets/images/pngs/b_product.png';
 
   /// Programmer
   static const String callIcon = 'assets/images/svgs/call.svg';

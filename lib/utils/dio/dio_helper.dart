@@ -9,6 +9,8 @@ import 'package:duaya_app/utils/local_storage/cache_helper.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../generated/l10n.dart';
+
 class DioHelper {
   Dio dio = Dio();
 
@@ -22,6 +24,7 @@ class DioHelper {
                 headers: {
                   "Authorization":
                       "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+                  "App-Language": S.current.localeee,
                 },
               )
             : null);
@@ -37,6 +40,7 @@ class DioHelper {
   }) async {
     try {
       print(URL);
+      print(body);
       Response response = await dio.post(
         URL,
         data: body,
@@ -46,9 +50,12 @@ class DioHelper {
           headers: {
             "Authorization":
                 "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+            "App-Language": "${S.current.localeee}",
           },
         ),
       );
+      print(response.data);
+      print(response.headers);
       if (response.statusCode == 204 ||
           response.statusCode == 200 ||
           response.statusCode == 201) {
@@ -80,6 +87,7 @@ class DioHelper {
             'Content-Type': 'multipart/form-data',
             "Authorization":
                 "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+            "App-Language": S.current.localeee,
           },
         ),
       );
@@ -131,6 +139,7 @@ class DioHelper {
           headers: {
             "Authorization":
                 "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+            "App-Language": S.current.localeee,
           },
         ));
   }
@@ -144,6 +153,7 @@ class DioHelper {
         options: Options(headers: {
           "Authorization":
               "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+          "App-Language": S.current.localeee,
         }));
   }
 
@@ -157,6 +167,7 @@ class DioHelper {
           headers: {
             "Authorization":
                 "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+            "App-Language": S.current.localeee,
           },
         ));
   }
@@ -171,6 +182,7 @@ class DioHelper {
         options: Options(headers: {
           "Authorization":
               "Bearer ${PrefService.getString(key: CacheKeys.token)}",
+          "App-Language": S.current.localeee,
         }));
   }
 

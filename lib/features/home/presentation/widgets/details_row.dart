@@ -10,43 +10,26 @@ class detailsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 10.sp),
-      child: Row(
-        children: [
-          // Product Name
-          Expanded(
-            flex: 7,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headline6!.copyWith(
-                  color: ColorRes.black,
-                  fontSize: 18.2.sp,
-                  fontWeight: FontWeight.w900),
-            ),
+    return Row(
+      children: [
+        // Product Name
+        Text(
+          title + " : ",
+          style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+              color: Colors.grey, fontSize: 16.sp, fontWeight: FontWeight.w600),
+        ),
+        // Spacer
+        // Overview Text
+        Center(
+          child: Text(
+            description,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                color: Colors.grey,
+                fontWeight: FontWeight.w600,
+                fontSize: 16.sp),
           ),
-          // Spacer
-          Spacer(),
-          // Overview Text
-          Expanded(
-            flex: 7,
-            child: Container(
-              decoration: BoxDecoration(
-                  color: ColorRes.lightGreen,
-                  borderRadius: BorderRadius.circular(10.sp)),
-              child: Center(
-                child: Text(
-                  description,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: ColorRes.white,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 16.sp),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

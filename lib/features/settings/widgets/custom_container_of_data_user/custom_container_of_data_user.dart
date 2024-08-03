@@ -38,9 +38,9 @@ class CustomContainerOfDataUser extends StatelessWidget {
       child: Stack(alignment: AlignmentDirectional.topEnd, children: [
         settingController.profileModel.verificationStatus == 0
             ? Icon(Icons.dangerous_outlined,
-                color: ColorRes.error2, size: 35.sp)
+                color: ColorRes.error2, size: 45.sp)
             : Icon(Icons.check_circle_outline,
-                color: ColorRes.white, size: 35.sp),
+                color: ColorRes.white, size: 45.sp),
         Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -89,25 +89,19 @@ class CustomContainerOfDataUser extends StatelessWidget {
                     )
                   : SizedBox(),
 
+              /// in case that not verified
               settingController.profileModel.verificationStatus == 0
                   ? Text(S.current.notVerified,
                       style: Theme.of(context)
                           .textTheme
                           .headlineLarge!
                           .copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: ColorRes.white,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                              fontFamily: "Cairo",
+                              color: ColorRes.error2,
                               overflow: TextOverflow.ellipsis))
-                  : Text(S.current.verified,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineLarge!
-                          .copyWith(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w400,
-                              color: ColorRes.white,
-                              overflow: TextOverflow.ellipsis)),
+                  : SizedBox(),
             ],
           ),
         ),

@@ -19,7 +19,10 @@ class DElevatedButtonTheme {
       side: BorderSide(color: ColorRes.white.withOpacity(0.7)),
       padding: EdgeInsets.symmetric(vertical: 18.h),
       textStyle: TextStyle(
-          fontSize: 23.sp, color: Colors.red, fontWeight: FontWeight.bold),
+          fontFamily: "Cairo",
+          fontSize: 23.sp,
+          color: Colors.red,
+          fontWeight: FontWeight.bold),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40.r)),
     ),
   );

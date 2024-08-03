@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/data/model/wallet_balance.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/data/model/wallet_history.dart';
+import 'package:duaya_app/features/services/presentation/wallet/data/model/wallet_balance.dart';
+import 'package:duaya_app/features/services/presentation/wallet/data/model/wallet_history.dart';
 import 'package:meta/meta.dart';
 
 import '../../../../../../generated/l10n.dart';

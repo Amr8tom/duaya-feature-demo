@@ -14,6 +14,7 @@ class SearchCubit extends Cubit<SearchState> {
   int page = 1;
   bool isSearchData = false;
   bool isScrollAtBottom = false;
+  bool active = false;
   Timer? _debounceTimer;
   ScrollController scrollController = ScrollController();
   searchRepoImp repo = searchRepoImp();
@@ -40,20 +41,25 @@ class SearchCubit extends Cubit<SearchState> {
     emit(SearchSuccess());
   }
 
-  void clearProducts() {
+  Future clearProducts() async {
+    emit(SearchDeleteLoading());
     products.clear();
+    products = [];
     page = 1;
-    emit(ToggleSearchSuccess());
+    emit(SearchDeleteSuccess());
   }
 
-  void getProductModel() {
+  Future<void> turnOff() async {
+    emit(SearchTurnOffLoading());
     isSearchData = false;
-    emit(BeforeSearchSuccess());
+    clearProducts();
+    emit(SearchTurnOffSuccess());
   }
 
-  void toggleISsearch() {
-    isSearchData = isSearchData!;
-    emit(ToggleSearchSuccess());
+  void turnOn() {
+    emit(SearchTurnOnLoading());
+    isSearchData = true;
+    emit(SearchTurnOnSuccess());
   }
 
   Future<void> scrollListener(

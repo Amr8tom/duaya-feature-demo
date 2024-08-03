@@ -1,6 +1,6 @@
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
 import 'package:duaya_app/common/text_record_function.dart';
-import 'package:duaya_app/features/menu/presentation/widget/custom_container_menu/custom_container_menu.dart';
+import 'package:duaya_app/features/services/presentation/widget/custom_container_menu/custom_container_menu.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/constants.dart';
@@ -14,13 +14,13 @@ import 'package:lottie/lottie.dart';
 import '../../../generated/l10n.dart';
 import 'chat/presentation/controller/chat_controller.dart';
 
-class MenuScreen extends StatefulWidget {
-  const MenuScreen({Key? key}) : super(key: key);
+class ServicesScreen extends StatefulWidget {
+  const ServicesScreen({Key? key}) : super(key: key);
   @override
-  State<MenuScreen> createState() => _MenuScreenState();
+  State<ServicesScreen> createState() => _MenuScreenState();
 }
 
-class _MenuScreenState extends State<MenuScreen> {
+class _MenuScreenState extends State<ServicesScreen> {
   int selectedIndex = -1; // Track the index of the selected item
   bool isHelpWithAvatar = true;
 
@@ -35,7 +35,7 @@ class _MenuScreenState extends State<MenuScreen> {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               mainAxisSpacing: AppSizes.imageSize,
-              crossAxisSpacing: AppSizes.padding * 1,
+              // crossAxisSpacing: AppSizes.padding * 1,
               childAspectRatio: 5 / 3.5),
           shrinkWrap: true,
           itemCount: DConstants.iconOfMenu.length,

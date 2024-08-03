@@ -9,6 +9,8 @@ final class CartLoading extends CartState {}
 
 final class CartAddSucess extends CartState {}
 
+final class CheckOutLoading extends CartState {}
+
 final class CheckOutSuccess extends CartState {}
 
 final class UpdatedDataSuccess extends CartState {}

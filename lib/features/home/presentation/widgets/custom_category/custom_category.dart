@@ -4,12 +4,9 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../../routing/routes_name.dart';
 import '../../../../../utils/constants/image_strings.dart';
-import 'package:duaya_app/utils/connection/checkImageNetwork.dart';
-
 import '../../../../category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 
 class CustomCategoryInHome extends StatelessWidget {
@@ -28,7 +25,8 @@ class CustomCategoryInHome extends StatelessWidget {
         context.read<CategoriesByPageCubit>();
     return GestureDetector(
       onTap: () async {
-        await certainCataController.fetchCategoryByID(cataID: categoryID);
+        await certainCataController.fetchCategoryByID(
+            cataID: categoryID, context: context);
         await context.pushNamed(DRoutesName.certainCategoryRoute,
             arguments: {"cataName": categoryName});
       },

@@ -13,12 +13,12 @@ class DTextTheme {
         fontSize: 44,
         fontWeight: FontWeight.w900,
         color: ColorRes.primary,
-        fontFamily: 'Poppins'),
+        fontFamily: 'Cairo'),
     headlineMedium: const TextStyle().copyWith(
         fontSize: 18,
         fontWeight: FontWeight.w900,
         color: ColorRes.greenBlue,
-        fontFamily: 'Poppins'),
+        fontFamily: 'Cairo'),
     headlineSmall: const TextStyle().copyWith(
         fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
     titleLarge: const TextStyle().copyWith(

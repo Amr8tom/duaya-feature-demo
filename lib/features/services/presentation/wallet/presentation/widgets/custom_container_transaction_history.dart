@@ -1,5 +1,5 @@
-import 'package:duaya_app/features/menu/presentation/wallet/presentation/controller/wallet_cubit.dart';
-import 'package:duaya_app/features/menu/presentation/wallet/presentation/widgets/custom_transaction_text_data.dart';
+import 'package:duaya_app/features/services/presentation/wallet/presentation/controller/wallet_cubit.dart';
+import 'package:duaya_app/features/services/presentation/wallet/presentation/widgets/custom_transaction_text_data.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';

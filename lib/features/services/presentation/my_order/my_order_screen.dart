@@ -1,5 +1,5 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/features/menu/presentation/my_order/widgets/custom_container_order/custom_container_order.dart';
+import 'package:duaya_app/features/services/presentation/my_order/widgets/custom_container_order/custom_container_order.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class _MyOrderScreenState extends State<MyOrderScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  DAppBar(
+      appBar: DAppBar(
         title: Text(S.current.myOrder),
         centerTitle: true,
         showBackArrow: true,
@@ -62,12 +62,11 @@ class _MyOrderScreenState extends State<MyOrderScreen>
                     children: [
                       Expanded(
                         child: ListView.separated(
-                          separatorBuilder: (context,index){
-                            return SizedBox(height: AppSizes.spaceBtwItems);
-                          },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(height: AppSizes.spaceBtwItems);
+                            },
                             itemCount: 12,
-                            itemBuilder:
-                                (context ,index){
+                            itemBuilder: (context, index) {
                               return const CustomContainerOrder();
                             }),
                       ),
@@ -75,36 +74,32 @@ class _MyOrderScreenState extends State<MyOrderScreen>
                   ),
                   Expanded(
                     child: ListView.separated(
-                        separatorBuilder: (context,index){
+                        separatorBuilder: (context, index) {
                           return SizedBox(height: AppSizes.spaceBtwItems);
                         },
                         itemCount: 12,
-                        itemBuilder:
-                            (context ,index){
+                        itemBuilder: (context, index) {
                           return GestureDetector(
-                              onTap: (){},
+                              onTap: () {},
                               child: const CustomContainerOrder());
                         }),
                   ),
                   Expanded(
                     child: ListView.separated(
-                        separatorBuilder: (context,index){
+                        separatorBuilder: (context, index) {
                           return SizedBox(height: AppSizes.spaceBtwItems);
                         },
                         itemCount: 1,
-                        itemBuilder:
-                            (context ,index){
+                        itemBuilder: (context, index) {
                           return GestureDetector(
-                              onTap: (){},
+                              onTap: () {},
                               child: const CustomContainerOrder());
                         }),
                   ),
-
                 ],
               ),
             ),
           ),
-
         ],
       ),
     );

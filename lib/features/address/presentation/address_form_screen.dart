@@ -1,4 +1,5 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/authentication/presentation/controller/auth_controller_cubit.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
@@ -27,8 +28,9 @@ class AddressFormScreen extends StatelessWidget {
         child: BlocBuilder<AddressCubit, AddressState>(
           builder: (context, state) {
             AddressCubit addressController = context.read<AddressCubit>();
+            final authController = context.read<AuthControllerCubit>();
             CartCubit cartController = context.read<CartCubit>();
-            // addressController.fetchLocationsData();
+
             return BlocConsumer<AddressCubit, AddressState>(
               listener: (context, state) {
                 // TODO: implement listener
@@ -37,28 +39,29 @@ class AddressFormScreen extends StatelessWidget {
                 return Form(
                   child: ListView(
                     children: [
+                      /// white space
                       SizedBox(height: 40.h),
+
+                      /// address
                       Text(S.current.addressDetails),
                       SizedBox(height: 20.h),
                       TextField(
                         maxLines: 10,
                         controller: addressController.addressController,
-                        decoration: InputDecoration(
-                          hintText: S.current.addressDetails,
-                        ),
                       ),
                       SizedBox(height: 40.h),
-                      ////////////////////////////// phone //////////////////////////
+
+                      /// phone
                       Text(S.current.phoneNumber),
                       SizedBox(height: 20.h),
                       TextField(
-                          maxLines: 1,
-                          keyboardType: TextInputType.number,
-                          controller: addressController.phoneController,
-                          decoration: InputDecoration(
-                            hintText: S.current.phoneNumber,
-                          )),
+                        maxLines: 1,
+                        keyboardType: TextInputType.number,
+                        controller: addressController.phoneController,
+                      ),
                       SizedBox(height: 60.h),
+
+                      /// submit button
                       Container(
                         decoration: BoxDecoration(
                             color: ColorRes.greenBlue,
@@ -68,14 +71,14 @@ class AddressFormScreen extends StatelessWidget {
                             await addressController.onAddressSubmitted(
                                 ID: ID ?? "",
                                 context: context,
-                                countryID: "63",
-                                stateID: "15508",
-                                cityID: "1063",
+                                countryID: authController
+                                    .userModel.user!.countryID
+                                    .toString(),
+                                stateID: authController.userModel.user!.stateID
+                                    .toString(),
+                                cityID: authController.userModel.user!.cityID
+                                    .toString(),
                                 isUpdate: isUpdate);
-                            addressController.submitErrors
-                                ? () {}
-                                : context.pushNamed(
-                                    DRoutesName.addNewAddressFormRoute);
                           },
                           child: Container(
                             child: Text(

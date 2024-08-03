@@ -42,6 +42,7 @@ class CashOnDeliveryScreen extends StatelessWidget {
           Spacer(),
           ElevatedButton(
             onPressed: () {
+              print(cartController.Items![0].userId.toString());
               cartController.checkOut(
                   userID: cartController.Items![0].userId.toString(),
                   context: context);

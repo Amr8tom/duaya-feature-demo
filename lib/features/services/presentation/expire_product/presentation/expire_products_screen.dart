@@ -1,7 +1,7 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/common/widgets/floating_action_button/custom_floating_action_button.dart';
 import 'package:duaya_app/features/home/presentation/widgets/custom_container_product/custom_container_product.dart';
-import 'package:duaya_app/features/menu/presentation/expire_product/presentation/controller/expired_products_cubit.dart';
+import 'package:duaya_app/features/services/presentation/expire_product/presentation/controller/expired_products_cubit.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';

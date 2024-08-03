@@ -8,9 +8,11 @@ import 'package:duaya_app/features/cart/data/repositories/cartRepo.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import '../../../../../common/common_snak_bar_widget.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import '../../../data/model/ListItemModel.dart';
 import '../../../data/model/addToCartModel.dart';
 part 'cart_state.dart';
@@ -77,11 +79,10 @@ class CartCubit extends Cubit<CartState> {
     chaneQuantitiyModel = (await repo.chaneQuantitiy(
         quantitiyBody: {"items": NewQuantitiesMap.values.toList()}))!;
     print(NewQuantitiesMap.values.toList());
-    print(
-        "111111111111111111111111111111111111111111111111111111111111111111111111111111111");
+    print("111111111111111111111111111111111111111111111111111111111111111");
     // summaryModel = await repo.getCartSummary();
     // commonToast(chaneQuantitiyModel.results![0].message!);
-    print(chaneQuantitiyModel.results![0].message!);
+    print(chaneQuantitiyModel.results?[0].message!);
     emit(SaveDataSuccess());
   }
 
@@ -125,11 +126,22 @@ class CartCubit extends Cubit<CartState> {
       {required String userID,
       String paymentType = "cash_on_delivery",
       required BuildContext context}) async {
+    emit(CheckOutLoading());
     CustomUI.loader(context: context);
     Map<String, dynamic> cartBody = {"payment_type": paymentType, "id": userID};
     ceckOutModel = (await repo.checkOut(checkOutBody: cartBody))!;
     if (ceckOutModel.result == true) {
       context.pushReplacementNamed(DRoutesName.navigationMenuRoute);
+    } else {
+      Navigator.pop(context);
+      context.pushNamed(DRoutesName.companyDetailsRoute, arguments: {
+        'title': ceckOutModel.message,
+        // 'logo': "logo",
+        'id': ceckOutModel.sellerId,
+      });
+      await context
+          .read<CompaniesByPageCubit>()
+          .fetchCompanyData(id: ceckOutModel.sellerId.toString());
     }
     commonToast(ceckOutModel.message!);
     emit(CheckOutSuccess());

@@ -20,22 +20,22 @@ class relatedProducts extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             mainAxisSpacing: 10.h,
-            childAspectRatio: 2.5 / 2,
+            childAspectRatio: 3.3 / 2,
           ),
           shrinkWrap: true,
-          itemCount: bestSellerController.relatedProduct.data!.length,
+          itemCount: bestSellerController.relatedProduct.data?.length,
           itemBuilder: (context, index) {
-            final name = bestSellerController.relatedProduct.data![index].name;
+            final name = bestSellerController.relatedProduct.data?[index].name;
             final unitPrice =
-                bestSellerController.relatedProduct.data![index].mainPrice;
+                bestSellerController.relatedProduct.data?[index].mainPrice;
             final discount =
-                bestSellerController.relatedProduct.data![index].discount;
-            bool isDiscont =
-                bestSellerController.relatedProduct.data![index].hasDiscount!;
+                bestSellerController.relatedProduct.data?[index].discount;
+            bool? isDiscont =
+                bestSellerController.relatedProduct.data?[index].hasDiscount;
             final currentStock =
-                bestSellerController.relatedProduct.data![index].mainPrice;
-            final companyName =
-                bestSellerController.relatedProduct.data![index].shopName!;
+                bestSellerController.relatedProduct.data?[index].strokedPrice;
+            String? companyName =
+                bestSellerController.relatedProduct.data?[index].shopName;
             final ID = bestSellerController.relatedProduct.data![index].id;
             // final quantitiy = bestSellerController.relatedProduct.data![index];
             return RelatedContainerProduct(
@@ -46,7 +46,7 @@ class relatedProducts extends StatelessWidget {
               strockedPrice: "${currentStock.toString()}",
               hasDicount: true,
               discount: discount.toString(),
-              companyName: companyName, productID: ID.toString(),
+              companyName: companyName ?? "", productID: ID.toString(),
               // rete: 4.5,
             );
           },

@@ -4,10 +4,10 @@ import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
 
 import 'package:duaya_app/features/address/data/model/CreateAddress.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/data/data_sources/local_data_sources.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/data/data_sources/remote_data_sources.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/data/model/medicalServicesModel.dart';
-import 'package:duaya_app/features/menu/presentation/medical_service/data/model/medicalServicesModel.dart';
+import 'package:duaya_app/features/services/presentation/medical_service/data/data_sources/local_data_sources.dart';
+import 'package:duaya_app/features/services/presentation/medical_service/data/data_sources/remote_data_sources.dart';
+import 'package:duaya_app/features/services/presentation/medical_service/data/model/medicalServicesModel.dart';
+import 'package:duaya_app/features/services/presentation/medical_service/data/model/medicalServicesModel.dart';
 
 import '../../../../../../utils/connection/checkNetwork.dart';
 

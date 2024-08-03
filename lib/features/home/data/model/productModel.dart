@@ -125,7 +125,7 @@ class Data {
   String? unit;
   int? rating;
   int? ratingCount;
-  int? earnPoint;
+  num? earnPoint;
   String? description;
   String? videoLink;
   Brand? brand;

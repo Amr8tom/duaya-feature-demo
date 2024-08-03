@@ -24,8 +24,7 @@ class _DetailsProductState extends State<DetailsProduct> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: DAppBar(
-        title: Text(widget.map["productName"],
-            style: Theme.of(context).textTheme.titleLarge),
+        title: Text(widget.map["productName"]),
         centerTitle: true,
         showBackArrow: true,
       ),

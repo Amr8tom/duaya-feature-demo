@@ -53,268 +53,235 @@ class BannerInVarientProduct extends StatelessWidget {
           map["variant"] = bestSellerController.varient ?? "";
         }
 
-        return Stack(children: [
-          Column(
-            children: [
-              /// number of points
-              Row(
+        return Column(
+          children: [
+            SizedBox(
+              height: AppSizes.spaceBtwInputFields,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                  color: ColorRes.greyGreen,
+                  borderRadius: BorderRadius.circular(15.r)),
+              child: Column(
                 children: [
-                  Expanded(
-                    flex: 4,
-                    child: Text(S.current.numberOfPints,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineMedium!
-                            .copyWith(
-                                decoration: TextDecoration.none,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w900,
-                                color: ColorRes.black)),
-                  ),
-                  Spacer(),
-                  Expanded(
-                    flex: 5,
+                  /// discount
+                  Center(
                     child: Container(
+                      width: 90.w,
+                      height: 32.w,
                       padding: EdgeInsets.symmetric(
-                          horizontal: AppSizes.spaceBtwItems,
-                          vertical: AppSizes.spaceBtwTexts * 2),
+                          horizontal: AppSizes.spaceBtwTexts),
                       decoration: BoxDecoration(
-                          borderRadius:
-                              BorderRadius.circular(AppSizes.borderRadiusLg),
-                          color: ColorRes.lightGreen),
-                      child: Row(
-                        children: [
-                          Spacer(),
-                          Image.asset(AssetRes.dollarIcon,
-                              width: AppSizes.imageSize / 2.1),
-                          SizedBox(width: AppSizes.spaceBtwTexts),
-                          Text(S.current.points,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(
-                                      color: ColorRes.white, fontSize: 15.sp)),
-                          SizedBox(width: AppSizes.spaceBtwTexts),
-                          Text(remotEarnPoint,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleLarge!
-                                  .copyWith(color: ColorRes.white)),
-                          SizedBox(width: AppSizes.spaceBtwTexts * 6),
-                        ],
-                      ),
+                          borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(15.r),
+                              bottomLeft: Radius.circular(15.r)),
+                          color: Colors.red),
+                      child: hasDicount
+                          ? Center(
+                              child: Text("${discount!}",
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .copyWith(
+                                          color: ColorRes.white,
+                                          fontSize: 14.sp)))
+                          : null,
                     ),
                   ),
-                ],
-              ),
-              SizedBox(),
-              Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: AppSizes.spaceBtwTexts),
-                    decoration: BoxDecoration(
-                        borderRadius:
-                            BorderRadius.circular(AppSizes.borderRadiusLg),
-                        color: ColorRes.black),
-                    child: hasDicount
-                        ? Center(
-                            child: Text("${S.current.discont} ${discount!}",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .copyWith(
-                                        color: ColorRes.white,
-                                        fontSize: 14.sp)))
-                        : null,
-                  ),
-                  const Spacer(),
-                  Icon(Iconsax.money, size: 23.sp)
-                ],
-              ),
 
-              /// image and options  in layers
-              Stack(
-                children: [
-                  /// Product Image
-                  colors.isNotEmpty
-                      ? Column(
-                          children: [
-                            Text("${bestSellerController.varient}"),
-                            Container(
-                              height: 260.sp,
-                              child: bestSellerController
-                                  .getImageArrangeImageByColorAndSize(),
-                            ),
-                          ],
-                        )
-                      : SizedBox(
-                          child: Center(
-                            child: bestSellerController.getNormalImage(
-                                imgPath: remoteImage),
-                          ),
-                        ),
-
-                  /// Product Size and color
-                  Column(
+                  /// image and options  in layers
+                  Stack(
                     children: [
-                      Row(
-                        children: [
-                          /// product color
-                          SingleChildScrollView(
-                            scrollDirection: Axis.vertical,
-                            child: Column(
+                      /// Product Image
+                      colors.isNotEmpty
+                          ? Column(
                               children: [
-                                colors.length > 0
-                                    ? Text(S.current.color,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium)
-                                    : SizedBox(),
-                                // Spacer(),
-                                colors.length > 0
-                                    ? Wrap(
-                                        direction: Axis.vertical,
-                                        spacing: 4.0,
-                                        children: colors.map((color) {
-                                          bool isSelected =
-                                              (colors.indexOf(color) ==
+                                Text("${bestSellerController.varient}"),
+                                Container(
+                                  height: 260.sp,
+                                  child: bestSellerController
+                                      .getImageArrangeImageByColorAndSize(),
+                                ),
+                              ],
+                            )
+                          : SizedBox(
+                              child: Center(
+                                child: bestSellerController.getNormalImage(
+                                    imgPath: remoteImage),
+                              ),
+                            ),
+
+                      /// Product Size and color
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              /// product color
+                              SingleChildScrollView(
+                                scrollDirection: Axis.vertical,
+                                child: Column(
+                                  children: [
+                                    colors.length > 0
+                                        ? Text(S.current.color,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleMedium)
+                                        : SizedBox(),
+                                    // Spacer(),
+                                    colors.length > 0
+                                        ? Wrap(
+                                            direction: Axis.vertical,
+                                            spacing: 4.0,
+                                            children: colors.map((color) {
+                                              bool isSelected = (colors
+                                                      .indexOf(color) ==
                                                   bestSellerController
                                                       .selectedColorbyimage);
-                                          return FilterChip(
-                                            backgroundColor:
-                                                ColorRes.grey.withOpacity(0.3),
-                                            label: Container(
-                                              width: 20,
-                                              height: 20,
-                                              decoration: BoxDecoration(
-                                                color: Color(int.parse(color
-                                                    .replaceAll('#', '0xff'))),
-                                                shape: BoxShape.circle,
-                                              ),
-                                            ),
-                                            padding: EdgeInsets.all(1.sp),
-                                            selected: isSelected,
-                                            onSelected: (bool onSelect) {
-                                              if (onSelect) {
-                                                bestSellerController.setColor(
-                                                    color:
-                                                        colors.indexOf(color));
-                                              } else {}
-                                            },
-                                          );
-                                        }).toList(),
-                                      )
-                                    : SizedBox()
+                                              return FilterChip(
+                                                backgroundColor: ColorRes.grey
+                                                    .withOpacity(0.3),
+                                                label: Container(
+                                                  width: 20,
+                                                  height: 20,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(int.parse(
+                                                        color.replaceAll(
+                                                            '#', '0xff'))),
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                ),
+                                                padding: EdgeInsets.all(1.sp),
+                                                selected: isSelected,
+                                                onSelected: (bool onSelect) {
+                                                  if (onSelect) {
+                                                    bestSellerController
+                                                        .setColor(
+                                                            color:
+                                                                colors.indexOf(
+                                                                    color));
+                                                  } else {}
+                                                },
+                                              );
+                                            }).toList(),
+                                          )
+                                        : SizedBox()
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+
+                              /// product size
+                              SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    options.length > 0
+                                        ? Text(S.current.size,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleMedium)
+                                        : SizedBox(),
+                                    options.length > 0
+                                        ? Wrap(
+                                            direction: Axis.vertical,
+                                            spacing: 8.0,
+                                            children:
+                                                options[0].options!.map((size) {
+                                              bool isSelected = (size ==
+                                                  bestSellerController
+                                                      .selectedSize);
+                                              return FilterChip(
+                                                label: Container(
+                                                    width: 25.sp,
+                                                    child: Text(
+                                                      size,
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 10.sp,
+                                                          color: ColorRes
+                                                              .lightGreen),
+                                                    )),
+                                                selected: isSelected,
+                                                onSelected: (bool onSelect) {
+                                                  if (onSelect) {
+                                                    bestSellerController
+                                                        .setSize(Size: size);
+                                                  } else {}
+                                                },
+                                              );
+                                            }).toList(),
+                                          )
+                                        : SizedBox()
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+
+                          /// product Color
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  /// product info
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Expanded(
+                            flex: 6,
+                            child: Column(
+                              children: [
+                                detailsRow(
+                                    title: S.current.company,
+                                    description: remoteCompany),
+
+                                detailsRow(
+                                    title: S.current.avaliableItemCount,
+                                    description: remoteItemsCount),
+                                detailsRow(
+                                    title: S.current.numberOfPints,
+                                    description: remotEarnPoint),
+                                detailsRow(
+                                    title: S.current.priceBeforeOffer,
+                                    description: remotestrokedPrice),
+                                detailsRow(
+                                    title: S.current.priceAfterOffer,
+                                    description: remotePrice),
+
+                                /// Make Size
                               ],
                             ),
                           ),
-                          Spacer(),
-
-                          /// product size
-                          SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                options.length > 0
-                                    ? Text(S.current.size,
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium)
-                                    : SizedBox(),
-                                options.length > 0
-                                    ? Wrap(
-                                        direction: Axis.vertical,
-                                        spacing: 8.0,
-                                        children:
-                                            options[0].options!.map((size) {
-                                          bool isSelected = (size ==
-                                              bestSellerController
-                                                  .selectedSize);
-                                          return FilterChip(
-                                            label: Container(
-                                                width: 25.sp,
-                                                child: Text(
-                                                  size,
-                                                  style: TextStyle(
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      fontSize: 10.sp,
-                                                      color:
-                                                          ColorRes.lightGreen),
-                                                )),
-                                            selected: isSelected,
-                                            onSelected: (bool onSelect) {
-                                              if (onSelect) {
-                                                bestSellerController.setSize(
-                                                    Size: size);
-                                              } else {}
-                                            },
-                                          );
-                                        }).toList(),
-                                      )
-                                    : SizedBox()
-                              ],
-                            ),
-                          )
+                          Expanded(flex: 4, child: cartWindows(map: map)),
                         ],
                       ),
-
-                      /// product Color
+                      SizedBox(
+                        height: 20.sp,
+                      ),
                     ],
                   ),
                 ],
               ),
+            ),
 
-              /// product info
-              Column(
-                children: [
-                  Padding(
-                    child: Column(
-                      children: [
-                        detailsRow(
-                            title: S.current.company,
-                            description: remoteCompany),
-
-                        detailsRow(
-                            title: S.current.avaliableItemCount,
-                            description: remoteItemsCount),
-
-                        detailsRow(
-                            title: S.current.priceBeforeOffer,
-                            description: remotestrokedPrice),
-                        detailsRow(
-                            title: S.current.priceAfterOffer,
-                            description: remotePrice),
-
-                        /// Make Size
-                      ],
-                    ),
-                    padding: EdgeInsets.symmetric(
-                        vertical: 30.sp, horizontal: 10.sp),
-                  ),
-
-                  cartWindows(map: map),
-                  SizedBox(
-                    height: 20.sp,
-                  ),
-
-                  /// relatedProduct
-                ],
-              ),
-              Center(
-                  child: Text(
-                S.current.comparePrice,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(color: Colors.red),
-              )),
-              bestSellerController.isRelated
-                  ? relatedProducts()
-                  : Lottie.asset(AssetRes.search, height: 50),
-            ],
-          ),
-        ]);
+            /// relatedProduct
+            Center(
+                child: Text(
+              S.current.comparePrice,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineLarge!
+                  .copyWith(color: ColorRes.greenBlue, fontSize: 32.sp),
+            )),
+            bestSellerController.isRelated
+                ? relatedProducts()
+                : Lottie.asset(AssetRes.searchICon, height: 200),
+          ],
+        );
       },
     );
   }

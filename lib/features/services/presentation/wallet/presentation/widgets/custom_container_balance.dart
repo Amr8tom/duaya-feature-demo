@@ -1,4 +1,4 @@
-import 'package:duaya_app/features/menu/presentation/wallet/presentation/controller/wallet_cubit.dart';
+import 'package:duaya_app/features/services/presentation/wallet/presentation/controller/wallet_cubit.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
