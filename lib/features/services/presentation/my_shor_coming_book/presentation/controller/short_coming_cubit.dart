@@ -29,7 +29,6 @@ class ShortComingCubit extends Cubit<ShortComingState> {
           filename: selectedImage?.path.split('/').last ??
               selectedImageFromCamera?.path.split('/').last,
         ),
-        'note': 'تيست ', // Add other form fields if needed
       });
       // Send FormData to remote data source
       Map<String, dynamic>? response =
@@ -48,7 +47,7 @@ class ShortComingCubit extends Cubit<ShortComingState> {
     final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       selectedImage = image;
-      updateFormData(context: context);
+      // updateFormData(context: context);
       emit(SelectImageStudioSuccess());
     } else {
       // User canceled the image picking
@@ -62,7 +61,7 @@ class ShortComingCubit extends Cubit<ShortComingState> {
     final XFile? image = await _picker.pickImage(source: ImageSource.camera);
     if (image != null) {
       selectedImageFromCamera = image;
-      updateFormData(context: context);
+      // updateFormData(context: context);
       emit(TakeImageStudioSuccess());
     } else {
       // User canceled the image picking

@@ -26,16 +26,7 @@ class ShortComingScreen extends StatelessWidget {
               context.read<ShortComingCubit>();
           return Scaffold(
             appBar: DAppBar(
-              title: Container(
-                padding: EdgeInsets.all(15.sp),
-                decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(15)),
-                child: Text(
-                  S.current.ShortComing,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ),
+              title: Text(S.current.ShortComing),
               centerTitle: true,
               showBackArrow: true,
             ),
@@ -54,7 +45,7 @@ class ShortComingScreen extends StatelessWidget {
                         height: 260.h,
                         decoration: BoxDecoration(
                           border:
-                              Border.all(color: Colors.lightGreen, width: 2),
+                              Border.all(color: ColorRes.greenBlue, width: 2),
                           borderRadius: BorderRadius.circular(24.r),
                         ),
                         child: shortComingController.selectedImage != null
@@ -101,7 +92,7 @@ class ShortComingScreen extends StatelessWidget {
                         height: 260.h,
                         decoration: BoxDecoration(
                           border:
-                              Border.all(color: Colors.lightGreen, width: 2),
+                              Border.all(color: ColorRes.greenBlue, width: 2),
                           borderRadius: BorderRadius.circular(24.r),
                         ),
                         child: shortComingController.selectedImageFromCamera !=
@@ -137,13 +128,21 @@ class ShortComingScreen extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    // ElevatedButton(
-                    //     onPressed: () {},
-                    //     child: Text(
-                    //       S.current.sendMyShortComingBook,
-                    //       style:
-                    //           TextStyle(color: Colors.black, fontSize: 18.sp),
-                    //     )),
+                    ElevatedButton(
+                        style: ButtonStyle(
+                            fixedSize: MaterialStateProperty.all<Size>(
+                                Size(260.w, 70.h)),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                ColorRes.greenBlueLight)),
+                        onPressed: () {
+                          shortComingController.updateFormData(
+                              context: context);
+                        },
+                        child: Text(
+                          S.current.sendMyShortComingBook,
+                          style: TextStyle(
+                              color: ColorRes.greenBlue, fontSize: 18.sp),
+                        )),
                     SizedBox(height: AppSizes.spaceBtwInputFields),
                   ],
                 )),
