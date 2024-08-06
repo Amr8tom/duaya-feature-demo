@@ -1,4 +1,3 @@
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:duaya_app/common/check_for_updates.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
@@ -9,6 +8,7 @@ import 'package:duaya_app/features/flash/presentation/flash_screen.dart';
 import 'package:duaya_app/features/home/presentation/home_screen.dart';
 import 'package:duaya_app/features/settings/presentation/controller/translation_cubit.dart';
 import 'package:duaya_app/routing/routes_name.dart';
+import 'package:duaya_app/utils/connection/check_for_updates.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
@@ -28,8 +28,7 @@ import 'features/category/presentation/category/presentation/controller/categori
 import 'features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import 'features/flash/presentation/controller/flash_cubit.dart';
 import 'features/home/presentation/controller/best_seller_cubit.dart';
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
-import 'features/services/presentation/medical_service/presentation/controller/medical_services_cubit.dart';
+import 'features/services/medical_service/presentation/controller/medical_services_cubit.dart';
 import 'features/services/presentation/services_screen.dart';
 import 'generated/l10n.dart';
 
@@ -48,8 +47,9 @@ class _NavigationMenuState extends State<NavigationMenu> {
     super.initState();
     fetchData();
     fetchNavigationsData();
+    checkForUpdate(context: context);
     updateCode.makeUpdate();
-    speak(locale: S.current.localeee, statements: S.current.welcomeMessage);
+    // speak(locale: S.current.localeee, statements: S.current.welcomeMessage);
   }
 
   Future<void> fetchData() async {

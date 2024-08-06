@@ -19,10 +19,13 @@ class AssetRes {
   static const String onBoardingImagePng3 =
       'assets/images/pngs/on_boarding_images/onboarding_three.png';
 
-  /// -- Menu Images
+  /// -- Services Images
   static const String wallet = 'assets/lotties/wallet.json';
   static const String delayedCash = 'assets/lotties/delayedCash.json';
   static const String creditCard = 'assets/lotties/creditCard.json';
+  static const String cardPos = 'assets/images/pngs/card-pos.png';
+  static const String dollarSquare = 'assets/images/pngs/dollar-square.png';
+  static const String truck = 'assets/images/pngs/truck.png';
 
   ///////// rebots Image
   static const String rebot1 = 'assets/lotties/rebot1.json';

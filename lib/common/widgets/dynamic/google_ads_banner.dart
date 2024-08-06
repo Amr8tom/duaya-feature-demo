@@ -1,7 +1,5 @@
+import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:fourtyninehub/common/widgets/stateless/labels/label.dart';
-
-import '../../../res/style/app_colors.dart';
 
 class GoogleAddsBanner extends StatelessWidget {
   final double margin;
@@ -20,12 +18,12 @@ class GoogleAddsBanner extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
             boxShadow: const [
               BoxShadow(
-                color: AppColors.GRAY_LIGHT_COLOR3,
+                color: ColorRes.greenBlue,
                 blurRadius: 5,
                 spreadRadius: 5,
               )
             ]),
-        child: const Center(child: Label(text: 'Ads'))
+        child: const Center(child: Text("Ads"))
         // AdmobBanner(
         //         adUnitId: UIConst.adHomeUnitId,
         //         adSize: AdmobBannerSize.BANNER,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Sizer extends StatelessWidget {
   final double? height;
@@ -13,8 +14,8 @@ class Sizer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height ?? 10,
-      width: width ?? 10,
+      height: height ?? 10.sp,
+      width: width ?? 10.sp,
     );
   }
 }

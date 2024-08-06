@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/api_constants.dart';
 import 'package:duaya_app/utils/constants/exports.dart';
+import 'package:duaya_app/utils/error/failure.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:duaya_app/utils/local_storage/cach_keys.dart';
 import 'package:duaya_app/utils/local_storage/cache_helper.dart';
@@ -29,7 +30,11 @@ class DioHelper {
               )
             : null);
     print('After response');
-    return response.data;
+    if (response.statusCode == 200) {
+      return response.data;
+    } else {
+      throw ServerFailure(message: 'server failure');
+    }
   }
 
   Future<Map<String, dynamic>?> postData({
@@ -65,6 +70,7 @@ class DioHelper {
         return response.data;
       } else if (response.statusCode == 403) {}
     } on DioError catch (error) {
+      print("erro ========================================> $error");
       rethrow;
     }
   }

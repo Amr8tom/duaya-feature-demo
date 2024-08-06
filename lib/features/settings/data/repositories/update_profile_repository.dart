@@ -25,8 +25,7 @@ class UpdateProfileRepositoryImp {
     bool networkInfo =
         await NetworkInfoImpl(DataConnectionChecker()).isConnected;
     if (networkInfo) {
-      print(
-          "/////////////////////////   Net Connected  ///////////////////////////////////");
+      print("//////////////////   Net Connected  ///////////////////////////");
       final response = await remoteData.fetchUpdateProfile(
           updateProfileBody: updateProfileBody);
       localData.cahceUpdateProfileModel(

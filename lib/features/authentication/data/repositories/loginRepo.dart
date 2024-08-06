@@ -20,6 +20,7 @@ class loginRepositoryImpl {
       Map<String, dynamic>? response =
           await remoteData.getLoginData(loginBody: loginBody);
       localData.cacheLoginJson(loginJson: jsonEncode(response));
+
       return LoginModel.fromJson(response);
     } else {
       print("///////// Net Is Not Connected ///////////////");

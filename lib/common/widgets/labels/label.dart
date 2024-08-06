@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../res/style/styles.dart';
-
 class Label extends StatelessWidget {
   final String text;
   final TextStyle? style;
@@ -19,10 +17,8 @@ class Label extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: style ?? Styles.mediumText(),
       textAlign: textAlign,
       overflow: TextOverflow.ellipsis,
-      
       maxLines: maxLines,
     );
   }

@@ -1,5 +1,6 @@
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../generated/l10n.dart';
@@ -32,7 +33,24 @@ class CustomRechargeForm extends StatelessWidget {
                   isNumber: false,
                   context: context,
                   title: S.current.choosePaymentMethod,
-                  controller: PaymentControlelr)
+                  controller: PaymentControlelr),
+              InkWell(
+                  onTap: () {},
+                  child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10.sp),
+                      width: 170.w,
+                      decoration: BoxDecoration(
+                          color: ColorRes.greenBlue,
+                          borderRadius: BorderRadius.circular(50.r)),
+                      child: Center(
+                        child: Text(
+                          S.current.confirmPayment,
+                          style: TextStyle(
+                              color: ColorRes.white,
+                              fontWeight: FontWeight.w900,
+                              fontSize: 18.sp),
+                        ),
+                      )))
             ],
           ),
         ),

@@ -11,13 +11,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomContanerWallet extends StatelessWidget {
   String image;
   String title;
-  String pinText;
+  String? pinText;
   String body;
+  Color? color;
   CustomContanerWallet(
       {Key? key,
       required this.image,
       required this.title,
-      required this.pinText,
+      this.pinText,
+      this.color,
       required this.body})
       : super(key: key);
 
@@ -33,11 +35,11 @@ class CustomContanerWallet extends StatelessWidget {
         return Card(
           child: Container(
             width: double.infinity,
-            height: height / 8,
-            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 16.h),
+            height: height / 6,
+            padding: EdgeInsets.symmetric(horizontal: 18.w, vertical: 16.h),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(AppSizes.borderRadiusLg),
-              color: ColorRes.white,
+              color: color ?? ColorRes.greyGreen,
             ),
             child: Stack(
               children: [
@@ -70,7 +72,7 @@ class CustomContanerWallet extends StatelessWidget {
                                   .textTheme
                                   .headlineLarge!
                                   .copyWith(
-                                      fontSize: 10.sp,
+                                      fontSize: 8.sp,
                                       color: ColorRes.grey,
                                       fontWeight: FontWeight.w900)),
                         ],
@@ -81,7 +83,7 @@ class CustomContanerWallet extends StatelessWidget {
                 Positioned(
                   left: 0,
                   top: 0,
-                  child: Text(pinText,
+                  child: Text(pinText ?? "",
                       style: Theme.of(context)
                           .textTheme
                           .headlineLarge!

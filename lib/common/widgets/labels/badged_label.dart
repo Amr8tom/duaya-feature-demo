@@ -1,7 +1,6 @@
+import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../res/style/app_colors.dart';
-import '../../../../res/style/styles.dart';
 import 'label.dart';
 
 class BadgedLabel extends StatelessWidget {
@@ -16,7 +15,7 @@ class BadgedLabel extends StatelessWidget {
 
   const BadgedLabel(
       {super.key,
-      this.color = AppColors.PRIMARY_COLOR,
+      this.color = ColorRes.accent,
       required this.label,
       this.height,
       this.width,
@@ -56,7 +55,6 @@ class BadgedLabel extends StatelessWidget {
   Widget _buildLabelWidget() {
     return Label(
       text: label,
-      style: style ?? Styles.mediumText(color: textColor),
       textAlign: TextAlign.center,
     );
   }

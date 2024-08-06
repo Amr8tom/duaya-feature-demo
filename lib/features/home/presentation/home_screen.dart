@@ -21,11 +21,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BestSellerCubit bestSellerController = context.read<BestSellerCubit>();
-    CategoriesByPageCubit categoriesByPageController =
-        context.read<CategoriesByPageCubit>();
+    final bestSellerController = context.read<BestSellerCubit>();
+    final categoriesByPageController = context.read<CategoriesByPageCubit>();
 
-    TextEditingController searchTextController = TextEditingController();
+    final searchTextController = TextEditingController();
 
     return BlocConsumer<CategoriesByPageCubit, CategoriesByPageState>(
       listener: (context, catastate) {},

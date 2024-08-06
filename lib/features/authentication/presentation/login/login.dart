@@ -3,6 +3,7 @@ import 'package:duaya_app/features/authentication/presentation/login/widgets/log
 import 'package:duaya_app/features/authentication/presentation/login/widgets/login_header.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 

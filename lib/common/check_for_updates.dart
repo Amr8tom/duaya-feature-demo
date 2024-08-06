@@ -15,19 +15,10 @@ class CheckForeUpdates {
     // Check whether a patch is available to install.
     final isUpdateAvailable =
         await shorebirdCodePush.isNewPatchAvailableForDownload();
-    print("//////////////////////   available or not /////////////////////");
-    print("//////////////////////   available or not /////////////////////");
-    print("//////////////////////   available or not /////////////////////");
-    print("//////////////////////   available or not /////////////////////");
     print(isUpdateAvailable);
     print(isUpdateAvailable);
     if (isUpdateAvailable) {
       // Download the new patch if it's available.
-      print("//////////////////////   available  /////////////////////");
-      print("//////////////////////   available  /////////////////////");
-      print("//////////////////////   available  /////////////////////");
-      print("//////////////////////   available  /////////////////////");
-      print("//////////////////////   available  /////////////////////");
       await shorebirdCodePush.downloadUpdateIfAvailable();
     }
   }

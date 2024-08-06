@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import '../../../generated/l10n.dart';
-import 'chat/presentation/controller/chat_controller.dart';
+import '../chat/presentation/controller/chat_controller.dart';
 
 class ServicesScreen extends StatefulWidget {
   const ServicesScreen({Key? key}) : super(key: key);
@@ -59,7 +59,7 @@ class _MenuScreenState extends State<ServicesScreen> {
                       // context.pushNamed(DRoutesName.customerAdsRoute);
                       break;
                     case 3:
-                      context.pushNamed(DRoutesName.navigationMenuRoute);
+                      context.pushNamed(DRoutesName.myOrderRoute);
                       break;
                     case 4:
                       context.pushNamed(DRoutesName.myNoteBookRoute);

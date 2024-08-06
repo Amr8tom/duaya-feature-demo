@@ -55,6 +55,9 @@ class URL {
   static const companyNewProducts =
       '${baseUrl}shops/products/new/'; //shops/products/new/{id}
   static const rsetPassword = '${baseUrl}auth/password/forget_request';
+
+  ///
+  static const getAllOrders = '${baseUrl}purchase-history';
   static const confirmResetPassword = '${baseUrl}auth/password/confirm_reset';
   static const resendCodeResetPassword = '${baseUrl}auth/password/resend_code';
   static const getUserByToken = '${baseUrl}get-user-by-access_token';

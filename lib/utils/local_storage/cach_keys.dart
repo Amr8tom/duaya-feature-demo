@@ -8,6 +8,7 @@ enum CacheKeys {
   token,
   cities,
   ipAddress,
+  orders,
   autoStartToken,
   address,
   orderID,

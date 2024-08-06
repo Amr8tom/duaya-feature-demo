@@ -33,11 +33,13 @@ class DRoutesName {
   static const String termsAndConditionRoute = 'terms-and-conditions-route';
   static const String helpCenterRoute = 'help-center-route';
 
-  /// Menu
+  /// services
   static const String walletRoute = 'wallet-route';
+  static const String rechargeWalletRoute = 'recharge-wallet-route';
   static const String myAdsRoute = 'my-ads-route';
   static const String customerAdsRoute = 'customer-ads-route';
   static const String myOrderRoute = 'my-order-route';
+  static const String followOrderRoute = 'follow-order-route';
   static const String myNoteBookRoute = 'my-note-book-route';
   static const String favoriteRoute = 'favorite-route';
   static const String expireProductRoute = 'expire-product-route';

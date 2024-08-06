@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "Bahrain": MessageLookupByLibrary.simpleMessage("Bahrain"),
+        "Delivered": MessageLookupByLibrary.simpleMessage("Delivered"),
+        "DeliveredBody": MessageLookupByLibrary.simpleMessage(
+            "Your order is Delivered please call us for any problems"),
         "Egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
         "NoInternetConnection": MessageLookupByLibrary.simpleMessage(
             "There is no internet connection"),
@@ -31,6 +34,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("My Short Coming Book"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("About us"),
         "accepted": MessageLookupByLibrary.simpleMessage("Accepted"),
+        "acceptedBody":
+            MessageLookupByLibrary.simpleMessage("Your order is Accepted"),
         "addNewAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
         "addPhotoOf":
             MessageLookupByLibrary.simpleMessage("Please Upload the photo of"),
@@ -47,12 +52,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "You can add more than one address for more than branch"),
         "alsoAvailable":
             MessageLookupByLibrary.simpleMessage("Also Available In :"),
+        "amount": MessageLookupByLibrary.simpleMessage("The amount"),
         "appName": MessageLookupByLibrary.simpleMessage("Duaya"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "avaiableToLoan":
             MessageLookupByLibrary.simpleMessage("avaliable to loan"),
         "avaliableItemCount":
             MessageLookupByLibrary.simpleMessage("avaliable Itmes"),
+        "backToHome": MessageLookupByLibrary.simpleMessage("Back To Home"),
         "beautyTools": MessageLookupByLibrary.simpleMessage("Beauty Tools"),
         "bestOffers": MessageLookupByLibrary.simpleMessage("Best Offers"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
@@ -95,12 +102,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "contvertTo": MessageLookupByLibrary.simpleMessage(
             "You Can Convert Your Points To :  "),
         "coontinue": MessageLookupByLibrary.simpleMessage("Continue"),
+        "cost": MessageLookupByLibrary.simpleMessage("The Cost"),
         "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
         "creditCard": MessageLookupByLibrary.simpleMessage("Credit Card"),
         "creditCardPaymentScreen":
             MessageLookupByLibrary.simpleMessage("Credit Card Payment Screen"),
         "creditCarddes":
             MessageLookupByLibrary.simpleMessage("pay using your credit card "),
+        "currentRequest":
+            MessageLookupByLibrary.simpleMessage("Current Requests"),
         "customerStagnantItems": MessageLookupByLibrary.simpleMessage(
             "Customer\'s Stagnant Items.....You can browse stagnant items at other pharmacies in your area and repurchase them"),
         "delayedCash": MessageLookupByLibrary.simpleMessage("Delayed Cash"),
@@ -111,6 +121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "delayedCashScreenDesTime": MessageLookupByLibrary.simpleMessage(
             "You have 30 days to repay the debt"),
         "description": MessageLookupByLibrary.simpleMessage("Description"),
+        "details": MessageLookupByLibrary.simpleMessage("Details"),
         "discont": MessageLookupByLibrary.simpleMessage("discont"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
         "eMail": MessageLookupByLibrary.simpleMessage("E-mail"),
@@ -131,11 +142,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "My Favorite Items.....What you want to buy later"),
         "flashSale": MessageLookupByLibrary.simpleMessage("Sale"),
         "flashTodaySale": MessageLookupByLibrary.simpleMessage("Today Sale"),
+        "followOeder": MessageLookupByLibrary.simpleMessage("Follow Order"),
+        "followOrder": MessageLookupByLibrary.simpleMessage("Follow Order"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Forget Password ?"),
         "forgetPasswordBody": MessageLookupByLibrary.simpleMessage(
             "enter your email or phonenumber and we will send you a password resent link."),
         "helper": MessageLookupByLibrary.simpleMessage("Help"),
+        "history": MessageLookupByLibrary.simpleMessage("history"),
         "home": MessageLookupByLibrary.simpleMessage("home"),
         "hospital": MessageLookupByLibrary.simpleMessage("Hospital "),
         "hospitalName": MessageLookupByLibrary.simpleMessage("Hospital Name"),
@@ -149,6 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "languageDes": MessageLookupByLibrary.simpleMessage(
             "Change the language of the application"),
         "lastAddress": MessageLookupByLibrary.simpleMessage("Last Address"),
+        "later": MessageLookupByLibrary.simpleMessage("Later"),
         "letsStart": MessageLookupByLibrary.simpleMessage("Welcome Again"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "localeee": MessageLookupByLibrary.simpleMessage("en"),
@@ -203,6 +218,13 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ordering from Duaya doubles your profits"),
         "onbordingMsg": MessageLookupByLibrary.simpleMessage(
             "i am here to help you around the whole app"),
+        "orderNumber": MessageLookupByLibrary.simpleMessage("Order Number "),
+        "orederPlaced": MessageLookupByLibrary.simpleMessage("Oreder Placed"),
+        "orederPlacedBody": MessageLookupByLibrary.simpleMessage(
+            "Oreder Placed and we review it "),
+        "packing": MessageLookupByLibrary.simpleMessage("packing"),
+        "packingBody": MessageLookupByLibrary.simpleMessage(
+            "we are packing your order and searching for nearest delivery"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordTooShort": MessageLookupByLibrary.simpleMessage(
             "The password cant be less than 4 "),
@@ -220,6 +242,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "points": MessageLookupByLibrary.simpleMessage("Points"),
         "postalCode": MessageLookupByLibrary.simpleMessage("Postal Code"),
         "pound": MessageLookupByLibrary.simpleMessage("EGP"),
+        "previousRequest":
+            MessageLookupByLibrary.simpleMessage("Previous Requests"),
         "priceAfterOffer":
             MessageLookupByLibrary.simpleMessage("Price After Offer"),
         "priceBeforeOffer":
@@ -235,6 +259,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "Make Changes to your profile Info"),
         "quantity": MessageLookupByLibrary.simpleMessage("Quantity"),
         "reCharge": MessageLookupByLibrary.simpleMessage("Re Change"),
+        "reOrder": MessageLookupByLibrary.simpleMessage("Re-Order"),
+        "rechangreWallet":
+            MessageLookupByLibrary.simpleMessage("Recharge Wallet"),
+        "rechangreWalletBody": MessageLookupByLibrary.simpleMessage(
+            "you can use any payment method"),
         "refused": MessageLookupByLibrary.simpleMessage("Pending"),
         "remainingUploads":
             MessageLookupByLibrary.simpleMessage("Remaining Uploads"),
@@ -271,6 +300,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendToWallet": MessageLookupByLibrary.simpleMessage("send to wallet "),
         "services": MessageLookupByLibrary.simpleMessage("services"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "shipping": MessageLookupByLibrary.simpleMessage("shipping"),
+        "shippingBody": MessageLookupByLibrary.simpleMessage(
+            "please wait your order in the way "),
         "singIn": MessageLookupByLibrary.simpleMessage("Sing In"),
         "size": MessageLookupByLibrary.simpleMessage("Size"),
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
@@ -288,8 +320,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Transaction History"),
         "tryAgain":
             MessageLookupByLibrary.simpleMessage("Please try again or sign up"),
+        "underDelivery": MessageLookupByLibrary.simpleMessage("under delivery"),
         "unitPrice": MessageLookupByLibrary.simpleMessage("Unit Price"),
         "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
+        "update": MessageLookupByLibrary.simpleMessage("Update"),
+        "updateAvailable":
+            MessageLookupByLibrary.simpleMessage("Update Available"),
+        "updateBody": MessageLookupByLibrary.simpleMessage(
+            "A new version of the Duaya is available. Please update to continue"),
         "upgradePackage": MessageLookupByLibrary.simpleMessage(
             "Upgrade Package .. increase it"),
         "uploadFileOrExcelSheet": MessageLookupByLibrary.simpleMessage(
@@ -307,6 +345,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "walletByPayment": MessageLookupByLibrary.simpleMessage("By Wallet"),
         "walletCacheDes": MessageLookupByLibrary.simpleMessage(
             "pay from your wallet balance"),
+        "walletTitle": MessageLookupByLibrary.simpleMessage(
+            "you can use the wallet balance to buy "),
         "webAndApp": MessageLookupByLibrary.simpleMessage(
             "Application and website for the pharmacy "),
         "welcomeMessage":

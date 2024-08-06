@@ -1,6 +1,7 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
-abstract class Failure {
+abstract class Failure extends Equatable {
   const Failure();
 }
 
@@ -12,30 +13,48 @@ class ServerFailure extends Failure {
     required this.message,
     this.errors,
   });
+
+  @override
+  List<Object?> get props => [message, errors];
 }
 
 class UnauthorizedFailure extends Failure {
   const UnauthorizedFailure();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class CacheFailure extends Failure {
   const CacheFailure();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class UnknownFailure extends Failure {
   const UnknownFailure();
+
+  @override
+  List<Object?> get props => [];
 }
 
 class InvalidOtpFailure extends Failure {
   final String message;
 
   const InvalidOtpFailure(this.message);
+
+  @override
+  List<Object?> get props => [];
 }
 
 class ValidationFailure extends Failure {
   final String message;
 
   const ValidationFailure(this.message);
+
+  @override
+  List<Object?> get props => [];
 }
 
 class SocialLoginFailure extends Failure {
@@ -44,6 +63,9 @@ class SocialLoginFailure extends Failure {
   const SocialLoginFailure(
     this.exception,
   );
+
+  @override
+  List<Object?> get props => [];
 }
 
 String getFailureMessage(Failure failure, BuildContext context) {

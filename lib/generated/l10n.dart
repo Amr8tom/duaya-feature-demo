@@ -80,6 +80,216 @@ class S {
     );
   }
 
+  /// `Order Number `
+  String get orderNumber {
+    return Intl.message(
+      'Order Number ',
+      name: 'orderNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The Cost`
+  String get cost {
+    return Intl.message(
+      'The Cost',
+      name: 'cost',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `history`
+  String get history {
+    return Intl.message(
+      'history',
+      name: 'history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update`
+  String get update {
+    return Intl.message(
+      'Update',
+      name: 'update',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Later`
+  String get later {
+    return Intl.message(
+      'Later',
+      name: 'later',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Follow Order`
+  String get followOeder {
+    return Intl.message(
+      'Follow Order',
+      name: 'followOeder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oreder Placed`
+  String get orederPlaced {
+    return Intl.message(
+      'Oreder Placed',
+      name: 'orederPlaced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Accepted`
+  String get accepted {
+    return Intl.message(
+      'Accepted',
+      name: 'accepted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `packing`
+  String get packing {
+    return Intl.message(
+      'packing',
+      name: 'packing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shipping`
+  String get shipping {
+    return Intl.message(
+      'shipping',
+      name: 'shipping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delivered`
+  String get Delivered {
+    return Intl.message(
+      'Delivered',
+      name: 'Delivered',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get details {
+    return Intl.message(
+      'Details',
+      name: 'details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Follow Order`
+  String get followOrder {
+    return Intl.message(
+      'Follow Order',
+      name: 'followOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back To Home`
+  String get backToHome {
+    return Intl.message(
+      'Back To Home',
+      name: 'backToHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `under delivery`
+  String get underDelivery {
+    return Intl.message(
+      'under delivery',
+      name: 'underDelivery',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Re-Order`
+  String get reOrder {
+    return Intl.message(
+      'Re-Order',
+      name: 'reOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Oreder Placed and we review it `
+  String get orederPlacedBody {
+    return Intl.message(
+      'Oreder Placed and we review it ',
+      name: 'orederPlacedBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is Accepted`
+  String get acceptedBody {
+    return Intl.message(
+      'Your order is Accepted',
+      name: 'acceptedBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `we are packing your order and searching for nearest delivery`
+  String get packingBody {
+    return Intl.message(
+      'we are packing your order and searching for nearest delivery',
+      name: 'packingBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `please wait your order in the way `
+  String get shippingBody {
+    return Intl.message(
+      'please wait your order in the way ',
+      name: 'shippingBody',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your order is Delivered please call us for any problems`
+  String get DeliveredBody {
+    return Intl.message(
+      'Your order is Delivered please call us for any problems',
+      name: 'DeliveredBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Categories`
   String get categories {
     return Intl.message(
@@ -150,6 +360,46 @@ class S {
     );
   }
 
+  /// `Current Requests`
+  String get currentRequest {
+    return Intl.message(
+      'Current Requests',
+      name: 'currentRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Previous Requests`
+  String get previousRequest {
+    return Intl.message(
+      'Previous Requests',
+      name: 'previousRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Available`
+  String get updateAvailable {
+    return Intl.message(
+      'Update Available',
+      name: 'updateAvailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `A new version of the Duaya is available. Please update to continue`
+  String get updateBody {
+    return Intl.message(
+      'A new version of the Duaya is available. Please update to continue',
+      name: 'updateBody',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `point`
   String get point {
     return Intl.message(
@@ -165,6 +415,16 @@ class S {
     return Intl.message(
       'send to wallet ',
       name: 'sendToWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you can use the wallet balance to buy `
+  String get walletTitle {
+    return Intl.message(
+      'you can use the wallet balance to buy ',
+      name: 'walletTitle',
       desc: '',
       args: [],
     );
@@ -250,6 +510,16 @@ class S {
     );
   }
 
+  /// `The amount`
+  String get amount {
+    return Intl.message(
+      'The amount',
+      name: 'amount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `There is no data here till now`
   String get noData {
     return Intl.message(
@@ -275,6 +545,26 @@ class S {
     return Intl.message(
       'No',
       name: 'no',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recharge Wallet`
+  String get rechangreWallet {
+    return Intl.message(
+      'Recharge Wallet',
+      name: 'rechangreWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you can use any payment method`
+  String get rechangreWalletBody {
+    return Intl.message(
+      'you can use any payment method',
+      name: 'rechangreWalletBody',
       desc: '',
       args: [],
     );
@@ -365,16 +655,6 @@ class S {
     return Intl.message(
       'Hours',
       name: 'hours',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Accepted`
-  String get accepted {
-    return Intl.message(
-      'Accepted',
-      name: 'accepted',
       desc: '',
       args: [],
     );
