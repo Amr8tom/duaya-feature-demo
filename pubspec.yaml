@@ -1,7 +1,7 @@
 name: duaya_app
 description: "A new duaya app."
 publish_to: "none"
-version: 3.9.0+129
+version: 3.9.2+131
 environment:
   sdk: ">=3.2.3 <4.0.0"
 #-------------------- PACKAGES --------------------#
@@ -35,9 +35,11 @@ dependencies:
   # Responsive Ui
   flutter_screenutil: ^5.9.0
   # animated bottom
-#  animated_bottom_navigation_bar:
+  animated_bottom_navigation_bar:
   # Make Animation When Nanvigatefl
   page_transition: ^2.1.0
+  # steps for ui
+  flutter_steps: ^1.0.3
   # SVG Pictures
   flutter_svg: ^2.0.9
   # Custom Field On OTP
@@ -47,6 +49,7 @@ dependencies:
   flutter_tts: ^3.3.2 # Check for the latest version
   # Check to Internet
   internet_connection_checker: ^1.0.0+1
+
   # permission handlers
 #  permission_handler:
   # video Call agora
@@ -56,13 +59,15 @@ dependencies:
 #  geocoding: null
 #  google_maps_flutter:
 #  maps_launcher: ^2.2.0
-#  equatable:
   shorebird_code_push:
   intl: 0.19.0
 # firebase
   firebase_core:
   firebase_messaging:
   flutter_local_notifications:
+  readmore: ^3.0.0
+  in_app_update: ^4.2.3
+  equatable: ^2.0.5
 
 #-------------------- PACKAGES End --------------------#
 dev_dependencies:
