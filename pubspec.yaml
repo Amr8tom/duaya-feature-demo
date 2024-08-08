@@ -1,7 +1,7 @@
 name: duaya_app
 description: "A new duaya app."
 publish_to: "none"
-version: 3.9.2+131
+version: 3.9.3+132
 environment:
   sdk: ">=3.2.3 <4.0.0"
 #-------------------- PACKAGES --------------------#

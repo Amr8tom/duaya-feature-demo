@@ -44,8 +44,9 @@ class CustomComponentForBrand extends StatelessWidget {
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
+                        color: ColorRes.greenBlueLight,
                         border:
-                            Border.all(color: ColorRes.greenBlue, width: 2.w)),
+                            Border.all(color: ColorRes.greenBlue, width: 1.w)),
                     child: imageWidget,
                   ),
                   Column(
@@ -65,10 +66,11 @@ class CustomComponentForBrand extends StatelessWidget {
                           child: Text(
                             brandTitle,
                             overflow: TextOverflow.fade,
+                            maxLines: 2,
                             style: TextStyle(
                                 color: ColorRes.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 19.sp),
+                                fontSize: 15.sp),
                           ),
                         ),
                       ),

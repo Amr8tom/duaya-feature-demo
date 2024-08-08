@@ -12,14 +12,15 @@ class searchRepoImp {
   searchRemoteDataSourcesImp remoteData = searchRemoteDataSourcesImp();
   searchRepoImp();
   Future<Map<String, dynamic>> getSearchData(
-      {required String name, required String cityID, int? page}) async {
+      {required String name, int? page, String? companyID}) async {
     bool isConnected =
         await NetworkInfoImpl(DataConnectionChecker()).isConnected;
     if (page == null) {
       if (isConnected) {
-        Map<String, dynamic> response =
-            await remoteData.getRemoteDataSources(name: name, cityID: cityID);
-        localData.cacheSearchData(searchData: jsonEncode(response), name: name);
+        Map<String, dynamic> response = await remoteData.getRemoteDataSources(
+            name: name, companyID: companyID);
+        localData.cacheSearchData(
+            searchData: jsonEncode(response), name: name, companyID: companyID);
         return response;
       } else {
         Map<String, dynamic> response =
@@ -29,7 +30,7 @@ class searchRepoImp {
     } else {
       if (isConnected) {
         Map<String, dynamic> response = await remoteData.getRemoteDataSources(
-            name: name, page: page, cityID: cityID);
+            name: name, page: page, companyID: companyID);
         localData.cacheSearchData(
             searchData: jsonEncode(response), name: name, page: page);
         return response;

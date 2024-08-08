@@ -2,7 +2,6 @@ import 'package:duaya_app/common/check_for_updates.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/common/widgets/cached_image/cached_image.dart';
 import 'package:duaya_app/features/cart/presentation/widgets/controller/cart_cubit.dart';
-import 'package:duaya_app/features/category/presentation/category/category_screen.dart';
 import 'package:duaya_app/features/category/presentation/company/companyScreen.dart';
 import 'package:duaya_app/features/flash/presentation/flash_screen.dart';
 import 'package:duaya_app/features/home/presentation/home_screen.dart';
@@ -22,7 +21,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 import 'common/exit_app_function_dialoag.dart';
 import 'common/managers/navigation_menu/navigation_menu_cubit.dart';
-import 'common/text_record_function.dart';
 import 'features/authentication/presentation/controller/auth_controller_cubit.dart';
 import 'features/category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 import 'features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
@@ -40,7 +38,7 @@ class NavigationMenu extends StatefulWidget {
 
 class _NavigationMenuState extends State<NavigationMenu> {
   String currentCountry = S.current.loading;
-  Offset _fabOffset = Offset(85.w, 110.h); // Initial position of the FAB
+  Offset _fabOffset = Offset(105.w, 95.h); // Initial position of the FAB
   CheckForeUpdates updateCode = CheckForeUpdates();
   @override
   void initState() {
@@ -49,7 +47,6 @@ class _NavigationMenuState extends State<NavigationMenu> {
     fetchNavigationsData();
     checkForUpdate(context: context);
     updateCode.makeUpdate();
-    // speak(locale: S.current.localeee, statements: S.current.welcomeMessage);
   }
 
   Future<void> fetchData() async {
@@ -172,21 +169,6 @@ class _NavigationMenuState extends State<NavigationMenu> {
                         label: S.current.services),
                   ],
                 ),
-                // floatingActionButton: FloatingButton(),
-                // floatingActionButtonLocation:
-                //     FloatingActionButtonLocation.centerDocked,
-                // bottomNavigationBar: AnimatedBottomNavigationBar.builder(
-                //   itemCount: 4,
-                //   height: kToolbarHeight * .9,
-                //   gapLocation: GapLocation.center,
-                //   notchSmoothness: NotchSmoothness.verySmoothEdge,
-                //   // tabBuilder: (int index, bool isActive) {
-                //   //   return _items[index];
-                //   // },
-                //   activeIndex: 2,
-                //   onTap: (int) {},
-                // ),
-
                 body: _buildScreen(selectedIndex),
                 floatingActionButton: Stack(
                   children: [
@@ -215,8 +197,20 @@ class _NavigationMenuState extends State<NavigationMenu> {
                           onPressed: () {
                             context.pushNamed(DRoutesName.searchRoute);
                           },
-                          child:
+                          child: Stack(
+                            children: [
                               Lottie.asset(AssetRes.searchICon, height: 105.sp),
+                              Positioned(
+                                  top: 42,
+                                  left: 25,
+                                  child: Text(
+                                    S.current.search,
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .headlineMedium,
+                                  ))
+                            ],
+                          ),
                         ),
                       ),
                     ),

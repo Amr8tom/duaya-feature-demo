@@ -7,6 +7,7 @@
   "walletTitle":"يمكنك استخدام رصيد محفظتك فى عمليات الشراء ",
   "categories":"الاقسام",
   "category":"القسم",
+  "refundReason":"سبب الرفض",
   "localeee": "ar",
   "currentRequest": "الطلبات الحالية",
   "previousRequest": "الطلبات السابقة",

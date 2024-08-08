@@ -3,7 +3,9 @@ import 'package:duaya_app/features/category/presentation/category/presentation/c
 import 'package:duaya_app/features/category/presentation/category/presentation/widget/flash_today_deals_body_girdview.dart';
 import 'package:duaya_app/features/category/presentation/company/widget/beastSellerGridView.dart';
 import 'package:duaya_app/features/flash/presentation/controller/flash_cubit.dart';
+import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
+import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,7 +62,24 @@ class CompanyDetailsScreen extends StatelessWidget {
             ),
             centerTitle: true,
             showBackArrow: true,
-            // leadingWidget: const Icon(Icons.arrow_back_ios),
+            actions: [
+              IconButton(
+                icon: Padding(
+                  padding: EdgeInsets.only(left: 15.0.w, top: 5.h),
+                  child: Icon(
+                    Icons.search,
+                    size: 40.w,
+                    color: ColorRes.black,
+                  ),
+                ),
+                onPressed: () async {
+                  context.pushNamed(DRoutesName.searchRoute,
+
+                      /// pass company ID and name to search screen
+                      arguments: {'ID': map['id'], 'name': map['title']});
+                },
+              ),
+            ],
           ),
           body: DefaultTabController(
             length: 3,

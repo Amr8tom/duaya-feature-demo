@@ -1,4 +1,6 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/services/my_order/presentation/widgets/current_order_list.dart';
+import 'package:duaya_app/features/services/my_order/presentation/widgets/previous_order_list.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
@@ -44,65 +46,26 @@ class _MyOrderScreenState extends State<MyOrderScreen>
       body: Column(
         children: [
           TabBar(
-            indicatorColor: ColorRes.primary,
+            indicatorColor: ColorRes.greenBlue,
             controller: _tabController,
-            labelColor: Colors.black,
+            labelColor: ColorRes.black,
             unselectedLabelColor: Colors.black,
             tabs: [
               Tab(text: S.current.currentRequest),
               Tab(text: S.current.previousRequest),
-              // Tab(text: S.current.calnced),
             ],
           ),
-          Expanded(
+          Flexible(
             child: Padding(
               padding: EdgeInsets.all(AppSizes.spaceBtwItems),
               child: TabBarView(
                 controller: _tabController,
                 children: [
-                  // first tab bar view widget
-                  Expanded(
-                    child: ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: AppSizes.spaceBtwItems);
-                        },
-                        itemCount: 12,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                              onTap: () {
-                                context.pushNamed(DRoutesName.followOrderRoute);
-                              },
-                              child: CustomOrderContanier(
-                                isDelevied: false,
-                                rightBotton: S.current.details,
-                                leftBotton: S.current.followOrder,
-                                image: AssetRes.truck,
-                                title: S.current.color,
-                                body: S.current.search,
-                              ));
-                        }),
-                  ),
-                  Expanded(
-                    child: ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return SizedBox(height: AppSizes.spaceBtwItems);
-                        },
-                        itemCount: 12,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                              onTap: () {
-                                context.pushNamed(DRoutesName.followOrderRoute);
-                              },
-                              child: CustomOrderContanier(
-                                isDelevied: true,
-                                rightBotton: S.current.details,
-                                leftBotton: S.current.reOrder,
-                                image: AssetRes.truck,
-                                title: S.current.color,
-                                body: S.current.search,
-                              ));
-                        }),
-                  ),
+                  /// Current Order List
+                  const CurrentOrderList(),
+
+                  /// previous order list
+                  const PreviousOrderList()
                 ],
               ),
             ),

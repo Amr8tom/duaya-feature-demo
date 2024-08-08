@@ -47,32 +47,18 @@ class _FlashScreenState extends State<FlashScreen>
           },
           tabs: [
             Tab(
-                child: Container(
-              width: 140.sp,
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: ColorRes.greenBlueLight,
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(S.current.flashSale,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headlineMedium!
-                      .copyWith(color: ColorRes.greenBlue)),
-            )),
+                child: Text(S.current.flashSale,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headlineMedium!
+                        .copyWith(color: ColorRes.greenBlue))),
             Tab(
-                child: Container(
-              width: 140.sp,
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  color: ColorRes.greenBlueLight,
-                  borderRadius: BorderRadius.circular(20)),
-              child: Text(
-                S.current.flashTodaySale,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium!
-                    .copyWith(color: ColorRes.greenBlue),
-              ),
+                child: Text(
+              S.current.flashTodaySale,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium!
+                  .copyWith(color: ColorRes.greenBlue),
             )),
           ],
         ),

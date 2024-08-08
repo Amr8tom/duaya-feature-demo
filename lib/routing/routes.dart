@@ -41,7 +41,7 @@ import '../features/search/presentation/search_screen.dart';
 import '../features/services/my_shor_coming_book/my_short_coming_book_screen.dart';
 import '../features/services/presentation/services_screen.dart';
 import '../features/services/presentation/wallet/presentation/recharge_willet_screen.dart';
-import '../features/services/return_request/return_request_screen.dart';
+import '../features/services/return_request/presentation/return_request_screen.dart';
 import '../utils/constants/exports.dart';
 
 class RouteGenerator {
@@ -262,8 +262,10 @@ class RouteGenerator {
           // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.searchRoute:
+        final arguments = settings.arguments as Map<String, dynamic>;
         return PageTransition(
-          child: SearchScreen(),
+          child: SearchScreen(
+              companyName: arguments['name'], companyID: arguments['ID']),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           // reverseDuration: const Duration(milliseconds: 300),

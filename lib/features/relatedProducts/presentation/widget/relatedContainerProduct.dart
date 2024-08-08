@@ -148,12 +148,11 @@ class RelatedContainerProduct extends StatelessWidget {
                                   ),
                                   Container(
                                     width: 144.w,
-                                    // height: 40.h,
                                     child: AddMinusCartButton(
                                       height: AppSizes.appBarHeight,
                                       width: double.infinity,
-                                      color: ColorRes.greenBlue,
-                                      borderColor: Colors.transparent,
+                                      color: ColorRes.greenBlueLight,
+                                      borderColor: ColorRes.greenBlue,
                                       textButtonColor: Colors.white,
                                       ID: productID,
                                     ),

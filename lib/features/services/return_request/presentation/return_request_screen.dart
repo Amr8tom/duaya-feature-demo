@@ -1,6 +1,6 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/common/widgets/custom_button/custom_button_with_icon.dart';
-import 'package:duaya_app/common/widgets/text_form_field/custom_text_form_field.dart';
+import 'package:duaya_app/features/services/return_request/presentation/widget/refund_request_list.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
@@ -19,31 +19,7 @@ class ReturnRequestScreen extends StatelessWidget {
         centerTitle: true,
         showBackArrow: true,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(AppSizes.spaceBtwItems),
-          child: Column(
-            children: [
-              /// Text Form Field
-              CustomTextFormField(
-                  hintText: "Please enter a service name",
-                  controller: controller),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.all(AppSizes.spaceBtwItems),
-        child: CustomButtonWithIcon2(
-            textButton: S.current.send,
-            onTap: () {},
-            color: ColorRes.primary,
-            height: AppSizes.imageSize * 1.2,
-            width: width,
-            borderColor: Colors.transparent,
-            textButtonColor: ColorRes.white,
-            isAddToCart: true),
-      ),
+      body: RefundRequestList(),
     );
   }
 }

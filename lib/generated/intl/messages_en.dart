@@ -264,6 +264,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Recharge Wallet"),
         "rechangreWalletBody": MessageLookupByLibrary.simpleMessage(
             "you can use any payment method"),
+        "refundReason": MessageLookupByLibrary.simpleMessage("Refund Reason"),
         "refused": MessageLookupByLibrary.simpleMessage("Pending"),
         "remainingUploads":
             MessageLookupByLibrary.simpleMessage("Remaining Uploads"),

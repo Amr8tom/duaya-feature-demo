@@ -9,6 +9,7 @@ class CustomOrderContanier extends StatelessWidget {
   final String image;
   final String title;
   final bool isDelevied;
+  final bool? isRefund;
   final String? leftBotton;
   final String? rightBotton;
   final String body;
@@ -22,6 +23,7 @@ class CustomOrderContanier extends StatelessWidget {
       required this.title,
       required this.body,
       required this.isDelevied,
+      this.isRefund,
       this.color,
       this.leftBotton,
       this.rightBotton,
@@ -58,7 +60,24 @@ class CustomOrderContanier extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${S.current.orderNumber}:",
+                      isRefund == true
+                          ? Text("${S.current.productName}:",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge!
+                                  .copyWith(
+                                      fontSize: 14.sp,
+                                      color: ColorRes.black,
+                                      fontWeight: FontWeight.w700))
+                          : Text("${S.current.orderNumber}:",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge!
+                                  .copyWith(
+                                      fontSize: 14.sp,
+                                      color: ColorRes.black,
+                                      fontWeight: FontWeight.w700)),
+                      Text("${S.current.paymentStatus}:",
                           style: Theme.of(context)
                               .textTheme
                               .headlineLarge!
@@ -66,14 +85,16 @@ class CustomOrderContanier extends StatelessWidget {
                                   fontSize: 14.sp,
                                   color: ColorRes.black,
                                   fontWeight: FontWeight.w700)),
-                      Text("${S.current.company}:",
-                          style: Theme.of(context)
-                              .textTheme
-                              .headlineLarge!
-                              .copyWith(
-                                  fontSize: 14.sp,
-                                  color: ColorRes.black,
-                                  fontWeight: FontWeight.w700)),
+                      isRefund == true
+                          ? Text("${S.current.refundReason}:",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .headlineLarge!
+                                  .copyWith(
+                                      fontSize: 14.sp,
+                                      color: ColorRes.black,
+                                      fontWeight: FontWeight.w700))
+                          : SizedBox(),
                       Text("${S.current.history}:",
                           style: Theme.of(context)
                               .textTheme
@@ -109,31 +130,38 @@ class CustomOrderContanier extends StatelessWidget {
             Spacer(),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               /// RightButton
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        ColorRes.greenBlueLight, // Background color
-                    padding: EdgeInsets.symmetric(horizontal: 35.w)),
-                onPressed: onRightButtonTap ?? () {},
-                child: Text(rightBotton ?? "",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineLarge!
-                        .copyWith(fontSize: 16.sp, color: ColorRes.greenBlue)),
-              ),
+              rightBotton == null
+                  ? SizedBox()
+                  : ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              ColorRes.greenBlueLight, // Background color
+                          padding: EdgeInsets.symmetric(horizontal: 35.w)),
+                      onPressed: onRightButtonTap ?? () {},
+                      child: Text(rightBotton!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineLarge!
+                              .copyWith(
+                                  fontSize: 16.sp, color: ColorRes.greenBlue)),
+                    ),
 
               /// leftButton
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: ColorRes.greenBlue, // Background color
-                    padding: EdgeInsets.symmetric(horizontal: 18.w)),
-                onPressed: onLeftButtonTap ?? () {},
-                child: Text(leftBotton ?? "",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineLarge!
-                        .copyWith(fontSize: 16.sp, color: ColorRes.white)),
-              )
+              leftBotton == null
+                  ? SizedBox()
+                  : ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              ColorRes.greenBlue, // Background color
+                          padding: EdgeInsets.symmetric(horizontal: 18.w)),
+                      onPressed: onLeftButtonTap ?? () {},
+                      child: Text(leftBotton!,
+                          style: Theme.of(context)
+                              .textTheme
+                              .headlineLarge!
+                              .copyWith(
+                                  fontSize: 16.sp, color: ColorRes.white)),
+                    )
             ])
           ],
         ),

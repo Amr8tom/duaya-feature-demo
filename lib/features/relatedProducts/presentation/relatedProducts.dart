@@ -20,7 +20,7 @@ class relatedProducts extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             mainAxisSpacing: 10.h,
-            childAspectRatio: 3.3 / 2,
+            childAspectRatio: 3.1 / 2,
           ),
           shrinkWrap: true,
           itemCount: bestSellerController.relatedProduct.data?.length,

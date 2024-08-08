@@ -270,6 +270,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شحن المحفظه الكترونيآ"),
         "rechangreWalletBody": MessageLookupByLibrary.simpleMessage(
             "عن طريق جميع وسائل الدفع الألكتروني"),
+        "refundReason": MessageLookupByLibrary.simpleMessage("سبب الرفض"),
         "refused": MessageLookupByLibrary.simpleMessage("قــيد الأنتٍــظآر"),
         "remainingUploads":
             MessageLookupByLibrary.simpleMessage("تحميلات متبقية"),

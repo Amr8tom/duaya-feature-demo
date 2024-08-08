@@ -144,4 +144,7 @@ class AssetRes {
   static const String palestineFlag = 'assets/images/pngs/palestine-flag.png';
   static const String egyptFlag = 'assets/images/pngs/egypt-flag.png';
   static const String bahrainFlag = 'assets/images/pngs/bahrain-flag.png';
+
+  ///  refund-request
+  static const String refundIcon = 'assets/images/pngs/repeat-circle.png';
 }

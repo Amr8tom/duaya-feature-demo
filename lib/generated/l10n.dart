@@ -130,6 +130,16 @@ class S {
     );
   }
 
+  /// `Refund Reason`
+  String get refundReason {
+    return Intl.message(
+      'Refund Reason',
+      name: 'refundReason',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Follow Order`
   String get followOeder {
     return Intl.message(
