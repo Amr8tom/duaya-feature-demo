@@ -111,7 +111,7 @@ class UserAndGiftModel {
   dynamic region;
   dynamic postalCode;
   String? phone;
-  int? balance;
+  num? balance;
   int? banned;
   dynamic referralCode;
   dynamic customerPackageId;

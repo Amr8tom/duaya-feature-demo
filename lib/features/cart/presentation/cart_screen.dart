@@ -106,6 +106,7 @@ class _CartScreenState extends State<CartScreen> {
                     textButton1Color: ColorRes.greenBlue,
                     textButton2Color: ColorRes.white,
                     price: cartController.total.toStringAsFixed(2),
+                    // price: cartController.summartTotal,
                     totalText: S.current.total,
                     onTap1: () async {
                       Navigator.pop(context);

@@ -35,14 +35,26 @@ class CartCubit extends Cubit<CartState> {
   List<CartItems> Items = [];
 
   Future<void> fetchCartData() async {
-    cartCountModel = await repo.getCartCount();
     // summaryModel = await repo.getCartSummary();
     cartItemsModel = await repo.getCartItems();
+    cartCountModel = await repo.getCartCount();
     itemsCount = cartCountModel.count!.toInt();
     itemsCount == 0 ? hasItems = false : hasItems = true;
     // summartTotal = summaryModel.grandTotal.toString();
-    calaTotal();
+
     emit(UpdatedDataSuccess());
+  }
+
+  Future<void> fetchCartItems() async {
+    await fetchCartData();
+    Items.clear();
+    cartItemsModel.data?.forEach((element) {
+      element.cartItems?.forEach((element) {
+        Items.add(element);
+      });
+    });
+    calaTotal();
+    emit(FetechCartDataSuccess());
   }
 
   ///////////////  its update to quantity in the cart screen ... set isAdd ture to be addition function
@@ -86,17 +98,6 @@ class CartCubit extends Cubit<CartState> {
     emit(SaveDataSuccess());
   }
 
-  Future<void> fetchCartItems() async {
-    await fetchCartData();
-    Items.clear();
-    cartItemsModel.data?.forEach((element) {
-      element.cartItems?.forEach((element) {
-        Items.add(element);
-      });
-    });
-    emit(FetechCartDataSuccess());
-  }
-
   Future<void> addToCart(
       {required String id, required String quantity, String? variant}) async {
     Map<String, dynamic> cartBody = {
@@ -114,8 +115,8 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> deleteCart({required int cartID}) async {
     await repo.deleteCart(cartID: cartID);
-    calaTotal();
     commonToast(S.current.done);
+    cartCountModel = await repo.getCartCount();
     emit(DeleteCartSuccess());
   }
 

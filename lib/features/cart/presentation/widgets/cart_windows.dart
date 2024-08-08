@@ -91,7 +91,7 @@ class cartWindows extends StatelessWidget {
                       onTap: () => {},
                       height: 40.sp,
                       borderWidth: 2.w),
-                  Spacer(),
+                  const Spacer(),
                   CustomContainerMinusAndPlus(
                     widget: Icon(
                       Iconsax.minus,

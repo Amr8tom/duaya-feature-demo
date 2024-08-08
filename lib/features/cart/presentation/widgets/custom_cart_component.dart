@@ -88,6 +88,8 @@ class _CustomCartComponentState extends State<CustomCartComponent> {
                     onPressed: () async {
                       await cartController.deleteCart(cartID: widget.cartID);
                       cartController.Items.removeAt(widget.index);
+                      cartController.calaTotal();
+                      cartController.fetchCartItems();
                     },
                     icon: Image.asset(AssetRes.removeIcon, height: 22.h)),
 

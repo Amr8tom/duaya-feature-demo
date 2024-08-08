@@ -48,6 +48,7 @@ class _AddMinusCartButtonState extends State<AddMinusCartButton> {
                 CartController.fetchCartData();
               }
             });
+            CartController.fetchCartItems();
           },
           icon: widget.quantitiy > 0
               ? Container(

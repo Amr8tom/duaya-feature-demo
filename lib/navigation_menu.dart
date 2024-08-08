@@ -122,7 +122,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
                     InkWell(
                       onTap: () async {
                         context.pushNamed(DRoutesName.CartRoute);
-                        await cartController.fetchCartItems();
+                        // await cartController.fetchCartItems();
                       },
                       overlayColor: MaterialStateProperty.all(
                           ColorRes.primary.withOpacity(.1)),

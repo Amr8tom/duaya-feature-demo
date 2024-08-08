@@ -262,10 +262,11 @@ class RouteGenerator {
           // reverseDuration: const Duration(milliseconds: 300),
         );
       case DRoutesName.searchRoute:
-        final arguments = settings.arguments as Map<String, dynamic>;
+        Map<String, dynamic>? arguments =
+            settings.arguments as Map<String, dynamic>?;
         return PageTransition(
           child: SearchScreen(
-              companyName: arguments['name'], companyID: arguments['ID']),
+              companyName: arguments?['name'], companyID: arguments?['ID']),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           // reverseDuration: const Duration(milliseconds: 300),

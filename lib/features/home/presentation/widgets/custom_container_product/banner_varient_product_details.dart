@@ -10,12 +10,11 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../cart/presentation/widgets/add_miuns_cart_button.dart';
 import '../../controller/best_seller_cubit.dart';
 import '../../../../relatedProducts/presentation/relatedProducts.dart';
-import '../../../../cart/presentation/widgets/cart_windows.dart';
 
 class BannerInVarientProduct extends StatelessWidget {
   Map<String, dynamic> map;
@@ -256,7 +255,16 @@ class BannerInVarientProduct extends StatelessWidget {
                               ],
                             ),
                           ),
-                          Expanded(flex: 4, child: cartWindows(map: map)),
+                          Expanded(
+                              flex: 4,
+                              child: AddMinusCartButton(
+                                height: AppSizes.appBarHeight,
+                                width: double.infinity,
+                                color: ColorRes.greenBlueLight,
+                                borderColor: ColorRes.greenBlue,
+                                textButtonColor: Colors.white,
+                                ID: map['productID'],
+                              )),
                         ],
                       ),
                       SizedBox(
