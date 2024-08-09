@@ -160,6 +160,16 @@ class S {
     );
   }
 
+  /// `there is no items in cart`
+  String get noItemsInCart {
+    return Intl.message(
+      'there is no items in cart',
+      name: 'noItemsInCart',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Accepted`
   String get accepted {
     return Intl.message(
@@ -175,6 +185,16 @@ class S {
     return Intl.message(
       'packing',
       name: 'packing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `companies`
+  String get companies {
+    return Intl.message(
+      'companies',
+      name: 'companies',
       desc: '',
       args: [],
     );

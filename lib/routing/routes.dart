@@ -16,7 +16,7 @@ import 'package:duaya_app/features/settings/presentation/pharmacy_info/pharmacy_
 import 'package:duaya_app/features/settings/presentation/profile_info/profile_info_screen.dart';
 import 'package:duaya_app/features/settings/presentation/settings_screen.dart';
 import 'package:duaya_app/features/splash/splash_screen.dart';
-import 'package:duaya_app/navigation_menu.dart';
+import 'package:duaya_app/features/home/presentation/navigation_menu.dart';
 import 'package:duaya_app/routing/routes_name.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';

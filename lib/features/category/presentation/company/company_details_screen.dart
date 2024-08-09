@@ -76,7 +76,10 @@ class CompanyDetailsScreen extends StatelessWidget {
                   context.pushNamed(DRoutesName.searchRoute,
 
                       /// pass company ID and name to search screen
-                      arguments: {'ID': map['id'], 'name': map['title']});
+                      arguments: {
+                        'ID': map['id'].toString(),
+                        'name': map['title']
+                      });
                 },
               ),
             ],

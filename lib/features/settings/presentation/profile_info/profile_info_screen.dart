@@ -295,6 +295,7 @@ class ProfileInfoScreen extends StatelessWidget {
                     child: ElevatedButton(
                         onPressed: () async {
                           CustomUI.loader(context: context);
+                          // const Loader();
                           await updateProfileController.fetchUpdataProfile(
                               context: context);
                           Navigator.pop(context);

@@ -6,7 +6,6 @@ import 'package:duaya_app/features/settings/data/model/profileModel.dart';
 import 'package:duaya_app/features/settings/data/repositories/SettingRepositoryImp.dart';
 import 'package:duaya_app/utils/local_storage/cach_keys.dart';
 import 'package:duaya_app/utils/local_storage/cache_helper.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
@@ -47,7 +46,7 @@ class SettinglationCubit extends Cubit<TranslationState> {
     context.read<AuthControllerCubit>().fetchCountries();
     PrefService.removeFromShared(key: CacheKeys.password);
     PrefService.removeFromShared(key: CacheKeys.email);
-    PrefService.removeFromShared(key: CacheKeys.token);
+    PrefService.putString(key: CacheKeys.token, value: '');
     PrefService.removeFromShared(key: CacheKeys.bestSeller);
     Navigator.pushNamedAndRemoveUntil(
       context,

@@ -110,116 +110,116 @@ class BannerInVarientProduct extends StatelessWidget {
                               ),
                             ),
 
-                      /// Product Size and color
-                      Column(
-                        children: [
-                          Row(
-                            children: [
-                              /// product color
-                              SingleChildScrollView(
-                                scrollDirection: Axis.vertical,
-                                child: Column(
-                                  children: [
-                                    colors.length > 0
-                                        ? Text(S.current.color,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium)
-                                        : SizedBox(),
-                                    // Spacer(),
-                                    colors.length > 0
-                                        ? Wrap(
-                                            direction: Axis.vertical,
-                                            spacing: 4.0,
-                                            children: colors.map((color) {
-                                              bool isSelected = (colors
-                                                      .indexOf(color) ==
-                                                  bestSellerController
-                                                      .selectedColorbyimage);
-                                              return FilterChip(
-                                                backgroundColor: ColorRes.grey
-                                                    .withOpacity(0.3),
-                                                label: Container(
-                                                  width: 20,
-                                                  height: 20,
-                                                  decoration: BoxDecoration(
-                                                    color: Color(int.parse(
-                                                        color.replaceAll(
-                                                            '#', '0xff'))),
-                                                    shape: BoxShape.circle,
-                                                  ),
-                                                ),
-                                                padding: EdgeInsets.all(1.sp),
-                                                selected: isSelected,
-                                                onSelected: (bool onSelect) {
-                                                  if (onSelect) {
-                                                    bestSellerController
-                                                        .setColor(
-                                                            color:
-                                                                colors.indexOf(
-                                                                    color));
-                                                  } else {}
-                                                },
-                                              );
-                                            }).toList(),
-                                          )
-                                        : SizedBox()
-                                  ],
-                                ),
-                              ),
-                              Spacer(),
-
-                              /// product size
-                              SingleChildScrollView(
-                                child: Column(
-                                  children: [
-                                    options.length > 0
-                                        ? Text(S.current.size,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleMedium)
-                                        : SizedBox(),
-                                    options.length > 0
-                                        ? Wrap(
-                                            direction: Axis.vertical,
-                                            spacing: 8.0,
-                                            children:
-                                                options[0].options!.map((size) {
-                                              bool isSelected = (size ==
-                                                  bestSellerController
-                                                      .selectedSize);
-                                              return FilterChip(
-                                                label: Container(
-                                                    width: 25.sp,
-                                                    child: Text(
-                                                      size,
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 10.sp,
-                                                          color: ColorRes
-                                                              .lightGreen),
-                                                    )),
-                                                selected: isSelected,
-                                                onSelected: (bool onSelect) {
-                                                  if (onSelect) {
-                                                    bestSellerController
-                                                        .setSize(Size: size);
-                                                  } else {}
-                                                },
-                                              );
-                                            }).toList(),
-                                          )
-                                        : SizedBox()
-                                  ],
-                                ),
-                              )
-                            ],
-                          ),
-
-                          /// product Color
-                        ],
-                      ),
+                      // /// Product Size and color
+                      // Column(
+                      //   children: [
+                      //     Row(
+                      //       children: [
+                      //         /// product color
+                      //         SingleChildScrollView(
+                      //           scrollDirection: Axis.vertical,
+                      //           child: Column(
+                      //             children: [
+                      //               colors.length > 0
+                      //                   ? Text(S.current.color,
+                      //                       style: Theme.of(context)
+                      //                           .textTheme
+                      //                           .titleMedium)
+                      //                   : SizedBox(),
+                      //               // Spacer(),
+                      //               colors.length > 0
+                      //                   ? Wrap(
+                      //                       direction: Axis.vertical,
+                      //                       spacing: 4.0,
+                      //                       children: colors.map((color) {
+                      //                         bool isSelected = (colors
+                      //                                 .indexOf(color) ==
+                      //                             bestSellerController
+                      //                                 .selectedColorbyimage);
+                      //                         return FilterChip(
+                      //                           backgroundColor: ColorRes.grey
+                      //                               .withOpacity(0.3),
+                      //                           label: Container(
+                      //                             width: 20,
+                      //                             height: 20,
+                      //                             decoration: BoxDecoration(
+                      //                               color: Color(int.parse(
+                      //                                   color.replaceAll(
+                      //                                       '#', '0xff'))),
+                      //                               shape: BoxShape.circle,
+                      //                             ),
+                      //                           ),
+                      //                           padding: EdgeInsets.all(1.sp),
+                      //                           selected: isSelected,
+                      //                           onSelected: (bool onSelect) {
+                      //                             if (onSelect) {
+                      //                               bestSellerController
+                      //                                   .setColor(
+                      //                                       color:
+                      //                                           colors.indexOf(
+                      //                                               color));
+                      //                             } else {}
+                      //                           },
+                      //                         );
+                      //                       }).toList(),
+                      //                     )
+                      //                   : SizedBox()
+                      //             ],
+                      //           ),
+                      //         ),
+                      //         Spacer(),
+                      //
+                      //         /// product size
+                      //         SingleChildScrollView(
+                      //           child: Column(
+                      //             children: [
+                      //               options.length > 0
+                      //                   ? Text(S.current.size,
+                      //                       style: Theme.of(context)
+                      //                           .textTheme
+                      //                           .titleMedium)
+                      //                   : SizedBox(),
+                      //               options.length > 0
+                      //                   ? Wrap(
+                      //                       direction: Axis.vertical,
+                      //                       spacing: 8.0,
+                      //                       children:
+                      //                           options[0].options!.map((size) {
+                      //                         bool isSelected = (size ==
+                      //                             bestSellerController
+                      //                                 .selectedSize);
+                      //                         return FilterChip(
+                      //                           label: Container(
+                      //                               width: 25.sp,
+                      //                               child: Text(
+                      //                                 size,
+                      //                                 style: TextStyle(
+                      //                                     fontWeight:
+                      //                                         FontWeight.bold,
+                      //                                     fontSize: 10.sp,
+                      //                                     color: ColorRes
+                      //                                         .lightGreen),
+                      //                               )),
+                      //                           selected: isSelected,
+                      //                           onSelected: (bool onSelect) {
+                      //                             if (onSelect) {
+                      //                               bestSellerController
+                      //                                   .setSize(Size: size);
+                      //                             } else {}
+                      //                           },
+                      //                         );
+                      //                       }).toList(),
+                      //                     )
+                      //                   : SizedBox()
+                      //             ],
+                      //           ),
+                      //         )
+                      //       ],
+                      //     ),
+                      //
+                      //     /// product Color
+                      //   ],
+                      // ),
                     ],
                   ),
 

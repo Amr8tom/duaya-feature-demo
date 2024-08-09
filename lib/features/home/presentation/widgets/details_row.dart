@@ -18,7 +18,6 @@ class detailsRow extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
               color: Colors.grey, fontSize: 16.sp, fontWeight: FontWeight.w600),
         ),
-        // Spacer
         // Overview Text
         Center(
           child: Text(

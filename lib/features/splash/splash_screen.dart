@@ -43,8 +43,14 @@ class _SplashScreenState extends State<SplashScreen> {
       print(e);
     }
     try {
-      if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
+      if (cachedToken != '') {
         await context.read<BestSellerCubit>().fetchBestSellerData();
+      } else {
+        print("Best Seller is inactive ==========================");
+        print("Best Seller is inactive ==========================");
+        print("Best Seller is inactive ==========================");
+        print("Best Seller is inactive ==========================");
+        print("Best Seller is inactive ==========================");
       }
     } catch (e) {
       print(e);

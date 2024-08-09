@@ -26,6 +26,7 @@ class AssetRes {
   static const String cardPos = 'assets/images/pngs/card-pos.png';
   static const String dollarSquare = 'assets/images/pngs/dollar-square.png';
   static const String truck = 'assets/images/pngs/truck.png';
+  static const String services = 'assets/images/pngs/flashe_sale_icon.png';
 
   ///////// rebots Image
   static const String rebot1 = 'assets/lotties/rebot1.json';
@@ -88,6 +89,9 @@ class AssetRes {
   static const String sanofiBrand = 'assets/images/pngs/sanofiBrand.png';
   static const String merckBrand = 'assets/images/pngs/merckBrand.png';
   static const String gskBrand = 'assets/images/pngs/gskBrand.png';
+  static const String companyIcon = 'assets/images/pngs/company_icon.png';
+  static const String flasheSaleIcon =
+      'assets/images/pngs/flashe_sale_icon.png';
 
   /// -- Animations
   static const String productsIllustration =

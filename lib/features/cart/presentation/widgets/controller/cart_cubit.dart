@@ -36,7 +36,6 @@ class CartCubit extends Cubit<CartState> {
 
   Future<void> fetchCartData() async {
     // summaryModel = await repo.getCartSummary();
-    cartItemsModel = await repo.getCartItems();
     cartCountModel = await repo.getCartCount();
     itemsCount = cartCountModel.count!.toInt();
     itemsCount == 0 ? hasItems = false : hasItems = true;
@@ -46,8 +45,9 @@ class CartCubit extends Cubit<CartState> {
   }
 
   Future<void> fetchCartItems() async {
-    await fetchCartData();
+    cartItemsModel = await repo.getCartItems();
     Items.clear();
+    await fetchCartData();
     cartItemsModel.data?.forEach((element) {
       element.cartItems?.forEach((element) {
         Items.add(element);
@@ -138,7 +138,7 @@ class CartCubit extends Cubit<CartState> {
       context.pushNamed(DRoutesName.companyDetailsRoute, arguments: {
         'title': ceckOutModel.message,
         // 'logo': "logo",
-        'id': ceckOutModel.sellerId,
+        'id': ceckOutModel.sellerId.toString(),
       });
       await context
           .read<CompaniesByPageCubit>()

@@ -37,18 +37,18 @@ class _AddMinusCartButtonState extends State<AddMinusCartButton> {
     return Column(
       children: [
         IconButton(
-          onPressed: () {
-            setState(() {
+          onPressed: () async {
+            setState(() async {
               if ((widget.quantitiy == 0)) {
                 commonToast("${S.current.selectQuantitiy}");
               } else {
                 widget.isAddedOrinitial = true;
-                CartController.addToCart(
+                await CartController.addToCart(
                     id: widget.ID, quantity: widget.quantitiy.toString());
-                CartController.fetchCartData();
+                // CartController.fetchCartData();
+                CartController.fetchCartItems();
               }
             });
-            CartController.fetchCartItems();
           },
           icon: widget.quantitiy > 0
               ? Container(

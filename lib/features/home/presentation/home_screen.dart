@@ -1,18 +1,14 @@
+import 'package:duaya_app/common/custom_ui.dart';
+import 'package:duaya_app/features/home/presentation/widgets/bestseller_product_list.dart';
+import 'package:duaya_app/features/home/presentation/widgets/custom_category/custom_category_banner.dart';
+import 'package:duaya_app/features/home/presentation/widgets/custom_category/see_all_category_button.dart';
 import 'package:duaya_app/features/search/presentation/controller/search_cubit.dart';
-import 'package:duaya_app/features/home/presentation/widgets/custom_category/custom_category.dart';
-import 'package:duaya_app/features/home/presentation/widgets/custom_container_product/custom_container_product.dart';
 import 'package:duaya_app/features/home/presentation/widgets/custom_slider/custom_slider.dart';
 import 'package:duaya_app/generated/l10n.dart';
-import 'package:duaya_app/routing/routes_name.dart';
-import 'package:duaya_app/utils/constants/colors.dart';
-import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
-import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import '../../category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 import 'controller/best_seller_cubit.dart';
 
@@ -22,9 +18,6 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bestSellerController = context.read<BestSellerCubit>();
-    final categoriesByPageController = context.read<CategoriesByPageCubit>();
-
-    final searchTextController = TextEditingController();
 
     return BlocConsumer<CategoriesByPageCubit, CategoriesByPageState>(
       listener: (context, catastate) {},
@@ -35,14 +28,10 @@ class HomeScreen extends StatelessWidget {
             print(state);
             if (state is BestSellerInitial) {
               bestSellerController.fetchSlidersData();
-              return Center(
-                child: Lottie.asset(AssetRes.loadingSliders, height: 150.h),
-              );
+              return CustomUI.simpleLoader();
             } else if (bestSellerController.slidersModel.data == null ||
                 bestSellerController.slidersModel?.data?.length == 0) {
-              return Center(
-                child: Lottie.asset(AssetRes.loadingSliders),
-              );
+              return CustomUI.simpleLoader();
             } else {
               return BlocConsumer<SearchCubit, SearchState>(
                 listener: (context, state) {
@@ -66,66 +55,13 @@ class HomeScreen extends StatelessWidget {
                               /// see all Button
                               (catastate is CategoriesByPageInitial)
                                   ? Text(S.current.loading)
-                                  : Row(
-                                      children: [
-                                        Text(S.current.categories,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .titleLarge!
-                                                .copyWith(
-                                                    color: ColorRes.greenBlue)),
-                                        const Spacer(),
-                                        IconButton(
-                                          onPressed: () {
-                                            context.pushNamed(
-                                                DRoutesName.categoriesRoute);
-                                          },
-                                          icon: Text(S.current.seeAll,
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .titleSmall!
-                                                  .copyWith(
-                                                      color:
-                                                          ColorRes.greenBlue)),
-                                        ),
-                                        Icon(Icons.arrow_forward_ios,
-                                            size: 12.sp,
-                                            color: ColorRes.greenBlue)
-                                      ],
-                                    ),
+                                  : const SeeAllCategoryButton(),
 
                               /// Make Space
                               SizedBox(height: AppSizes.spaceBtwItems * 1.2),
 
-                              /// categories
-                              SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: List.generate(
-                                    categoriesByPageController
-                                        .categoriesModel.data!.length,
-                                    (index) => Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              8.0), // Adjust spacing between items
-                                      child: CustomCategoryInHome(
-                                        categoryImage:
-                                            categoriesByPageController
-                                                .categoriesModel
-                                                .data![index]
-                                                .icon!,
-                                        categoryName: categoriesByPageController
-                                            .categoriesModel.data![index].name!,
-                                        categoryID: categoriesByPageController
-                                            .categoriesModel.data![index].id!
-                                            .toString(),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
+                              /// categories banner
+                              const CustomCategoryBanner(),
 
                               /// Make Space
                               SizedBox(height: AppSizes.spaceBtwItems * 2),
@@ -139,85 +75,7 @@ class HomeScreen extends StatelessWidget {
                               SizedBox(height: AppSizes.spaceBtwItems * 1.2),
 
                               /// Bestseller Products
-                              GridView.builder(
-                                physics: const NeverScrollableScrollPhysics(),
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  mainAxisSpacing: 5.h,
-                                  childAspectRatio: 1.2 / 2.45,
-                                ),
-                                shrinkWrap: true,
-                                itemCount: bestSellerController
-                                    .bestSellerModel.data?.length,
-                                itemBuilder: (context, index) {
-                                  String? image = bestSellerController
-                                      .bestSellerModel
-                                      .data?[index]
-                                      .thumbnailImage!;
-                                  String ID = bestSellerController
-                                          .bestSellerModel.data![index].id!
-                                          .toString() ??
-                                      "";
-                                  String shopName = bestSellerController
-                                          .bestSellerModel
-                                          .data![index]
-                                          .shopName! ??
-                                      "";
-                                  String name = bestSellerController
-                                          .bestSellerModel.data![index].name! ??
-                                      "";
-                                  String discount = bestSellerController
-                                          .bestSellerModel
-                                          .data![index]
-                                          .discount ??
-                                      ""!;
-                                  String price = bestSellerController
-                                          .bestSellerModel
-                                          .data![index]
-                                          .mainPrice! ??
-                                      "";
-                                  String strokedPrice = bestSellerController
-                                          .bestSellerModel
-                                          .data![index]
-                                          .strokedPrice! ??
-                                      "";
-                                  bool hasDiscount = bestSellerController
-                                      .bestSellerModel
-                                      .data![index]
-                                      .hasDiscount!;
-                                  // bool isVarient= bestSellerController.bestSellerModel.data![index]
-                                  return GestureDetector(
-                                    onTap: () {
-                                      context.pushNamed(
-                                          DRoutesName.detailsProductRoute,
-                                          arguments: {
-                                            "productName": name,
-                                            "productID": ID,
-                                            "discount": ID,
-                                            "productImage": image,
-                                            "companyName": shopName,
-                                            "discount": discount,
-                                            "price": price,
-                                            "strockedPrice": strokedPrice,
-                                            "hasDicount": hasDiscount,
-                                          });
-                                    },
-                                    child: CustomContainerProduct(
-                                      color: ColorRes.greyGreen,
-                                      productImage: image,
-                                      productName: name,
-                                      companyName: shopName,
-                                      discount: discount,
-                                      price: price,
-                                      hasDicount: hasDiscount,
-                                      strockedPrice: strokedPrice,
-                                      rete: 5,
-                                      productID: ID,
-                                    ),
-                                  );
-                                },
-                              ),
+                              const BestsellerProductList()
                             ],
                           ),
                         ),

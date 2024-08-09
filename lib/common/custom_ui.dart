@@ -6,14 +6,18 @@ import 'package:lottie/lottie.dart';
 import '../utils/constants/colors.dart';
 
 class CustomUI {
-  static Future loader({required BuildContext context}) {
+  static loader({required BuildContext context}) {
     return showDialog(
       context: context,
       barrierDismissible: false,
       builder: (context) {
         return Center(
-            child: Lottie.asset(AssetRes.loadingSliders, width: 200.w));
+            child: Lottie.asset(AssetRes.loadingSliders, width: 100.w));
       },
     );
+  }
+
+  static Widget simpleLoader() {
+    return Center(child: Lottie.asset(AssetRes.loadingSliders, width: 100.w));
   }
 }

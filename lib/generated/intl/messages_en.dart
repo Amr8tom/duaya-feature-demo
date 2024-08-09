@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clinic": MessageLookupByLibrary.simpleMessage("Clinic"),
         "clinicName": MessageLookupByLibrary.simpleMessage("Clinic Name"),
         "color": MessageLookupByLibrary.simpleMessage("Color"),
+        "companies": MessageLookupByLibrary.simpleMessage("companies"),
         "company": MessageLookupByLibrary.simpleMessage("Company"),
         "comparePrice": MessageLookupByLibrary.simpleMessage("Compare Price"),
         "completed": MessageLookupByLibrary.simpleMessage("Completed"),
@@ -198,6 +199,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no": MessageLookupByLibrary.simpleMessage("No"),
         "noData": MessageLookupByLibrary.simpleMessage(
             "There is no data here till now"),
+        "noItemsInCart":
+            MessageLookupByLibrary.simpleMessage("there is no items in cart"),
         "noResult": MessageLookupByLibrary.simpleMessage("No results found"),
         "noUserFound": MessageLookupByLibrary.simpleMessage(
             "These credentials are not found"),

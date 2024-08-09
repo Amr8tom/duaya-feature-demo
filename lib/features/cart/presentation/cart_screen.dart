@@ -106,20 +106,24 @@ class _CartScreenState extends State<CartScreen> {
                     textButton1Color: ColorRes.greenBlue,
                     textButton2Color: ColorRes.white,
                     price: cartController.total.toStringAsFixed(2),
-                    // price: cartController.summartTotal,
                     totalText: S.current.total,
                     onTap1: () async {
                       Navigator.pop(context);
                       await cartController.saveQuantitiy();
                     },
                     onTap2: () async {
-                      /// check if the user account isverfied
-                      if (authController.userModel.user?.isVerfied == 1) {
-                        context.pushNamed(DRoutesName.AddressListRoute);
-                        await cartController.saveQuantitiy();
+                      /// check if cart is empty
+                      if (cartController.Items.isNotEmpty) {
+                        /// check if the user account isverfied
+                        if (authController.userModel.user?.isVerfied == 1) {
+                          context.pushNamed(DRoutesName.AddressListRoute);
+                          await cartController.saveQuantitiy();
+                        } else {
+                          commonToast(S.current.notVerified);
+                          await cartController.saveQuantitiy();
+                        }
                       } else {
-                        commonToast(S.current.notVerified);
-                        await cartController.saveQuantitiy();
+                        commonToast(S.current.noItemsInCart);
                       }
                     },
                   )),

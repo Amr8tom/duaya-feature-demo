@@ -85,6 +85,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "clinic": MessageLookupByLibrary.simpleMessage("عياده"),
         "clinicName": MessageLookupByLibrary.simpleMessage("أسم العياده "),
         "color": MessageLookupByLibrary.simpleMessage("اللــون"),
+        "companies": MessageLookupByLibrary.simpleMessage("الشركات"),
         "company": MessageLookupByLibrary.simpleMessage("الشركة"),
         "comparePrice":
             MessageLookupByLibrary.simpleMessage("قَـارٍن الخُصــوماَت"),
@@ -204,6 +205,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "no": MessageLookupByLibrary.simpleMessage("لا"),
         "noData": MessageLookupByLibrary.simpleMessage(
             "لا يــوجد شـئ في الوقت الحـالي"),
+        "noItemsInCart":
+            MessageLookupByLibrary.simpleMessage("لا يوجد منتجات في العربة"),
         "noResult": MessageLookupByLibrary.simpleMessage("لا توٌجـد نتــائج"),
         "noUserFound": MessageLookupByLibrary.simpleMessage(
             "لم يتم العثور على هذه البيانات"),

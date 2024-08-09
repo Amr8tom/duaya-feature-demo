@@ -13,12 +13,7 @@ class URL {
   static const deleteCart =
       '${baseUrl}carts/'; ///////  {} the id of the cart here
   static const changeQuantitiy = '${baseUrl}carts/change-quantity';
-  // "https://doctorpharmaco.com/api/v2/carts/change-quantity"
-  // {
-  // "id":"23185",
-  // "quantity":"5"
-  //
-  // }
+
   static const clubPointList = '${baseUrl}clubpoint/get-list';
   static const clubPointConvert = '${baseUrl}clubpoint/convert-into-wallet';
   static const listCartItems = '${baseUrl}carts';

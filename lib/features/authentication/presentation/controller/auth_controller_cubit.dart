@@ -14,12 +14,14 @@ import 'package:duaya_app/utils/local_storage/cache_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import '../../../../common/custom_ui.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../routing/routes_name.dart';
+import '../../../home/presentation/controller/best_seller_cubit.dart';
 import '../../data/repositories/loginRepo.dart';
 import '../../data/repositories/registerRepo.dart';
 part 'auth_controller_state.dart';
@@ -107,6 +109,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       PrefService.putString(key: CacheKeys.password, value: password);
       PrefService.putString(
           key: CacheKeys.cityID, value: userModel.user!.brandId.toString());
+      await context.read<BestSellerCubit>().fetchBestSellerData();
       context.pushReplacementNamed(DRoutesName.navigationMenuRoute);
       emit(AuthControllerloadingSuccess());
     } catch (e) {
