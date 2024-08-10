@@ -7,8 +7,8 @@ import '../../../../../routing/routes_name.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
-class RefundRequestList extends StatelessWidget {
-  const RefundRequestList({super.key});
+class PreviousOrderList extends StatelessWidget {
+  const PreviousOrderList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +19,11 @@ class RefundRequestList extends StatelessWidget {
         itemCount: 12,
         itemBuilder: (context, index) {
           return CustomOrderContanier(
-            isRefund: true,
-            isDelevied: false,
-            leftBotton: S.current.details,
-            onLeftButtonTap: () =>
-                context.pushNamed(DRoutesName.followOrderRoute),
-            image: AssetRes.refundIcon,
+            isRowLeftBotton: true,
+            isDelevied: true,
+            rightBotton: S.current.details,
+            leftBotton: S.current.reOrder,
+            image: AssetRes.truck,
             title: S.current.color,
             body: S.current.search,
           );

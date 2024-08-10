@@ -1,13 +1,14 @@
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../../common/widgets/custom_container/custom_order_contanier.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../../routing/routes_name.dart';
 import '../../../../../utils/constants/image_strings.dart';
 import '../../../../../utils/constants/sizes.dart';
 
-class CurrentOrderList extends StatelessWidget {
-  const CurrentOrderList({super.key});
+class RefundRequestList extends StatelessWidget {
+  const RefundRequestList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +19,18 @@ class CurrentOrderList extends StatelessWidget {
         itemCount: 12,
         itemBuilder: (context, index) {
           return CustomOrderContanier(
+            isRowLeftBotton: false,
+            isRefund: true,
             isDelevied: false,
-            rightBotton: S.current.details,
-            leftBotton: S.current.followOrder,
+            leftBotton: S.current.details,
             onLeftButtonTap: () =>
-                context.pushNamed(DRoutesName.followOrderRoute),
-            image: AssetRes.truck,
+                context.pushNamed(DRoutesName.returnRequestDeatilsRoute),
+            image: AssetRes.refundIcon,
+            divideNum: 5,
             title: S.current.color,
             body: S.current.search,
           );
         });
+    ;
   }
 }
