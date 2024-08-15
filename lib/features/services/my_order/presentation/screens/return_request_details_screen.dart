@@ -1,6 +1,6 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/features/services/refund_request/presentation/widget/refound_submit_details_button.dart';
-import 'package:duaya_app/features/services/refund_request/presentation/widget/refund_details_form.dart';
+import 'package:duaya_app/features/services/my_order/presentation/widgets/refund_details/refound_submit_details_button.dart';
+import 'package:duaya_app/features/services/my_order/presentation/widgets/refund_details/refund_details_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
