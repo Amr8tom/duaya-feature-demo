@@ -7,7 +7,7 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../generated/l10n.dart';
+import '../../../../../../generated/l10n.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -38,8 +38,8 @@ class FavoriteScreen extends StatelessWidget {
                   child: CustomContainerProduct(
                     productID: "ID",
                     productImage: AssetRes.product,
-                    productName: "Amr Alaa",
-                    companyName: "Top one",
+                    productName: "Duaya",
+                    companyName: "حــاري العمل",
                     rete: 5,
                     hasDicount: false,
                     price: '1KK',
