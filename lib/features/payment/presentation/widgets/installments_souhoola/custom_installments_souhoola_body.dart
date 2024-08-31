@@ -1,29 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import '../../../../common/custom_ui.dart';
-import '../../../../common/webViewPage.dart';
-import '../../../../generated/l10n.dart';
-import '../../../../utils/constants/colors.dart';
-import '../controller/payment_cubit.dart';
-import '../widgets/credit_card/custom_credit_card_Body.dart';
-
-class PaymentInInstallments extends StatelessWidget {
-  const PaymentInInstallments({super.key});
-
+import '../../../../../common/custom_ui.dart';
+import '../../../../../common/webViewPage.dart';
+import '../../../../../common/widgets/appbar/appbar.dart';
+import '../../../../../generated/l10n.dart';
+import '../../controller/payment_cubit.dart';
+class CustomInstallmentsSouhoola extends StatelessWidget {
+  const CustomInstallmentsSouhoola({super.key});
   @override
   Widget build(BuildContext context) {
+    final paymentController = context.read<PaymentCubit>();
+    paymentController.changePaymentMethod(paymentMethodID: 5, context: context);
+    paymentController.Pay();
     return Scaffold(
-      appBar: AppBar(
+      appBar: DAppBar(
+        showBackArrow: true,
         centerTitle: true,
-        backgroundColor: ColorRes.lightGreen,
         title: Text(
-          S.current.creditCard,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: ColorRes.white, fontSize: 25.sp),
+          S.current.installments6mon,
         ),
       ),
       body: BlocBuilder<PaymentCubit, PaymentState>(
@@ -40,7 +34,7 @@ class PaymentInInstallments extends StatelessWidget {
           } else if (state is PaymentLoading) {
             return CustomUI.simpleLoader();
           } else {
-            return const CustomCreditCardBody();
+            return const CustomInstallmentsBody();
           }
         },
       ),
