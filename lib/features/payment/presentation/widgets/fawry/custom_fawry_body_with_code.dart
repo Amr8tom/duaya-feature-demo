@@ -7,9 +7,9 @@ import '../../../../../generated/l10n.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/image_strings.dart';
 
-class CustomFawryBodyContainer extends StatelessWidget {
-  final String fawryCode;
-  const CustomFawryBodyContainer({super.key, required this.fawryCode});
+class CustomFawryBodyWithCode extends StatelessWidget {
+  final String? fawryCode;
+  const CustomFawryBodyWithCode({super.key, required this.fawryCode});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class CustomFawryBodyContainer extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineMedium!,
                 ),
                 Text(
-                  fawryCode,
+                  fawryCode ?? S.current.error,
                   style: Theme.of(context).textTheme.headlineMedium!,
                 ),
               ],

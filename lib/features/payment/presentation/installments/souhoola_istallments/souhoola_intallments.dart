@@ -6,6 +6,7 @@ import '../../../../../common/custom_ui.dart';
 import '../../../../../common/webViewPage.dart';
 import '../../../../../generated/l10n.dart';
 import '../../widgets/installments_12_months/custom_installments_12_months_body.dart';
+import '../../widgets/installments_souhoola/custom_installments_souhoola_body.dart';
 
 class SouhoolaIntallments extends StatelessWidget {
   const SouhoolaIntallments({super.key});
@@ -37,7 +38,7 @@ class SouhoolaIntallments extends StatelessWidget {
           } else if (state is PaymentLoading) {
             return CustomUI.simpleLoader();
           } else {
-            return const CustomInstallments12MonthsBody();
+            return const CustomInstallmentsSouhoola();
           }
         },
       ),

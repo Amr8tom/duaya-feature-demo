@@ -27,8 +27,9 @@ class CustomLottieFloatingAvtionBottom extends StatelessWidget {
               Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Spacer(),
+                    // Spacer(),
                     Text(
                       S.current.searchTitle,
                       style: TextStyle(fontSize: 16, color: ColorRes.white),

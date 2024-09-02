@@ -47,7 +47,7 @@ class CustomButtonWithIcon2 extends StatelessWidget {
                     style: Theme.of(context).textTheme.titleMedium!.copyWith(
                           color: textButtonColor,
                           height: .5.h,
-                          fontSize: 21.sp,
+                          fontSize: 18.sp,
                           fontWeight: FontWeight.w900,
                           fontFamily: 'Poppins',
                           overflow: TextOverflow

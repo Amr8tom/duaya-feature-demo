@@ -31,8 +31,7 @@ class ShortComingCubit extends Cubit<ShortComingState> {
         ),
       });
       // Send FormData to remote data source
-      Map<String, dynamic>? response =
-          await remote.sendComingShortFile(dataImage: formData);
+      final response = await remote.sendComingShortFile(dataImage: formData);
       shortCommingModel = ShortCommingBook.fromJson(response);
       Navigator.pop(context);
       commonToast(shortCommingModel.message.toString());

@@ -139,6 +139,7 @@ class AssetRes {
   static const String callIcon = 'assets/images/svgs/call.svg';
   static const String facebookIcon = 'assets/images/svgs/facebook.svg';
   static const String whatsappIcon = 'assets/images/svgs/whatsapp.svg';
+  static const String whatsappIconWhite = 'assets/images/svgs/whatsup.svg';
 
   static const String webApps = 'assets/images/pngs/webApps.png';
   static const String mobileApps = 'assets/images/pngs/mobileApps.png';
@@ -151,4 +152,11 @@ class AssetRes {
 
   ///  refund-request
   static const String refundIcon = 'assets/images/pngs/repeat-circle.png';
+
+  /// company
+  static const String companyAnitmation = 'assets/lotties/company3.json';
+
+  /// payments
+  static const String fawry = 'assets/lotties/fawry.json';
+  static const String mobileWallet = 'assets/lotties/mobile.json';
 }

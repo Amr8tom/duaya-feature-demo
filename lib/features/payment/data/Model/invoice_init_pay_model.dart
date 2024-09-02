@@ -51,22 +51,33 @@ class Data {
 }
 
 class PaymentData {
-  PaymentData({
-    this.fawryCode,
-    this.expireDate,
-  });
+  PaymentData(
+      {this.fawryCode,
+      this.expireDate,
+      this.meezaQrCode,
+      this.meezaReference,
+      this.redirectTo});
 
   PaymentData.fromJson(dynamic json) {
     fawryCode = json['fawryCode'];
     expireDate = json['expireDate'];
+    redirectTo = json['redirectTo'];
+    meezaQrCode = json['meezaQrCode'];
+    meezaReference = json['meezaReference'];
   }
   String? fawryCode;
   String? expireDate;
+  String? redirectTo;
+  String? meezaQrCode;
+  int? meezaReference;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['meezaQrCode'] = meezaQrCode;
+    map['meezaReference'] = meezaReference;
     map['fawryCode'] = fawryCode;
     map['expireDate'] = expireDate;
+    map['redirectTo'] = redirectTo;
     return map;
   }
 }

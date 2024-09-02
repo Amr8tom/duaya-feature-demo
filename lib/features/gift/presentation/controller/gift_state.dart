@@ -8,3 +8,5 @@ class GiftInitial extends GiftState {}
 class GiftILoadingData extends GiftState {}
 
 class GiftISuccessData extends GiftState {}
+
+class GiftINoData extends GiftState {}

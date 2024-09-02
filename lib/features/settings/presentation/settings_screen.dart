@@ -95,7 +95,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                               DRoutesName.profileInfoRoute)
                                           : index == 1
                                               ? showBottomSheetLanguage()
-                                              : Container();
+                                              : index == 2
+                                                  ? context.pushNamed(
+                                                      DRoutesName.favoriteRoute)
+                                                  : index == 3
+                                                      ? context.pushNamed(
+                                                          DRoutesName
+                                                              .myOrderRoute)
+                                                      : index == 4
+                                                          ? context.pushNamed(
+                                                              DRoutesName
+                                                                  .returnRequestRoute)
+                                                          : Container();
                                     },
                                     child: CustomSettingComponent(
                                         iconData:
@@ -108,7 +119,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                               separatorBuilder: (context, index) {
                                 return SizedBox(height: AppSizes.spaceBtwItems);
                               },
-                              itemCount: 2),
+                              itemCount: 5),
                         ),
 
                         /// Make Size
@@ -140,10 +151,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                       ..logOut(context: context);
                                   },
                                   child: CustomSettingComponent(
-                                      iconData: DConstants.iconsSetting[3],
+                                      iconData: DConstants.iconsSetting[5],
                                       titleOfComponent:
-                                          DConstants.titleSetting[3],
-                                      description: DConstants.desSetting[3]),
+                                          DConstants.titleSetting[5],
+                                      description: DConstants.desSetting[5]),
                                 ),
                               ],
                             )),

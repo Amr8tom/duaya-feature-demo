@@ -23,7 +23,6 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final searchController = context.read<SearchCubit>();
     searchController.turnOff();
-
     /// remove old results
     return Scaffold(
       appBar: DAppBar(

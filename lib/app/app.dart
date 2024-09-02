@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:duaya_app/common/managers/navigation_menu/navigation_menu_cubit.dart';
 import 'package:duaya_app/features/address/presentation/controller/address_cubit.dart';
 import 'package:duaya_app/features/cart/presentation/widgets/controller/cart_cubit.dart';
@@ -14,6 +15,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../features/authentication/presentation/controller/auth_controller_cubit.dart';
 import '../features/category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 import '../features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
+import '../features/payment/data/services.dart';
+import '../features/payment/presentation/controller/payment_cubit.dart';
 import '../features/search/presentation/controller/search_cubit.dart';
 import '../features/flash/presentation/controller/flash_cubit.dart';
 import '../features/services/medical_service/presentation/controller/medical_services_cubit.dart';
@@ -27,6 +30,8 @@ class DuayaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Dio dio = Dio();
+    final FawaterkServices fawaterkServices = FawaterkServices(dio: dio);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
@@ -37,6 +42,7 @@ class DuayaApp extends StatelessWidget {
               BlocProvider(create: (context) => FlashCubit()),
               BlocProvider(create: (context) => CompaniesByPageCubit()),
               BlocProvider(create: (context) => SearchCubit()),
+              BlocProvider(create: (context) => PaymentCubit(fawaterkServices)),
               BlocProvider(create: (context) => GiftCubit()),
               BlocProvider(create: (context) => CategoriesByPageCubit()),
               BlocProvider(create: (context) => AuthControllerCubit()),
@@ -54,18 +60,11 @@ class DuayaApp extends StatelessWidget {
                 // TODO: implement listener
               },
               builder: (context, state) {
-                // WidgetsBinding.instance.addPostFrameCallback((_) async {
-                //   await context.read<BestSellerCubit>().fetchBestSellerData();
-                //   await context.read<CategoriesByPageCubit>().fetchCategoriesByPage(userID: 0);
-                //   await context.read<FlashCubit>().fetchFlashTodayData();
-                //   await context.read<FlashCubit>().fetchFlashData();
-                // });
-
                 return MaterialApp(
                   debugShowCheckedModeBanner: false,
                   themeMode: ThemeMode.system,
                   theme: DAppTheme.lightTheme(context),
-                  darkTheme: DAppTheme.darkTheme(context),
+                  darkTheme: DAppTheme.lightTheme(context),
                   navigatorKey: navigatorKey,
                   onGenerateRoute: RouteGenerator.getRoute,
                   initialRoute: DRoutesName.splashRoute,

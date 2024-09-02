@@ -25,6 +25,7 @@ class BannerInVarientProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     String remotePrice = map["price"];
     String remotEarnPoint = S.current.loading;
+    String descreption = S.current.loading;
     String remotestrokedPrice = map["strockedPrice"];
     String remoteCompany = map["companyName"];
     String discount = map["discount"];
@@ -44,6 +45,9 @@ class BannerInVarientProduct extends StatelessWidget {
                   .toString() ??
               "";
           options = bestSellerController.productModel.data![0]!.choiceOptions!;
+          descreption =
+              bestSellerController.productModel.data?[0]?.description ??
+                  S.current.noData;
           remoteItemsCount = bestSellerController
                   .productModel.data?[0].currentStock
                   .toString() ??
@@ -270,6 +274,17 @@ class BannerInVarientProduct extends StatelessWidget {
                       SizedBox(
                         height: 20.sp,
                       ),
+                      Center(
+                          child: Container(
+                        child: Text(" ${S.current.description}"),
+                      )),
+                      Center(
+                          child: Container(
+                        child: Text(" $descreption"),
+                      )),
+                      SizedBox(
+                        height: 20.sp,
+                      ),
                     ],
                   ),
                 ],
@@ -287,7 +302,10 @@ class BannerInVarientProduct extends StatelessWidget {
             )),
             bestSellerController.isRelated
                 ? relatedProducts()
-                : Lottie.asset(AssetRes.searchICon, height: 200),
+                : Padding(
+                    padding: EdgeInsets.only(top: 100.h),
+                    child: Lottie.asset(AssetRes.searchICon, width: 100.w),
+                  ),
           ],
         );
       },

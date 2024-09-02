@@ -2,7 +2,7 @@
 //
 // class PointEntity extends Equatable {
 //   final int points;
-//ا
+// ا
 //   PointEntity({required this.points});
 //
 //   @override

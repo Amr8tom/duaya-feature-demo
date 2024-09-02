@@ -1,66 +1,49 @@
+import 'package:dio/dio.dart';
+import 'package:duaya_app/common/custom_ui.dart';
+import 'package:duaya_app/common/webViewPage.dart';
+import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/payment/presentation/controller/payment_cubit.dart';
+import 'package:duaya_app/features/payment/presentation/widgets/credit_card/custom_credit_card_Body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
-
-import '../../../../common/common_snak_bar_widget.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
-import '../../../cart/presentation/widgets/controller/cart_cubit.dart';
 
 class CreditCardPaymentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final cartController = context.read<CartCubit>();
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: ColorRes.lightGreen,
-        title: Text(
-          S.current.creditCard,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: ColorRes.white, fontSize: 25.sp),
+    final paymentController = context.read<PaymentCubit>();
+    paymentController.changePaymentMethod(paymentMethodID: 2, context: context);
+    paymentController.Pay();
+    return Builder(builder: (context) {
+      return Scaffold(
+        appBar: DAppBar(
+          showBackArrow: true,
+          centerTitle: true,
+          title: Text(
+            S.current.creditCard,
+          ),
         ),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-              // elevation: 5,
-              color: ColorRes.whiteLevel.withOpacity(0.3),
-              child: Lottie.asset(
-                AssetRes.creditCard,
-              )),
-          Spacer(),
-          Text(
-            S.current.creditCarddes,
-            style: Theme.of(context).textTheme.headlineMedium!,
-          ),
-          Spacer(),
-          ElevatedButton(
-            onPressed: () {
-              commonToast("غير ممكن حاليا");
-
-              // cartController.checkOut(
-              //     paymentType: "wallet",
-              //     userID: cartController.Items![0].userId.toString(),
-              //     context: context);
-            },
-            child: Center(
-              child: Text(
-                S.current.confirmPayment,
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineMedium!
-                    .copyWith(color: ColorRes.white),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+        body: BlocBuilder<PaymentCubit, PaymentState>(
+          builder: (context, state) {
+            if (state is PaymentSucessed) {
+              print(state.invoiceModel!.data!.paymentData!.redirectTo);
+              print(state.invoiceModel!.data!.invoiceKey);
+              print(state.invoiceModel!.data!.paymentData!.redirectTo);
+              return WebViewPage(
+                  url: state.invoiceModel!.data!.paymentData!.redirectTo
+                      .toString());
+            } else if (state is PaymentFailure) {
+              return Center(child: CustomUI.tryLater());
+            } else if (state is PaymentLoading) {
+              return CustomUI.simpleLoader();
+            } else {
+              return const CustomCreditCardBody();
+            }
+          },
+        ),
+      );
+    });
   }
 }

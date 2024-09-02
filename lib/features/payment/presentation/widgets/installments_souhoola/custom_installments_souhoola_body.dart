@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../common/custom_ui.dart';
-import '../../../../../common/webViewPage.dart';
-import '../../../../../common/widgets/appbar/appbar.dart';
+import 'package:lottie/lottie.dart';
 import '../../../../../generated/l10n.dart';
+import '../../../../../utils/constants/colors.dart';
+import '../../../../../utils/constants/image_strings.dart';
 import '../../controller/payment_cubit.dart';
+
 class CustomInstallmentsSouhoola extends StatelessWidget {
   const CustomInstallmentsSouhoola({super.key});
   @override
   Widget build(BuildContext context) {
     final paymentController = context.read<PaymentCubit>();
-    paymentController.changePaymentMethod(paymentMethodID: 5, context: context);
-    paymentController.Pay();
-    return Scaffold(
-      appBar: DAppBar(
-        showBackArrow: true,
-        centerTitle: true,
-        title: Text(
-          S.current.installments6mon,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+            color: ColorRes.whiteLevel.withOpacity(0.3),
+            child: Lottie.asset(
+              AssetRes.creditCard,
+            )),
+        Spacer(),
+        Text(
+          S.current.souhoola,
+          style: Theme.of(context).textTheme.headlineMedium!,
         ),
-      ),
-      body: BlocBuilder<PaymentCubit, PaymentState>(
-        builder: (context, state) {
-          if (state is PaymentSucessed) {
-            print(state.invoiceModel!.data!.paymentData!.redirectTo);
-            print(state.invoiceModel!.data!.invoiceKey);
-            print(state.invoiceModel!.data!.paymentData!.redirectTo);
-            return WebViewPage(
-                url: state.invoiceModel!.data!.paymentData!.redirectTo
-                    .toString());
-          } else if (state is PaymentFailure) {
-            return Center(child: CustomUI.tryLater());
-          } else if (state is PaymentLoading) {
-            return CustomUI.simpleLoader();
-          } else {
-            return const CustomInstallmentsBody();
-          }
-        },
-      ),
+        Spacer(),
+        ElevatedButton(
+          onPressed: () async {
+            await paymentController.Pay();
+          },
+          child: Center(
+            child: Text(
+              S.current.confirmPayment,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium!
+                  .copyWith(color: ColorRes.white),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

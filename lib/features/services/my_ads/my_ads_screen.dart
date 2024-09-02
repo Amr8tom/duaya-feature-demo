@@ -24,13 +24,13 @@ class MyAdsScreen extends StatelessWidget {
           child: Column(
             children: [
               /// Container Remaining Uploads
-              const CustomContainerRemainingUploads(),
+              // const CustomContainerRemainingUploads(),
 
               /// Make Size
               SizedBox(height: AppSizes.spaceBtwItems / 1.2),
 
               /// Container Upgrade Package
-              const CustomContainerUpgradePackage(),
+              // const CustomContainerUpgradePackage(),
 
               /// Make Size
               SizedBox(height: AppSizes.spaceBtwItems / 1.2),
@@ -39,7 +39,7 @@ class MyAdsScreen extends StatelessWidget {
                 child: OutlinedButton(
                     onPressed: () =>
                         context.pushNamed(DRoutesName.addNewProductOrAdsRoute),
-                    child: const Text('Add product or Add advertisement')),
+                    child: Text(S.current.addProduct)),
               ),
             ],
           ),

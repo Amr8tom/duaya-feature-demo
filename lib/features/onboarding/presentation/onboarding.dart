@@ -7,17 +7,12 @@ import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../home/presentation/controller/best_seller_cubit.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    // final besSellerController = context.read<BestSellerCubit>();
     final cubit = context.read<OnBoardingCubit>();
-    // try {
-    //   besSellerController.fetchBestSellerData();
-    // } catch (e) {}
     return Scaffold(
       body: Stack(
         children: [

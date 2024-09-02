@@ -49,6 +49,7 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: ColorRes.greenBlue),
         backgroundColor: bgColor ?? ColorRes.greenBlueLight,
         automaticallyImplyLeading: false,
+        leadingWidth: 85.w,
         leading: showBackArrow
             ? IconButton(
                 onPressed: () {
@@ -61,7 +62,10 @@ class DAppBar extends StatelessWidget implements PreferredSizeWidget {
                     color: arrowBackColor
                         ? ColorRes.greenBlue
                         : ColorRes.greenBlue))
-            : leadingWidget,
+            : Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: leadingWidget,
+              ),
         title: title,
         centerTitle: centerTitle,
         actions: actions,

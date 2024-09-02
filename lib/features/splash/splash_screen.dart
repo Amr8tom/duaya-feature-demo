@@ -44,27 +44,22 @@ class _SplashScreenState extends State<SplashScreen> {
     }
     try {
       if (cachedToken != '') {
+        print("Token =============================> ${CacheKeys.token}");
         await context.read<BestSellerCubit>().fetchBestSellerData();
-      } else {
-        print("Best Seller is inactive ==========================");
-        print("Best Seller is inactive ==========================");
-        print("Best Seller is inactive ==========================");
-        print("Best Seller is inactive ==========================");
-        print("Best Seller is inactive ==========================");
-      }
+      } else {}
     } catch (e) {
       print(e);
     }
 
-    try {
-      // if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
-      await context
-          .read<CategoriesByPageCubit>()
-          .fetchCategoriesByPage(userID: 0);
-      // }
-    } catch (e) {
-      print(e);
-    }
+    // try {
+    //   // if (cachedToken != '' || cachedToken.isNotEmpty || cachedToken != null) {
+    //   await context
+    //       .read<CategoriesByPageCubit>()
+    //       .fetchCategoriesByPage(userID: 0);
+    //   // }
+    // } catch (e) {
+    //   print(e);
+    // }
     navigationToHome(context);
   }
 

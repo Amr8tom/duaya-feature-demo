@@ -16,7 +16,9 @@ class DioHelper {
   Dio dio = Dio();
 
   Future<Map<String, dynamic>?> getData(
-      {required String URL, bool isHeader = true}) async {
+      {required String URL,
+      bool isHeader = true,
+      Map<String, dynamic>? data}) async {
     print(URL);
     print('Before response');
     Response response = await dio.get(URL,
@@ -28,7 +30,8 @@ class DioHelper {
                   "App-Language": S.current.localeee,
                 },
               )
-            : null);
+            : null,
+        data: data);
     print('After response');
     if (response.statusCode == 200) {
       return response.data;

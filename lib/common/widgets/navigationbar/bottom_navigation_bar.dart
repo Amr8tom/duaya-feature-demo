@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../generated/l10n.dart';
+import '../../../utils/constants/colors.dart';
 import '../../managers/navigation_menu/navigation_menu_cubit.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
@@ -31,26 +32,41 @@ class CustomBottomNavigationBar extends StatelessWidget {
 List<Widget> _items = [
   Column(
     children: [
-      Icon(Iconsax.home),
-      Text(S.current.home),
+      Icon(Iconsax.home, color: ColorRes.greenBlue),
+      Text(
+        S.current.home,
+        style: TextStyle(color: ColorRes.greenBlue),
+      ),
     ],
   ),
   Column(
     children: [
-      Icon(Iconsax.building),
-      Text(S.current.companies),
+      Icon(Iconsax.building, color: ColorRes.greenBlue),
+      Text(
+        S.current.companies,
+        style: TextStyle(color: ColorRes.greenBlue),
+      ),
     ],
   ),
   Column(
     children: [
-      Icon(Iconsax.discount_circle),
-      Text(S.current.flashSale),
+      Icon(Iconsax.discount_circle, color: ColorRes.greenBlue),
+      Text(
+        S.current.flashSale,
+        style: TextStyle(color: ColorRes.greenBlue),
+      ),
     ],
   ),
   Column(
     children: [
-      Icon(Iconsax.menu),
-      Text(S.current.services),
+      Icon(
+        Iconsax.menu,
+        color: ColorRes.greenBlue,
+      ),
+      Text(
+        S.current.services,
+        style: TextStyle(color: ColorRes.greenBlue),
+      ),
     ],
   ),
 ];

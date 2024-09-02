@@ -1,6 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
@@ -21,6 +19,7 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import '../../../../common/custom_ui.dart';
 import '../../../../generated/l10n.dart';
 import '../../../../routing/routes_name.dart';
+import '../../../category/presentation/category/presentation/controller/categories_by_page_cubit.dart';
 import '../../../home/presentation/controller/best_seller_cubit.dart';
 import '../../data/repositories/loginRepo.dart';
 import '../../data/repositories/registerRepo.dart';
@@ -50,6 +49,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
   TextEditingController password = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController image = TextEditingController();
+  TextEditingController agentCode = TextEditingController();
   rigsterRepositoryImpl repo = rigsterRepositoryImpl();
   XFile? selectedImage;
   FormData? formData; // Variable to hold FormData
@@ -109,6 +109,10 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       PrefService.putString(key: CacheKeys.password, value: password);
       PrefService.putString(
           key: CacheKeys.cityID, value: userModel.user!.brandId.toString());
+
+      await context
+          .read<CategoriesByPageCubit>()
+          .fetchCategoriesByPage(userID: 0);
       await context.read<BestSellerCubit>().fetchBestSellerData();
       context.pushReplacementNamed(DRoutesName.navigationMenuRoute);
       emit(AuthControllerloadingSuccess());
@@ -143,6 +147,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
   Future<void> fetchRegisterData(
       {required String name,
       required String emailOrPhone,
+      required String agentCode,
       required String password,
       required String passowrdConfirmation,
       required String registerBy,
@@ -171,6 +176,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
       "register_by": "email",
       "customer_type": customerType,
       "job_name": jobName,
+      "agent_code": agentCode,
       "phone": phone,
       // "license_img": base64Image,
       "filename": filename,
@@ -255,6 +261,7 @@ class AuthControllerCubit extends Cubit<AuthControllerState> {
         license_img: selectedImage2!.path,
         cityID: selectedCity!,
         countryID: selectedCountryID ?? "64",
+        agentCode: agentCode.text.trim(),
       );
       commonToast(registerrModel.message!);
       context.pushReplacementNamed(DRoutesName.loginRoute);

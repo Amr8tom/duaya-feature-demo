@@ -1,7 +1,12 @@
 class URL {
   static const base = 'https://doctorpharmaco.com/';
-  // static const base = 'https://duaya.net/';
   static const baseUrl = '${base}api/v2/';
+  static const fwaterkApi =
+      'd6102ac782d0fa700a5d2c6265f47ccb1d760b88edd5c95790';
+  static const fawaterk = 'https://app.fawaterk.com';
+  static const fawaterkFail = 'https://doctorpharmaco.com/fawaterak/fail';
+  static const fawaterkSuccess = 'https://doctorpharmaco.com/fawaterak/success';
+  static const fawaterkPending = 'https://dev.fawaterk.com/pending';
 
   /// Authentication
   static const login = '${baseUrl}auth/login';
@@ -13,7 +18,6 @@ class URL {
   static const deleteCart =
       '${baseUrl}carts/'; ///////  {} the id of the cart here
   static const changeQuantitiy = '${baseUrl}carts/change-quantity';
-
   static const clubPointList = '${baseUrl}clubpoint/get-list';
   static const clubPointConvert = '${baseUrl}clubpoint/convert-into-wallet';
   static const listCartItems = '${baseUrl}carts';
@@ -27,6 +31,10 @@ class URL {
   static const checkOut = '${baseUrl}order/store';
   static const walletHistory = '${baseUrl}wallet/history';
   static const walletBalance = '${baseUrl}wallet/balance';
+  static const wishlist = '${baseUrl}wishlists';
+  static const whilistAddItem = '${baseUrl}wishlists-add-product';
+  static const whilistRemoveItem = '${baseUrl}wishlists-remove-product';
+  static const whilistCheckItem = '${baseUrl}wishlists-check-product';
   static const cartCount = '${baseUrl}cart-count';
   static const summary = '${baseUrl}cart-summary';
   static const register = '${baseUrl}auth/signup';
@@ -38,7 +46,6 @@ class URL {
   static const todayDeals = '${baseUrl}products/todays-deal';
   static const categoriesByPageBycity = '${baseUrl}filter/categories';
   static const shortComing = '${baseUrl}shortcoming/store';
-  // products/brand/76?page=1
   static const categoryByID = '${baseUrl}products/category/';
   static const companiesByPage = '${baseUrl}shops?page=';
   static const companyDetails =
@@ -51,8 +58,19 @@ class URL {
       '${baseUrl}shops/products/new/'; //shops/products/new/{id}
   static const rsetPassword = '${baseUrl}auth/password/forget_request';
 
-  ///
+  ///  Authentication
+
+  // {
+  // "id":25444,
+  // "reason":"i dont need it"
+  // }
+
+  static const sendRefundOrderRequest = '${baseUrl}refund-request/send';
+  static const getAllRefundOrderRequest = '${baseUrl}refund-request/get-list';
   static const getAllOrders = '${baseUrl}purchase-history';
+  static const getOrderDetails =
+      '${baseUrl}purchase-history-details/'; //{OrderID}
+  static const getOrderItems = '${baseUrl}purchase-history-items/'; //{OrderID}
   static const confirmResetPassword = '${baseUrl}auth/password/confirm_reset';
   static const resendCodeResetPassword = '${baseUrl}auth/password/resend_code';
   static const getUserByToken = '${baseUrl}get-user-by-access_token';
@@ -60,9 +78,7 @@ class URL {
   static const expiredList = '${baseUrl}expired_products/list';
   static const expiredCreate = '${baseUrl}expired_products/create';
   static const expiredUpdate = '${baseUrl}expired_products/update/';
-  // '${baseUrl}expired_products/update/{id}';
   static const expiredDelete = '${baseUrl}expired_products/delete/';
-  // '${baseUrl}expired_products/delete/{id}';
   static const sliders = '${baseUrl}sliders';
   static const createAddress = '${baseUrl}user/shipping/create';
   static const updateAddress = '${baseUrl}user/shipping/update';

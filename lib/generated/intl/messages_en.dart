@@ -29,7 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
         "NoInternetConnection": MessageLookupByLibrary.simpleMessage(
             "There is no internet connection"),
+        "OtherTypes": MessageLookupByLibrary.simpleMessage("Other Types"),
         "Palestine": MessageLookupByLibrary.simpleMessage("Palestine"),
+        "QRCodeDes": MessageLookupByLibrary.simpleMessage(
+            "if you didnt receive massage scan this QRcode"),
         "ShortComing":
             MessageLookupByLibrary.simpleMessage("My Short Coming Book"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("About us"),
@@ -50,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Address Details"),
         "addressListTitle": MessageLookupByLibrary.simpleMessage(
             "You can add more than one address for more than branch"),
+        "agentCode":
+            MessageLookupByLibrary.simpleMessage("Agent Code (Optional)"),
         "alsoAvailable":
             MessageLookupByLibrary.simpleMessage("Also Available In :"),
         "amount": MessageLookupByLibrary.simpleMessage("The amount"),
@@ -67,6 +72,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "You cannot buy for less than 500 pounds"),
         "callUs": MessageLookupByLibrary.simpleMessage("Call us"),
         "calnced": MessageLookupByLibrary.simpleMessage("Clanced"),
+        "cancleOrder": MessageLookupByLibrary.simpleMessage("Cancle The Order"),
+        "cancleOrderBody": MessageLookupByLibrary.simpleMessage(
+            "are you sure that you want to cancle this order"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cashBack": MessageLookupByLibrary.simpleMessage("Cash Back"),
         "cashOnDelivery":
@@ -97,6 +105,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm password"),
         "confirmPayment":
             MessageLookupByLibrary.simpleMessage("Confirm Payment"),
+        "contactWithClient":
+            MessageLookupByLibrary.simpleMessage("Contact  With Client"),
         "continuePayment":
             MessageLookupByLibrary.simpleMessage("Continue Payment"),
         "continueShoping": MessageLookupByLibrary.simpleMessage("continue"),
@@ -131,6 +141,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailPasswordSend":
             MessageLookupByLibrary.simpleMessage("The Reset Code is Sent"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterMobileWallet": MessageLookupByLibrary.simpleMessage(
+            "Enter The Mobile Wallet Number"),
+        "error": MessageLookupByLibrary.simpleMessage("there is an error"),
         "exitApp": MessageLookupByLibrary.simpleMessage("Exit App"),
         "expiredProduct":
             MessageLookupByLibrary.simpleMessage("Expired Product"),
@@ -141,6 +154,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "favorite": MessageLookupByLibrary.simpleMessage("my Favorites"),
         "favoriteItems": MessageLookupByLibrary.simpleMessage(
             "My Favorite Items.....What you want to buy later"),
+        "fawry": MessageLookupByLibrary.simpleMessage("pay with fawry"),
+        "fawryCode": MessageLookupByLibrary.simpleMessage("Your Code To Pay"),
+        "fawryDes":
+            MessageLookupByLibrary.simpleMessage("use to code to payment"),
         "flashSale": MessageLookupByLibrary.simpleMessage("Sale"),
         "flashTodaySale": MessageLookupByLibrary.simpleMessage("Today Sale"),
         "followOeder": MessageLookupByLibrary.simpleMessage("Follow Order"),
@@ -149,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forget Password ?"),
         "forgetPasswordBody": MessageLookupByLibrary.simpleMessage(
             "enter your email or phonenumber and we will send you a password resent link."),
+        "getPaymentCode":
+            MessageLookupByLibrary.simpleMessage("Get Payment Code"),
         "helper": MessageLookupByLibrary.simpleMessage("Help"),
         "history": MessageLookupByLibrary.simpleMessage("history"),
         "home": MessageLookupByLibrary.simpleMessage("home"),
@@ -156,6 +175,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "hospitalName": MessageLookupByLibrary.simpleMessage("Hospital Name"),
         "hours": MessageLookupByLibrary.simpleMessage("Hours"),
         "iAgreeTo": MessageLookupByLibrary.simpleMessage("I agree to "),
+        "installmentWithSouhoola":
+            MessageLookupByLibrary.simpleMessage("Installment with souhoola"),
+        "installmentWithValu":
+            MessageLookupByLibrary.simpleMessage("Installment with valu"),
+        "installments12mon":
+            MessageLookupByLibrary.simpleMessage("installments on 12 months"),
+        "installments6mon":
+            MessageLookupByLibrary.simpleMessage("installments on 6 months"),
+        "installmentsServices":
+            MessageLookupByLibrary.simpleMessage("Installments Services"),
         "invalidEmail":
             MessageLookupByLibrary.simpleMessage(" please enter valid email "),
         "lab": MessageLookupByLibrary.simpleMessage("Lab"),
@@ -182,6 +211,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "minutes": MessageLookupByLibrary.simpleMessage("Minutes"),
         "missingItemsNotebook": MessageLookupByLibrary.simpleMessage(
             "Missing Items Notebook....You can upload a missing items sheet or an Excel sheet, and the orders will be processed automatically on your behalf"),
+        "mobilWalletOption": MessageLookupByLibrary.simpleMessage(
+            "if you doesnt receive a massage from us to continue buying use this qr code "),
+        "mobileWallet": MessageLookupByLibrary.simpleMessage(" Mobile Wallet"),
+        "mobileWalletDes": MessageLookupByLibrary.simpleMessage(
+            "you can pay using your mobile phone wallet"),
         "moneyYouLoan": MessageLookupByLibrary.simpleMessage("you loan"),
         "more": MessageLookupByLibrary.simpleMessage("More"),
         "msgImage": MessageLookupByLibrary.simpleMessage(
@@ -221,6 +255,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ordering from Duaya doubles your profits"),
         "onbordingMsg": MessageLookupByLibrary.simpleMessage(
             "i am here to help you around the whole app"),
+        "orderDetails": MessageLookupByLibrary.simpleMessage("Order Details"),
         "orderNumber": MessageLookupByLibrary.simpleMessage("Order Number "),
         "orederPlaced": MessageLookupByLibrary.simpleMessage("Oreder Placed"),
         "orederPlacedBody": MessageLookupByLibrary.simpleMessage(
@@ -268,12 +303,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "rechangreWalletBody": MessageLookupByLibrary.simpleMessage(
             "you can use any payment method"),
         "refundReason": MessageLookupByLibrary.simpleMessage("Refund Reason"),
+        "refunds": MessageLookupByLibrary.simpleMessage("refunds"),
         "refused": MessageLookupByLibrary.simpleMessage("Pending"),
         "remainingUploads":
             MessageLookupByLibrary.simpleMessage("Remaining Uploads"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "remotePayment": MessageLookupByLibrary.simpleMessage("Remote Payment"),
         "requested": MessageLookupByLibrary.simpleMessage("Requested"),
         "resendEmail": MessageLookupByLibrary.simpleMessage("Resend Email"),
+        "returnDetailsRequest":
+            MessageLookupByLibrary.simpleMessage("Fefund Request Details"),
         "returnOrder": MessageLookupByLibrary.simpleMessage(
             "Return Order....You can return an item within 3 days after receiving it"),
         "returnRequest": MessageLookupByLibrary.simpleMessage("Return Request"),
@@ -297,10 +336,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select Quantitiy at First"),
         "selectRegion": MessageLookupByLibrary.simpleMessage("Select region"),
         "send": MessageLookupByLibrary.simpleMessage("Send"),
+        "sendItem": MessageLookupByLibrary.simpleMessage("refund item"),
         "sendMyShortComingBook":
             MessageLookupByLibrary.simpleMessage(" Send Short Coming Book "),
         "sendNotebook": MessageLookupByLibrary.simpleMessage(
             "Send Missing Items Notebook....Important"),
+        "sendProduct": MessageLookupByLibrary.simpleMessage("send Product"),
         "sendToWallet": MessageLookupByLibrary.simpleMessage("send to wallet "),
         "services": MessageLookupByLibrary.simpleMessage("services"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -310,12 +351,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "singIn": MessageLookupByLibrary.simpleMessage("Sing In"),
         "size": MessageLookupByLibrary.simpleMessage("Size"),
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
+        "souhoola": MessageLookupByLibrary.simpleMessage("Souhoola"),
         "speakToUs": MessageLookupByLibrary.simpleMessage(
             "you can speak to a specialist"),
         "stagnantCategories":
             MessageLookupByLibrary.simpleMessage("Stagnant categories"),
         "stagnantItems": MessageLookupByLibrary.simpleMessage(
             "Stagnant Items.......You can upload your stagnant items to your account and they will be rotated and resold on your behalf"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
         "takeCameraPhoto": MessageLookupByLibrary.simpleMessage(
             "Take a Picture Form your Camera for missig items notebook "),
         "termsOfUse": MessageLookupByLibrary.simpleMessage("Terms of use"),
@@ -324,6 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Transaction History"),
         "tryAgain":
             MessageLookupByLibrary.simpleMessage("Please try again or sign up"),
+        "tryLater": MessageLookupByLibrary.simpleMessage("Please Try Later"),
         "underDelivery": MessageLookupByLibrary.simpleMessage("under delivery"),
         "unitPrice": MessageLookupByLibrary.simpleMessage("Unit Price"),
         "unknown": MessageLookupByLibrary.simpleMessage("Unknown"),
@@ -339,6 +383,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadImageCommercial": MessageLookupByLibrary.simpleMessage(
             "Upload image of the commercial register"),
         "userName": MessageLookupByLibrary.simpleMessage("User Name"),
+        "valu": MessageLookupByLibrary.simpleMessage("Valu"),
         "verificationCode":
             MessageLookupByLibrary.simpleMessage("Verification Code"),
         "verification_status": MessageLookupByLibrary.simpleMessage(

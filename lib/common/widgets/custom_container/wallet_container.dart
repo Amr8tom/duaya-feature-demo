@@ -54,28 +54,32 @@ class CustomContanerWallet extends StatelessWidget {
                           vertical: 25.sp, horizontal: 20.sp),
                       child: Image.asset(image),
                     ),
-                    Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10.w),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(title,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge!
-                                  .copyWith(
-                                      fontSize: 16.sp,
-                                      color: ColorRes.greenBlue)),
-                          SizedBox(height: AppSizes.spaceBtwTexts * 3),
-                          Text(body,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headlineLarge!
-                                  .copyWith(
-                                      fontSize: 8.sp,
-                                      color: ColorRes.grey,
-                                      fontWeight: FontWeight.w900)),
-                        ],
+                    Flexible(
+                      flex: 2,
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10.w),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineLarge!
+                                    .copyWith(
+                                        fontSize: 16.sp,
+                                        color: ColorRes.greenBlue)),
+                            SizedBox(height: AppSizes.spaceBtwTexts * 3),
+                            Text(body,
+                                maxLines: 3,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headlineLarge!
+                                    .copyWith(
+                                        fontSize: 12.sp,
+                                        color: ColorRes.black,
+                                        fontWeight: FontWeight.w900)),
+                          ],
+                        ),
                       ),
                     ),
                   ],

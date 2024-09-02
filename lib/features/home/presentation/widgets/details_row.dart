@@ -22,6 +22,7 @@ class detailsRow extends StatelessWidget {
         Center(
           child: Text(
             description,
+            maxLines: 10,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
                 color: Colors.grey,
                 fontWeight: FontWeight.w600,

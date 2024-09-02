@@ -29,7 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "Egypt": MessageLookupByLibrary.simpleMessage("مصر"),
         "NoInternetConnection":
             MessageLookupByLibrary.simpleMessage("لا يــوجد اتصال بالانترنت"),
+        "OtherTypes": MessageLookupByLibrary.simpleMessage("طرق أخري"),
         "Palestine": MessageLookupByLibrary.simpleMessage("فلسطين"),
+        "QRCodeDes": MessageLookupByLibrary.simpleMessage(
+            "اذا لم تتلقي رسالة للدفع قم بمسح ال QRcode"),
         "ShortComing": MessageLookupByLibrary.simpleMessage("كشكول النواقص"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("المَــزيد عنــا"),
         "accepted": MessageLookupByLibrary.simpleMessage("مقبــوُل"),
@@ -49,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تفاصيل العنوان"),
         "addressListTitle": MessageLookupByLibrary.simpleMessage(
             "يمكنك أضافة أكثر من عنوان للطلب لأكثر من فرع"),
+        "agentCode":
+            MessageLookupByLibrary.simpleMessage("كود المندوب (اختياري) "),
         "alsoAvailable":
             MessageLookupByLibrary.simpleMessage(" : أيضا متاح في"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
@@ -67,8 +72,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "لا يمكنك الشراء باقل من  500 جنيها "),
         "callUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
         "calnced": MessageLookupByLibrary.simpleMessage("تم الالغاء"),
+        "cancleOrder": MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
+        "cancleOrderBody": MessageLookupByLibrary.simpleMessage(
+            "هل انت متأكد أنك تريد حذف هذا الطلب"),
         "cart": MessageLookupByLibrary.simpleMessage("العربه"),
-        "cashBack": MessageLookupByLibrary.simpleMessage("كشـــاتك"),
+        "cashBack": MessageLookupByLibrary.simpleMessage("كاش باك"),
         "cashOnDelivery":
             MessageLookupByLibrary.simpleMessage("الدفع عند الاستلام"),
         "cashOnDeliveryScreen":
@@ -98,6 +106,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تاكـيد كلمـة المــرور"),
         "confirmPayment":
             MessageLookupByLibrary.simpleMessage("تــأكيد الشــراء"),
+        "contactWithClient":
+            MessageLookupByLibrary.simpleMessage("تواصل مع العميل"),
         "continuePayment":
             MessageLookupByLibrary.simpleMessage("مـتابعة الـشراء"),
         "continueShoping":
@@ -134,6 +144,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailPasswordSend":
             MessageLookupByLibrary.simpleMessage("تم ارسال الكود"),
         "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
+        "enterMobileWallet": MessageLookupByLibrary.simpleMessage(
+            "أدخل رقم المحفظة الالكترونية"),
+        "error": MessageLookupByLibrary.simpleMessage("هناك خطأ ما"),
         "exitApp":
             MessageLookupByLibrary.simpleMessage("الخٍـروُج من التَـطبيـق"),
         "expiredProduct":
@@ -145,6 +158,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "favorite": MessageLookupByLibrary.simpleMessage("أصنافي المفضلة"),
         "favoriteItems": MessageLookupByLibrary.simpleMessage(
             "اصنافي المفضلة   ما ترغب في شرائه لاحقا"),
+        "fawry": MessageLookupByLibrary.simpleMessage("الدفع مع فوري"),
+        "fawryCode": MessageLookupByLibrary.simpleMessage("كود فوري الخاص بك"),
+        "fawryDes": MessageLookupByLibrary.simpleMessage(
+            "استخدم كود فوري للدفع مع دوايا يمكنك الدفع مع اقرب خدمة فوري بالقرب لك"),
         "flashSale": MessageLookupByLibrary.simpleMessage("صَفقـات"),
         "flashTodaySale":
             MessageLookupByLibrary.simpleMessage("عِـــروٌض الــيوم"),
@@ -154,6 +171,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور ؟"),
         "forgetPasswordBody": MessageLookupByLibrary.simpleMessage(
             "أدخل ايميلك وسنقوم بارسال رسالة اليك بها كود تفعيل وتغير الباسورد"),
+        "getPaymentCode":
+            MessageLookupByLibrary.simpleMessage("الحصول على كود الدفع"),
         "helper": MessageLookupByLibrary.simpleMessage("مسـاعده"),
         "history": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسة"),
@@ -161,6 +180,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "hospitalName": MessageLookupByLibrary.simpleMessage("أسم المستشفي"),
         "hours": MessageLookupByLibrary.simpleMessage("ساعات"),
         "iAgreeTo": MessageLookupByLibrary.simpleMessage("أوافق علي  "),
+        "installmentWithSouhoola":
+            MessageLookupByLibrary.simpleMessage("التقسيط مع سهولة"),
+        "installmentWithValu":
+            MessageLookupByLibrary.simpleMessage("التقسيط مع فاليو"),
+        "installments12mon":
+            MessageLookupByLibrary.simpleMessage("التقسيط علي 12 أشهر"),
+        "installments6mon":
+            MessageLookupByLibrary.simpleMessage("التقسيط علي 6 أشهر"),
+        "installmentsServices":
+            MessageLookupByLibrary.simpleMessage("خدمات التقسيط"),
         "invalidEmail": MessageLookupByLibrary.simpleMessage(
             " أدخـل بـريد الكــتروني صَحـيح "),
         "lab": MessageLookupByLibrary.simpleMessage("معمل"),
@@ -188,6 +217,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "minutes": MessageLookupByLibrary.simpleMessage("دقائق"),
         "missingItemsNotebook": MessageLookupByLibrary.simpleMessage(
             "كشكول النواقص....يمكنك رفع ورقه النواقص أو شيت اكسل وسيتم عم الطلبات اوتوماتيكيا نيابه عنك"),
+        "mobilWalletOption": MessageLookupByLibrary.simpleMessage(
+            "اذا لم تتلقي رسالة لمتابعة الشراء قم بمسح هذا الكود من خلال محفظة الهاتف"),
+        "mobileWallet": MessageLookupByLibrary.simpleMessage("محفظة الهاتف"),
+        "mobileWalletDes": MessageLookupByLibrary.simpleMessage(
+            " يمكنك الدفع عن طريق محفظة رقم هاتفك"),
         "moneyYouLoan": MessageLookupByLibrary.simpleMessage("قَم بسـداد"),
         "more": MessageLookupByLibrary.simpleMessage("الــمزيد"),
         "msgImage": MessageLookupByLibrary.simpleMessage(
@@ -227,6 +261,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الطلب من دوايا يضاعف أرباحك"),
         "onbordingMsg": MessageLookupByLibrary.simpleMessage(
             "أنا المساعد الذكي هنا لمساعدتك عبر التطبيق"),
+        "orderDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الطلب"),
         "orderNumber": MessageLookupByLibrary.simpleMessage("رقم الطلب "),
         "orederPlaced": MessageLookupByLibrary.simpleMessage("تم الطلب"),
         "orederPlacedBody": MessageLookupByLibrary.simpleMessage(
@@ -273,14 +308,19 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شحن المحفظه الكترونيآ"),
         "rechangreWalletBody": MessageLookupByLibrary.simpleMessage(
             "عن طريق جميع وسائل الدفع الألكتروني"),
-        "refundReason": MessageLookupByLibrary.simpleMessage("سبب الرفض"),
+        "refundReason": MessageLookupByLibrary.simpleMessage("سبب الأرجاع"),
+        "refunds": MessageLookupByLibrary.simpleMessage("المرتجعات"),
         "refused": MessageLookupByLibrary.simpleMessage("قــيد الأنتٍــظآر"),
         "remainingUploads":
             MessageLookupByLibrary.simpleMessage("تحميلات متبقية"),
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
+        "remotePayment":
+            MessageLookupByLibrary.simpleMessage("الدفع الالكترونى"),
         "requested": MessageLookupByLibrary.simpleMessage("تحت الطلب"),
         "resendEmail":
             MessageLookupByLibrary.simpleMessage("أعد ارسال الايميل"),
+        "returnDetailsRequest":
+            MessageLookupByLibrary.simpleMessage("تفاصيل الأرجاع"),
         "returnOrder": MessageLookupByLibrary.simpleMessage(
             "إرجاع الطلب ....يمكنك عمل ارجاع لصنف بعد الاستلام خلال 3 ايام"),
         "returnRequest": MessageLookupByLibrary.simpleMessage("ارجاع الطلب"),
@@ -303,10 +343,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حـــدد الكِمــية أولاً "),
         "selectRegion": MessageLookupByLibrary.simpleMessage(" المنطقــة "),
         "send": MessageLookupByLibrary.simpleMessage("أرسال"),
+        "sendItem": MessageLookupByLibrary.simpleMessage("أرجع العنصر"),
         "sendMyShortComingBook":
             MessageLookupByLibrary.simpleMessage("أرسـال كشــكول النــواقص"),
         "sendNotebook": MessageLookupByLibrary.simpleMessage(
             "يمكنك تصوير ورفع النواقص والحصول علي طلبك بسرعة فائقة"),
+        "sendProduct": MessageLookupByLibrary.simpleMessage("أرسال الطلب"),
         "sendToWallet":
             MessageLookupByLibrary.simpleMessage("ارسال الي المحفظة"),
         "services": MessageLookupByLibrary.simpleMessage("خدمات"),
@@ -317,12 +359,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "singIn": MessageLookupByLibrary.simpleMessage("تسجـيل الدخـول"),
         "size": MessageLookupByLibrary.simpleMessage("الحــجم "),
         "skip": MessageLookupByLibrary.simpleMessage("تخطـى"),
+        "souhoola": MessageLookupByLibrary.simpleMessage("سهولة"),
         "speakToUs": MessageLookupByLibrary.simpleMessage(
             "يمكنك التواصل مباشرة مع صيدلي متخصص"),
         "stagnantCategories":
             MessageLookupByLibrary.simpleMessage("رواكد العملاء "),
         "stagnantItems": MessageLookupByLibrary.simpleMessage(
             "رواكد اصنافي.......يمكنك رفع الأصناف الراكده على حسابك وسيتم تدويرها واعاده بيعها نيابه عنك"),
+        "status": MessageLookupByLibrary.simpleMessage("الحالة"),
         "takeCameraPhoto": MessageLookupByLibrary.simpleMessage(
             "ألتقط صورة بالكاميرا لكشكول النواقص "),
         "termsOfUse": MessageLookupByLibrary.simpleMessage("شروط الاستخدام"),
@@ -331,6 +375,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Transaction History"),
         "tryAgain": MessageLookupByLibrary.simpleMessage(
             "  يُـرجى المُحاولة مرة أخرى أو التسجيل"),
+        "tryLater": MessageLookupByLibrary.simpleMessage(
+            "الرجاء المحاولة مرة اخري فيما بعد"),
         "underDelivery": MessageLookupByLibrary.simpleMessage("قيد التوصيل"),
         "unitPrice": MessageLookupByLibrary.simpleMessage("العملة"),
         "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
@@ -346,6 +392,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadImageCommercial":
             MessageLookupByLibrary.simpleMessage("أرفع صورة السجل التجاري"),
         "userName": MessageLookupByLibrary.simpleMessage("أسم المستخدم"),
+        "valu": MessageLookupByLibrary.simpleMessage("فاليو"),
         "verificationCode":
             MessageLookupByLibrary.simpleMessage("كــود التفعيل"),
         "verification_status": MessageLookupByLibrary.simpleMessage(

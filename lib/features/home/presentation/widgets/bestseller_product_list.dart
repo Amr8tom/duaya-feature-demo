@@ -20,11 +20,13 @@ class BestsellerProductList extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisSpacing: 5.h,
-        childAspectRatio: 1.2 / 2.45,
+        childAspectRatio: 1.2 / 2.4,
       ),
       shrinkWrap: true,
       itemCount: bestSellerController.bestSellerModel.data?.length,
       itemBuilder: (context, index) {
+        // String? discreption =
+        //     bestSellerController.bestSellerModel.data?[index].description!;
         String? image =
             bestSellerController.bestSellerModel.data?[index].thumbnailImage!;
         String ID =

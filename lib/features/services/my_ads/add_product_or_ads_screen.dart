@@ -5,6 +5,7 @@ import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/formatters/formatter.dart';
+import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
@@ -26,8 +27,10 @@ class _AddProductOrAdsScreenState extends State<AddProductOrAdsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  DAppBar(
-        title: Text(S.current.addProductOrAds),
+      appBar: DAppBar(
+        title: Text(
+          S.current.addProduct,
+        ),
         centerTitle: true,
         showBackArrow: true,
       ),
@@ -36,16 +39,14 @@ class _AddProductOrAdsScreenState extends State<AddProductOrAdsScreen> {
           padding: EdgeInsets.all(AppSizes.spaceBtwItems),
           child: Column(
             children: [
-
               TextFormField(
                 expands: false,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   labelText: S.current.productName,
                   prefixIcon: Icon(Iconsax.user_edit),
                 ),
               ),
               SizedBox(height: AppSizes.spaceBtwInputFields),
-
               InkWell(
                 onTap: _openCamera,
                 child: Container(
@@ -57,44 +58,49 @@ class _AddProductOrAdsScreenState extends State<AddProductOrAdsScreen> {
                   ),
                   child: _selectedImageFromCamera != null
                       ? ClipRRect(
-                    borderRadius: BorderRadius.circular(14.r),
-                    child: Image.file(
-                      File(_selectedImageFromCamera!.path),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  )
+                          borderRadius: BorderRadius.circular(14.r),
+                          child: Image.file(
+                            File(_selectedImageFromCamera!.path),
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: double.infinity,
+                          ),
+                        )
                       : Center(
-                    child: Column(
-                      children: [
-                        Lottie.asset(AssetRes.uploadImage, height: MediaQuery.of(context).size.height / 5.2),
-                        Text(S.current.productImage, style: const TextStyle().copyWith(fontSize: 12.8.sp, color: Colors.black),)
-                      ],
-                    ),
-                  ),
+                          child: Column(
+                            children: [
+                              Lottie.asset(AssetRes.emptyProduct2,
+                                  height:
+                                      MediaQuery.of(context).size.height / 5.2),
+                              Text(
+                                S.current.productImage,
+                                style: const TextStyle().copyWith(
+                                    fontSize: 12.8.sp, color: Colors.black),
+                              )
+                            ],
+                          ),
+                        ),
                 ),
               ),
               SizedBox(height: AppSizes.spaceBtwInputFields),
 
-
               TextFormField(
                 expands: false,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   labelText: S.current.productPrice,
                   prefixIcon: Icon(Iconsax.money),
                 ),
               ),
               SizedBox(height: AppSizes.spaceBtwInputFields),
 
-              TextFormField(
-                expands: false,
-                decoration: const InputDecoration(
-                  labelText: '20%',
-                  prefixIcon: Icon(Icons.local_offer_outlined),
-                ),
-              ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
+              // TextFormField(
+              //   expands: false,
+              //   decoration: const InputDecoration(
+              //     labelText: '',
+              //     prefixIcon: Icon(Icons.local_offer_outlined),
+              //   ),
+              // ),
+              // SizedBox(height: AppSizes.spaceBtwInputFields),
 
               /// Phone Number
               TextFormField(
@@ -103,11 +109,33 @@ class _AddProductOrAdsScreenState extends State<AddProductOrAdsScreen> {
                 decoration: InputDecoration(
                   labelText: S.current.phoneNumber,
                   suffixIcon: const Icon(Iconsax.call),
-                  prefixIcon: CustomPopupMenu(textWidget: Text(currentCountry == 'Egypt' ? selectedCountryCode.toString() : currentCountry == 'Saudi Arabia' || currentCountry == 'Saudi' ? '+966' : selectedCountryCode.toString()), onSelected: (String value) => setState(() => selectedCountryCode = value)),
+                  prefixIcon: CustomPopupMenu(
+                      textWidget: Text(currentCountry == 'Egypt'
+                          ? selectedCountryCode.toString()
+                          : currentCountry == 'Saudi Arabia' ||
+                                  currentCountry == 'Saudi'
+                              ? '+966'
+                              : selectedCountryCode.toString()),
+                      onSelected: (String value) =>
+                          setState(() => selectedCountryCode = value)),
                 ),
-                validator: (value) => DFormatter.formatPhoneNumber(value, selectedCountryCode),
+                validator: (value) =>
+                    DFormatter.formatPhoneNumber(value, selectedCountryCode),
               ),
-              SizedBox(height: AppSizes.spaceBtwInputFields),
+              SizedBox(height: AppSizes.spaceBtwInputFields * 10),
+              InkWell(
+                onTap: () {
+                  context.pop();
+                },
+                child: Container(
+                    width: 200,
+                    height: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.green),
+                      borderRadius: BorderRadius.circular(24.r),
+                    ),
+                    child: Center(child: Text(S.current.send))),
+              )
             ],
           ),
         ),

@@ -3,9 +3,8 @@ import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../generated/l10n.dart';
-import '../../../../../../utils/constants/colors.dart';
-
+import '../../../../../../../generated/l10n.dart';
+import '../../../../../../../utils/constants/colors.dart';
 
 class CustomBackToHomeButtom extends StatelessWidget {
   const CustomBackToHomeButtom({super.key});

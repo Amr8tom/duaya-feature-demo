@@ -1,15 +1,13 @@
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/authentication/presentation/controller/auth_controller_cubit.dart';
-import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
-import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../generated/l10n.dart';
-import '../../authentication/presentation/signup/widgets/TextFormWidget.dart';
-import '../../cart/presentation/widgets/controller/cart_cubit.dart';
-import 'controller/address_cubit.dart'; // Import the AddressCubit
+import 'controller/address_cubit.dart';
+
+// Import the AddressCubit
 
 class AddressFormScreen extends StatelessWidget {
   bool isUpdate;
@@ -29,7 +27,6 @@ class AddressFormScreen extends StatelessWidget {
           builder: (context, state) {
             AddressCubit addressController = context.read<AddressCubit>();
             final authController = context.read<AuthControllerCubit>();
-            CartCubit cartController = context.read<CartCubit>();
 
             return BlocConsumer<AddressCubit, AddressState>(
               listener: (context, state) {
@@ -46,7 +43,7 @@ class AddressFormScreen extends StatelessWidget {
                       Text(S.current.addressDetails),
                       SizedBox(height: 20.h),
                       TextField(
-                        maxLines: 10,
+                        maxLines: 5,
                         controller: addressController.addressController,
                       ),
                       SizedBox(height: 40.h),
@@ -63,11 +60,12 @@ class AddressFormScreen extends StatelessWidget {
 
                       /// submit button
                       Container(
+                        height: 40.h,
                         decoration: BoxDecoration(
                             color: ColorRes.greenBlue,
                             borderRadius: BorderRadius.circular(100)),
-                        child: ElevatedButton(
-                          onPressed: () async {
+                        child: InkWell(
+                          onTap: () async {
                             await addressController.onAddressSubmitted(
                                 ID: ID ?? "",
                                 context: context,
@@ -80,10 +78,12 @@ class AddressFormScreen extends StatelessWidget {
                                     .toString(),
                                 isUpdate: isUpdate);
                           },
-                          child: Container(
-                            child: Text(
-                              S.current.confirmAddress,
-                              style: TextStyle(color: ColorRes.white),
+                          child: Center(
+                            child: Container(
+                              child: Text(
+                                S.current.confirmAddress,
+                                style: TextStyle(color: ColorRes.white),
+                              ),
                             ),
                           ),
                         ),

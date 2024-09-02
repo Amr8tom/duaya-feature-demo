@@ -2,13 +2,11 @@ import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/payment/presentation/controller/payment_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../common/custom_ui.dart';
-import '../../../../common/webViewPage.dart';
-import '../../../../generated/l10n.dart';
-import '../../../../utils/constants/colors.dart';
-import '../widgets/installments_12_months/custom_installments_12_months_body.dart';
+import '../../../../../common/custom_ui.dart';
+import '../../../../../common/webViewPage.dart';
+import '../../../../../generated/l10n.dart';
+import '../../widgets/installments_12_months/custom_installments_12_months_body.dart';
 
 class PaymentInInstallments12Months extends StatelessWidget {
   const PaymentInInstallments12Months({super.key});

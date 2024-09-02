@@ -3,11 +3,11 @@ import 'package:duaya_app/features/home/presentation/controller/best_seller_cubi
 import 'package:duaya_app/features/home/presentation/widgets/custom_container_product/banner_varient_product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DetailsProduct extends StatefulWidget {
   final Map<String, dynamic> map;
   DetailsProduct({Key? key, required this.map}) : super(key: key);
-
   @override
   State<DetailsProduct> createState() => _DetailsProductState();
 }
@@ -24,7 +24,10 @@ class _DetailsProductState extends State<DetailsProduct> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: DAppBar(
-        title: Text(widget.map["productName"]),
+        title: Text(
+          widget.map["productName"],
+          style: TextStyle(fontSize: 17.sp),
+        ),
         centerTitle: true,
         showBackArrow: true,
       ),

@@ -131,6 +131,7 @@ class AddressCubit extends Cubit<AddressState> {
 
   /// make defult address and update address in cart
   void selectAddress({required int index, required String ID}) async {
+    print(ID);
     emit(AddressListToggleFalse());
     for (int i = 0; i < addressListModel!.data!.length!; i++) {
       addressListModel?.data?[i].setDefault = 0;

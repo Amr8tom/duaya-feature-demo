@@ -1,5 +1,5 @@
-class ClubpointModel {
-  ClubpointModel({
+class GetClubpointModel {
+  GetClubpointModel({
     this.data,
     this.links,
     this.meta,
@@ -7,7 +7,7 @@ class ClubpointModel {
     this.status,
   });
 
-  ClubpointModel.fromJson(dynamic json) {
+  GetClubpointModel.fromJson(dynamic json) {
     if (json['data'] != null) {
       data = [];
       json['data'].forEach((v) {
@@ -119,15 +119,15 @@ class Links {
   }
 }
 
-class Links {
-  Links({
+class Links2 {
+  Links2({
     this.first,
     this.last,
     this.prev,
     this.next,
   });
 
-  Links.fromJson(dynamic json) {
+  Links2.fromJson(dynamic json) {
     first = json['first'];
     last = json['last'];
     prev = json['prev'];
@@ -150,17 +150,33 @@ class Links {
 
 class Data {
   Data({
+    this.id,
+    this.userId,
     this.points,
+    this.convertStatus,
+    this.date,
   });
 
   Data.fromJson(dynamic json) {
+    id = json['id'];
+    userId = json['user_id'];
     points = json['points'];
+    convertStatus = json['convert_status'];
+    date = json['date'];
   }
+  num? id;
+  num? userId;
   num? points;
+  num? convertStatus;
+  String? date;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['id'] = id;
+    map['user_id'] = userId;
     map['points'] = points;
+    map['convert_status'] = convertStatus;
+    map['date'] = date;
     return map;
   }
 }

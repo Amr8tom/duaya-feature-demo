@@ -18,12 +18,7 @@ class DAppTheme {
   DAppTheme._();
 
   static ThemeData lightTheme(BuildContext context) {
-    String fontFamily =
-        // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
-        //     ?
-        // 'Poppins';
-        // :
-        'Cairo';
+    String fontFamily = 'Cairo';
 
     return ThemeData(
       useMaterial3: true,
@@ -42,27 +37,27 @@ class DAppTheme {
     );
   }
 
-  static ThemeData darkTheme(BuildContext context) {
-    String fontFamily =
-        // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
-        //     ?
-        // 'Poppins';
-        // :
-        'Cairo';
-
-    return ThemeData(
-      useMaterial3: true,
-      fontFamily: fontFamily,
-      brightness: Brightness.dark,
-      primaryColor: Colors.blue,
-      textTheme: DTextTheme.darkTextTheme,
-      scaffoldBackgroundColor: Colors.black,
-      appBarTheme: DAppBarTheme.darkAppBarTheme,
-      checkboxTheme: DCheckBoxTheme.darkCheckboxTheme,
-      bottomSheetTheme: DBottomSheetTheme.darkBottomSheetTheme,
-      elevatedButtonTheme: DElevatedButtonTheme.darkElevatedButtonTheme,
-      outlinedButtonTheme: DOutlinedButtonTheme.darkOutlinedButtonTheme,
-      inputDecorationTheme: DTextFormFieldTheme.darkInputDecorationTheme,
-    );
-  }
+  // static ThemeData darkTheme(BuildContext context) {
+  //   String fontFamily =
+  //       // BlocProvider.of<LanguageCubit>(context).getSavedLanguage == true
+  //       //     ?
+  //       // 'Poppins';
+  //       // :
+  //       'Cairo';
+  //
+  //   return ThemeData(
+  //     useMaterial3: true,
+  //     fontFamily: fontFamily,
+  //     brightness: Brightness.dark,
+  //     primaryColor: Colors.blue,
+  //     textTheme: DTextTheme.darkTextTheme,
+  //     scaffoldBackgroundColor: Colors.black,
+  //     appBarTheme: DAppBarTheme.darkAppBarTheme,
+  //     checkboxTheme: DCheckBoxTheme.darkCheckboxTheme,
+  //     bottomSheetTheme: DBottomSheetTheme.darkBottomSheetTheme,
+  //     elevatedButtonTheme: DElevatedButtonTheme.darkElevatedButtonTheme,
+  //     outlinedButtonTheme: DOutlinedButtonTheme.darkOutlinedButtonTheme,
+  //     inputDecorationTheme: DTextFormFieldTheme.darkInputDecorationTheme,
+  //   );
+  // }
 }

@@ -33,16 +33,20 @@ class SliderModel {
 class Data {
   Data({
     this.photo,
+    this.link,
   });
 
   Data.fromJson(dynamic json) {
     photo = json['photo'];
+    link = json['link'];
   }
   String? photo;
+  String? link;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['photo'] = photo;
+    map['link'] = link;
     return map;
   }
 }

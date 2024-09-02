@@ -120,6 +120,16 @@ class S {
     );
   }
 
+  /// `Cancle The Order`
+  String get cancleOrder {
+    return Intl.message(
+      'Cancle The Order',
+      name: 'cancleOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Later`
   String get later {
     return Intl.message(
@@ -135,6 +145,16 @@ class S {
     return Intl.message(
       'Refund Reason',
       name: 'refundReason',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `are you sure that you want to cancle this order`
+  String get cancleOrderBody {
+    return Intl.message(
+      'are you sure that you want to cancle this order',
+      name: 'cancleOrderBody',
       desc: '',
       args: [],
     );
@@ -160,6 +180,16 @@ class S {
     );
   }
 
+  /// `Please Try Later`
+  String get tryLater {
+    return Intl.message(
+      'Please Try Later',
+      name: 'tryLater',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `there is no items in cart`
   String get noItemsInCart {
     return Intl.message(
@@ -180,6 +210,36 @@ class S {
     );
   }
 
+  /// `Agent Code (Optional)`
+  String get agentCode {
+    return Intl.message(
+      'Agent Code (Optional)',
+      name: 'agentCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `there is an error`
+  String get error {
+    return Intl.message(
+      'there is an error',
+      name: 'error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `refunds`
+  String get refunds {
+    return Intl.message(
+      'refunds',
+      name: 'refunds',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `packing`
   String get packing {
     return Intl.message(
@@ -195,6 +255,76 @@ class S {
     return Intl.message(
       'companies',
       name: 'companies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Souhoola`
+  String get souhoola {
+    return Intl.message(
+      'Souhoola',
+      name: 'souhoola',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Installments Services`
+  String get installmentsServices {
+    return Intl.message(
+      'Installments Services',
+      name: 'installmentsServices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Valu`
+  String get valu {
+    return Intl.message(
+      'Valu',
+      name: 'valu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if you doesnt receive a massage from us to continue buying use this qr code `
+  String get mobilWalletOption {
+    return Intl.message(
+      'if you doesnt receive a massage from us to continue buying use this qr code ',
+      name: 'mobilWalletOption',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Installment with souhoola`
+  String get installmentWithSouhoola {
+    return Intl.message(
+      'Installment with souhoola',
+      name: 'installmentWithSouhoola',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Installment with valu`
+  String get installmentWithValu {
+    return Intl.message(
+      'Installment with valu',
+      name: 'installmentWithValu',
       desc: '',
       args: [],
     );
@@ -230,6 +360,46 @@ class S {
     );
   }
 
+  /// `pay with fawry`
+  String get fawry {
+    return Intl.message(
+      'pay with fawry',
+      name: 'fawry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `use to code to payment`
+  String get fawryDes {
+    return Intl.message(
+      'use to code to payment',
+      name: 'fawryDes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` Mobile Wallet`
+  String get mobileWallet {
+    return Intl.message(
+      ' Mobile Wallet',
+      name: 'mobileWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you can pay using your mobile phone wallet`
+  String get mobileWalletDes {
+    return Intl.message(
+      'you can pay using your mobile phone wallet',
+      name: 'mobileWalletDes',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Follow Order`
   String get followOrder {
     return Intl.message(
@@ -260,11 +430,51 @@ class S {
     );
   }
 
+  /// `Get Payment Code`
+  String get getPaymentCode {
+    return Intl.message(
+      'Get Payment Code',
+      name: 'getPaymentCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Code To Pay`
+  String get fawryCode {
+    return Intl.message(
+      'Your Code To Pay',
+      name: 'fawryCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Other Types`
+  String get OtherTypes {
+    return Intl.message(
+      'Other Types',
+      name: 'OtherTypes',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Re-Order`
   String get reOrder {
     return Intl.message(
       'Re-Order',
       name: 'reOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order Details`
+  String get orderDetails {
+    return Intl.message(
+      'Order Details',
+      name: 'orderDetails',
       desc: '',
       args: [],
     );
@@ -370,11 +580,31 @@ class S {
     );
   }
 
+  /// `Enter The Mobile Wallet Number`
+  String get enterMobileWallet {
+    return Intl.message(
+      'Enter The Mobile Wallet Number',
+      name: 'enterMobileWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Please try again or sign up`
   String get tryAgain {
     return Intl.message(
       'Please try again or sign up',
       name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if you didnt receive massage scan this QRcode`
+  String get QRCodeDes {
+    return Intl.message(
+      'if you didnt receive massage scan this QRcode',
+      name: 'QRCodeDes',
       desc: '',
       args: [],
     );
@@ -440,11 +670,31 @@ class S {
     );
   }
 
+  /// `Remote Payment`
+  String get remotePayment {
+    return Intl.message(
+      'Remote Payment',
+      name: 'remotePayment',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `send to wallet `
   String get sendToWallet {
     return Intl.message(
       'send to wallet ',
       name: 'sendToWallet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact  With Client`
+  String get contactWithClient {
+    return Intl.message(
+      'Contact  With Client',
+      name: 'contactWithClient',
       desc: '',
       args: [],
     );
@@ -495,6 +745,36 @@ class S {
     return Intl.message(
       'My Order',
       name: 'myOrder',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `installments on 6 months`
+  String get installments6mon {
+    return Intl.message(
+      'installments on 6 months',
+      name: 'installments6mon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `installments on 12 months`
+  String get installments12mon {
+    return Intl.message(
+      'installments on 12 months',
+      name: 'installments12mon',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add Product`
+  String get addProduct {
+    return Intl.message(
+      'Add Product',
+      name: 'addProduct',
       desc: '',
       args: [],
     );
@@ -1852,6 +2132,16 @@ class S {
     );
   }
 
+  /// `Fefund Request Details`
+  String get returnDetailsRequest {
+    return Intl.message(
+      'Fefund Request Details',
+      name: 'returnDetailsRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Clanced`
   String get calnced {
     return Intl.message(
@@ -1917,6 +2207,26 @@ class S {
     return Intl.message(
       'Continue',
       name: 'coontinue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `refund item`
+  String get sendItem {
+    return Intl.message(
+      'refund item',
+      name: 'sendItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `send Product`
+  String get sendProduct {
+    return Intl.message(
+      'send Product',
+      name: 'sendProduct',
       desc: '',
       args: [],
     );
@@ -2217,16 +2527,6 @@ class S {
     return Intl.message(
       'Unit Price',
       name: 'unitPrice',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Add Product`
-  String get addProduct {
-    return Intl.message(
-      'Add Product',
-      name: 'addProduct',
       desc: '',
       args: [],
     );

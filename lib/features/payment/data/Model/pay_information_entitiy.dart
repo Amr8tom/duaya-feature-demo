@@ -1,18 +1,24 @@
+import '../../../cart/data/model/ListItemModel.dart';
+
 class PayInformationEntitiy {
   final String firstName;
   final String lastName;
   final String email;
   final String phone;
   final String address;
-  final String price;
+  String? mobileWallet;
+  String price;
+  List<CartItems> Items;
   final String currency;
-  final String quantitiy;
-  final String itemName;
-  final String paymentMethodID;
+  String quantitiy;
+  String itemName;
+  int paymentMethodID;
 
   PayInformationEntitiy({
     this.itemName = "test",
     required this.quantitiy,
+    required this.Items,
+    this.mobileWallet,
     required this.paymentMethodID,
     required this.price,
     this.currency = "EGP",

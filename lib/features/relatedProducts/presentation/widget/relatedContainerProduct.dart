@@ -23,7 +23,6 @@ class RelatedContainerProduct extends StatelessWidget {
   // final double rete;
   bool hasDicount;
   bool isCart;
-
   RelatedContainerProduct({
     Key? key,
     required this.productImage,
@@ -64,8 +63,6 @@ class RelatedContainerProduct extends StatelessWidget {
                         Container(
                           width: 90.w,
                           height: 32.h,
-                          // padding: EdgeInsets.symmetric(
-                          //     horizontal: AppSizes.spaceBtwTexts),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.only(
                                   bottomRight:
@@ -127,11 +124,11 @@ class RelatedContainerProduct extends StatelessWidget {
                                                 .titleSmall!
                                                 .copyWith(
                                                     color: Colors.red,
-                                                    fontSize: 25.sp,
+                                                    fontSize: 14.sp,
                                                     fontWeight:
                                                         FontWeight.w900)),
 
-                                        Text(productName + " >",
+                                        Text(productName,
                                             maxLines: 2,
                                             style: Theme.of(context)
                                                 .textTheme
@@ -140,14 +137,14 @@ class RelatedContainerProduct extends StatelessWidget {
                                                     overflow:
                                                         TextOverflow.ellipsis,
                                                     color: ColorRes.greenBlue,
-                                                    fontSize: 20.sp,
+                                                    fontSize: 15.sp,
                                                     fontWeight:
                                                         FontWeight.w900)),
                                       ],
                                     ),
                                   ),
                                   Container(
-                                    width: 144.w,
+                                    width: 120.w,
                                     child: AddMinusCartButton(
                                       height: AppSizes.appBarHeight,
                                       width: double.infinity,

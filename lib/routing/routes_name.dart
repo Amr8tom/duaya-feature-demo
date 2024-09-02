@@ -40,18 +40,36 @@ class DRoutesName {
   static const String customerAdsRoute = 'customer-ads-route';
   static const String myOrderRoute = 'my-order-route';
   static const String followOrderRoute = 'follow-order-route';
+  static const String orderDetailsRoute = 'order-details-route';
   static const String myNoteBookRoute = 'my-note-book-route';
   static const String favoriteRoute = 'favorite-route';
   static const String expireProductRoute = 'expire-product-route';
   static const String returnRequestRoute = 'return-request-route';
+  static const String returnRequestDeatilsRoute =
+      'return-request-details-route';
   static const String medicalServiceRoute = 'medical-service-route';
   static const String addNewProductOrAdsRoute = 'add-product-route';
 
   /// payment
   static const String walletPaymentRoute = 'walletPayment-route';
   static const String DelayedCashRoute = 'DelayedCash-route';
+  static const String OtherTypesRoute = 'Other-Types-route';
   static const String CreditCardPaymentRoute = 'CreditCardPayment-route';
   static const String CashOnDeliveryRoute = 'CashOnDelivery-route';
+  static const String fawaterkRoute = 'fawaterk-route';
+  static const String fawryRoute = 'fawry-route';
+  static const String mobileWalletRoute = 'mobile-wallet-route';
+  static const String remotePaymentRoute = 'remote-payment-route';
+  static const String paymentInInstallments6MonthsRoute =
+      'payment_in_installments_6_months_route';
+  static const String paymentInInstallments12MonthsRoute =
+      'payment_in_installments_12_months_route';
+  static const String paymentInInstallmentsValu =
+      'payment_in_installments_Valu_route';
+  static const String paymentInInstallmentsSouhoola =
+      'payment_in_installments_souhoola_route';
+  static const String paymentInInstallmentsMain =
+      'payment_in_installments_main_route';
 
   /// address
   static const String AddressListRoute = 'AddressList-route';

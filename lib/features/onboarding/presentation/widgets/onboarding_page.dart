@@ -58,6 +58,7 @@ class OnBoardingPage extends StatelessWidget {
                     )),
           Container(
             child: Text(
+              maxLines: 3,
               title,
               style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                   fontSize: 22.sp,
@@ -72,6 +73,7 @@ class OnBoardingPage extends StatelessWidget {
           ),
           Container(
             child: Text(
+              maxLines: 3,
               subTitle,
               style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: ColorRes.black,

@@ -119,15 +119,15 @@ class Links {
   }
 }
 
-class Links {
-  Links({
+class Links2 {
+  Links2({
     this.first,
     this.last,
     this.prev,
     this.next,
   });
 
-  Links.fromJson(dynamic json) {
+  Links2.fromJson(dynamic json) {
     first = json['first'];
     last = json['last'];
     prev = json['prev'];

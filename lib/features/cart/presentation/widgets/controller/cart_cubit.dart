@@ -53,6 +53,7 @@ class CartCubit extends Cubit<CartState> {
         Items.add(element);
       });
     });
+    print(Items);
     calaTotal();
     emit(FetechCartDataSuccess());
   }

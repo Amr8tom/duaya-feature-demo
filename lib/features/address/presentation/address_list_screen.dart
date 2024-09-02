@@ -1,13 +1,12 @@
 import 'package:duaya_app/common/common_snak_bar_widget.dart';
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/common/widgets/floating_action_button/custom_floating_action_button.dart';
-import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:lottie/lottie.dart';
 import '../../../common/widgets/appbar/appbar.dart';
 import '../../../generated/l10n.dart';
 import '../../../routing/routes_name.dart';
@@ -28,10 +27,6 @@ class AddressListScreen extends StatelessWidget {
         title: Column(
           children: [
             Text(S.current.address),
-            // Text(
-            //   S.current.addressListTitle,
-            //   style: Theme.of(context).textTheme!.headlineMedium.,
-            // )
           ],
         ),
       ),
@@ -39,13 +34,9 @@ class AddressListScreen extends StatelessWidget {
         builder: (context, state) {
           if (state is FetchAddressListDataLoading) {
             print(state);
-            return Center(
-              child: Lottie.asset(AssetRes.loadingSliders, height: 150.h),
-            );
+            return CustomUI.simpleLoader();
           } else if (state is AddressInitial) {
-            return Center(
-              child: Lottie.asset(AssetRes.loadingSliders, height: 150.h),
-            );
+            return CustomUI.simpleLoader();
           } else {
             if (state is FetchAddressListDataSuccess) {
               print(state);
@@ -70,6 +61,8 @@ class AddressListScreen extends StatelessWidget {
                     .addressListModel?.data?[index].setDefault;
                 if (set_default == 1) {
                   addressListController.setDefult(selectValue: set_default!);
+                  addressListController.selectAddress(
+                      index: index, ID: ID.toString());
                 }
                 return Stack(
                   children: [

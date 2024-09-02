@@ -11,8 +11,6 @@ class relatedProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bestSellerController = context.read<BestSellerCubit>();
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Stack(
       children: [
         GridView.builder(
@@ -20,7 +18,7 @@ class relatedProducts extends StatelessWidget {
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
             mainAxisSpacing: 10.h,
-            childAspectRatio: 3.1 / 2,
+            childAspectRatio: 3.4 / 2,
           ),
           shrinkWrap: true,
           itemCount: bestSellerController.relatedProduct.data?.length,
@@ -37,7 +35,7 @@ class relatedProducts extends StatelessWidget {
             String? companyName =
                 bestSellerController.relatedProduct.data?[index].shopName;
             final ID = bestSellerController.relatedProduct.data![index].id;
-            // final quantitiy = bestSellerController.relatedProduct.data![index];
+
             return RelatedContainerProduct(
               productImage: AssetRes.product,
               productName: name!,

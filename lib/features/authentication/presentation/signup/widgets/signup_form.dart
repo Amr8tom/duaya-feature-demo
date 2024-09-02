@@ -1,8 +1,6 @@
 import 'dart:io';
 import 'package:duaya_app/common/widgets/custom_popup_menu/custom_popup_menu.dart';
-import 'package:duaya_app/features/authentication/presentation/signup/widgets/TextFormWidget.dart';
 import 'package:duaya_app/features/authentication/presentation/signup/widgets/terms_conditions_checkbox.dart';
-import 'package:duaya_app/routing/routes_name.dart';
 import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/formatters/formatter.dart';
@@ -12,11 +10,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:lottie/lottie.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-import '../../../../../utils/constants/api_constants.dart';
 import '../../../../../utils/constants/colors.dart';
 import '../../controller/auth_controller_cubit.dart';
 import 'TextFormRegisterationWidget.dart';
@@ -134,6 +129,33 @@ class _DSignupFormState extends State<DSignupForm> {
                   onSelected: (String value) =>
                       setState(() => selectedCountryCode = value),
                 ),
+              ),
+            ),
+
+            /// size
+            SizedBox(
+              height: 15.h,
+            ),
+
+            /// agentCode
+            TextFormField(
+              validator: (value) {
+                if (value!.isEmpty) {
+                  authController.showWarningDialoag(context: context);
+                }
+                DFormatter.formatPhoneNumber(value, selectedCountryCode);
+              },
+              controller: authController.agentCode,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: ColorRes.greenBlue,
+                    width: 1,
+                  ),
+                ),
+                labelText: S.current.agentCode,
+                suffixIcon: const Icon(Iconsax.personalcard),
               ),
             ),
 

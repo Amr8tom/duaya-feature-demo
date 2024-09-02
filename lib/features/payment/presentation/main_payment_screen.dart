@@ -1,18 +1,13 @@
+import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/payment/presentation/widgets/methodCard.dart';
 import 'package:duaya_app/routing/routes_name.dart';
-import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../generated/l10n.dart';
 
 class PaymentScreen extends StatelessWidget {
   void navigateToCashOnDelivery(BuildContext context) {
     context.pushNamed(DRoutesName.CashOnDeliveryRoute);
-  }
-
-  void navigateToCreditCardPayment(BuildContext context) {
-    context.pushNamed(DRoutesName.CreditCardPaymentRoute);
   }
 
   void navigateToDelayedCash(BuildContext context) {
@@ -23,17 +18,22 @@ class PaymentScreen extends StatelessWidget {
     context.pushNamed(DRoutesName.walletPaymentRoute);
   }
 
+  void navigateToRemotePayment(BuildContext context) {
+    context.pushNamed(DRoutesName.remotePaymentRoute);
+  }
+
+  void navigateToInstallemnts(BuildContext context) {
+    context.pushNamed(DRoutesName.paymentInInstallmentsMain);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: DAppBar(
+        showBackArrow: true,
         centerTitle: true,
         title: Text(
           S.current.choosePaymentMethod,
-          style: Theme.of(context)
-              .textTheme
-              .headlineMedium!
-              .copyWith(color: ColorRes.appBarColor, fontSize: 30.sp),
         ),
       ),
       body: Center(
@@ -44,10 +44,12 @@ class PaymentScreen extends StatelessWidget {
                 Icons.delivery_dining, () => navigateToCashOnDelivery(context)),
             buildPaymentMethodCard(context, S.current.walletByPayment,
                 Icons.wallet, () => navigateToWalletPaymen(context)),
-            buildPaymentMethodCard(context, S.current.creditCard,
-                Icons.credit_card, () => navigateToCreditCardPayment(context)),
             buildPaymentMethodCard(context, S.current.delayedCash,
                 Icons.schedule, () => navigateToDelayedCash(context)),
+            buildPaymentMethodCard(context, S.current.remotePayment,
+                Icons.schedule, () => navigateToRemotePayment(context)),
+            buildPaymentMethodCard(context, S.current.installmentsServices,
+                Icons.schedule, () => navigateToInstallemnts(context)),
           ],
         ),
       ),
