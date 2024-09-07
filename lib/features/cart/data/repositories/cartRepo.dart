@@ -10,8 +10,8 @@ import '../../../../generated/l10n.dart';
 import '../../../../utils/connection/checkNetwork.dart';
 import '../dataSources/cartRemoteDataSource.dart';
 import '../model/ChangeQuantitiyModel.dart';
-import '../model/ListItemModel.dart';
 import '../model/addToCartModel.dart';
+import '../model/cart_model.dart';
 
 class cartRepositoryImpl {
   final cartRemoteDataSources remoteData = cartRemoteDataSources();
@@ -104,17 +104,17 @@ class cartRepositoryImpl {
     }
   }
 
-  Future<ListItemModel> getCartItems() async {
+  Future<CartModel> getCartItems() async {
     bool networkInfo =
         await NetworkInfoImpl(DataConnectionChecker()).isConnected;
     if (networkInfo) {
       print(
           "/////////////////////////   Net Connected  ///////////////////////////////////");
       final response = await remoteData.getCartItems();
-      return ListItemModel.fromJson(response);
+      return CartModel.fromJson(response);
     } else {
       String response = await localData.getCartItems();
-      return ListItemModel.fromJson(response);
+      return CartModel.fromJson(response);
     }
   }
 }

@@ -49,6 +49,7 @@ class Data {
     this.discount,
     this.strokedPrice,
     this.mainPrice,
+    this.round,
     this.calculablePrice,
     this.currencySymbol,
     this.currentStock,
@@ -91,6 +92,7 @@ class Data {
     strokedPrice = json['stroked_price'];
     mainPrice = json['main_price'];
     calculablePrice = json['calculable_price'];
+    round = json['round'];
     currencySymbol = json['currency_symbol'];
     currentStock = json['current_stock'];
     unit = json['unit'];
@@ -105,6 +107,7 @@ class Data {
   int? id;
   String? name;
   String? addedBy;
+  String? round;
   int? sellerId;
   int? shopId;
   String? shopName;
@@ -152,6 +155,7 @@ class Data {
     map['colors'] = colors;
     map['has_discount'] = hasDiscount;
     map['discount'] = discount;
+    map['round'] = round;
     map['stroked_price'] = strokedPrice;
     map['main_price'] = mainPrice;
     map['calculable_price'] = calculablePrice;

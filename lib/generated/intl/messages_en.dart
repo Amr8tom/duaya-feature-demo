@@ -27,6 +27,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "DeliveredBody": MessageLookupByLibrary.simpleMessage(
             "Your order is Delivered please call us for any problems"),
         "Egypt": MessageLookupByLibrary.simpleMessage("Egypt"),
+        "MorningShift":
+            MessageLookupByLibrary.simpleMessage("Morning shift Number"),
         "NoInternetConnection": MessageLookupByLibrary.simpleMessage(
             "There is no internet connection"),
         "OtherTypes": MessageLookupByLibrary.simpleMessage("Other Types"),
@@ -35,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "if you didnt receive massage scan this QRcode"),
         "ShortComing":
             MessageLookupByLibrary.simpleMessage("My Short Coming Book"),
+        "Tombstone": MessageLookupByLibrary.simpleMessage("Nearst Tombstone"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("About us"),
         "accepted": MessageLookupByLibrary.simpleMessage("Accepted"),
         "acceptedBody":
@@ -67,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "backToHome": MessageLookupByLibrary.simpleMessage("Back To Home"),
         "beautyTools": MessageLookupByLibrary.simpleMessage("Beauty Tools"),
         "bestOffers": MessageLookupByLibrary.simpleMessage("Best Offers"),
+        "buildingNumber":
+            MessageLookupByLibrary.simpleMessage("Building Number"),
         "buyNow": MessageLookupByLibrary.simpleMessage("Buy Now"),
         "buyingLimit": MessageLookupByLibrary.simpleMessage(
             "You cannot buy for less than 500 pounds"),
@@ -144,6 +149,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterMobileWallet": MessageLookupByLibrary.simpleMessage(
             "Enter The Mobile Wallet Number"),
         "error": MessageLookupByLibrary.simpleMessage("there is an error"),
+        "eveningShift":
+            MessageLookupByLibrary.simpleMessage("evening shift Number"),
         "exitApp": MessageLookupByLibrary.simpleMessage("Exit App"),
         "expiredProduct":
             MessageLookupByLibrary.simpleMessage("Expired Product"),
@@ -195,6 +202,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "lastAddress": MessageLookupByLibrary.simpleMessage("Last Address"),
         "later": MessageLookupByLibrary.simpleMessage("Later"),
         "letsStart": MessageLookupByLibrary.simpleMessage("Welcome Again"),
+        "limit": MessageLookupByLibrary.simpleMessage("Lowest Limit"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
         "localeee": MessageLookupByLibrary.simpleMessage("en"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
@@ -274,6 +282,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pharmacy": MessageLookupByLibrary.simpleMessage("Pharmacy"),
         "pharmacyName": MessageLookupByLibrary.simpleMessage("Pharmacy Name"),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
+        "placeName": MessageLookupByLibrary.simpleMessage("Place Name"),
+        "placeNumber": MessageLookupByLibrary.simpleMessage("Place Number"),
         "pleaseEndterValue": MessageLookupByLibrary.simpleMessage(
             "please dont let this filed null"),
         "point": MessageLookupByLibrary.simpleMessage("point"),
@@ -317,6 +327,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Return Order....You can return an item within 3 days after receiving it"),
         "returnRequest": MessageLookupByLibrary.simpleMessage("Return Request"),
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
+        "round": MessageLookupByLibrary.simpleMessage("Arrival Time"),
         "saleTime":
             MessageLookupByLibrary.simpleMessage("The Sale Time ends in"),
         "saudiArabia": MessageLookupByLibrary.simpleMessage("saudiArabia"),
@@ -359,6 +370,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "stagnantItems": MessageLookupByLibrary.simpleMessage(
             "Stagnant Items.......You can upload your stagnant items to your account and they will be rotated and resold on your behalf"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
+        "streetName": MessageLookupByLibrary.simpleMessage("Street Name"),
         "takeCameraPhoto": MessageLookupByLibrary.simpleMessage(
             "Take a Picture Form your Camera for missig items notebook "),
         "termsOfUse": MessageLookupByLibrary.simpleMessage("Terms of use"),

@@ -13,8 +13,8 @@ import 'package:meta/meta.dart';
 import '../../../../../common/common_snak_bar_widget.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
-import '../../../data/model/ListItemModel.dart';
 import '../../../data/model/addToCartModel.dart';
+import '../../../data/model/cart_model.dart';
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
@@ -29,7 +29,8 @@ class CartCubit extends Cubit<CartState> {
   late CartCount cartCountModel;
   // late CartSummary summaryModel;
   late CheckOutModel ceckOutModel;
-  late ListItemModel cartItemsModel;
+  // late ListItemModel cartItemsModel;
+  late CartModel cartItemsModel;
   late ChangeQuantitiyModel chaneQuantitiyModel;
   Map<String, Map<String, dynamic>> NewQuantitiesMap = {};
   List<CartItems> Items = [];

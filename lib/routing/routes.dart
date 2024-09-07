@@ -10,7 +10,6 @@ import 'package:duaya_app/features/home/presentation/details_product.dart';
 import 'package:duaya_app/features/payment/presentation/fawry_payment_screen/fawry_payment_screen.dart';
 import 'package:duaya_app/features/payment/presentation/mobile_wallet_screen/mobile_wallet_screen.dart';
 import 'package:duaya_app/features/payment/presentation/remote_payment_screen/remote_payment_screen.dart';
-import 'package:duaya_app/features/services/my_ads/my_ads_screen.dart';
 import 'package:duaya_app/features/services/my_order/presentation/screens/order_details_screen.dart';
 import 'package:duaya_app/features/services/presentation/wallet/presentation/wallet_screen.dart';
 import 'package:duaya_app/features/onboarding/presentation/onboarding.dart';
@@ -41,7 +40,8 @@ import '../features/services/customer_ads/presentation/customer_ads_screen.dart'
 import '../features/services/expire_product/presentation/add_new_product_screen.dart';
 import '../features/services/expire_product/presentation/expire_products_screen.dart';
 import '../features/services/medical_service/presentation/medical_service_screen.dart';
-import '../features/services/my_ads/add_product_or_ads_screen.dart';
+import '../features/services/my_ads/presentation/add_product_or_ads_screen.dart';
+import '../features/services/my_ads/presentation/my_ads_screen.dart';
 import '../features/services/my_order/presentation/screens/follow_order_screen.dart';
 import '../features/services/my_order/presentation/screens/my_order_screen.dart';
 import '../features/payment/presentation/main_payment_screen.dart';

@@ -140,11 +140,91 @@ class S {
     );
   }
 
+  /// `Arrival Time`
+  String get round {
+    return Intl.message(
+      'Arrival Time',
+      name: 'round',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nearst Tombstone`
+  String get Tombstone {
+    return Intl.message(
+      'Nearst Tombstone',
+      name: 'Tombstone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Place Name`
+  String get placeName {
+    return Intl.message(
+      'Place Name',
+      name: 'placeName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Morning shift Number`
+  String get MorningShift {
+    return Intl.message(
+      'Morning shift Number',
+      name: 'MorningShift',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `evening shift Number`
+  String get eveningShift {
+    return Intl.message(
+      'evening shift Number',
+      name: 'eveningShift',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Street Name`
+  String get streetName {
+    return Intl.message(
+      'Street Name',
+      name: 'streetName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Building Number`
+  String get buildingNumber {
+    return Intl.message(
+      'Building Number',
+      name: 'buildingNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Refund Reason`
   String get refundReason {
     return Intl.message(
       'Refund Reason',
       name: 'refundReason',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lowest Limit`
+  String get limit {
+    return Intl.message(
+      'Lowest Limit',
+      name: 'limit',
       desc: '',
       args: [],
     );
@@ -175,6 +255,16 @@ class S {
     return Intl.message(
       'Oreder Placed',
       name: 'orederPlaced',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Place Number`
+  String get placeNumber {
+    return Intl.message(
+      'Place Number',
+      name: 'placeNumber',
       desc: '',
       args: [],
     );

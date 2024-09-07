@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/category/presentation/category/presentation/controller/companies_by_page_cubit.dart';
 import 'package:duaya_app/features/category/presentation/category/presentation/widget/flash_today_deals_body_girdview.dart';
@@ -24,9 +25,11 @@ class CompanyDetailsScreen extends StatelessWidget {
     final companyDetailsController = context.read<CompaniesByPageCubit>();
     String email = S.current.loading;
     String phone = S.current.loading;
+    String round = S.current.loading;
     String adress = S.current.loading;
     String name = S.current.loading;
     String products = S.current.loading;
+    String lowestLimit = S.current.loading;
     String verified = S.current.loading;
     String? logo;
     Widget FlashToday = SizedBox();
@@ -42,6 +45,7 @@ class CompanyDetailsScreen extends StatelessWidget {
           adress = companyDetailsController.companyModel.data!.address!;
           name = companyDetailsController.companyModel.data!.name!;
           String reName = companyDetailsController.companyModel.data!.name!;
+          lowestLimit = companyDetailsController.companyModel.data!.minLimit!;
           context.read<FlashCubit>()
             ..fetchCertainCompanyFlashTodayData(companyName: reName);
           verified = companyDetailsController.companyModel.data!.verifyText!;
@@ -136,35 +140,29 @@ class CompanyDetailsScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                state is FetchCompanyDataSuccess
-                    ? Expanded(
-                        child: TabBarView(
-                        children: [
-                          newProductGridView(
-                            companyDetailsController: companyDetailsController,
-                          ),
-                          bestSellerGridView(
-                              companyDetailsController:
-                                  companyDetailsController),
-                          FlashToday,
-                        ],
-                      ))
-                    : Center(
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 180.sp,
+                Expanded(
+                    child: Stack(
+                  children: [
+                    state is FetchCompanyDataSuccess
+                        ? Padding(
+                            padding: EdgeInsets.only(top: 20.h),
+                            child: TabBarView(
+                              children: [
+                                newProductGridView(
+                                  companyDetailsController:
+                                      companyDetailsController,
+                                ),
+                                bestSellerGridView(
+                                    companyDetailsController:
+                                        companyDetailsController),
+                                FlashToday,
+                              ],
                             ),
-                            SizedBox(
-                              height: 20.sp,
-                            ),
-                            Lottie.asset(
-                              height: 130.sp,
-                              AssetRes.loadingSliders,
-                            )
-                          ],
-                        ),
-                      )
+                          )
+                        : CustomUI.searchWidget(),
+                    _roundWidget(map: map, limit: lowestLimit),
+                  ],
+                ))
               ],
             ),
           ),
@@ -172,4 +170,61 @@ class CompanyDetailsScreen extends StatelessWidget {
       },
     );
   }
+}
+
+Widget _roundWidget(
+    {required Map<dynamic, dynamic> map, required String limit}) {
+  return Container(
+    width: double.infinity,
+    height: 70.h,
+    decoration: BoxDecoration(
+      color: ColorRes.white.withOpacity(0.2),
+    ),
+    child: Row(
+      children: [
+        Spacer(),
+        Column(
+          children: [
+            Text(
+              "${S.current.round}",
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w700,
+                color: ColorRes.greenBlue,
+              ),
+            ),
+            Text(
+              "${map["round"]}",
+              style: TextStyle(
+                fontSize: 17.sp,
+                color: ColorRes.black,
+              ),
+            ),
+          ],
+        ),
+        Spacer(),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "${S.current.limit}",
+              style: TextStyle(
+                fontSize: 20.sp,
+                fontWeight: FontWeight.w700,
+                color: ColorRes.greenBlue,
+              ),
+            ),
+            Text(
+              "${limit}",
+              style: TextStyle(
+                fontSize: 17.sp,
+                color: ColorRes.black,
+              ),
+            ),
+          ],
+        ),
+        Spacer()
+      ],
+    ),
+  );
 }

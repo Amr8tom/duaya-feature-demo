@@ -21,23 +21,23 @@ class DTextFormFieldTheme {
         const TextStyle().copyWith(color: ColorRes.black.withOpacity(0.8)),
     border: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 2.w, color: ColorRes.greenBlue),
+      borderSide: BorderSide(width: 1.w, color: ColorRes.greenBlue),
     ),
     enabledBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 2.w, color: ColorRes.greenBlue),
+      borderSide: BorderSide(width: 1.w, color: ColorRes.greenBlue),
     ),
     focusedBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 2.w, color: ColorRes.greenBlue),
+      borderSide: BorderSide(width: 1.w, color: ColorRes.greenBlue),
     ),
     errorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 2.w, color: Colors.red),
+      borderSide: BorderSide(width: 1.w, color: Colors.red),
     ),
     focusedErrorBorder: const OutlineInputBorder().copyWith(
       borderRadius: BorderRadius.circular(14.r),
-      borderSide: BorderSide(width: 2.w, color: Colors.orange),
+      borderSide: BorderSide(width: 1.w, color: Colors.orange),
     ),
   );
 

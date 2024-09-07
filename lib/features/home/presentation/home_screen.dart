@@ -13,7 +13,6 @@ import 'controller/best_seller_cubit.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final bestSellerController = context.read<BestSellerCubit>();
@@ -38,9 +37,9 @@ class HomeScreen extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-
                           /// Make Space
                           SizedBox(height: AppSizes.spaceBtwItems),
+
                           /// Slider
                           const CustomSlider(),
 

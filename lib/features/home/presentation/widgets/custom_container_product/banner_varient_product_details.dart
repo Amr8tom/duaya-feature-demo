@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/features/home/data/model/productModel.dart';
 import 'package:duaya_app/features/home/presentation/widgets/details_row.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
@@ -25,12 +26,14 @@ class BannerInVarientProduct extends StatelessWidget {
   Widget build(BuildContext context) {
     String remotePrice = map["price"];
     String remotEarnPoint = S.current.loading;
+    String round = S.current.loading;
     String descreption = S.current.loading;
     String remotestrokedPrice = map["strockedPrice"];
     String remoteCompany = map["companyName"];
     String discount = map["discount"];
     bool hasDicount = map["hasDicount"];
     String remoteImage = map["productImage"];
+
     String remoteItemsCount = S.current.loading;
     BestSellerCubit bestSellerController = context.read<BestSellerCubit>();
     List<ChoiceOptions> options = [];
@@ -53,6 +56,8 @@ class BannerInVarientProduct extends StatelessWidget {
                   .toString() ??
               "";
           colors = bestSellerController.productModel.data![0]!.colors!;
+          round = bestSellerController.productModel.data?[0]?.round ??
+              S.current.loading;
           map["variant"] = bestSellerController.varient ?? "";
         }
 
@@ -241,6 +246,8 @@ class BannerInVarientProduct extends StatelessWidget {
                                 detailsRow(
                                     title: S.current.company,
                                     description: remoteCompany),
+                                detailsRow(
+                                    title: S.current.round, description: round),
 
                                 detailsRow(
                                     title: S.current.avaliableItemCount,
@@ -301,11 +308,8 @@ class BannerInVarientProduct extends StatelessWidget {
                   .copyWith(color: ColorRes.greenBlue, fontSize: 32.sp),
             )),
             bestSellerController.isRelated
-                ? relatedProducts()
-                : Padding(
-                    padding: EdgeInsets.only(top: 100.h),
-                    child: Lottie.asset(AssetRes.searchICon, width: 100.w),
-                  ),
+                ? const relatedProducts()
+                : CustomUI.searchWidget(),
           ],
         );
       },

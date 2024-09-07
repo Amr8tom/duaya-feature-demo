@@ -22,7 +22,7 @@ class CustomCustomerAdsBody extends StatelessWidget {
           childAspectRatio: 1 / 1.5,
         ),
         shrinkWrap: true,
-        itemCount: 12,
+        itemCount: 1,
         itemBuilder: (context, index) {
           return GestureDetector(
               onTap: () {
@@ -30,11 +30,11 @@ class CustomCustomerAdsBody extends StatelessWidget {
               },
               child: CustomContainerProduct(
                 productImage: AssetRes.product,
-                productName: "product",
-                companyName: "Duaya",
+                productName: "بروفين",
+                companyName: "صيدلية الرجاء",
                 rete: 4.5,
                 hasDicount: false,
-                price: "199",
+                price: "2000",
                 productID: 'ID',
                 color: ColorRes.grey,
                 isCart: false,

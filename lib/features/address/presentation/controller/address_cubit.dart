@@ -17,13 +17,22 @@ part 'address_state.dart';
 
 class AddressCubit extends Cubit<AddressState> {
   AddressCubit() : super(AddressInitial());
-  final TextEditingController addressController = TextEditingController();
-  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController placeNameController = TextEditingController();
+  final TextEditingController placePhoneController = TextEditingController();
+  final TextEditingController eveiningPhoneController = TextEditingController();
+  final TextEditingController moriningPhoneController = TextEditingController();
+  final TextEditingController tombstoneController = TextEditingController();
+  final TextEditingController streetNameController = TextEditingController();
+  final TextEditingController buildingNumController = TextEditingController();
   final TextEditingController postalController = TextEditingController();
-  bool addressError = false;
+  bool placeNameError = false;
+  bool placephoneError = false;
+  bool streetError = false;
+  bool buildingError = false;
+  bool tomstoneError = false;
+  bool moriningError = false;
+  bool eveingError = false;
   bool postalCodeError = false;
-  bool nameCodeError = false;
-  bool phoneError = false;
   bool submitErrors = false;
   int isSelected = 0;
   late CreateAddress? createAddressModel;
@@ -41,13 +50,22 @@ class AddressCubit extends Cubit<AddressState> {
       required String cityID}) async {
     emit(AddressCreateNewLoading());
     createAddressModel = await repo.createAddressModel(AddressBody: {
-      "address": addressController.text.trim(),
+      "address": "\n ${S.current.streetName}:${streetNameController.text.trim()}"
+          ",${S.current.buildingNumber}:${buildingNumController.text.trim()}"
+          ",${S.current.placeName}"
+          ":${placeNameController.text.trim()},"
+          "${S.current.Tombstone}:"
+          "${tombstoneController.text.trim()},"
+          "${S.current.eveningShift}:"
+          "${eveiningPhoneController.text.trim()},"
+          "${S.current.MorningShift}:"
+          "${moriningPhoneController.text.trim()}",
       "country_id": countryID,
       "state_id": stateID,
       // "name": nameController.text.trim(),
       "city_id": cityID,
       "postal_code": postalController.text.trim() ?? "0000",
-      "phone": phoneController.text.trim()
+      "phone": placePhoneController.text.trim()
     });
     emit(AddressCreateNewSuccess());
     commonToast(createAddressModel!.message.toString());
@@ -62,14 +80,23 @@ class AddressCubit extends Cubit<AddressState> {
       required String cityID}) async {
     emit(AddressCreateNewLoading());
     updateAddressModel = await repo.updateAddressModel(AddressBody: {
-      "address": addressController.text.trim(),
+      "address": "\n ${S.current.streetName}:${streetNameController.text.trim()}"
+          ",${S.current.buildingNumber}:${buildingNumController.text.trim()}"
+          ",${S.current.placeName}"
+          ":${placeNameController.text.trim()},"
+          "${S.current.Tombstone}:"
+          "${tombstoneController.text.trim()},"
+          "${S.current.eveningShift}:"
+          "${eveiningPhoneController.text.trim()},"
+          "${S.current.MorningShift}:"
+          "${moriningPhoneController.text.trim()}",
       "country_id": countryID,
       "state_id": stateID,
       "id": ID,
       // "name": nameController.text.trim(),
       "city_id": cityID,
       "postal_code": "0000",
-      "phone": phoneController.text.trim()
+      "phone": placePhoneController.text.trim()
     });
     // Navigator.pop(context);
     emit(AddressCreateNewSuccess());
@@ -83,18 +110,44 @@ class AddressCubit extends Cubit<AddressState> {
       required String stateID,
       required String ID,
       required String cityID}) async {
-    addressError = false;
-    phoneError = false;
+    placeNameError = false;
+    placephoneError = false;
+    buildingError = false;
+    streetError = false;
+    moriningError = false;
+    eveingError = false;
+    tomstoneError = false;
     submitErrors = false;
 
-    if (addressController.text.trim().isEmpty) {
-      addressError = true;
+    if (placeNameController.text.trim().isEmpty) {
+      placeNameError = true;
     }
-    if (phoneController.text.trim().isEmpty) {
-      phoneError = true;
+    if (placePhoneController.text.trim().isEmpty) {
+      placephoneError = true;
+    }
+    if (moriningPhoneController.text.trim().isEmpty) {
+      moriningError = true;
+    }
+    if (eveiningPhoneController.text.trim().isEmpty) {
+      eveingError = true;
+    }
+    if (streetNameController.text.trim().isEmpty) {
+      streetError = true;
+    }
+    if (buildingNumController.text.trim().isEmpty) {
+      buildingError = true;
+    }
+    if (tombstoneController.text.trim().isEmpty) {
+      tomstoneError = true;
     }
 
-    if (addressError || phoneError) {
+    if (placephoneError ||
+        placeNameError ||
+        moriningError ||
+        eveingError ||
+        tomstoneError ||
+        streetError ||
+        buildingError) {
       submitErrors = true;
       commonToast(S.current.pleaseEndterValue);
     } else {
@@ -142,13 +195,15 @@ class AddressCubit extends Cubit<AddressState> {
     UpdateAddressInCartModel =
         await repo.updateAddressInCartModel(AddressBody: {"address_id": ID});
     isSelected = 1;
-    commonToast(chooseAddressModel!.message!);
+    // commonToast(chooseAddressModel!.message!);
     emit(AddressListToggleTrue());
   }
 
-  void setDefult({required int selectValue}) {
+  void setDefult(
+      {required int selectValue, required String ID, required int index}) {
     emit(AddressSetSelectedLoading());
     isSelected = selectValue;
+    selectAddress(index: index, ID: ID);
     emit(AddressSetSelectedSuccess());
   }
 

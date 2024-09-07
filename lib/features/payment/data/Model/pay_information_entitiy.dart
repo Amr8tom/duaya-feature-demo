@@ -1,4 +1,6 @@
-import '../../../cart/data/model/ListItemModel.dart';
+// import '../../../cart/data/model/ListItemModel.dart';
+
+import '../../../cart/data/model/cart_model.dart';
 
 class PayInformationEntitiy {
   final String firstName;

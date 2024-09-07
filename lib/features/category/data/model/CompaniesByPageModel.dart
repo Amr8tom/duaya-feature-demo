@@ -183,6 +183,7 @@ class Data {
     this.id,
     this.name,
     this.logo,
+    this.round,
     this.rating,
   });
 
@@ -190,11 +191,13 @@ class Data {
     id = json['id'];
     name = json['name'];
     logo = json['logo'];
+    round = json['round'];
     rating = json['rating'];
   }
   num? id;
   String? name;
   String? logo;
+  String? round;
   num? rating;
 
   Map<String, dynamic> toJson() {
@@ -202,6 +205,7 @@ class Data {
     map['id'] = id;
     map['name'] = name;
     map['logo'] = logo;
+    map['round'] = round;
     map['rating'] = rating;
     return map;
   }

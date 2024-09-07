@@ -5,13 +5,10 @@ import 'package:duaya_app/features/cart/presentation/widgets/controller/cart_cub
 import 'package:duaya_app/features/cart/presentation/widgets/custom_cart_component.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
-import 'package:duaya_app/utils/constants/image_strings.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import '../../../routing/routes_name.dart';
 import '../../address/presentation/controller/address_cubit.dart';
 import '../../home/presentation/widgets/custom_container_product/custom_bottom_navigation_in_product.dart';
@@ -75,16 +72,20 @@ class _CartScreenState extends State<CartScreen> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return CustomCartComponent(
-                                name: cartController.Items[index].productName!,
-                                image: cartController
-                                    .Items[index].productThumbnailImage
-                                    .toString(),
-                                quantity: cartController.Items[index].quantity!
-                                    .toInt(),
-                                price: cartController.Items[index].price
-                                    .toString(),
-                                cartID: cartController.Items[index].id!.toInt(),
-                                index: index);
+                              name: cartController.Items[index].productName!,
+                              image: cartController
+                                  .Items[index].productThumbnailImage
+                                  .toString(),
+                              quantity:
+                                  cartController.Items[index].quantity!.toInt(),
+                              price:
+                                  cartController.Items[index].price.toString(),
+                              cartID: cartController.Items[index].id!.toInt(),
+                              index: index,
+                              company: cartController.Items[index].shopName!,
+                              round: cartController.Items[index].round ??
+                                  "${S.current.round} 10 : 6",
+                            );
                           },
                           separatorBuilder: (context, index) {
                             return SizedBox(height: AppSizes.defaultSpace);

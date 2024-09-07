@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/features/search/presentation/controller/search_cubit.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:duaya_app/utils/helpers/navigation_extension.dart';
@@ -23,6 +24,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final searchController = context.read<SearchCubit>();
     searchController.turnOff();
+
     /// remove old results
     return Scaffold(
       appBar: DAppBar(
@@ -107,68 +109,71 @@ class SearchScreen extends StatelessWidget {
                       },
                     ),
                     searchController.isSearchData
-                        ? GridView.builder(
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 10.h,
-                              childAspectRatio: 1 / 2.1,
-                            ),
-                            shrinkWrap: true,
-                            physics: NeverScrollableScrollPhysics(),
-                            itemCount: searchController.products.length,
-                            itemBuilder: (context, index) {
-                              if (searchController.products.isEmpty) {
-                                return Container(
-                                  padding: EdgeInsets.only(top: 250.h),
-                                  child: Text(S.current.noResult),
-                                );
-                              }
-                              String productName =
-                                  searchController.products[index].name!;
-                              String productimage = searchController
-                                  .products[index].thumbnailImage!;
-                              String productprice =
-                                  searchController.products[index].mainPrice!;
-                              String StrokedPrice = searchController
-                                  .products[index].strokedPrice!;
-                              bool hasDicount =
-                                  searchController.products[index].hasDiscount!;
-                              String productCompany =
-                                  searchController.products[index].shopName!;
-                              String discount =
-                                  searchController.products[index].discount!;
-                              String ID = searchController.products[index].id!
-                                  .toString();
-                              return GestureDetector(
-                                onTap: () async {
-                                  context.pushNamed(
-                                      DRoutesName.detailsProductRoute,
-                                      arguments: {
-                                        "productName": productName,
-                                        "productID": ID,
-                                        "discount": discount,
-                                        "productImage": productimage,
-                                        "companyName": productCompany,
-                                        "discount": discount,
-                                        "price": productprice,
-                                        "strockedPrice": StrokedPrice,
-                                        "hasDicount": hasDicount,
-                                      });
-                                },
-                                child: CustomContainerProduct(
-                                  productImage: productimage,
-                                  productName: productName,
-                                  companyName: productCompany,
-                                  discount: discount,
-                                  rete: 4.5,
-                                  price: productprice,
-                                  hasDicount: hasDicount,
-                                  strockedPrice: StrokedPrice,
-                                  productID: ID,
+                        ? searchController.active
+                            ? CustomUI.searchWidget()
+                            : GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10.h,
+                                  childAspectRatio: 1 / 2.1,
                                 ),
-                              );
-                            })
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: searchController.products.length,
+                                itemBuilder: (context, index) {
+                                  if (searchController.products.isEmpty) {
+                                    return Container(
+                                      padding: EdgeInsets.only(top: 250.h),
+                                      child: Text(S.current.noResult),
+                                    );
+                                  }
+                                  String productName =
+                                      searchController.products[index].name!;
+                                  String productimage = searchController
+                                      .products[index].thumbnailImage!;
+                                  String productprice = searchController
+                                      .products[index].mainPrice!;
+                                  String StrokedPrice = searchController
+                                      .products[index].strokedPrice!;
+                                  bool hasDicount = searchController
+                                      .products[index].hasDiscount!;
+                                  String productCompany = searchController
+                                      .products[index].shopName!;
+                                  String discount = searchController
+                                      .products[index].discount!;
+                                  String ID = searchController
+                                      .products[index].id!
+                                      .toString();
+                                  return GestureDetector(
+                                    onTap: () async {
+                                      context.pushNamed(
+                                          DRoutesName.detailsProductRoute,
+                                          arguments: {
+                                            "productName": productName,
+                                            "productID": ID,
+                                            "discount": discount,
+                                            "productImage": productimage,
+                                            "companyName": productCompany,
+                                            "discount": discount,
+                                            "price": productprice,
+                                            "strockedPrice": StrokedPrice,
+                                            "hasDicount": hasDicount,
+                                          });
+                                    },
+                                    child: CustomContainerProduct(
+                                      productImage: productimage,
+                                      productName: productName,
+                                      companyName: productCompany,
+                                      discount: discount,
+                                      rete: 4.5,
+                                      price: productprice,
+                                      hasDicount: hasDicount,
+                                      strockedPrice: StrokedPrice,
+                                      productID: ID,
+                                    ),
+                                  );
+                                })
                         : Container(
                             padding: EdgeInsets.only(top: 250.h),
                             child: Text(S.current.noResult),

@@ -6,6 +6,21 @@
 5- test address and cart
 6- change and update the ui for company screen
 7- performance for the related products
+8- descreption
+
+
+confirmed
+picked_up
+"delivery_status": "on_the_way",
+"delivery_status": "delivered",
+"delivery_status_string": "Order Placed",
+
+            "delivery_status_string": "Order Placed",
+            "delivery_status_string": "Confirmed",
+            "delivery_status_string": "Picked Up",
+            "delivery_status_string": "On The Way",
+            "delivery_status_string": "Delivered"
+
 
 
 /////////////////// part2

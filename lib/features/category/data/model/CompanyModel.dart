@@ -103,6 +103,7 @@ class Data {
     this.bankAccNo,
     this.bankRoutingNo,
     this.rating,
+    this.minLimit,
     this.verified,
     this.verifiedImg,
     this.verifyText,
@@ -117,6 +118,7 @@ class Data {
     userId = json['user_id'];
     name = json['name'];
     title = json['title'];
+    minLimit = json['min_limit'];
     isAffiliate = json['is_affiliate'];
     affiliateVerification = json['affiliate_verification'];
     description = json['description'];
@@ -163,6 +165,7 @@ class Data {
   dynamic deliveryPickupLatitude;
   dynamic deliveryPickupLongitude;
   String? logo;
+  String? minLimit;
   String? packageInvalidAt;
   num? productUploadLimit;
   String? sellerPackage;
@@ -199,6 +202,7 @@ class Data {
     map['user_id'] = userId;
     map['name'] = name;
     map['title'] = title;
+    map['min_limit'] = minLimit;
     map['is_affiliate'] = isAffiliate;
     map['affiliate_verification'] = affiliateVerification;
     map['description'] = description;

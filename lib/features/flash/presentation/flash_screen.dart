@@ -48,10 +48,9 @@ class _FlashScreenState extends State<FlashScreen>
           tabs: [
             Tab(
                 child: Text(S.current.flashSale,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headlineMedium!
-                        .copyWith(color: ColorRes.greenBlue))),
+                    style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                        color: ColorRes.greenBlue,
+                        fontWeight: FontWeight.w800))),
             Tab(
                 child: Text(
               S.current.flashTodaySale,

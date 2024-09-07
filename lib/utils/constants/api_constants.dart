@@ -41,7 +41,15 @@ class URL {
   static const bestSellers = '${baseUrl}products/best-seller';
   static const product = '${baseUrl}products/';
   static const relatedProduct = '${baseUrl}products/related/by-name/';
-  static const search = '${baseUrl}products/search?name=';
+
+  /// suggestions
+  static const search = '${baseUrl}products/search?type=product?name=';
+  static const searchSuggestions =
+      '${baseUrl}get-search-suggestions?type=product&query_key=';
+
+  /// type : "product"
+  ///query_key :  الحاجه الي بيسيرش بيها
+  ///$type == "sellers" لو سيرش عن شركات
   static const flasDeal = '${baseUrl}flash-deals';
   static const todayDeals = '${baseUrl}products/todays-deal';
   static const categoriesByPageBycity = '${baseUrl}filter/categories';
@@ -97,6 +105,15 @@ class URL {
       '${baseUrl}states-by-country/'; // states-by-country/{id} enterCountyid
   static const checkOTPUrl = 'api/provider/check-phone';
   static const verifyOTPUrl = 'api/provider/verify';
+
+  /// coustomerAds
+  static const customerAdsAdd = '${baseUrl}classified/store-products';
+  static const customerMyAds = '${baseUrl}classified/own-products';
+  static const customerAllAds = '${baseUrl}classified/all';
+  static const customerAdsProductDetails =
+      '${baseUrl}classified/product-details/'; //{id}
+  static const customerAdsRelated =
+      '${baseUrl}classified/related-products/'; //{id}
   static const generateOTPUrl = 'api/provider/generate-otp';
   static const updatePasswordUrl = 'api/provider/reset-password';
   static const agoraID = '00d26e5417db439ba61866b00d8e5909';

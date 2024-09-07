@@ -30,7 +30,7 @@ class AddressListScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: BlocConsumer<AddressCubit, AddressState>(
+      body: BlocBuilder<AddressCubit, AddressState>(
         builder: (context, state) {
           if (state is FetchAddressListDataLoading) {
             print(state);
@@ -60,9 +60,12 @@ class AddressListScreen extends StatelessWidget {
                 final set_default = addressListController
                     .addressListModel?.data?[index].setDefault;
                 if (set_default == 1) {
-                  addressListController.setDefult(selectValue: set_default!);
-                  addressListController.selectAddress(
-                      index: index, ID: ID.toString());
+                  addressListController.setDefult(
+                      selectValue: set_default!,
+                      ID: ID.toString(),
+                      index: index);
+                  // addressListController.selectAddress(
+                  //     index: index, ID: ID.toString());
                 }
                 return Stack(
                   children: [
@@ -180,7 +183,6 @@ class AddressListScreen extends StatelessWidget {
             );
           }
         },
-        listener: (BuildContext context, AddressState state) {},
       ),
       floatingActionButton: Stack(children: [
         Positioned(

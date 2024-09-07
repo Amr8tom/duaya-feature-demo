@@ -21,6 +21,13 @@ class CustomUI {
     return Center(child: Lottie.asset(AssetRes.loadingSliders, width: 100.w));
   }
 
+  static Widget searchWidget() {
+    return Padding(
+      padding: EdgeInsets.only(top: 100.h),
+      child: Lottie.asset(AssetRes.searchICon, width: 100.w),
+    );
+  }
+
   static Widget noData() {
     return SingleChildScrollView(
       child: Center(

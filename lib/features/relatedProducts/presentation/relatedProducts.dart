@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../utils/constants/image_strings.dart';
 
 class relatedProducts extends StatelessWidget {
-  relatedProducts({super.key});
+  const relatedProducts({super.key});
 
   @override
   Widget build(BuildContext context) {

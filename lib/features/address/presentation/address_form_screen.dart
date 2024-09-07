@@ -39,23 +39,69 @@ class AddressFormScreen extends StatelessWidget {
                       /// white space
                       SizedBox(height: 40.h),
 
-                      /// address
-                      Text(S.current.addressDetails),
-                      SizedBox(height: 20.h),
+                      /// place name
                       TextField(
-                        maxLines: 5,
-                        controller: addressController.addressController,
+                        controller: addressController.placeNameController,
+                        keyboardType: TextInputType.text,
+                        decoration:
+                            InputDecoration(labelText: S.current.placeName),
                       ),
-                      SizedBox(height: 40.h),
-
-                      /// phone
-                      Text(S.current.phoneNumber),
                       SizedBox(height: 20.h),
+
+                      /// place street name
+                      TextField(
+                        controller: addressController.streetNameController,
+                        keyboardType: TextInputType.text,
+                        decoration:
+                            InputDecoration(labelText: S.current.streetName),
+                      ),
+                      SizedBox(height: 20.h),
+
+                      ///  building number
+                      TextField(
+                        controller: addressController.buildingNumController,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            labelText: S.current.buildingNumber),
+                      ),
+                      SizedBox(height: 20.h),
+
+                      /// place TombStone
+                      TextField(
+                        controller: addressController.tombstoneController,
+                        keyboardType: TextInputType.text,
+                        decoration:
+                            InputDecoration(labelText: S.current.Tombstone),
+                      ),
+                      SizedBox(height: 20.h),
+
+                      /// place phone
                       TextField(
                         maxLines: 1,
                         keyboardType: TextInputType.number,
-                        controller: addressController.phoneController,
+                        decoration:
+                            InputDecoration(labelText: S.current.placeNumber),
+                        controller: addressController.placePhoneController,
                       ),
+                      SizedBox(height: 20.h),
+
+                      /// evening shift phone
+                      TextField(
+                        controller: addressController.eveiningPhoneController,
+                        keyboardType: TextInputType.number,
+                        decoration:
+                            InputDecoration(labelText: S.current.eveningShift),
+                      ),
+                      SizedBox(height: 20.h),
+
+                      /// morning shift phone
+                      TextField(
+                        controller: addressController.moriningPhoneController,
+                        keyboardType: TextInputType.number,
+                        decoration:
+                            InputDecoration(labelText: S.current.MorningShift),
+                      ),
+
                       SizedBox(height: 60.h),
 
                       /// submit button
