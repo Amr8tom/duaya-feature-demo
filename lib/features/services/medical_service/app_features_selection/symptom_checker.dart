@@ -55,8 +55,7 @@ class _SymptomCheckerState extends State<SymptomChecker> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: TextFormField(
               maxLines: 4,
-              decoration:
-                  InputDecoration(hintText: "اكتب بالتفاصيل انواع الاشعارات"),
+              decoration: InputDecoration(hintText: "أضف المزيد من التفاصيل"),
             ),
           ),
           TextButton(
