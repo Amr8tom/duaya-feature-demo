@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                           SizedBox(height: AppSizes.spaceBtwItems),
 
                           /// Slider
-                          // const CustomSlider(),
+                          const CustomSlider(),
 
                           /// see all Button
                           (catastate is CategoriesByPageInitial)

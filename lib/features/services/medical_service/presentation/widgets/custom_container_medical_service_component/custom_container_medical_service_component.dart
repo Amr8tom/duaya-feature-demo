@@ -77,14 +77,14 @@ class MedicalServiceCard extends StatelessWidget {
                     .textTheme
                     .titleLarge!
                     .copyWith(color: ColorRes.error2)),
-            AddMinusCartButton(
-              height: AppSizes.appBarHeight,
-              width: double.infinity,
-              color: ColorRes.lightGreen,
-              borderColor: Colors.transparent,
-              textButtonColor: Colors.white,
-              ID: id.toString(),
-            )
+            // AddMinusCartButton(
+            //   height: AppSizes.appBarHeight,
+            //   width: double.infinity,
+            //   color: ColorRes.lightGreen,
+            //   borderColor: Colors.transparent,
+            //   textButtonColor: Colors.white,
+            //   ID: id.toString(),
+            // )
           ],
         ),
       ),
