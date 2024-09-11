@@ -1,12 +1,10 @@
 import 'dart:convert';
-
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:duaya_app/features/category/data/dataSource/companyLocalDataSources.dart';
 import 'package:duaya_app/features/category/data/dataSource/companyRemoteDataSources.dart';
 import 'package:duaya_app/features/category/data/model/BestSellerProductCompanyModel.dart';
 import 'package:duaya_app/features/category/data/model/CompaniesByPageModel.dart';
 import 'package:duaya_app/features/category/data/model/NewProductCompanyModel.dart';
-
 import '../../../../utils/connection/checkNetwork.dart';
 import '../model/CompanyModel.dart';
 

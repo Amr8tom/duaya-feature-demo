@@ -6,8 +6,12 @@ import 'package:duaya_app/utils/local_storage/cache_helper.dart';
 abstract class categoriesByPageLocalDataSources {
   Future<void> cacheCategoriesByPAge({required String categoriesByPageJson});
   Future<Map<String, dynamic>> getCategoriesByPAge();
-  Future<void> cacheCategoryByID({required String categoryByIDJson,required String categoryID});
-  Future<Map<String,dynamic>> getCategoryByID({required categoryID});
+  Future<void> cacheSubCategoriesByPAge(
+      {required String subCategoriesByPageJson});
+  Future<Map<String, dynamic>> getSubCategoriesByPAge();
+  Future<void> cacheCategoryByID(
+      {required String categoryByIDJson, required String categoryID});
+  Future<Map<String, dynamic>> getCategoryByID({required categoryID});
 }
 
 class categoriesByPageLocalDataSourcesImp
@@ -27,13 +31,31 @@ class categoriesByPageLocalDataSourcesImp
   }
 
   @override
-  Future<void> cacheCategoryByID({required String categoryByIDJson,required String categoryID})async{
-   await PrefService.putStringbyString(key:"${CacheKeys.categoriesByPage.name}$categoryID", value:categoryByIDJson);
+  Future<void> cacheCategoryByID(
+      {required String categoryByIDJson, required String categoryID}) async {
+    await PrefService.putStringbyString(
+        key: "${CacheKeys.categoriesByPage.name}$categoryID",
+        value: categoryByIDJson);
   }
 
   @override
-  Future<Map<String, dynamic>> getCategoryByID({required categoryID}) async{
-    final String? json = await PrefService.getStringByString(key: "${CacheKeys.categoriesByPage.name}$categoryID");
+  Future<Map<String, dynamic>> getCategoryByID({required categoryID}) async {
+    final String? json = await PrefService.getStringByString(
+        key: "${CacheKeys.categoriesByPage.name}$categoryID");
     return jsonDecode(json!);
+  }
+
+  @override
+  Future<void> cacheSubCategoriesByPAge(
+      {required String subCategoriesByPageJson}) async {
+    await PrefService.putString(
+        key: CacheKeys.subCategoriesByPage, value: subCategoriesByPageJson);
+  }
+
+  @override
+  Future<Map<String, dynamic>> getSubCategoriesByPAge() async {
+    final String? subCategoriesByPageJson =
+        await PrefService.getString(key: CacheKeys.subCategoriesByPage);
+    return jsonDecode(subCategoriesByPageJson!);
   }
 }

@@ -150,6 +150,16 @@ class S {
     );
   }
 
+  /// `installments with bank `
+  String get installmentsbank {
+    return Intl.message(
+      'installments with bank ',
+      name: 'installmentsbank',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Nearst Tombstone`
   String get Tombstone {
     return Intl.message(
@@ -2532,10 +2542,10 @@ class S {
     );
   }
 
-  /// `Medical Service`
+  /// `Duaya SoftWare`
   String get medicalService {
     return Intl.message(
-      'Medical Service',
+      'Duaya SoftWare',
       name: 'medicalService',
       desc: '',
       args: [],
@@ -2557,6 +2567,696 @@ class S {
     return Intl.message(
       'Done',
       name: 'done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security and Login Features`
+  String get security_and_login {
+    return Intl.message(
+      'Security and Login Features',
+      name: 'security_and_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable login via email?`
+  String get email_login {
+    return Intl.message(
+      'Do you want to enable login via email?',
+      name: 'email_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to log in using social media accounts (like Google or Facebook)?`
+  String get social_login {
+    return Intl.message(
+      'Would you prefer to log in using social media accounts (like Google or Facebook)?',
+      name: 'social_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to use fingerprint or face recognition for login?`
+  String get biometric_login {
+    return Intl.message(
+      'Do you want to use fingerprint or face recognition for login?',
+      name: 'biometric_login',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Chat and Communication`
+  String get chat_and_communication {
+    return Intl.message(
+      'Chat and Communication',
+      name: 'chat_and_communication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable chat with other users or support team?`
+  String get enable_chat {
+    return Intl.message(
+      'Do you want to enable chat with other users or support team?',
+      name: 'enable_chat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you need instant notifications for new messages?`
+  String get message_notifications {
+    return Intl.message(
+      'Do you need instant notifications for new messages?',
+      name: 'message_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to use voice messages in chat?`
+  String get voice_messages {
+    return Intl.message(
+      'Do you want to use voice messages in chat?',
+      name: 'voice_messages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Customization`
+  String get customization {
+    return Intl.message(
+      'Customization',
+      name: 'customization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to enable dark mode?`
+  String get dark_mode {
+    return Intl.message(
+      'Would you like to enable dark mode?',
+      name: 'dark_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you prefer to customize the font size in the app?`
+  String get font_size {
+    return Intl.message(
+      'Do you prefer to customize the font size in the app?',
+      name: 'font_size',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to change the app's interface colors according to your preferences?`
+  String get theme_colors {
+    return Intl.message(
+      'Would you like to change the app\'s interface colors according to your preferences?',
+      name: 'theme_colors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Notifications and Alerts`
+  String get notifications_and_alerts {
+    return Intl.message(
+      'Notifications and Alerts',
+      name: 'notifications_and_alerts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to receive notifications about updates or new messages?`
+  String get receive_notifications {
+    return Intl.message(
+      'Do you want to receive notifications about updates or new messages?',
+      name: 'receive_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to customize the types of notifications you receive (such as news, alerts, offers)?`
+  String get custom_notifications {
+    return Intl.message(
+      'Would you prefer to customize the types of notifications you receive (such as news, alerts, offers)?',
+      name: 'custom_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Payment and Shopping`
+  String get payment_and_shopping {
+    return Intl.message(
+      'Payment and Shopping',
+      name: 'payment_and_shopping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable electronic payment methods in the app?`
+  String get enable_payment {
+    return Intl.message(
+      'Do you want to enable electronic payment methods in the app?',
+      name: 'enable_payment',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you need the feature to save payment details for future purchases?`
+  String get save_payment_details {
+    return Intl.message(
+      'Do you need the feature to save payment details for future purchases?',
+      name: 'save_payment_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location and Maps`
+  String get location_and_maps {
+    return Intl.message(
+      'Location and Maps',
+      name: 'location_and_maps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable location-based services?`
+  String get enable_location {
+    return Intl.message(
+      'Do you want to enable location-based services?',
+      name: 'enable_location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to use maps to find services or specific locations?`
+  String get use_maps {
+    return Intl.message(
+      'Would you like to use maps to find services or specific locations?',
+      name: 'use_maps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Multimedia Features`
+  String get multimedia_features {
+    return Intl.message(
+      'Multimedia Features',
+      name: 'multimedia_features',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to add a feature to upload photos or videos?`
+  String get upload_media {
+    return Intl.message(
+      'Do you want to add a feature to upload photos or videos?',
+      name: 'upload_media',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you need the ability to edit photos or videos within the app?`
+  String get edit_media {
+    return Intl.message(
+      'Do you need the ability to edit photos or videos within the app?',
+      name: 'edit_media',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sharing Features`
+  String get sharing_features {
+    return Intl.message(
+      'Sharing Features',
+      name: 'sharing_features',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable content sharing on social media platforms?`
+  String get share_on_social_media {
+    return Intl.message(
+      'Do you want to enable content sharing on social media platforms?',
+      name: 'share_on_social_media',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer the ability to share content via SMS or email?`
+  String get share_via_sms {
+    return Intl.message(
+      'Would you prefer the ability to share content via SMS or email?',
+      name: 'share_via_sms',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Settings`
+  String get privacy_settings {
+    return Intl.message(
+      'Privacy Settings',
+      name: 'privacy_settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to control who can see your personal information?`
+  String get control_visibility {
+    return Intl.message(
+      'Do you want to control who can see your personal information?',
+      name: 'control_visibility',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you need additional settings to manage your data and information within the app?`
+  String get manage_data {
+    return Intl.message(
+      'Do you need additional settings to manage your data and information within the app?',
+      name: 'manage_data',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User Interface Customization`
+  String get ui_customization {
+    return Intl.message(
+      'User Interface Customization',
+      name: 'ui_customization',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to customize the home screen based on your favorite usage?`
+  String get customize_home {
+    return Intl.message(
+      'Would you like to customize the home screen based on your favorite usage?',
+      name: 'customize_home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you prefer to display a shortcut list for quick access to important features?`
+  String get quick_access_list {
+    return Intl.message(
+      'Do you prefer to display a shortcut list for quick access to important features?',
+      name: 'quick_access_list',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User Profile & Medical History`
+  String get user_profile_medical_history {
+    return Intl.message(
+      'User Profile & Medical History',
+      name: 'user_profile_medical_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to create a detailed medical profile including age, gender, and medical history?`
+  String get create_medical_profile {
+    return Intl.message(
+      'Do you want to create a detailed medical profile including age, gender, and medical history?',
+      name: 'create_medical_profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to store previous diagnoses, treatments, or ongoing medical conditions?`
+  String get store_medical_history {
+    return Intl.message(
+      'Would you like to store previous diagnoses, treatments, or ongoing medical conditions?',
+      name: 'store_medical_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appointment Scheduling`
+  String get appointment_scheduling {
+    return Intl.message(
+      'Appointment Scheduling',
+      name: 'appointment_scheduling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable users to book appointments with doctors directly from the app?`
+  String get book_appointments {
+    return Intl.message(
+      'Do you want to enable users to book appointments with doctors directly from the app?',
+      name: 'book_appointments',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to include an appointment reminder feature?`
+  String get appointment_reminders {
+    return Intl.message(
+      'Would you prefer to include an appointment reminder feature?',
+      name: 'appointment_reminders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Doctor-Patient Communication`
+  String get doctor_patient_communication {
+    return Intl.message(
+      'Doctor-Patient Communication',
+      name: 'doctor_patient_communication',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to enable secure messaging between doctors and patients?`
+  String get enable_secure_messaging {
+    return Intl.message(
+      'Would you like to enable secure messaging between doctors and patients?',
+      name: 'enable_secure_messaging',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you need the ability to have video consultations with doctors?`
+  String get video_consultations {
+    return Intl.message(
+      'Do you need the ability to have video consultations with doctors?',
+      name: 'video_consultations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Prescription Management`
+  String get prescription_management {
+    return Intl.message(
+      'Prescription Management',
+      name: 'prescription_management',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to allow doctors to issue electronic prescriptions to patients?`
+  String get electronic_prescriptions {
+    return Intl.message(
+      'Do you want to allow doctors to issue electronic prescriptions to patients?',
+      name: 'electronic_prescriptions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like patients to receive reminders for taking medications or refilling prescriptions?`
+  String get medication_reminders {
+    return Intl.message(
+      'Would you like patients to receive reminders for taking medications or refilling prescriptions?',
+      name: 'medication_reminders',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health Monitoring & Wearables Integration`
+  String get health_monitoring {
+    return Intl.message(
+      'Health Monitoring & Wearables Integration',
+      name: 'health_monitoring',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to integrate wearable devices for real-time health monitoring?`
+  String get integrate_wearables {
+    return Intl.message(
+      'Do you want to integrate wearable devices for real-time health monitoring?',
+      name: 'integrate_wearables',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like users to track vital signs like heart rate, blood pressure, or glucose levels?`
+  String get track_vital_signs {
+    return Intl.message(
+      'Would you like users to track vital signs like heart rate, blood pressure, or glucose levels?',
+      name: 'track_vital_signs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Telemedicine Features`
+  String get telemedicine {
+    return Intl.message(
+      'Telemedicine Features',
+      name: 'telemedicine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to offer remote video consultations with doctors?`
+  String get remote_consultations {
+    return Intl.message(
+      'Would you like to offer remote video consultations with doctors?',
+      name: 'remote_consultations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to include a virtual triage system for assessing symptoms before consultations?`
+  String get virtual_triage {
+    return Intl.message(
+      'Do you want to include a virtual triage system for assessing symptoms before consultations?',
+      name: 'virtual_triage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Lab Test Results`
+  String get lab_test_results {
+    return Intl.message(
+      'Lab Test Results',
+      name: 'lab_test_results',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable patients to receive lab results directly in the app?`
+  String get receive_lab_results {
+    return Intl.message(
+      'Do you want to enable patients to receive lab results directly in the app?',
+      name: 'receive_lab_results',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to notify patients when their lab results are available?`
+  String get lab_results_notifications {
+    return Intl.message(
+      'Would you prefer to notify patients when their lab results are available?',
+      name: 'lab_results_notifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health Articles & Education`
+  String get health_articles {
+    return Intl.message(
+      'Health Articles & Education',
+      name: 'health_articles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to offer educational content such as articles or videos about health conditions and treatments?`
+  String get offer_health_articles {
+    return Intl.message(
+      'Do you want to offer educational content such as articles or videos about health conditions and treatments?',
+      name: 'offer_health_articles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to personalize health tips based on user profiles?`
+  String get personalize_health_tips {
+    return Intl.message(
+      'Would you prefer to personalize health tips based on user profiles?',
+      name: 'personalize_health_tips',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Insurance Integration`
+  String get insurance_integration {
+    return Intl.message(
+      'Insurance Integration',
+      name: 'insurance_integration',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to allow users to link their health insurance for seamless billing?`
+  String get link_health_insurance {
+    return Intl.message(
+      'Do you want to allow users to link their health insurance for seamless billing?',
+      name: 'link_health_insurance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to display insurance coverage details for specific treatments or medications?`
+  String get display_coverage_details {
+    return Intl.message(
+      'Would you prefer to display insurance coverage details for specific treatments or medications?',
+      name: 'display_coverage_details',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Emergency Contact & Services`
+  String get emergency_services {
+    return Intl.message(
+      'Emergency Contact & Services',
+      name: 'emergency_services',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to enable users to call emergency services directly from the app?`
+  String get call_emergency_services {
+    return Intl.message(
+      'Do you want to enable users to call emergency services directly from the app?',
+      name: 'call_emergency_services',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to allow users to store emergency contact details for doctors or family?`
+  String get store_emergency_contacts {
+    return Intl.message(
+      'Would you like to allow users to store emergency contact details for doctors or family?',
+      name: 'store_emergency_contacts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Symptom Checker`
+  String get symptom_checker {
+    return Intl.message(
+      'Symptom Checker',
+      name: 'symptom_checker',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to provide a symptom checker for users to assess their conditions?`
+  String get provide_symptom_checker {
+    return Intl.message(
+      'Do you want to provide a symptom checker for users to assess their conditions?',
+      name: 'provide_symptom_checker',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you like to offer suggestions for when to seek medical help based on symptoms?`
+  String get offer_medical_help_suggestions {
+    return Intl.message(
+      'Would you like to offer suggestions for when to seek medical help based on symptoms?',
+      name: 'offer_medical_help_suggestions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Health Goals & Tracking`
+  String get health_goals_tracking {
+    return Intl.message(
+      'Health Goals & Tracking',
+      name: 'health_goals_tracking',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Do you want to allow users to set and track health goals, such as weight loss or exercise targets?`
+  String get set_health_goals {
+    return Intl.message(
+      'Do you want to allow users to set and track health goals, such as weight loss or exercise targets?',
+      name: 'set_health_goals',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Would you prefer to include progress tracking for these health goals?`
+  String get track_health_goals_progress {
+    return Intl.message(
+      'Would you prefer to include progress tracking for these health goals?',
+      name: 'track_health_goals_progress',
       desc: '',
       args: [],
     );

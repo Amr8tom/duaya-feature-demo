@@ -34,6 +34,7 @@ enum CacheKeys {
   cityID,
   cartItems,
   categoriesByPage,
+  subCategoriesByPage,
   search,
   cartCount,
   rigsterLogin,

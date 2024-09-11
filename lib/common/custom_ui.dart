@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import '../generated/l10n.dart';
-import '../utils/constants/colors.dart';
 
 class CustomUI {
   static loader({required BuildContext context}) {

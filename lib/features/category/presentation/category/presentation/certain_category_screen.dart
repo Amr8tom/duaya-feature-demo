@@ -13,6 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../common/widgets/text_form_field/custom_text_form_field_search.dart';
 import '../../../../../generated/l10n.dart';
 import '../../../../../routing/routes_name.dart';
+import '../../../../home/presentation/widgets/custom_category/custom_category.dart';
 import '../../../../home/presentation/widgets/custom_container_product/custom_container_product.dart';
 import '../../../../search/presentation/controller/search_cubit.dart';
 
@@ -94,6 +95,32 @@ class certainCategoryScreen extends StatelessWidget {
                     await searchController.turnOff();
                   },
                 ),
+                certainCataController.subCategoriesModel?.data?.length == 0
+                    ? SizedBox()
+                    : SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: List.generate(
+                            certainCataController
+                                .subCategoriesModel.data!.length,
+                            (index) => Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      8.0), // Adjust spacing between items
+                              child: CustomCategoryInHome(
+                                categoryImage: certainCataController
+                                    .subCategoriesModel.data![index].icon!,
+                                categoryName: certainCataController
+                                    .subCategoriesModel.data![index].name!,
+                                categoryID: certainCataController
+                                    .subCategoriesModel.data![index].id!
+                                    .toString(),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                 searchController.isSearchData
                     ? GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

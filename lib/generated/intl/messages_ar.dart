@@ -61,6 +61,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(" : أيضا متاح في"),
         "amount": MessageLookupByLibrary.simpleMessage("المبلغ"),
         "appName": MessageLookupByLibrary.simpleMessage("دَوَآيَـــاَ"),
+        "appointment_reminders": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل تضمين ميزة تذكير المواعيد؟"),
+        "appointment_scheduling":
+            MessageLookupByLibrary.simpleMessage("جدولة المواعيد"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربيه"),
         "avaiableToLoan":
             MessageLookupByLibrary.simpleMessage("سٌـلفة مٌتـاحة"),
@@ -70,11 +74,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("العودة إلى الرئيسية"),
         "beautyTools": MessageLookupByLibrary.simpleMessage("أدوات تجميل"),
         "bestOffers": MessageLookupByLibrary.simpleMessage("أفـضـل العٍــروض"),
+        "biometric_login": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في استخدام بصمة الإصبع أو التعرف على الوجه لتسجيل الدخول؟"),
+        "book_appointments": MessageLookupByLibrary.simpleMessage(
+            "هل تريد تمكين المستخدمين من حجز المواعيد مع الأطباء مباشرة من التطبيق؟"),
         "buildingNumber": MessageLookupByLibrary.simpleMessage("رقم المبني"),
         "buyNow": MessageLookupByLibrary.simpleMessage("قُــم بالِشــراء الأن"),
         "buyingLimit": MessageLookupByLibrary.simpleMessage(
             "لا يمكنك الشراء باقل من  500 جنيها "),
         "callUs": MessageLookupByLibrary.simpleMessage("تواصل معنا"),
+        "call_emergency_services": MessageLookupByLibrary.simpleMessage(
+            "هل تريد تمكين المستخدمين من الاتصال بخدمات الطوارئ مباشرة من التطبيق؟"),
         "calnced": MessageLookupByLibrary.simpleMessage("تم الالغاء"),
         "cancleOrder": MessageLookupByLibrary.simpleMessage("الغاء الطلب"),
         "cancleOrderBody": MessageLookupByLibrary.simpleMessage(
@@ -90,6 +100,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "categories": MessageLookupByLibrary.simpleMessage("الاقسام"),
         "category": MessageLookupByLibrary.simpleMessage("القسم"),
         "chatUs": MessageLookupByLibrary.simpleMessage("تحدث الينا "),
+        "chat_and_communication":
+            MessageLookupByLibrary.simpleMessage("الدردشة والتواصل"),
         "checkOut": MessageLookupByLibrary.simpleMessage("شراء"),
         "chooseImage": MessageLookupByLibrary.simpleMessage("أختر صورة"),
         "choosePaymentMethod":
@@ -116,11 +128,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مـتابعة الـشراء"),
         "continueShoping":
             MessageLookupByLibrary.simpleMessage("مُتـابعـة التسـوق"),
+        "control_visibility": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تحديد من يمكنه رؤية معلوماتك الشخصية؟"),
         "contvertTo": MessageLookupByLibrary.simpleMessage(
             " يمكنك تحويل هذه النقط الي محفظتك بقيمة  "),
         "coontinue": MessageLookupByLibrary.simpleMessage("أكمل"),
         "cost": MessageLookupByLibrary.simpleMessage("التكلفة"),
         "createAccount": MessageLookupByLibrary.simpleMessage("تسـجــــيل"),
+        "create_medical_profile": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في إنشاء ملف طبي مفصل يتضمن العمر والجنس والتاريخ الطبي؟"),
         "creditCard": MessageLookupByLibrary.simpleMessage("بطاقة ائتمان"),
         "creditCardPaymentScreen":
             MessageLookupByLibrary.simpleMessage("شاشة الدفع ببطاقة الائتمان"),
@@ -128,8 +144,15 @@ class MessageLookup extends MessageLookupByLibrary {
             "ادفع باستخدام بطاقتك الائتمانية"),
         "currentRequest":
             MessageLookupByLibrary.simpleMessage("الطلبات الحالية"),
+        "custom_notifications": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل تخصيص أنواع الإشعارات التي تتلقاها (مثل الأخبار، التنبيهات، العروض)؟"),
         "customerStagnantItems": MessageLookupByLibrary.simpleMessage(
             "رواكد العملاء .....يمكنك تصفح الأصناف الراكدة عند الصيدليات الأخري في منطقتك وإعادة شرائها"),
+        "customization": MessageLookupByLibrary.simpleMessage("التخصيص"),
+        "customize_home": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تخصيص الشاشة الرئيسية حسب استخداماتك المفضلة؟"),
+        "dark_mode": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل استخدام الوضع الليلي؟"),
         "delayedCash": MessageLookupByLibrary.simpleMessage("الدفع المؤجل"),
         "delayedCashDes":
             MessageLookupByLibrary.simpleMessage("اشترِ الآن وادفع لاحقًا"),
@@ -140,13 +163,33 @@ class MessageLookup extends MessageLookupByLibrary {
         "description": MessageLookupByLibrary.simpleMessage("الـوصـف"),
         "details": MessageLookupByLibrary.simpleMessage("تفاصيل"),
         "discont": MessageLookupByLibrary.simpleMessage("خَصــم"),
+        "display_coverage_details": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل عرض تفاصيل التغطية التأمينية للعلاجات أو الأدوية المحددة؟"),
+        "doctor_patient_communication":
+            MessageLookupByLibrary.simpleMessage("التواصل بين الطبيب والمريض"),
         "done": MessageLookupByLibrary.simpleMessage("تم بنجاح"),
         "eMail": MessageLookupByLibrary.simpleMessage("البريد الالكتروني"),
         "ePound": MessageLookupByLibrary.simpleMessage("ج"),
         "editProduct":
             MessageLookupByLibrary.simpleMessage("تَــعديـل المُنـتج"),
+        "edit_media": MessageLookupByLibrary.simpleMessage(
+            "هل تحتاج إلى ميزة تعديل الصور أو الفيديوهات داخل التطبيق؟"),
+        "electronic_prescriptions": MessageLookupByLibrary.simpleMessage(
+            "هل تريد السماح للأطباء بإصدار وصفات طبية إلكترونية للمرضى؟"),
         "emailPasswordSend":
             MessageLookupByLibrary.simpleMessage("تم ارسال الكود"),
+        "email_login": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تفعيل ميزة تسجيل الدخول عبر البريد الإلكتروني؟"),
+        "emergency_services":
+            MessageLookupByLibrary.simpleMessage("خدمات الطوارئ"),
+        "enable_chat": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تفعيل ميزة الدردشة مع المستخدمين الآخرين أو فريق الدعم؟"),
+        "enable_location": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تفعيل ميزة تحديد الموقع الجغرافي؟"),
+        "enable_payment": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تفعيل وسائل الدفع الإلكتروني داخل التطبيق؟"),
+        "enable_secure_messaging": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تمكين المراسلة الآمنة بين الأطباء والمرضى؟"),
         "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
         "enterMobileWallet": MessageLookupByLibrary.simpleMessage(
             "أدخل رقم المحفظة الالكترونية"),
@@ -173,12 +216,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("عِـــروٌض الــيوم"),
         "followOeder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
         "followOrder": MessageLookupByLibrary.simpleMessage("تتبع الطلب"),
+        "font_size": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل تخصيص حجم النصوص في التطبيق؟"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور ؟"),
         "forgetPasswordBody": MessageLookupByLibrary.simpleMessage(
             "أدخل ايميلك وسنقوم بارسال رسالة اليك بها كود تفعيل وتغير الباسورد"),
         "getPaymentCode":
             MessageLookupByLibrary.simpleMessage("الحصول على كود الدفع"),
+        "health_articles":
+            MessageLookupByLibrary.simpleMessage("مقالات الصحة والتعليم"),
+        "health_goals_tracking":
+            MessageLookupByLibrary.simpleMessage("تحديد وتتبع الأهداف الصحية"),
+        "health_monitoring": MessageLookupByLibrary.simpleMessage(
+            "مراقبة الصحة وتكامل الأجهزة القابلة للارتداء"),
         "helper": MessageLookupByLibrary.simpleMessage("مسـاعده"),
         "history": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسة"),
@@ -196,10 +247,20 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("التقسيط علي 6 أشهر"),
         "installmentsServices":
             MessageLookupByLibrary.simpleMessage("خدمات التقسيط"),
+        "installmentsbank":
+            MessageLookupByLibrary.simpleMessage("التقسيط مع البنك "),
+        "insurance_integration":
+            MessageLookupByLibrary.simpleMessage("تكامل التأمين الصحي"),
+        "integrate_wearables": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في دمج الأجهزة القابلة للارتداء لمراقبة الصحة في الوقت الفعلي؟"),
         "invalidEmail": MessageLookupByLibrary.simpleMessage(
             " أدخـل بـريد الكــتروني صَحـيح "),
         "lab": MessageLookupByLibrary.simpleMessage("معمل"),
         "labName": MessageLookupByLibrary.simpleMessage("أسم المعمل"),
+        "lab_results_notifications": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل إخطار المرضى عندما تكون نتائج التحاليل متاحة؟"),
+        "lab_test_results":
+            MessageLookupByLibrary.simpleMessage("نتائج التحاليل المختبرية"),
         "language": MessageLookupByLibrary.simpleMessage("الـلغة"),
         "languageDes":
             MessageLookupByLibrary.simpleMessage("قُــم بـتغير لــغة التـطبيق"),
@@ -208,19 +269,30 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsStart":
             MessageLookupByLibrary.simpleMessage("مـــرحبـاََ بـك مــجـدداََ "),
         "limit": MessageLookupByLibrary.simpleMessage("الحد الأدني"),
+        "link_health_insurance": MessageLookupByLibrary.simpleMessage(
+            "هل تريد السماح للمستخدمين بربط تأمينهم الصحي للفواتير السلسة؟"),
         "loading": MessageLookupByLibrary.simpleMessage("تحميل ..."),
         "localeee": MessageLookupByLibrary.simpleMessage("ar"),
+        "location_and_maps":
+            MessageLookupByLibrary.simpleMessage("الموقع والخرائط"),
         "logOut": MessageLookupByLibrary.simpleMessage("تَســجيل الخــروج"),
         "loginBody": MessageLookupByLibrary.simpleMessage(
             "أسـتمتع بتـجربة شـراء ممـيزة من دوايـآ"),
         "loginTitle":
             MessageLookupByLibrary.simpleMessage("مرحبـاً بك يا دكــتور"),
-        "medicalService": MessageLookupByLibrary.simpleMessage("خدمات طبية"),
+        "manage_data": MessageLookupByLibrary.simpleMessage(
+            "هل تحتاج إلى إعدادات إضافية للتحكم في بياناتك ومعلوماتك داخل التطبيق؟"),
+        "medicalService":
+            MessageLookupByLibrary.simpleMessage("دوايا سوفت وير"),
         "medicalServices": MessageLookupByLibrary.simpleMessage(
             " يمكنك متابعة أحدث خدمتنا الرقمية "),
         "medicalSupplies":
             MessageLookupByLibrary.simpleMessage("مستلزمات طبية "),
+        "medication_reminders": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في أن يتلقى المرضى تذكيرات بأخذ الأدوية أو إعادة تعبئة الوصفات؟"),
         "medicine": MessageLookupByLibrary.simpleMessage("دواء"),
+        "message_notifications": MessageLookupByLibrary.simpleMessage(
+            "هل تحتاج إلى إشعارات فورية للرسائل الجديدة؟"),
         "minutes": MessageLookupByLibrary.simpleMessage("دقائق"),
         "missingItemsNotebook": MessageLookupByLibrary.simpleMessage(
             "كشكول النواقص....يمكنك رفع ورقه النواقص أو شيت اكسل وسيتم عم الطلبات اوتوماتيكيا نيابه عنك"),
@@ -234,6 +306,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "msgImage": MessageLookupByLibrary.simpleMessage(
             "الرجاء رفع صورة رخصة الصيدلية أو السجل التجاري لتفعيل حسابك"),
         "msgImage2": MessageLookupByLibrary.simpleMessage("الرجاء رفع صورة "),
+        "multimedia_features":
+            MessageLookupByLibrary.simpleMessage("ميزات الوسائط المتعددة"),
         "myOrder": MessageLookupByLibrary.simpleMessage("طلباتي"),
         "myOrderSpeak":
             MessageLookupByLibrary.simpleMessage("يمكنك مراجعة طلباتك السابقة"),
@@ -252,8 +326,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "noUserFound": MessageLookupByLibrary.simpleMessage(
             "لم يتم العثور على هذه البيانات"),
         "notVerified": MessageLookupByLibrary.simpleMessage("حسابك غير مفعل"),
+        "notifications_and_alerts":
+            MessageLookupByLibrary.simpleMessage("الإشعارات والتنبيهات"),
         "numberOfPints":
             MessageLookupByLibrary.simpleMessage("النقاط المكتسبة"),
+        "offer_health_articles": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تقديم محتوى تعليمي مثل المقالات أو الفيديوهات حول الحالات الصحية والعلاجات؟"),
+        "offer_medical_help_suggestions": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تقديم اقتراحات حول متى يجب البحث عن المساعدة الطبية بناءً على الأعراض؟"),
         "onboardingBody1": MessageLookupByLibrary.simpleMessage(
             "الأدوية- المستلزمات الطبية -مستحضرات التجميل -ألاجهزة الطبية"),
         "onboardingBody2": MessageLookupByLibrary.simpleMessage(
@@ -282,8 +362,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "payWithLastAddress": MessageLookupByLibrary.simpleMessage(
             "الدفع باستخدام العنوان الأخير"),
         "paymentStatus": MessageLookupByLibrary.simpleMessage("حالة الدفع "),
+        "payment_and_shopping":
+            MessageLookupByLibrary.simpleMessage("وسائل الدفع والتسوق"),
         "paymentwhenReceiving":
             MessageLookupByLibrary.simpleMessage("عند استلام الدفع "),
+        "personalize_health_tips": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل تخصيص النصائح الصحية بناءً على ملفات المستخدمين؟"),
         "pharmacy": MessageLookupByLibrary.simpleMessage("صيدلية"),
         "pharmacyName": MessageLookupByLibrary.simpleMessage("أسم الصيدلية "),
         "phoneNumber": MessageLookupByLibrary.simpleMessage("رقم الهاتف"),
@@ -295,6 +379,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "points": MessageLookupByLibrary.simpleMessage("نقاط"),
         "postalCode": MessageLookupByLibrary.simpleMessage("الـرقم البـريدي"),
         "pound": MessageLookupByLibrary.simpleMessage("ج.م"),
+        "prescription_management":
+            MessageLookupByLibrary.simpleMessage("إدارة الوصفات الطبية"),
         "previousRequest":
             MessageLookupByLibrary.simpleMessage("الطلبات السابقة"),
         "priceAfterOffer":
@@ -302,6 +388,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "priceBeforeOffer":
             MessageLookupByLibrary.simpleMessage("قبــل الخصــم"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+        "privacy_settings":
+            MessageLookupByLibrary.simpleMessage("إعدادات الخصوصية"),
         "productDescription":
             MessageLookupByLibrary.simpleMessage("وصف المنتج"),
         "productImage": MessageLookupByLibrary.simpleMessage("صورة المنتج"),
@@ -310,14 +398,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "profileInfo": MessageLookupByLibrary.simpleMessage("الملف الشخصى"),
         "profileInfoDes": MessageLookupByLibrary.simpleMessage(
             "قُـم بتــعديل المــلف الشــخصي لك"),
+        "provide_symptom_checker": MessageLookupByLibrary.simpleMessage(
+            "هل تريد توفير مدقق الأعراض للمستخدمين لتقييم حالاتهم؟"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
+        "quick_access_list": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل عرض قائمة مختصرة للوصول السريع إلى الميزات المهمة بالنسبة لك؟"),
         "reCharge": MessageLookupByLibrary.simpleMessage("أرسال"),
         "reOrder": MessageLookupByLibrary.simpleMessage("إعادة الطلب"),
+        "receive_lab_results": MessageLookupByLibrary.simpleMessage(
+            "هل تريد تمكين المرضى من تلقي نتائج التحاليل المختبرية مباشرة في التطبيق؟"),
+        "receive_notifications": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تلقي إشعارات حول التحديثات أو الرسائل الجديدة؟"),
         "rechangreWallet":
             MessageLookupByLibrary.simpleMessage("شحن المحفظه الكترونيآ"),
         "rechangreWalletBody": MessageLookupByLibrary.simpleMessage(
             "عن طريق جميع وسائل الدفع الألكتروني"),
-        "refundReason": MessageLookupByLibrary.simpleMessage("سبب الأرجاع"),
         "refunds": MessageLookupByLibrary.simpleMessage("المرتجعات"),
         "refused": MessageLookupByLibrary.simpleMessage("قــيد الأنتٍــظآر"),
         "remainingUploads":
@@ -325,6 +420,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rememberMe": MessageLookupByLibrary.simpleMessage("تذكرني"),
         "remotePayment":
             MessageLookupByLibrary.simpleMessage("الدفع الالكترونى"),
+        "remote_consultations": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تقديم استشارات بالفيديو عن بُعد مع الأطباء؟"),
         "requested": MessageLookupByLibrary.simpleMessage("تحت الطلب"),
         "resendEmail":
             MessageLookupByLibrary.simpleMessage("أعد ارسال الايميل"),
@@ -340,9 +437,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "saudiArabia": MessageLookupByLibrary.simpleMessage("السعودية"),
         "saveAndPay": MessageLookupByLibrary.simpleMessage("حفظ والدفع"),
         "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ"),
+        "save_payment_details": MessageLookupByLibrary.simpleMessage(
+            "هل تحتاج إلى ميزة حفظ بيانات الدفع لعمليات الشراء المستقبلية؟"),
         "search": MessageLookupByLibrary.simpleMessage("أبحث هنا "),
         "searchTitle": MessageLookupByLibrary.simpleMessage("الــبحث"),
         "seconds": MessageLookupByLibrary.simpleMessage("ثواني"),
+        "security_and_login":
+            MessageLookupByLibrary.simpleMessage("خصائص الأمان وتسجيل الدخول"),
         "seeAll": MessageLookupByLibrary.simpleMessage("رؤية الكل"),
         "selectAddress":
             MessageLookupByLibrary.simpleMessage("الرجـاء أختيار عنوان أولا"),
@@ -362,13 +463,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendToWallet":
             MessageLookupByLibrary.simpleMessage("ارسال الي المحفظة"),
         "services": MessageLookupByLibrary.simpleMessage("خدمات"),
+        "set_health_goals": MessageLookupByLibrary.simpleMessage(
+            "هل تريد السماح للمستخدمين بتحديد وتتبع الأهداف الصحية مثل فقدان الوزن أو أهداف التمرين؟"),
         "settings": MessageLookupByLibrary.simpleMessage("الاعدادات"),
+        "share_on_social_media": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تفعيل مشاركة المحتوى على وسائل التواصل الاجتماعي؟"),
+        "share_via_sms": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل خاصية مشاركة المحتوى عبر الرسائل النصية أو البريد الإلكتروني؟"),
+        "sharing_features":
+            MessageLookupByLibrary.simpleMessage("خصائص المشاركة"),
         "shipping": MessageLookupByLibrary.simpleMessage("الطلب في الطريق"),
         "shippingBody": MessageLookupByLibrary.simpleMessage(
             "الرجاء الانتظار الطلب في الطريق "),
         "singIn": MessageLookupByLibrary.simpleMessage("تسجـيل الدخـول"),
         "size": MessageLookupByLibrary.simpleMessage("الحــجم "),
         "skip": MessageLookupByLibrary.simpleMessage("تخطـى"),
+        "social_login": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل استخدام تسجيل الدخول عبر حسابات التواصل الاجتماعي (مثل Google أو Facebook)؟"),
         "souhoola": MessageLookupByLibrary.simpleMessage("سهولة"),
         "speakToUs": MessageLookupByLibrary.simpleMessage(
             "يمكنك التواصل مباشرة مع صيدلي متخصص"),
@@ -377,17 +488,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "stagnantItems": MessageLookupByLibrary.simpleMessage(
             "رواكد اصنافي.......يمكنك رفع الأصناف الراكده على حسابك وسيتم تدويرها واعاده بيعها نيابه عنك"),
         "status": MessageLookupByLibrary.simpleMessage("الحالة"),
+        "store_emergency_contacts": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في السماح للمستخدمين بحفظ تفاصيل الاتصال الطارئة للأطباء أو العائلة؟"),
+        "store_medical_history": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في حفظ التشخيصات السابقة أو العلاجات أو الحالات الطبية المستمرة؟"),
         "streetName": MessageLookupByLibrary.simpleMessage("أسم الشارع"),
+        "symptom_checker": MessageLookupByLibrary.simpleMessage("مدقق الأعراض"),
         "takeCameraPhoto": MessageLookupByLibrary.simpleMessage(
             "ألتقط صورة بالكاميرا لكشكول النواقص "),
+        "telemedicine":
+            MessageLookupByLibrary.simpleMessage("ميزات الطب عن بُعد"),
         "termsOfUse": MessageLookupByLibrary.simpleMessage("شروط الاستخدام"),
+        "theme_colors": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تعديل ألوان واجهة المستخدم حسب تفضيلاتك؟"),
         "total": MessageLookupByLibrary.simpleMessage("الاجمالي"),
+        "track_health_goals_progress": MessageLookupByLibrary.simpleMessage(
+            "هل تفضل تضمين تتبع التقدم لهذه الأهداف الصحية؟"),
+        "track_vital_signs": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في أن يتمكن المستخدمون من متابعة العلامات الحيوية مثل معدل ضربات القلب أو ضغط الدم أو مستوى الجلوكوز؟"),
         "transactionHistory":
             MessageLookupByLibrary.simpleMessage("Transaction History"),
         "tryAgain": MessageLookupByLibrary.simpleMessage(
             "  يُـرجى المُحاولة مرة أخرى أو التسجيل"),
         "tryLater": MessageLookupByLibrary.simpleMessage(
             "الرجاء المحاولة مرة اخري فيما بعد"),
+        "ui_customization":
+            MessageLookupByLibrary.simpleMessage("تخصيص واجهة المستخدم"),
         "underDelivery": MessageLookupByLibrary.simpleMessage("قيد التوصيل"),
         "unitPrice": MessageLookupByLibrary.simpleMessage("العملة"),
         "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
@@ -402,13 +528,25 @@ class MessageLookup extends MessageLookupByLibrary {
             "أرفع ملف النواقص أو شيت أكسيل بالنواقص"),
         "uploadImageCommercial":
             MessageLookupByLibrary.simpleMessage("أرفع صورة السجل التجاري"),
+        "upload_media": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في إضافة خاصية تحميل الصور أو الفيديوهات؟"),
+        "use_maps": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في استخدام الخرائط للوصول إلى خدمات أو مواقع معينة؟"),
         "userName": MessageLookupByLibrary.simpleMessage("أسم المستخدم"),
+        "user_profile_medical_history":
+            MessageLookupByLibrary.simpleMessage("ملف المستخدم والتاريخ الطبي"),
         "valu": MessageLookupByLibrary.simpleMessage("فاليو"),
         "verificationCode":
             MessageLookupByLibrary.simpleMessage("كــود التفعيل"),
         "verification_status": MessageLookupByLibrary.simpleMessage(
             "تَـواصـل مع الأدارة لتفعيل حٍسابـك"),
         "verified": MessageLookupByLibrary.simpleMessage("تم تفعيل الحساب"),
+        "video_consultations": MessageLookupByLibrary.simpleMessage(
+            "هل تحتاج إلى إمكانية إجراء استشارات بالفيديو مع الأطباء؟"),
+        "virtual_triage": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في تضمين نظام فرز افتراضي لتقييم الأعراض قبل الاستشارات؟"),
+        "voice_messages": MessageLookupByLibrary.simpleMessage(
+            "هل ترغب في استخدام الرسائل الصوتية في الدردشة؟"),
         "wallet": MessageLookupByLibrary.simpleMessage(
             " هنا يمكنك الحصول على أموال والكاش باك لتساعدك في زياده أرباحك"),
         "walletByPayment":

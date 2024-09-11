@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:duaya_app/features/category/data/model/CategoriesByPage.dart';
 import 'package:duaya_app/features/category/data/model/SingleCategoryModel.dart';
+import 'package:duaya_app/features/category/data/model/sub_category_model.dart';
 import 'package:duaya_app/features/category/data/repositories/categoriesRepo.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
@@ -12,7 +13,9 @@ part 'categories_by_page_state.dart';
 class CategoriesByPageCubit extends Cubit<CategoriesByPageState> {
   CategoriesByPageCubit() : super(CategoriesByPageInitial());
   CategoriesByPage categoriesModel = CategoriesByPage();
+  SubCategoryModel subCategoriesModel = SubCategoryModel();
   late SingleCategoryModel singleCata;
+  // late SubCategoryModel subCategories;
   Map<String, dynamic> idsMapForCata = {};
   categoriesByPageRepoImp repo = categoriesByPageRepoImp();
 
@@ -44,6 +47,7 @@ class CategoriesByPageCubit extends Cubit<CategoriesByPageState> {
     singleCata = await repo.getCategory(
       categoryID: cataID,
     );
+    subCategoriesModel = await repo.getSubCategory(categoryID: cataID);
     Navigator.pop(context);
     emit(CategoryByIDSuccess());
   }

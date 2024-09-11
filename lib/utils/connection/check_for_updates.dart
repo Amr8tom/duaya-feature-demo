@@ -1,7 +1,6 @@
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_update/in_app_update.dart';
-
 import '../../generated/l10n.dart';
 
 Future<void> checkForUpdate({required BuildContext context}) async {

@@ -55,7 +55,10 @@ class URL {
   static const categoriesByPageBycity = '${baseUrl}filter/categories';
   static const shortComing = '${baseUrl}shortcoming/store';
   static const categoryByID = '${baseUrl}products/category/';
+  static const subcategories = '${baseUrl}sub-categories/';///{ID}
+  /// https://doctorpharmaco.com/api/v2/sub-categories/514
   static const companiesByPage = '${baseUrl}shops?page=';
+
   static const companyDetails =
       '${baseUrl}shops/details/'; //////////////////////
   static const companyProductsBestSeller =
@@ -67,12 +70,10 @@ class URL {
   static const rsetPassword = '${baseUrl}auth/password/forget_request';
 
   ///  Authentication
-
   // {
   // "id":25444,
   // "reason":"i dont need it"
   // }
-
   static const sendRefundOrderRequest = '${baseUrl}refund-request/send';
   static const getAllRefundOrderRequest = '${baseUrl}refund-request/get-list';
   static const getAllOrders = '${baseUrl}purchase-history';
@@ -99,24 +100,35 @@ class URL {
   static const profile = '${baseUrl}profile/counters';
   static const updateProfile = '${baseUrl}profile/update';
   static const updateDeviceToken = '${baseUrl}profile/update-device-token';
+
   static const statiesByCityID =
       '${baseUrl}cities-by-state/'; // cities-by-state/{id}
+
   static const GetCitiesByCountryID =
       '${baseUrl}states-by-country/'; // states-by-country/{id} enterCountyid
+
   static const checkOTPUrl = 'api/provider/check-phone';
+
   static const verifyOTPUrl = 'api/provider/verify';
 
   /// coustomerAds
   static const customerAdsAdd = '${baseUrl}classified/store-products';
+
   static const customerMyAds = '${baseUrl}classified/own-products';
+
   static const customerAllAds = '${baseUrl}classified/all';
+
   static const customerAdsProductDetails =
       '${baseUrl}classified/product-details/'; //{id}
   static const customerAdsRelated =
       '${baseUrl}classified/related-products/'; //{id}
+
   static const generateOTPUrl = 'api/provider/generate-otp';
+
   static const updatePasswordUrl = 'api/provider/reset-password';
+
   static const agoraID = '00d26e5417db439ba61866b00d8e5909';
+
   static const agoraToken =
       '007eJxTYHj/7u5av2eLDoZf1Pm0rf7H7Ov1EdXdzHapH2b0s86fW2uvwGBgkGJklmpqYmiekmRibJmUaGZoYWaWBBS2SDW1NLDcHLworSGQkaF4lhUTIwMEgvicDCmliZWJIanFJQwMAPD3I6c=';
 }

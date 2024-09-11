@@ -10,6 +10,7 @@
   "cancleOrder": "Cancle The Order",
   "later": "Later",
   "round": "Arrival Time",
+  "installmentsbank":"installments with bank ",
   "Tombstone": "Nearst Tombstone",
   "placeName": "Place Name",
   "MorningShift": "Morning shift Number",
@@ -259,9 +260,101 @@
       "cart":"Cart",
     "stagnantCategories":"Stagnant categories",
       "myWallet":"My Wallet",
-      "medicalService":"Medical Service",
+      "medicalService":"Duaya SoftWare",
       "webAndApp":"Application and website for the pharmacy ",
       "done":"Done",
+
+  "security_and_login": "Security and Login Features",
+  "email_login": "Do you want to enable login via email?",
+  "social_login": "Would you prefer to log in using social media accounts (like Google or Facebook)?",
+  "biometric_login": "Do you want to use fingerprint or face recognition for login?",
+
+  "chat_and_communication": "Chat and Communication",
+  "enable_chat": "Do you want to enable chat with other users or support team?",
+  "message_notifications": "Do you need instant notifications for new messages?",
+  "voice_messages": "Do you want to use voice messages in chat?",
+
+  "customization": "Customization",
+  "dark_mode": "Would you like to enable dark mode?",
+  "font_size": "Do you prefer to customize the font size in the app?",
+  "theme_colors": "Would you like to change the app's interface colors according to your preferences?",
+
+  "notifications_and_alerts": "Notifications and Alerts",
+  "receive_notifications": "Do you want to receive notifications about updates or new messages?",
+  "custom_notifications": "Would you prefer to customize the types of notifications you receive (such as news, alerts, offers)?",
+
+  "payment_and_shopping": "Payment and Shopping",
+  "enable_payment": "Do you want to enable electronic payment methods in the app?",
+  "save_payment_details": "Do you need the feature to save payment details for future purchases?",
+
+  "location_and_maps": "Location and Maps",
+  "enable_location": "Do you want to enable location-based services?",
+  "use_maps": "Would you like to use maps to find services or specific locations?",
+
+  "multimedia_features": "Multimedia Features",
+  "upload_media": "Do you want to add a feature to upload photos or videos?",
+  "edit_media": "Do you need the ability to edit photos or videos within the app?",
+
+  "sharing_features": "Sharing Features",
+  "share_on_social_media": "Do you want to enable content sharing on social media platforms?",
+  "share_via_sms": "Would you prefer the ability to share content via SMS or email?",
+
+  "privacy_settings": "Privacy Settings",
+  "control_visibility": "Do you want to control who can see your personal information?",
+  "manage_data": "Do you need additional settings to manage your data and information within the app?",
+
+  "ui_customization": "User Interface Customization",
+  "customize_home": "Would you like to customize the home screen based on your favorite usage?",
+  "quick_access_list": "Do you prefer to display a shortcut list for quick access to important features?",
+  "user_profile_medical_history": "User Profile & Medical History",
+  "create_medical_profile": "Do you want to create a detailed medical profile including age, gender, and medical history?",
+  "store_medical_history": "Would you like to store previous diagnoses, treatments, or ongoing medical conditions?",
+
+  "appointment_scheduling": "Appointment Scheduling",
+  "book_appointments": "Do you want to enable users to book appointments with doctors directly from the app?",
+  "appointment_reminders": "Would you prefer to include an appointment reminder feature?",
+
+  "doctor_patient_communication": "Doctor-Patient Communication",
+  "enable_secure_messaging": "Would you like to enable secure messaging between doctors and patients?",
+  "video_consultations": "Do you need the ability to have video consultations with doctors?",
+
+  "prescription_management": "Prescription Management",
+  "electronic_prescriptions": "Do you want to allow doctors to issue electronic prescriptions to patients?",
+  "medication_reminders": "Would you like patients to receive reminders for taking medications or refilling prescriptions?",
+
+  "health_monitoring": "Health Monitoring & Wearables Integration",
+  "integrate_wearables": "Do you want to integrate wearable devices for real-time health monitoring?",
+  "track_vital_signs": "Would you like users to track vital signs like heart rate, blood pressure, or glucose levels?",
+
+  "telemedicine": "Telemedicine Features",
+  "remote_consultations": "Would you like to offer remote video consultations with doctors?",
+  "virtual_triage": "Do you want to include a virtual triage system for assessing symptoms before consultations?",
+
+  "lab_test_results": "Lab Test Results",
+  "receive_lab_results": "Do you want to enable patients to receive lab results directly in the app?",
+  "lab_results_notifications": "Would you prefer to notify patients when their lab results are available?",
+
+  "health_articles": "Health Articles & Education",
+  "offer_health_articles": "Do you want to offer educational content such as articles or videos about health conditions and treatments?",
+  "personalize_health_tips": "Would you prefer to personalize health tips based on user profiles?",
+
+  "insurance_integration": "Insurance Integration",
+  "link_health_insurance": "Do you want to allow users to link their health insurance for seamless billing?",
+  "display_coverage_details": "Would you prefer to display insurance coverage details for specific treatments or medications?",
+
+  "emergency_services": "Emergency Contact & Services",
+  "call_emergency_services": "Do you want to enable users to call emergency services directly from the app?",
+  "store_emergency_contacts": "Would you like to allow users to store emergency contact details for doctors or family?",
+
+  "symptom_checker": "Symptom Checker",
+  "provide_symptom_checker": "Do you want to provide a symptom checker for users to assess their conditions?",
+  "offer_medical_help_suggestions": "Would you like to offer suggestions for when to seek medical help based on symptoms?",
+
+  "health_goals_tracking": "Health Goals & Tracking",
+  "set_health_goals": "Do you want to allow users to set and track health goals, such as weight loss or exercise targets?",
+  "track_health_goals_progress": "Would you prefer to include progress tracking for these health goals?",
+
+
   "walletByPayment":"By Wallet",
       "favorite":"my Favorites",
       "chooseImage":"Choose Image",

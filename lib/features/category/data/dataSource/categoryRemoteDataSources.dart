@@ -25,4 +25,14 @@ class categoriesByPageRemoteDataSources {
     print("${URL.categoryByID}$CategoryID");
     return response;
   }
+
+  Future<Map<String, dynamic>?> getSubCategoriesByID(
+      {required CategoryID}) async {
+    DioHelper API = DioHelper();
+    final Map<String, dynamic>? response =
+        await API.getData(URL: "${URL.subcategories}$CategoryID");
+    print(response);
+    print("${URL.subcategories}$CategoryID");
+    return response;
+  }
 }

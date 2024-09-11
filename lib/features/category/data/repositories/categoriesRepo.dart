@@ -1,9 +1,9 @@
 import 'dart:convert';
-
 import 'package:data_connection_checker_tv/data_connection_checker.dart';
 import 'package:duaya_app/features/category/data/dataSource/categoryLocalDataSources.dart';
 import 'package:duaya_app/features/category/data/dataSource/categoryRemoteDataSources.dart';
-
+import 'package:duaya_app/features/category/data/model/sub_category_model.dart';
+import 'package:duaya_app/features/category/data/model/sub_category_model.dart';
 import '../../../../utils/connection/checkNetwork.dart';
 import '../model/CategoriesByPage.dart';
 import '../model/SingleCategoryModel.dart';
@@ -48,6 +48,24 @@ class categoriesByPageRepoImp {
           "///////////////  categoryByID Net Not Connected   ///////////////");
       final json = await localData.getCategoryByID(categoryID: categoryID);
       return SingleCategoryModel.fromJson(json);
+    }
+  }
+
+  Future<SubCategoryModel> getSubCategory({required String categoryID}) async {
+    bool networkInfo =
+        await NetworkInfoImpl(DataConnectionChecker()).isConnected;
+    if (networkInfo) {
+      print("///////////////  categoryByID Net Connected   ///////////////");
+      final Map<String, dynamic>? response =
+          await remoteData.getSubCategoriesByID(CategoryID: categoryID);
+      localData.cacheSubCategoriesByPAge(
+          subCategoriesByPageJson: jsonEncode(response));
+      return SubCategoryModel.fromJson(response);
+    } else {
+      print(
+          "///////////////  categoryByID Net Not Connected   ///////////////");
+      final json = await localData.getSubCategoriesByPAge();
+      return SubCategoryModel.fromJson(json);
     }
   }
 

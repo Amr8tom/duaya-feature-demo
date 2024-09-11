@@ -30,6 +30,7 @@ import '../features/address/presentation/address_form_screen.dart';
 import '../features/address/presentation/address_list_screen.dart';
 import '../features/category/presentation/category/category_screen.dart';
 import '../features/category/presentation/category/presentation/certain_category_screen.dart';
+import '../features/payment/presentation/installments/bank_installemnts_screen/bank_installments_screen.dart';
 import '../features/payment/presentation/installments/main_installments_screen/main_installments_screen.dart';
 import '../features/payment/presentation/installments/payment_in_installments_12_months/payment_in_installments_12_months.dart';
 import '../features/payment/presentation/installments/payment_in_installments_6_months/payment_in_installments_6_months.dart';
@@ -210,6 +211,13 @@ class RouteGenerator {
       case DRoutesName.customerAdsRoute:
         return PageTransition(
           child: const CustomerAdsScreen(),
+          type: PageTransitionType.rightToLeftWithFade,
+          settings: settings,
+          // reverseDuration: const Duration(milliseconds: 300),
+        );
+      case DRoutesName.paymentInInstallmentsBank:
+        return PageTransition(
+          child: const BankInstallmentsScreen(),
           type: PageTransitionType.rightToLeftWithFade,
           settings: settings,
           // reverseDuration: const Duration(milliseconds: 300),

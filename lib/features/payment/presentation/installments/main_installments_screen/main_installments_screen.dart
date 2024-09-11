@@ -9,12 +9,8 @@ import '../../widgets/methodCard.dart';
 class MainInstallmentsScreen extends StatelessWidget {
   const MainInstallmentsScreen({super.key});
 
-  void navigateTo6months(BuildContext context) {
-    context.pushNamed(DRoutesName.paymentInInstallments6MonthsRoute);
-  }
-
-  void navigateTo12months(BuildContext context) {
-    context.pushNamed(DRoutesName.paymentInInstallments12MonthsRoute);
+  void navigateToBankIstallments(BuildContext context) {
+    context.pushNamed(DRoutesName.paymentInInstallmentsBank);
   }
 
   void navigateToValu(BuildContext context) {
@@ -39,10 +35,8 @@ class MainInstallmentsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            buildPaymentMethodCard(context, S.current.installments6mon,
-                Icons.schedule, () => navigateTo6months(context)),
-            buildPaymentMethodCard(context, S.current.installments12mon,
-                Icons.schedule, () => navigateTo12months(context)),
+            buildPaymentMethodCard(context, S.current.installmentsbank,
+                Icons.schedule, () => navigateToBankIstallments(context)),
             buildPaymentMethodCard(context, S.current.installmentWithValu,
                 Icons.schedule, () => navigateToValu(context)),
             buildPaymentMethodCard(context, S.current.installmentWithSouhoola,

@@ -60,6 +60,8 @@ class DRoutesName {
   static const String fawryRoute = 'fawry-route';
   static const String mobileWalletRoute = 'mobile-wallet-route';
   static const String remotePaymentRoute = 'remote-payment-route';
+  static const String paymentInInstallmentsBank =
+      'payment_in_installments_bank_route';
   static const String paymentInInstallments6MonthsRoute =
       'payment_in_installments_6_months_route';
   static const String paymentInInstallments12MonthsRoute =
