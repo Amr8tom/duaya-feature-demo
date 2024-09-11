@@ -1,21 +1,20 @@
 import 'package:duaya_app/app/app.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
-import 'package:duaya_app/features/services/medical_service/presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
-// import 'custom_switch_list_tile.dart'; // Import the custom widget
+import '../presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 
-class LocationAndMaps extends StatefulWidget {
-  const LocationAndMaps({super.key});
+class customization extends StatefulWidget {
+  const customization({super.key});
 
   @override
-  State<LocationAndMaps> createState() => _LocationAndMapsState();
+  State<customization> createState() => _customizationState();
 }
 
-class _LocationAndMapsState extends State<LocationAndMaps> {
+class _customizationState extends State<customization> {
   bool emailLogin = false;
   bool socialLogin = false;
   bool biometricLogin = false;
@@ -24,9 +23,10 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DAppBar(
+        centerTitle: true,
         showBackArrow: true,
         title: Text(
-          S.current.location_and_maps,
+          S.current.customization,
           style: TextStyle(fontSize: 20.sp),
         ),
       ),
@@ -34,7 +34,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CustomSwitchListTitleWidget(
-            title: S.current.enable_location,
+            title: S.current.dark_mode,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -43,7 +43,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
             },
           ),
           CustomSwitchListTitleWidget(
-            title: S.current.use_maps,
+            title: S.current.font_size,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {
@@ -51,12 +51,14 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
               });
             },
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: TextFormField(
-              maxLines: 5,
-              decoration: InputDecoration(hintText: "أضف المزيد من التفاصيل"),
-            ),
+          CustomSwitchListTitleWidget(
+            title: S.current.theme_colors,
+            value: biometricLogin,
+            onChanged: (bool value) {
+              setState(() {
+                biometricLogin = value;
+              });
+            },
           ),
           TextButton(
             onPressed: () {

@@ -1,5 +1,6 @@
 import 'package:duaya_app/app/app.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/services/medical_service/app_features_selection/multimedia_features.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,6 +12,9 @@ import 'app_features_selection/location_and_maps.dart';
 import 'app_features_selection/loginfeature.dart';
 import 'app_features_selection/notifications_and_alerts.dart';
 import 'app_features_selection/payment_and_shopping.dart';
+import 'app_features_selection/privacy_settings.dart';
+import 'app_features_selection/sharing_features.dart';
+import 'app_features_selection/ui_customization.dart';
 
 class SelectFeaturesScreen extends StatelessWidget {
   const SelectFeaturesScreen({super.key});
@@ -96,8 +100,10 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.multimedia_features),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => customization()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => MultimediaFeatures()));
             },
           ),
           ListTile(
@@ -105,10 +111,8 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.sharing_features),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => NotificationsAndAlerts()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => SharingFeature()));
             },
           ),
           ListTile(
@@ -117,7 +121,7 @@ class SelectFeaturesScreen extends StatelessWidget {
                 S.current.privacy_settings),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => customization()));
+                  MaterialPageRoute(builder: (context) => PrivacySetting()));
             },
           ),
           ListTile(
@@ -125,10 +129,8 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.ui_customization),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => SecurityLoginScreen()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => UiCustomization()));
             },
           ),
           ListTile(
@@ -247,6 +249,29 @@ class SelectFeaturesScreen extends StatelessWidget {
 
           // Add more ListTile items here for other features
         ],
+      ),
+      floatingActionButton: TextButton(
+        child: Container(
+          // color: ColorRes.greenBlueLight,
+          decoration: BoxDecoration(
+              color: ColorRes.greenBlue,
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(width: 1, color: ColorRes.black)),
+          child: Padding(
+            padding: const EdgeInsets.all(7.0),
+            child: Text(
+              S.current.sendToDuaya,
+              style: TextStyle(
+                color: ColorRes.white,
+                fontSize: 17,
+              ),
+            ),
+          ),
+        ),
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => SelectFeaturesScreen()));
+        },
       ),
     );
   }

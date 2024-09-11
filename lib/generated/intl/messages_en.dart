@@ -456,6 +456,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sendNotebook": MessageLookupByLibrary.simpleMessage(
             "Send Missing Items Notebook....Important"),
         "sendProduct": MessageLookupByLibrary.simpleMessage("send Product"),
+        "sendToDuaya":
+            MessageLookupByLibrary.simpleMessage("Send To Duaya Team"),
         "sendToWallet": MessageLookupByLibrary.simpleMessage("send to wallet "),
         "services": MessageLookupByLibrary.simpleMessage("services"),
         "set_health_goals": MessageLookupByLibrary.simpleMessage(

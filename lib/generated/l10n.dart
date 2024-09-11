@@ -3272,6 +3272,16 @@ class S {
     );
   }
 
+  /// `Send To Duaya Team`
+  String get sendToDuaya {
+    return Intl.message(
+      'Send To Duaya Team',
+      name: 'sendToDuaya',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `By Wallet`
   String get walletByPayment {
     return Intl.message(

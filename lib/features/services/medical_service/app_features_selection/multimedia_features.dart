@@ -8,14 +8,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../generated/l10n.dart';
 // import 'custom_switch_list_tile.dart'; // Import the custom widget
 
-class LocationAndMaps extends StatefulWidget {
-  const LocationAndMaps({super.key});
+class MultimediaFeatures extends StatefulWidget {
+  const MultimediaFeatures({super.key});
 
   @override
-  State<LocationAndMaps> createState() => _LocationAndMapsState();
+  State<MultimediaFeatures> createState() => _MultimediaFeaturesState();
 }
 
-class _LocationAndMapsState extends State<LocationAndMaps> {
+class _MultimediaFeaturesState extends State<MultimediaFeatures> {
   bool emailLogin = false;
   bool socialLogin = false;
   bool biometricLogin = false;
@@ -26,7 +26,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
       appBar: DAppBar(
         showBackArrow: true,
         title: Text(
-          S.current.location_and_maps,
+          S.current.multimedia_features,
           style: TextStyle(fontSize: 20.sp),
         ),
       ),
@@ -34,7 +34,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CustomSwitchListTitleWidget(
-            title: S.current.enable_location,
+            title: S.current.upload_media,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -43,7 +43,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
             },
           ),
           CustomSwitchListTitleWidget(
-            title: S.current.use_maps,
+            title: S.current.edit_media,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {

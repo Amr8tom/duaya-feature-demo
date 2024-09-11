@@ -354,6 +354,7 @@
               "done":"تم بنجاح",
    "hospital":"مستشفي ",
    "lab":"معمل",
+   "sendToDuaya":"أرسل الي فريق دوايا",
    "productName":"أسم المنتج",
                 "productDescription":"وصف المنتج",
          "addProduct":"أضافة منتج",

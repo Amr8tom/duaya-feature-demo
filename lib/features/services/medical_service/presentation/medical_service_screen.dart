@@ -1,3 +1,4 @@
+import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/common/widgets/floating_action_button/custom_floating_action_button.dart';
 import 'package:duaya_app/features/services/medical_service/presentation/widgets/custom_container_medical_service_component/custom_container_medical_service_component.dart';
@@ -40,7 +41,7 @@ class MedicalServiceScreen extends StatelessWidget {
 
             /// Component Medical Service
             child: state is MedicalServicesGetListLoading
-                ? Center(child: Lottie.asset(AssetRes.loadingSliders))
+                ? CustomUI.simpleLoader()
                 : GridView.builder(
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,

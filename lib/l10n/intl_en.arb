@@ -354,6 +354,7 @@
   "set_health_goals": "Do you want to allow users to set and track health goals, such as weight loss or exercise targets?",
   "track_health_goals_progress": "Would you prefer to include progress tracking for these health goals?",
 
+  "sendToDuaya":"Send To Duaya Team",
 
   "walletByPayment":"By Wallet",
       "favorite":"my Favorites",

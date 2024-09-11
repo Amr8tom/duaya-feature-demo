@@ -1,4 +1,3 @@
-import 'package:duaya_app/app/app.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
 import 'package:duaya_app/features/services/medical_service/presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
@@ -6,16 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
-// import 'custom_switch_list_tile.dart'; // Import the custom widget
 
-class LocationAndMaps extends StatefulWidget {
-  const LocationAndMaps({super.key});
+class PrivacySetting extends StatefulWidget {
+  const PrivacySetting({super.key});
 
   @override
-  State<LocationAndMaps> createState() => _LocationAndMapsState();
+  State<PrivacySetting> createState() => _PrivacySettingState();
 }
 
-class _LocationAndMapsState extends State<LocationAndMaps> {
+class _PrivacySettingState extends State<PrivacySetting> {
   bool emailLogin = false;
   bool socialLogin = false;
   bool biometricLogin = false;
@@ -26,7 +24,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
       appBar: DAppBar(
         showBackArrow: true,
         title: Text(
-          S.current.location_and_maps,
+          S.current.privacy_settings,
           style: TextStyle(fontSize: 20.sp),
         ),
       ),
@@ -34,7 +32,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           CustomSwitchListTitleWidget(
-            title: S.current.enable_location,
+            title: S.current.control_visibility,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -43,7 +41,7 @@ class _LocationAndMapsState extends State<LocationAndMaps> {
             },
           ),
           CustomSwitchListTitleWidget(
-            title: S.current.use_maps,
+            title: S.current.manage_data,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {
