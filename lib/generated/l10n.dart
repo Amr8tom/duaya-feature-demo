@@ -3202,6 +3202,16 @@ class S {
     );
   }
 
+  /// `Choose Your App Features`
+  String get Appfeatures {
+    return Intl.message(
+      'Choose Your App Features',
+      name: 'Appfeatures',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Symptom Checker`
   String get symptom_checker {
     return Intl.message(

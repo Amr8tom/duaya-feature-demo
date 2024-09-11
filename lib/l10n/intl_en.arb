@@ -341,10 +341,10 @@
   "insurance_integration": "Insurance Integration",
   "link_health_insurance": "Do you want to allow users to link their health insurance for seamless billing?",
   "display_coverage_details": "Would you prefer to display insurance coverage details for specific treatments or medications?",
-
   "emergency_services": "Emergency Contact & Services",
   "call_emergency_services": "Do you want to enable users to call emergency services directly from the app?",
   "store_emergency_contacts": "Would you like to allow users to store emergency contact details for doctors or family?",
+  "Appfeatures":"Choose Your App Features",
 
   "symptom_checker": "Symptom Checker",
   "provide_symptom_checker": "Do you want to provide a symptom checker for users to assess their conditions?",

@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Appfeatures":
+            MessageLookupByLibrary.simpleMessage("أختر مميزات تطبيقك"),
         "Bahrain": MessageLookupByLibrary.simpleMessage("البحرين"),
         "Delivered": MessageLookupByLibrary.simpleMessage("تم التوصيل"),
         "DeliveredBody": MessageLookupByLibrary.simpleMessage(
@@ -175,7 +177,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "edit_media": MessageLookupByLibrary.simpleMessage(
             "هل تحتاج إلى ميزة تعديل الصور أو الفيديوهات داخل التطبيق؟"),
         "electronic_prescriptions": MessageLookupByLibrary.simpleMessage(
-            "هل تريد السماح للأطباء بإصدار وصفات طبية إلكترونية للمرضى؟"),
+            "هل تريد السماح للأطباء بإصدار روشتات طبية إلكترونية للمرضى؟"),
         "emailPasswordSend":
             MessageLookupByLibrary.simpleMessage("تم ارسال الكود"),
         "email_login": MessageLookupByLibrary.simpleMessage(
@@ -380,7 +382,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "postalCode": MessageLookupByLibrary.simpleMessage("الـرقم البـريدي"),
         "pound": MessageLookupByLibrary.simpleMessage("ج.م"),
         "prescription_management":
-            MessageLookupByLibrary.simpleMessage("إدارة الوصفات الطبية"),
+            MessageLookupByLibrary.simpleMessage("إدارة الروشتات الطبية"),
         "previousRequest":
             MessageLookupByLibrary.simpleMessage("الطلبات السابقة"),
         "priceAfterOffer":
