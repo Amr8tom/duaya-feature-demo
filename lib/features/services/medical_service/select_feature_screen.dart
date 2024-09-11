@@ -6,14 +6,19 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../generated/l10n.dart';
 import '../../../utils/constants/colors.dart';
+import 'app_features_selection/appointment_scheduling.dart';
 import 'app_features_selection/chat_and_communication.dart';
 import 'app_features_selection/customization.dart';
+import 'app_features_selection/doctor_patient_communication.dart';
+import 'app_features_selection/lab_test_results.dart';
 import 'app_features_selection/location_and_maps.dart';
 import 'app_features_selection/loginfeature.dart';
 import 'app_features_selection/notifications_and_alerts.dart';
 import 'app_features_selection/payment_and_shopping.dart';
+import 'app_features_selection/prescription_management.dart';
 import 'app_features_selection/privacy_settings.dart';
 import 'app_features_selection/sharing_features.dart';
+import 'app_features_selection/telemedicine.dart';
 import 'app_features_selection/ui_customization.dart';
 
 class SelectFeaturesScreen extends StatelessWidget {
@@ -141,7 +146,7 @@ class SelectFeaturesScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NotificationsAndAlerts()));
+                      builder: (context) => AppointmentScheduling()));
             },
           ),
           ListTile(
@@ -149,8 +154,10 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.doctor_patient_communication),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => customization()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DoctorPatientCommunication()));
             },
           ),
           ListTile(
@@ -161,7 +168,7 @@ class SelectFeaturesScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NotificationsAndAlerts()));
+                      builder: (context) => PrescriptionManagement()));
             },
           ),
           ListTile(
@@ -169,10 +176,8 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.telemedicine),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => ChatAndCommunication()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Telemedicine()));
             },
           ),
           ListTile(
@@ -181,7 +186,7 @@ class SelectFeaturesScreen extends StatelessWidget {
                 S.current.lab_test_results),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LocationAndMaps()));
+                  MaterialPageRoute(builder: (context) => LabTestResults()));
             },
           ),
           ListTile(
