@@ -44,6 +44,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "accepted": MessageLookupByLibrary.simpleMessage("Accepted"),
         "acceptedBody":
             MessageLookupByLibrary.simpleMessage("Your order is Accepted"),
+        "addMoreFeats": MessageLookupByLibrary.simpleMessage(
+            "Add More Features not included"),
         "addNewAddress": MessageLookupByLibrary.simpleMessage("Add Address"),
         "addPhotoOf":
             MessageLookupByLibrary.simpleMessage("Please Upload the photo of"),

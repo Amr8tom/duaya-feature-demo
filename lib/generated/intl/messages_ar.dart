@@ -43,6 +43,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "accepted": MessageLookupByLibrary.simpleMessage("مقبــوُل"),
         "acceptedBody":
             MessageLookupByLibrary.simpleMessage("تمت الموافقة علي الطلب"),
+        "addMoreFeats":
+            MessageLookupByLibrary.simpleMessage("أضف خصائص غير متواجده"),
         "addNewAddress": MessageLookupByLibrary.simpleMessage("أَضـف عنـوان"),
         "addPhotoOf":
             MessageLookupByLibrary.simpleMessage(" الرجــاء رفـع صـورة الـ "),
@@ -401,7 +403,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "profileInfoDes": MessageLookupByLibrary.simpleMessage(
             "قُـم بتــعديل المــلف الشــخصي لك"),
         "provide_symptom_checker": MessageLookupByLibrary.simpleMessage(
-            "هل تريد توفير مدقق الأعراض للمستخدمين لتقييم حالاتهم؟"),
+            "هل تريد توفير كشف مبدئ للأعراض للمستخدمين لتقييم حالاتهم؟"),
         "quantity": MessageLookupByLibrary.simpleMessage("الكمية"),
         "quick_access_list": MessageLookupByLibrary.simpleMessage(
             "هل تفضل عرض قائمة مختصرة للوصول السريع إلى الميزات المهمة بالنسبة لك؟"),
@@ -497,7 +499,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "store_medical_history": MessageLookupByLibrary.simpleMessage(
             "هل ترغب في حفظ التشخيصات السابقة أو العلاجات أو الحالات الطبية المستمرة؟"),
         "streetName": MessageLookupByLibrary.simpleMessage("أسم الشارع"),
-        "symptom_checker": MessageLookupByLibrary.simpleMessage("مدقق الأعراض"),
+        "symptom_checker":
+            MessageLookupByLibrary.simpleMessage("الكشف علي الامراض"),
         "takeCameraPhoto": MessageLookupByLibrary.simpleMessage(
             "ألتقط صورة بالكاميرا لكشكول النواقص "),
         "telemedicine":

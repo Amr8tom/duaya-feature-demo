@@ -1,6 +1,11 @@
 import 'package:duaya_app/app/app.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/services/medical_service/app_features_selection/add_more_features_screen.dart';
+import 'package:duaya_app/features/services/medical_service/app_features_selection/emergency_services.dart';
+import 'package:duaya_app/features/services/medical_service/app_features_selection/health_articles.dart';
+import 'package:duaya_app/features/services/medical_service/app_features_selection/health_goals_tracking.dart';
 import 'package:duaya_app/features/services/medical_service/app_features_selection/multimedia_features.dart';
+import 'package:duaya_app/features/services/medical_service/app_features_selection/symptom_checker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -10,6 +15,7 @@ import 'app_features_selection/appointment_scheduling.dart';
 import 'app_features_selection/chat_and_communication.dart';
 import 'app_features_selection/customization.dart';
 import 'app_features_selection/doctor_patient_communication.dart';
+import 'app_features_selection/insurance_integration.dart';
 import 'app_features_selection/lab_test_results.dart';
 import 'app_features_selection/location_and_maps.dart';
 import 'app_features_selection/loginfeature.dart';
@@ -194,10 +200,8 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.health_articles),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PaymentAndShopping()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HealthArticles()));
             },
           ),
           ListTile(
@@ -208,7 +212,7 @@ class SelectFeaturesScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => SecurityLoginScreen()));
+                      builder: (context) => InsuranceIntegration()));
             },
           ),
           ListTile(
@@ -217,7 +221,7 @@ class SelectFeaturesScreen extends StatelessWidget {
                 S.current.emergency_services),
             onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LocationAndMaps()));
+                  MaterialPageRoute(builder: (context) => EmergencyServices()));
             },
           ),
           ListTile(
@@ -225,19 +229,8 @@ class SelectFeaturesScreen extends StatelessWidget {
                 style: TextStyle(color: ColorRes.greenBlue),
                 S.current.symptom_checker),
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => PaymentAndShopping()));
-            },
-          ),
-          ListTile(
-            title: Text(
-                style: TextStyle(color: ColorRes.greenBlue),
-                S.current.health_goals_tracking),
-            onTap: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LocationAndMaps()));
+                  MaterialPageRoute(builder: (context) => SymptomChecker()));
             },
           ),
           ListTile(
@@ -248,7 +241,18 @@ class SelectFeaturesScreen extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => SecurityLoginScreen()));
+                      builder: (context) => HealthGoalsTracking()));
+            },
+          ),
+          ListTile(
+            title: Text(
+                style: TextStyle(color: ColorRes.greenBlue),
+                S.current.addMoreFeats),
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => AddMoreFeaturesScreen()));
             },
           ),
 

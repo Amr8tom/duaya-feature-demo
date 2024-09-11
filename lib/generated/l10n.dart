@@ -3372,6 +3372,16 @@ class S {
     );
   }
 
+  /// `Add More Features not included`
+  String get addMoreFeats {
+    return Intl.message(
+      'Add More Features not included',
+      name: 'addMoreFeats',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Price before Offer`
   String get priceBeforeOffer {
     return Intl.message(
