@@ -2,7 +2,7 @@ import 'package:duaya_app/common/custom_ui.dart';
 import 'package:duaya_app/features/home/presentation/widgets/bestseller_product_list.dart';
 import 'package:duaya_app/features/home/presentation/widgets/custom_category/custom_category_banner.dart';
 import 'package:duaya_app/features/home/presentation/widgets/custom_category/see_all_category_button.dart';
-import 'package:duaya_app/features/home/presentation/widgets/custom_slider/custom_slider.dart';
+// import 'package:duaya_app/features/home/presentation/widgets/custom_slider/custom_slider.dart';
 import 'package:duaya_app/generated/l10n.dart';
 import 'package:duaya_app/utils/constants/sizes.dart';
 import 'package:flutter/cupertino.dart';
@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                           SizedBox(height: AppSizes.spaceBtwItems),
 
                           /// Slider
-                          const CustomSlider(),
+                          // const CustomSlider(),
 
                           /// see all Button
                           (catastate is CategoriesByPageInitial)

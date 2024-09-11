@@ -1,5 +1,6 @@
 import 'package:duaya_app/app/app.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/services/medical_service/presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,9 +30,10 @@ class _NotificationsAndAlertsState extends State<NotificationsAndAlerts> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SwitchListTile(
-            title: Text(S.current.receive_notifications),
+          CustomSwitchListTitleWidget(
+            title: S.current.receive_notifications,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -39,8 +41,8 @@ class _NotificationsAndAlertsState extends State<NotificationsAndAlerts> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.custom_notifications),
+          CustomSwitchListTitleWidget(
+            title: S.current.custom_notifications,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {

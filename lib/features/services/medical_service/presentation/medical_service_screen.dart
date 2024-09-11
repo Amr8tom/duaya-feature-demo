@@ -45,7 +45,7 @@ class MedicalServiceScreen extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 10.h,
-                        childAspectRatio: 1 / 2.12),
+                        childAspectRatio: 1 / 1.6),
                     shrinkWrap: true,
                     itemCount: medController.medicalServicesModel.data!.length,
                     itemBuilder: (context, index) {

@@ -1,5 +1,6 @@
 import 'package:duaya_app/app/app.dart';
 import 'package:duaya_app/common/widgets/appbar/appbar.dart';
+import 'package:duaya_app/features/services/medical_service/presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 import 'package:duaya_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,9 +30,10 @@ class _PaymentAndShoppingState extends State<PaymentAndShopping> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SwitchListTile(
-            title: Text(S.current.enable_payment),
+          CustomSwitchListTitleWidget(
+            title: S.current.enable_payment,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -39,8 +41,8 @@ class _PaymentAndShoppingState extends State<PaymentAndShopping> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.save_payment_details),
+          CustomSwitchListTitleWidget(
+            title: S.current.save_payment_details,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {
@@ -48,8 +50,13 @@ class _PaymentAndShoppingState extends State<PaymentAndShopping> {
               });
             },
           ),
-          TextFormField(
-            decoration: InputDecoration(hintText: " انواع الدفع المفضلة"),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: TextFormField(
+              maxLines: 5,
+              decoration:
+                  InputDecoration(hintText: "أنواع الدفع المفضلة لديك "),
+            ),
           ),
           TextButton(
             onPressed: () {

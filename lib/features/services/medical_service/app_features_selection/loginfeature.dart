@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
+import '../presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 
 class SecurityLoginScreen extends StatefulWidget {
   @override
@@ -20,16 +21,18 @@ class _SecurityLoginScreenState extends State<SecurityLoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DAppBar(
-        arrowBackColor: true,
+        centerTitle: true,
+        showBackArrow: true,
         title: Text(
           S.current.security_and_login,
-          style: TextStyle(fontSize: 20.sp),
+          style: TextStyle(fontSize: 17.sp),
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SwitchListTile(
-            title: Text(S.current.email_login),
+          CustomSwitchListTitleWidget(
+            title: S.current.email_login,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -37,8 +40,8 @@ class _SecurityLoginScreenState extends State<SecurityLoginScreen> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.social_login),
+          CustomSwitchListTitleWidget(
+            title: S.current.social_login,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {
@@ -46,8 +49,8 @@ class _SecurityLoginScreenState extends State<SecurityLoginScreen> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.biometric_login),
+          CustomSwitchListTitleWidget(
+            title: S.current.biometric_login,
             value: biometricLogin,
             onChanged: (bool value) {
               setState(() {

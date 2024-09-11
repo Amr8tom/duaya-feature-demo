@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
+import '../presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 
 class ChatAndCommunication extends StatefulWidget {
   const ChatAndCommunication({super.key});
@@ -29,9 +30,10 @@ class _ChatAndCommunicationState extends State<ChatAndCommunication> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SwitchListTile(
-            title: Text(S.current.enable_chat),
+          CustomSwitchListTitleWidget(
+            title: S.current.enable_chat,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -39,8 +41,8 @@ class _ChatAndCommunicationState extends State<ChatAndCommunication> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.message_notifications),
+          CustomSwitchListTitleWidget(
+            title: S.current.message_notifications,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {
@@ -48,8 +50,8 @@ class _ChatAndCommunicationState extends State<ChatAndCommunication> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.voice_messages),
+          CustomSwitchListTitleWidget(
+            title: S.current.voice_messages,
             value: biometricLogin,
             onChanged: (bool value) {
               setState(() {

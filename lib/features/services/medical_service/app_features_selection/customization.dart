@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../generated/l10n.dart';
+import '../presentation/widgets/custom_switch_list_title_widget/custom_switch_list_title_widget.dart';
 
 class customization extends StatefulWidget {
   const customization({super.key});
@@ -22,6 +23,7 @@ class _customizationState extends State<customization> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: DAppBar(
+        centerTitle: true,
         showBackArrow: true,
         title: Text(
           S.current.customization,
@@ -29,9 +31,10 @@ class _customizationState extends State<customization> {
         ),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SwitchListTile(
-            title: Text(S.current.dark_mode),
+          CustomSwitchListTitleWidget(
+            title: S.current.dark_mode,
             value: emailLogin,
             onChanged: (bool value) {
               setState(() {
@@ -39,8 +42,8 @@ class _customizationState extends State<customization> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.font_size),
+          CustomSwitchListTitleWidget(
+            title: S.current.font_size,
             value: socialLogin,
             onChanged: (bool value) {
               setState(() {
@@ -48,8 +51,8 @@ class _customizationState extends State<customization> {
               });
             },
           ),
-          SwitchListTile(
-            title: Text(S.current.theme_colors),
+          CustomSwitchListTitleWidget(
+            title: S.current.theme_colors,
             value: biometricLogin,
             onChanged: (bool value) {
               setState(() {
